@@ -1,4 +1,4 @@
-package com.joey.cheetah.core.undo;
+package com.joey.cheetah.undo;
 
 /**
  * Describe

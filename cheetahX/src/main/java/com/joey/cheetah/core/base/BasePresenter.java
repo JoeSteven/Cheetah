@@ -1,10 +1,9 @@
 package com.joey.cheetah.core.base;
 
 
-import com.joey.cheetah.core.undo.AsyncManager;
+import com.joey.cheetah.undo.AsyncManager;
 import com.joey.cheetah.uitls.TUtil;
 
-import javax.inject.Inject;
 
 
 /**
@@ -18,7 +17,6 @@ import javax.inject.Inject;
  */
 public abstract class BasePresenter<T extends BaseView,E extends BaseModel> {
     protected T mView;
-    @Inject
     protected E mModel;
 
     protected AsyncManager mAsyncManager;

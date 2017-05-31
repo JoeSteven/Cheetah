@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import com.joey.cheetah.core.CheetahApplication;
 import com.joey.cheetah.uitls.TUtil;
 
-import javax.inject.Inject;
 
 /**
  * description - fragment 基类 里面的方法大多同BaseActivity类似
@@ -27,7 +26,6 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     protected BaseActivity mActivity;
     protected CheetahApplication mApplication;
     protected View mRootView;
-    @Inject
     protected T mPresenter;
 
     @Override

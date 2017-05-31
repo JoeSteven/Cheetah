@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-
 import com.joey.cheetah.core.CheetahApplication;
 import com.joey.cheetah.uitls.CLog;
 import com.joey.cheetah.uitls.CToast;
@@ -12,7 +11,6 @@ import com.joey.cheetah.uitls.TUtil;
 import com.joey.cheetah.view.DefaultLoadingView;
 import com.joey.cheetah.view.ILoadingView;
 
-import javax.inject.Inject;
 
 /**
  * description - Activity 基类.所有view层的类只做UI相关操作，尽可能不出现业务代码
@@ -24,7 +22,6 @@ import javax.inject.Inject;
  * change on .
  */
 public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity implements BaseView {
-    @Inject
     protected T mPresenter;
     protected BaseActivity mActivity;
     protected CheetahApplication mApplication;
@@ -37,14 +34,21 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         CLog.d(getName(),"onCreate is running  getTaskId="+getTaskId() + "isRoot="+isTaskRoot());
         this.mActivity = this;
         this.mApplication = (CheetahApplication) getApplication();
-        mPresenter = TUtil.getT(this, 0);
+        if (!noPresenter()) {
+            mPresenter = TUtil.getT(this, 0);
+        }
+        initArguments();
+        initPresenter();
         initLoading();
         initView();
         initListener();
-        initPresenter();
         if(mPresenter!=null){
             mPresenter.onStart();
         }
+    }
+
+    protected void initArguments() {
+
     }
 
     /**
@@ -131,6 +135,10 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     private long lastTime=0;
     protected String mQuitHint = "再按一次退出";
     protected boolean isTwiceQuit(){
+        return false;
+    }
+
+    protected boolean noPresenter() {
         return false;
     }
 

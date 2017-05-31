@@ -1,7 +1,7 @@
 package com.joey.cheetah.core.initialization;
 
 
-import com.joey.cheetah.core.undo.AsyncManager;
+import com.joey.cheetah.undo.AsyncManager;
 import com.joey.cheetah.core.initialization.task.Task;
 
 import java.util.ArrayList;

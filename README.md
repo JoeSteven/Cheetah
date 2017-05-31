@@ -1,15 +1,13 @@
 # Cheetah
 a library for agile development
 
-application done
-BaseActivity done
-BaseFragment doing
-
-CLog 加上 tag 打印
-Dagger 注入 waiting
-loading
-image
-network
-async
+core done
+- 异步框架
+- 图片框架
+- 网络框架
+- 工具库
+- orm库
+- 推送库
+- 自动更新及下载库（Download Manager)
 
 拆库

@@ -1,8 +1,8 @@
 package com.joey.cheetah.async;
 
-import com.joey.cheetah.core.undo.AsyncManager;
-import com.joey.cheetah.core.undo.Call;
-import com.joey.cheetah.core.undo.CallbackRunnable;
+import com.joey.cheetah.undo.AsyncManager;
+import com.joey.cheetah.undo.Call;
+import com.joey.cheetah.undo.CallbackRunnable;
 
 import java.util.HashMap;
 import java.util.Map;

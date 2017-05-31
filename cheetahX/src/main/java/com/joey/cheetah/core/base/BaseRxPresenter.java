@@ -1,7 +1,7 @@
 package com.joey.cheetah.core.base;
 
 import com.joey.cheetah.async.RxJavaManager;
-import com.joey.cheetah.core.undo.AsyncManager;
+import com.joey.cheetah.undo.AsyncManager;
 
 import rx.Observable;
 import rx.Subscription;
