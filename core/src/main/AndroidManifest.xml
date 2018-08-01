@@ -1,2 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cheeta.core" />
+    package="cheetah.core" >
+    <application >
+        <activity android:name=".permission.PermissionActivity"/>
+    </application>
+
+</manifest>
+
