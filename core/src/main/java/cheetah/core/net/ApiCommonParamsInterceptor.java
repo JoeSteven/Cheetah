@@ -17,11 +17,11 @@ import okhttp3.Response;
  */
 public class ApiCommonParamsInterceptor implements Interceptor {
     private Headers mHeaders;
-    private String mCommomParams;
+    private String mCommonParams;
 
     public ApiCommonParamsInterceptor(Headers headers, String query) {
         this.mHeaders = headers;
-        this.mCommomParams = query;
+        this.mCommonParams = query;
     }
 
     @Override
@@ -42,12 +42,12 @@ public class ApiCommonParamsInterceptor implements Interceptor {
                 .url(authorizedUrlBuilder.build())
                 .headers(mHeaders)
                 .build();
-        return null;
+        return chain.proceed(newRequest);
     }
 
     private String createQuery(String query) {
-        if (TextUtils.isEmpty(query)) return mCommomParams;
-        return mCommomParams + "&" + query;
+        if (TextUtils.isEmpty(query)) return mCommonParams;
+        return mCommonParams + "&" + query;
     }
 
 

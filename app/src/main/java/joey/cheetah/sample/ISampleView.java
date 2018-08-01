@@ -8,4 +8,5 @@ import cheetah.core.mvp.IView;
  * date:2018/7/31
  */
 public interface ISampleView extends IView{
+    void showEvent(String city);
 }

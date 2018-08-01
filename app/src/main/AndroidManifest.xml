@@ -26,6 +26,7 @@
         </activity>
         <activity android:name=".sample.fragmentsample.FragmentDemoActivity"/>
         <activity android:name=".sample.imagesample.ImageActivity"/>
+        <activity android:name=".sample.apisample.WeatherActivity"/>
     </application>
 
 </manifest>

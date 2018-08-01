@@ -1,5 +1,6 @@
 package joey.cheetah.sample;
 
+import android.arch.lifecycle.LifecycleOwner;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
@@ -7,6 +8,7 @@ import cheetah.core.mvp.AbsPresenter;
 import cheetah.core.permission.PermissionListener;
 import cheetah.core.permission.PermissionUtil;
 import cheetah.core.utils.Global;
+import joey.cheetah.sample.apisample.WeatherEvent;
 
 /**
  * Description:
@@ -16,6 +18,11 @@ import cheetah.core.utils.Global;
 public class SamplePresenter extends AbsPresenter<ISampleView>{
     public SamplePresenter(ISampleView view) {
         super(view);
+    }
+
+    @Override
+    public void onStart(@NonNull LifecycleOwner owner) {
+        bus().subscribe(WeatherEvent.class, weather ->{if (isValid()) mView.showEvent(weather.getCity());});
     }
 
     @Override

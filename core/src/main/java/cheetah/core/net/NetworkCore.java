@@ -8,7 +8,7 @@ import okhttp3.Headers;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -18,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class NetworkCore {
     private static NetworkCore sNetworkCore;
-    private SparseArray<IApiService> mServices;
+    private SparseArray<Object> mServices;
     private HttpUrl.Builder mParams;
     private Headers.Builder mHeaders;
 
@@ -69,22 +69,22 @@ public class NetworkCore {
      * @param baseUrl service base url e.g. https://api.cheetah.com
      * @param clazz   class for specified service
      */
-    public IApiService registerService(int id, String baseUrl, Class<? extends IApiService> clazz) {
+    public <T> T registerService(int id, String baseUrl, Class<T> clazz) {
         return registerService(id, baseUrl, clazz, addInterceptor(createClientBuilder()));
     }
 
     /**
      * create your own OkhttpClient for request
      */
-    public IApiService registerService(int id, String baseUrl, Class<? extends IApiService> clazz,
+    public  <T> T registerService(int id, String baseUrl, Class<T> clazz,
                                        OkHttpClient.Builder builder) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(builder.build())
                 .build();
-        IApiService service = retrofit.create(clazz);
+        T service = retrofit.create(clazz);
         mServices.append(id, service);
         return service;
     }
@@ -107,7 +107,7 @@ public class NetworkCore {
                     public void log(String message) {
                         CLog.d(CLog.LOG_API, message);
                     }
-                }));
+                }).setLevel(HttpLoggingInterceptor.Level.BODY));
     }
 
     public OkHttpClient.Builder createClientBuilder() {

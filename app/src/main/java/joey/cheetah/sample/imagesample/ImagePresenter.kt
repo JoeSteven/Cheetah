@@ -1,6 +1,7 @@
 package joey.cheetah.sample.imagesample
 
 import android.os.Bundle
+import cheetah.core.async.AsyncManger
 import cheetah.core.async.IAsyncExecutor
 import cheetah.core.media.ImageHelper
 import cheetah.core.mvp.AbsPresenter
@@ -44,6 +45,7 @@ class ImagePresenter(view: IImageShowView?) : AbsPresenter<IImageShowView>(view)
     }
 
     fun clear() {
+        // 单页面任务，页面等待执行完成才被销毁
         async().execute({ ImageHelper.clearDiskCaches() },
                 object : IAsyncExecutor.IAsyncCallback {
                     override fun done() {
@@ -57,16 +59,18 @@ class ImagePresenter(view: IImageShowView?) : AbsPresenter<IImageShowView>(view)
     }
 
     fun save() {
-        async().execute({ ImageHelper.saveImageIntoGallery(datas[index], null) },
-                object : IAsyncExecutor.IAsyncResultCallback<File> {
-                    override fun done(t: File) {
-                        if (isValid) mView.toast("save this picture to gallery success!" + t.absolutePath)
-                    }
+        // 全局任务，即使页面销毁，也要继续执行
+        AsyncManger.obtain()
+                .execute({ ImageHelper.saveImageIntoGallery(datas[index], null) },
+                        object : IAsyncExecutor.IAsyncResultCallback<File> {
+                            override fun done(t: File) {
+                                if (isValid) mView.toast("save this picture to gallery success!" + t.absolutePath)
+                            }
 
-                    override fun error(e: Throwable?) {
-                        if (isValid) mView.toast("save this picture to gallery error + ${e.toString()}")
-                    }
-                })
+                            override fun error(e: Throwable?) {
+                                if (isValid) mView.toast("save this picture to gallery error + ${e.toString()}")
+                            }
+                        })
     }
 
 }

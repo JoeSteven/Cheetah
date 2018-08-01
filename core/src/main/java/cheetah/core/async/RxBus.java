@@ -50,6 +50,7 @@ public class RxBus {
             subject = subjectMap.get(event);
         } else {
             subject = (Subject<T>) PublishSubject.create().toSerialized();
+            subjectMap.put(event, subject);
         }
         return subject.toFlowable(BackpressureStrategy.BUFFER).ofType(event);
     }

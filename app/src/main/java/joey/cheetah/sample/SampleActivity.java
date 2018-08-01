@@ -1,17 +1,23 @@
 package joey.cheetah.sample;
 
 
+import android.widget.TextView;
+
+import butterknife.BindView;
 import butterknife.OnClick;
 import cheetah.core.mvp.AbsActivity;
 import cheetah.core.mvp.AbsPresenter;
 import cheetah.core.utils.Jumper;
 import joey.cheetah.R;
+import joey.cheetah.sample.apisample.WeatherActivity;
 import joey.cheetah.sample.fragmentsample.FragmentDemoActivity;
 import joey.cheetah.sample.imagesample.ImageActivity;
 
 public class SampleActivity extends AbsActivity implements ISampleView {
 
     private SamplePresenter mPresenter;
+    @BindView(R.id.tv_event)
+    TextView tvEvent;
 
     @Override
     protected int initLayout() {
@@ -49,8 +55,18 @@ public class SampleActivity extends AbsActivity implements ISampleView {
         Jumper.make(this, ImageActivity.class).jump();
     }
 
+    @OnClick(R.id.bt_go_weather)
+    public void geToWeather() {
+        Jumper.make(this, WeatherActivity.class).jump();
+    }
+
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
 
+    }
+
+    @Override
+    public void showEvent(String city) {
+        tvEvent.setText("received event:" + city);
     }
 }

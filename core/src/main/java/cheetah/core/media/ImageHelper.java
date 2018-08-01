@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Looper;
 import android.support.annotation.WorkerThread;
 
+import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.FutureTarget;
 
 import java.io.File;
@@ -40,6 +41,13 @@ public class ImageHelper {
      */
     public static GlideRequests with(Context context) {
         return GlideApp.with(context);
+    }
+
+    /**
+     * get Glide
+     */
+    public static Glide get(Context context) {
+        return GlideApp.get(context);
     }
 
 
