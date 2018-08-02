@@ -10,6 +10,7 @@ import cheetah.core.mvp.AbsPresenter;
 import cheetah.core.utils.Jumper;
 import joey.cheetah.R;
 import joey.cheetah.sample.apisample.WeatherActivity;
+import joey.cheetah.sample.ble.BleDemoActivity;
 import joey.cheetah.sample.fragmentsample.FragmentDemoActivity;
 import joey.cheetah.sample.imagesample.ImageActivity;
 
@@ -58,6 +59,11 @@ public class SampleActivity extends AbsActivity implements ISampleView {
     @OnClick(R.id.bt_go_weather)
     public void geToWeather() {
         Jumper.make(this, WeatherActivity.class).jump();
+    }
+
+    @OnClick(R.id.bt_go_ble)
+    public void geToBle() {
+        Jumper.make(this, BleDemoActivity.class).jump();
     }
 
     @Override

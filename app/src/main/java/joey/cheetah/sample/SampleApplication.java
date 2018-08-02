@@ -3,6 +3,7 @@ package joey.cheetah.sample;
 import cheetah.core.CheetahApplication;
 import cheetah.core.init.InitManager;
 import joey.cheetah.sample.init.ApiTask;
+import joey.cheetah.sample.init.DemoBackgroundTask;
 import joey.cheetah.sample.init.ImageTask;
 
 /**
@@ -25,6 +26,7 @@ public class SampleApplication extends CheetahApplication{
             public void addTask() {
                 add(new ApiTask());
                 add(new ImageTask());
+                add(new DemoBackgroundTask());
             }
         };
     }

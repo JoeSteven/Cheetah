@@ -124,15 +124,30 @@ public class RxJavaManager implements IAsyncExecutor, IBusStop {
         mExecutor.execute(task, null);
     }
 
+    @Override
+    public void execute(AsyncTask task, long delay) {
+        mExecutor.execute(task, delay);
+    }
+
 
     @Override
     public void execute(final AsyncTask task, final IAsyncCallback callback) {
         mExecutor.execute(task, callback);
     }
 
+    @Override
+    public void execute(AsyncTask task, IAsyncCallback callback, long delay) {
+        mExecutor.execute(task, callback, delay);
+    }
+
 
     @Override
     public <T> void execute(final AsyncResultTask<T> task, final IAsyncResultCallback<T> callback) {
         mExecutor.execute(task, callback);
+    }
+
+    @Override
+    public <T> void execute(AsyncResultTask<T> task, IAsyncResultCallback<T> callback, long delay) {
+        mExecutor.execute(task, callback, delay);
     }
 }

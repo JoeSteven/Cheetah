@@ -12,12 +12,18 @@ public interface IAsyncExecutor extends LifecycleObserver {
 
     void execute(AsyncTask task);
 
+    void execute(AsyncTask task, long delay);
+
+    void execute(AsyncTask task, IAsyncCallback callback);
+
     /**
      * run tasks
-     *
+     * @param delay unit milliseconds
      * @return task id, to cancel task
      */
-    void execute(AsyncTask task, IAsyncCallback callback);
+    void execute(AsyncTask task, IAsyncCallback callback, long delay);
+
+    <T> void execute(AsyncResultTask<T> task, IAsyncResultCallback<T> callback);
 
     /**
      * run tasks that will post result to observer,result must not be null
@@ -25,8 +31,9 @@ public interface IAsyncExecutor extends LifecycleObserver {
      * @param task
      * @param callback
      * @param <T>
+     * @param delay unit milliseconds
      */
-    <T> void execute(AsyncResultTask<T> task, IAsyncResultCallback<T> callback);
+    <T> void execute(AsyncResultTask<T> task, IAsyncResultCallback<T> callback, long delay);
 
 
     /**

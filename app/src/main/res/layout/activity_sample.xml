@@ -27,6 +27,12 @@
         android:layout_toRightOf="@id/bt_go_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <Button
+        android:text="go ble"
+        android:id="@+id/bt_go_ble"
+        android:layout_below="@id/bt_request_permission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/tv_event"
         android:layout_centerInParent="true"

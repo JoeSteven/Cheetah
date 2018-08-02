@@ -9,7 +9,7 @@ import cheetah.core.utils.Global;
  * author:Joey
  * date:2018/7/25
  */
-public abstract class InitTask<T> implements IAsyncExecutor.AsyncTask {
+public abstract class InitTask implements IAsyncExecutor.AsyncTask {
     private long duration = -1;
     private boolean done = false;
 
