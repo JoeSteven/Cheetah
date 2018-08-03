@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cheetah.core" >
+    xmlns:tools="http://schemas.android.com/tools"
+    package="cheetah.core">
+
     <application >
         <activity android:name=".permission.PermissionActivity"/>
     </application>

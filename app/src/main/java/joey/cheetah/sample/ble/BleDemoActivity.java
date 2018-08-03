@@ -123,7 +123,9 @@ public class BleDemoActivity extends AbsActivity {
             for (BluetoothGattService service: rxBleDeviceServices.getBluetoothGattServices()) {
                 log("on service discoverd:" + service.getUuid().toString());
             }
-        });
+        },throwable -> {
+                    log(throwable.toString());
+                });
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
