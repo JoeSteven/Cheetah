@@ -9,7 +9,7 @@ import com.bumptech.glide.request.transition.ViewPropertyTransition;
 import java.io.File;
 
 import com.joey.cheetah.core.utils.CLog;
-import com.joey.cheetah.core.utils.Global;
+import com.joey.cheetah.core.global.Global;
 import com.joey.cheetah.core.utils.UIUtil;
 
 /**

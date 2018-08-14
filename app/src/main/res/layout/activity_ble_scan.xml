@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/bt_open"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="open"/>
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/bt_scan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="start scan"/>
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/bt_close"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="close"/>
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_weight="1"
+        android:id="@+id/rv_scan"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="vertical"/>
+        <Button
+            android:id="@+id/bt_quit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="quit"/>
+</LinearLayout>

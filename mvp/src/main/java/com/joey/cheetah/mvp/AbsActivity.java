@@ -6,9 +6,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.joey.cheetah.core.mvp.auto.IPresenterProvider;
-import com.joey.cheetah.core.mvp.auto.PresenterProvider;
+import com.com.joey.cheetah.mvp.R;
 import com.joey.cheetah.core.ui.CToast;
+import com.joey.cheetah.mvp.auto.IPresenterProvider;
+import com.joey.cheetah.mvp.auto.PresenterProvider;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -30,10 +31,12 @@ public abstract class AbsActivity extends AppCompatActivity implements IView {
         Intent intent = getIntent();
         initArguments(intent);
         mPresenterProvider = createProvider();
-        mPresenterProvider.create(this);
+        if (mPresenterProvider != null) {
+            mPresenterProvider.create(this);
+        }
         initPresenter();
         initView();
-        if (savedInstanceState != null) {
+        if (savedInstanceState != null && mPresenterProvider != null) {
             mPresenterProvider.onRestore(savedInstanceState);
             afterRestoredData();
         } else {
@@ -43,7 +46,9 @@ public abstract class AbsActivity extends AppCompatActivity implements IView {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        mPresenterProvider.onSave(outState);
+        if (mPresenterProvider != null) {
+            mPresenterProvider.onSave(outState);
+        }
         super.onSaveInstanceState(outState);
     }
 
@@ -57,7 +62,7 @@ public abstract class AbsActivity extends AppCompatActivity implements IView {
 
     protected void initPresenter(){}
 
-    protected abstract void initData();
+    protected void initData() {}
 
     /**
      * if you want to do some logic after restored data
@@ -113,7 +118,7 @@ public abstract class AbsActivity extends AppCompatActivity implements IView {
         mUnBinder.unbind();
     }
 
-    private IPresenterProvider createProvider() {
+    protected IPresenterProvider createProvider() {
         return new PresenterProvider();
     }
 }

@@ -2,7 +2,8 @@ package com.joey.cheetah.mvp.auto;
 
 import android.os.Bundle;
 
-import com.joey.cheetah.core.mvp.AbsPresenter;
+
+import com.joey.cheetah.mvp.AbsPresenter;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -22,17 +23,18 @@ public class PresenterProvider implements IPresenterProvider {
     public void create(Object host) {
         try {
             for (Field f : host.getClass().getDeclaredFields()) {
-                if (f.getAnnotation(Presenter.class) != null) {
-                    f.setAccessible(true);
+                if (f.getAnnotation(Presenter.class) == null) continue;
+                f.setAccessible(true);
+                if (f.get(host) == null) {
                     Class<? extends AbsPresenter> p = (Class<? extends AbsPresenter>) f.getType();
                     ParameterizedType type = (ParameterizedType) p.getGenericSuperclass();
                     Constructor constructor = p.getConstructor((Class<?>) type.getActualTypeArguments()[0]);
                     f.set(host, constructor.newInstance(host));
-                    if (presenters == null) {
-                        presenters = new ArrayList<>();
-                    }
-                    presenters.add((AbsPresenter) f.get(this));
                 }
+                if (presenters == null) {
+                    presenters = new ArrayList<>();
+                }
+                presenters.add((AbsPresenter) f.get(host));
             }
         } catch (Exception e) {
             e.printStackTrace();

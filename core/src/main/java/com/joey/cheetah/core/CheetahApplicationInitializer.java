@@ -1,9 +1,11 @@
 package com.joey.cheetah.core;
 
+import android.app.Application;
 import android.content.Context;
 
+import com.joey.cheetah.core.global.CheetahLifecycleCallbacks;
+import com.joey.cheetah.core.global.Global;
 import com.joey.cheetah.core.init.InitManager;
-import com.joey.cheetah.core.utils.Global;
 
 /**
  * Description: Initializer for Application
@@ -22,6 +24,9 @@ public class CheetahApplicationInitializer {
         Global.initContext(context);
         sInitManger = manager;
         sInitManger.addTask();
+        if (context instanceof Application) {
+            ((Application) context).registerActivityLifecycleCallbacks(CheetahLifecycleCallbacks.inst());
+        }
     }
 
 

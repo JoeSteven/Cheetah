@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.view.Gravity;
 import android.widget.Toast;
 
-import com.joey.cheetah.core.utils.Global;
+import com.joey.cheetah.core.global.Global;
 import com.joey.cheetah.core.utils.ResGetter;
 
 

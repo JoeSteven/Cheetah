@@ -2,7 +2,7 @@ package com.joey.cheetah.core.init;
 
 import com.joey.cheetah.core.async.IAsyncExecutor;
 import com.joey.cheetah.core.utils.CLog;
-import com.joey.cheetah.core.utils.Global;
+import com.joey.cheetah.core.global.Global;
 
 /**
  * Description: task need to init when application create

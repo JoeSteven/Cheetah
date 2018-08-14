@@ -12,9 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.joey.cheetah.core.mvp.auto.PresenterProvider;
 import com.joey.cheetah.core.ui.CToast;
 import com.joey.cheetah.core.utils.ResGetter;
+import com.joey.cheetah.mvp.auto.PresenterProvider;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -45,11 +45,13 @@ public abstract class AbsFragment extends Fragment implements IView {
         mRootView = inflater.inflate(resource, container, false);
         mUnBinder = ButterKnife.bind(this, mRootView);
         mPresenterProvider  = createProvider();
-        mPresenterProvider.create(this);
+        if (mPresenterProvider != null) {
+            mPresenterProvider.create(this);
+        }
         initPresenter();
         initArguments(getArguments());
         initView();
-        if (savedInstanceState != null ) {
+        if (savedInstanceState != null && mPresenterProvider != null) {
             mPresenterProvider.onRestore(savedInstanceState);
         } else {
             initData();
@@ -57,7 +59,7 @@ public abstract class AbsFragment extends Fragment implements IView {
         return mRootView;
     }
 
-    private PresenterProvider createProvider() {
+    protected PresenterProvider createProvider() {
         return new PresenterProvider();
     }
 
@@ -84,7 +86,9 @@ public abstract class AbsFragment extends Fragment implements IView {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         outState.putBoolean(STATE_SAVE_IS_HIDDEN, isHidden());
-        mPresenterProvider.onRestore(outState);
+        if (mPresenterProvider != null) {
+            mPresenterProvider.onRestore(outState);
+        }
         super.onSaveInstanceState(outState);
     }
 
@@ -94,7 +98,7 @@ public abstract class AbsFragment extends Fragment implements IView {
 
     protected void initPresenter(){}
 
-    protected abstract void initData();
+    protected void initData() {}
 
     protected abstract int initLayout();
 

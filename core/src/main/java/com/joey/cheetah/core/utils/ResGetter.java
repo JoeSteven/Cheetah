@@ -11,6 +11,8 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.StringRes;
 
+import com.joey.cheetah.core.global.Global;
+
 /**
  * Description: An resource getter
  * author:Joey

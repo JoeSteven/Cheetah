@@ -5,8 +5,8 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "joey.com.joey.cheetah"
-        minSdkVersion 15
+        applicationId "com.com.joey.cheetah.sample"
+        minSdkVersion 18
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -30,6 +30,8 @@ dependencies {
     api project(':mvp')
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'com.android.support:recyclerview-v7:27.1.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    api project(':rxblelib')
 }
 repositories {
     mavenCentral()
