@@ -1,6 +1,6 @@
 package joey.cheetah.sample.Api
 
-import cheetah.core.net.NetworkCore
+import com.joey.cheetah.core.net.NetworkCore
 import joey.cheetah.sample.apisample.WeatherService
 
 /**

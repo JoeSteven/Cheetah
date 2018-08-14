@@ -1,9 +1,8 @@
 package joey.cheetah.sample.apisample
 
 import android.text.TextUtils
-import cheetah.core.mvp.AbsActivity
-import cheetah.core.mvp.AbsPresenter
-import joey.cheetah.R
+import com.joey.cheetah.core.mvp.AbsActivity
+import joey.com.joey.cheetah.R
 import kotlinx.android.synthetic.main.activity_weather.*
 
 /**
@@ -11,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_weather.*
  * author:Joey
  * date:2018/8/1
  */
-class WeatherActivity :AbsActivity(), IWeatherView {
+class WeatherActivity : AbsActivity(), IWeatherView {
     override fun showWeather(weatherData: WeatherData) {
         tvCity.text = weatherData.realtime.cityName
         tvTemper.text = weatherData.realtime.weather.temperature
@@ -30,8 +29,8 @@ class WeatherActivity :AbsActivity(), IWeatherView {
         })
     }
 
-    override fun initPresenter(): AbsPresenter<IWeatherView> {
-        return mPresenter
+    override fun initPresenter(){
+
     }
 
     override fun initData() {

@@ -5,18 +5,19 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import cheetah.core.mvp.AbsActivity;
-import cheetah.core.mvp.AbsPresenter;
-import cheetah.core.utils.Jumper;
-import joey.cheetah.R;
+import com.joey.cheetah.core.mvp.AbsActivity;
+import com.joey.cheetah.core.mvp.auto.Presenter;
+import com.joey.cheetah.core.utils.Jumper;
 import joey.cheetah.sample.apisample.WeatherActivity;
-import joey.cheetah.sample.ble.BleDemoActivity;
 import joey.cheetah.sample.fragmentsample.FragmentDemoActivity;
 import joey.cheetah.sample.imagesample.ImageActivity;
+import joey.com.joey.cheetah.R;
 
 public class SampleActivity extends AbsActivity implements ISampleView {
 
+    @Presenter
     private SamplePresenter mPresenter;
+
     @BindView(R.id.tv_event)
     TextView tvEvent;
 
@@ -28,13 +29,6 @@ public class SampleActivity extends AbsActivity implements ISampleView {
     @Override
     protected void initView() {
     }
-
-    @Override
-    protected AbsPresenter initPresenter() {
-        mPresenter = new SamplePresenter(this);
-        return mPresenter;
-    }
-
 
     @Override
     protected void initData() {
@@ -63,7 +57,7 @@ public class SampleActivity extends AbsActivity implements ISampleView {
 
     @OnClick(R.id.bt_go_ble)
     public void geToBle() {
-        Jumper.make(this, BleDemoActivity.class).jump();
+//        Jumper.make(this, BleDemoActivity.class).jump();
     }
 
     @Override

@@ -1,10 +1,10 @@
 package joey.cheetah.sample.imagesample
 
 import android.os.Bundle
-import cheetah.core.async.AsyncManger
-import cheetah.core.async.IAsyncExecutor
-import cheetah.core.media.ImageHelper
-import cheetah.core.mvp.AbsPresenter
+import com.joey.cheetah.core.async.AsyncManger
+import com.joey.cheetah.core.async.IAsyncExecutor
+import com.joey.cheetah.core.media.ImageHelper
+import com.joey.cheetah.core.mvp.AbsPresenter
 import java.io.File
 import java.util.*
 

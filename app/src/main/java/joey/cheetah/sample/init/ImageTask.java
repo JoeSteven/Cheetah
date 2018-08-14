@@ -1,9 +1,9 @@
 package joey.cheetah.sample.init;
 
-import cheetah.core.init.InitTask;
-import cheetah.core.media.ImageHelper;
-import cheetah.core.utils.CLog;
-import cheetah.core.utils.Global;
+import com.joey.cheetah.core.init.InitTask;
+import com.joey.cheetah.core.media.ImageHelper;
+import com.joey.cheetah.core.utils.CLog;
+import com.joey.cheetah.core.utils.Global;
 
 /**
  * Description:

@@ -1,7 +1,7 @@
 package joey.cheetah.sample.init;
 
-import cheetah.core.init.InitTask;
-import cheetah.core.utils.CLog;
+import com.joey.cheetah.core.init.InitTask;
+import com.joey.cheetah.core.utils.CLog;
 
 /**
  * Description:

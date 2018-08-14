@@ -1,6 +1,6 @@
 package joey.cheetah.sample.init;
 
-import cheetah.core.init.InitTask;
+import com.joey.cheetah.core.init.InitTask;
 import joey.cheetah.sample.Api.Api;
 
 /**

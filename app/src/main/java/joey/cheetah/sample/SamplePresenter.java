@@ -4,10 +4,10 @@ import android.arch.lifecycle.LifecycleOwner;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
-import cheetah.core.mvp.AbsPresenter;
-import cheetah.core.permission.PermissionListener;
-import cheetah.core.permission.PermissionUtil;
-import cheetah.core.utils.Global;
+import com.joey.cheetah.core.mvp.AbsPresenter;
+import com.joey.cheetah.core.permission.PermissionListener;
+import com.joey.cheetah.core.permission.PermissionUtil;
+import com.joey.cheetah.core.utils.Global;
 import joey.cheetah.sample.apisample.WeatherEvent;
 
 /**
@@ -16,6 +16,8 @@ import joey.cheetah.sample.apisample.WeatherEvent;
  * date:2018/7/31
  */
 public class SamplePresenter extends AbsPresenter<ISampleView>{
+
+
     public SamplePresenter(ISampleView view) {
         super(view);
     }
@@ -36,16 +38,6 @@ public class SamplePresenter extends AbsPresenter<ISampleView>{
     }
 
     public void requestBle() {
-        PermissionUtil.requestPermission(Global.context(), new PermissionListener() {
-            @Override
-            public void permissionGranted(@NonNull String[] permission) {
-                if (isValid()) mView.toast("Permission has granted!");
-            }
 
-            @Override
-            public void permissionDenied(@NonNull String[] permission) {
-                if (isValid()) mView.toast("Permission has denied!");
-            }
-        }, "android.permission.CAMERA");
     }
 }

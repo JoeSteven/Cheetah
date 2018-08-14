@@ -4,10 +4,10 @@ package joey.cheetah.sample.fragmentsample;
 import android.os.Bundle;
 
 import butterknife.OnClick;
-import cheetah.core.mvp.AbsFragmentActivity;
-import cheetah.core.mvp.AbsPresenter;
-import cheetah.core.utils.BundleMaker;
-import joey.cheetah.R;
+import joey.com.joey.cheetah.R;
+
+import com.joey.cheetah.core.mvp.AbsFragmentActivity;
+import com.joey.cheetah.core.utils.BundleMaker;
 
 public class FragmentDemoActivity extends AbsFragmentActivity {
 
@@ -22,11 +22,6 @@ public class FragmentDemoActivity extends AbsFragmentActivity {
     @Override
     protected void initView() {
 
-    }
-
-    @Override
-    protected AbsPresenter initPresenter() {
-        return null;
     }
 
     @Override

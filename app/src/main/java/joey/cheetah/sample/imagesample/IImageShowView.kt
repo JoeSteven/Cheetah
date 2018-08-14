@@ -1,6 +1,6 @@
 package joey.cheetah.sample.imagesample
 
-import cheetah.core.mvp.IView
+import com.joey.cheetah.core.mvp.IView
 
 /**
  * Description:

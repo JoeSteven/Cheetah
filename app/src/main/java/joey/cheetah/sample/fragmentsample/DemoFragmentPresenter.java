@@ -2,7 +2,7 @@ package joey.cheetah.sample.fragmentsample;
 
 import android.os.Bundle;
 
-import cheetah.core.mvp.AbsPresenter;
+import com.joey.cheetah.core.mvp.AbsPresenter;
 
 /**
  * Description:

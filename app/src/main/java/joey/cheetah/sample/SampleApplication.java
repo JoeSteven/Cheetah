@@ -1,33 +1,28 @@
 package joey.cheetah.sample;
 
-import cheetah.core.CheetahApplication;
-import cheetah.core.init.InitManager;
-import joey.cheetah.sample.init.ApiTask;
-import joey.cheetah.sample.init.DemoBackgroundTask;
-import joey.cheetah.sample.init.ImageTask;
+import android.app.Application;
+import android.content.Context;
+
+import com.joey.cheetah.core.CheetahApplicationInitializer;
+import joey.cheetah.sample.init.SampleInitManger;
 
 /**
  * Description:
  * author:Joey
  * date:2018/7/31
  */
-public class SampleApplication extends CheetahApplication{
+public class SampleApplication extends Application{
+
     @Override
-    public void onCreate() {
-        mInitManager.beforeOnCreate();
-        super.onCreate();
-        mInitManager.afterOnCreate();
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        CheetahApplicationInitializer.attachBaseContext(this, new SampleInitManger());
     }
 
     @Override
-    protected InitManager createInitManager() {
-        return new InitManager() {
-            @Override
-            public void addTask() {
-                add(new ApiTask());
-                add(new ImageTask());
-                add(new DemoBackgroundTask());
-            }
-        };
+    public void onCreate() {
+        CheetahApplicationInitializer.beforeSuperOnCreate();
+        super.onCreate();
+        CheetahApplicationInitializer.afterSuperOnCreate();
     }
 }

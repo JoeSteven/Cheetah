@@ -3,10 +3,11 @@ package joey.cheetah.sample.fragmentsample;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.joey.cheetah.core.mvp.AbsFragment;
+import com.joey.cheetah.core.mvp.auto.Presenter;
+
 import butterknife.BindView;
-import cheetah.core.mvp.AbsFragment;
-import cheetah.core.mvp.AbsPresenter;
-import joey.cheetah.R;
+import joey.com.joey.cheetah.R;
 
 /**
  * Description:
@@ -16,6 +17,8 @@ import joey.cheetah.R;
 public class DemoFragment extends AbsFragment implements IDemoFragmentView{
     @BindView(R.id.tv_show)
     TextView mTvShow;
+
+    @Presenter
     private DemoFragmentPresenter mPresenter;
 
     @Override
@@ -28,11 +31,6 @@ public class DemoFragment extends AbsFragment implements IDemoFragmentView{
 
     }
 
-    @Override
-    protected AbsPresenter initPresenter() {
-        mPresenter = new DemoFragmentPresenter(this);
-        return mPresenter;
-    }
 
     @Override
     protected void initData() {
