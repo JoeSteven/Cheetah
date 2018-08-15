@@ -30,6 +30,7 @@ dependencies {
     api project(':mvp')
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     api project(':rxblelib')
 }

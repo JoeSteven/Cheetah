@@ -81,7 +81,7 @@ public abstract class AbsFragmentActivity extends AbsActivity {
      * switch fragment between added fragments
      */
     protected void switchFragment(Fragment targetFragment, int contentId, String tag) {
-        if (mCurrentFragment == null || targetFragment == null) return;
+        if (mCurrentFragment == null || targetFragment == null || mCurrentFragment == targetFragment) return;
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
         if (!targetFragment.isAdded()) {
             transaction.hide(mCurrentFragment).add(contentId, targetFragment, tag).commit();

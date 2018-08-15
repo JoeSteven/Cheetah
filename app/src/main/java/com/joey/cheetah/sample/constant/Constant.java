@@ -7,4 +7,5 @@ package com.joey.cheetah.sample.constant;
  */
 public class Constant {
     public static final String INTENT_BLE_DEVICE = "ble_device";
+    public static final String INTENT_DETAIL_URL = "detail_url";
 }

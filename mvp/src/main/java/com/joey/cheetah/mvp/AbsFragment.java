@@ -35,15 +35,6 @@ public abstract class AbsFragment extends Fragment implements IView {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         this.mActivity = getActivity();
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        int resource = initLayout();
-        mRootView = inflater.inflate(resource, container, false);
-        mUnBinder = ButterKnife.bind(this, mRootView);
         mPresenterProvider  = createProvider();
         if (mPresenterProvider != null) {
             mPresenterProvider.create(this);
@@ -56,6 +47,14 @@ public abstract class AbsFragment extends Fragment implements IView {
         } else {
             initData();
         }
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        int resource = initLayout();
+        mRootView = inflater.inflate(resource, container, false);
+        mUnBinder = ButterKnife.bind(this, mRootView);
         return mRootView;
     }
 

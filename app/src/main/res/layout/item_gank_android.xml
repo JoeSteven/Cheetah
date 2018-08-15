@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="5dp"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+    <TextView
+        android:layout_below="@id/ivIcon"
+        android:id="@+id/tvTitle"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="titltetetdaadfadfa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tvAuthor"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvTitle"
+        android:text="autor"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvTitle"
+        android:text="2018:1111"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

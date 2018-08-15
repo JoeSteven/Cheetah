@@ -1,7 +1,6 @@
 package com.joey.cheetah.sample.Api
 
 import com.joey.cheetah.core.net.NetworkCore
-import com.joey.cheetah.sample.apisample.WeatherService
 
 /**
  * Description:
@@ -10,15 +9,15 @@ import com.joey.cheetah.sample.apisample.WeatherService
  */
 object Api {
 
-    private const val WEATHER = 1
+    private const val GANK = 1
 
 
     fun init(){
         NetworkCore.init(1)
-                .registerService(WEATHER, "http://op.juhe.cn/", WeatherService::class.java)
+                .registerService(GANK, "http://gank.io/", GankService::class.java)
     }
 
-    fun weather():WeatherService{
-        return NetworkCore.inst().service<WeatherService>(WEATHER)
+    fun gank():GankService{
+        return NetworkCore.inst().service<GankService>(GANK)
     }
 }

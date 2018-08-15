@@ -30,7 +30,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".java.scan.BleScanActivity" />
-        <activity android:name=".java.connect.BleConnectActivity"></activity>
+        <activity android:name=".java.connect.BleConnectActivity" />
+        <activity android:name=".kt.GankActivity" />
+        <activity android:name=".kt.android.GankDetailActivity"></activity>
     </application>
 
 </manifest>
