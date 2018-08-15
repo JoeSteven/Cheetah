@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.joey.cheetah.sample">
+
     <uses-sdk tools:overrideLibrary="com.joey.rxble,com.joey.rxandroidble2" />
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -28,7 +29,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".java.scan.BleScanActivity"></activity>
+        <activity android:name=".java.scan.BleScanActivity" />
+        <activity android:name=".java.connect.BleConnectActivity"></activity>
     </application>
 
 </manifest>

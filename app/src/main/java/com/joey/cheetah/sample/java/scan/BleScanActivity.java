@@ -5,9 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Button;
 
 import com.joey.cheetah.core.list.CheetahAdapter;
+import com.joey.cheetah.core.utils.Jumper;
 import com.joey.cheetah.mvp.AbsActivity;
 import com.joey.cheetah.mvp.auto.Presenter;
 import com.joey.cheetah.sample.R;
+import com.joey.cheetah.sample.constant.Constant;
+import com.joey.cheetah.sample.java.connect.BleConnectActivity;
 import com.joey.cheetah.sample.java.scan.adapter.BleScanDiffCallback;
 import com.joey.cheetah.sample.java.scan.adapter.ScanViewBinder;
 import com.polidea.rxandroidble2.scan.ScanResult;
@@ -15,7 +18,6 @@ import com.polidea.rxandroidble2.scan.ScanResult;
 import java.util.List;
 
 import butterknife.BindView;
-import me.drakeet.multitype.MultiTypeAdapter;
 
 public class BleScanActivity extends AbsActivity implements IBleScanView{
 
@@ -41,19 +43,21 @@ public class BleScanActivity extends AbsActivity implements IBleScanView{
         findViewById(R.id.bt_open).setOnClickListener(v -> mPresenter.open());
         findViewById(R.id.bt_close).setOnClickListener(v -> mPresenter.close());
         findViewById(R.id.bt_scan).setOnClickListener(v -> mPresenter.scan());
+        findViewById(R.id.bt_quit).setOnClickListener(v -> finish());
 
         scanAdapter = new CheetahAdapter();
         scanAdapter.enableDiff(new BleScanDiffCallback());
-        scanAdapter.register(ScanResult.class, new ScanViewBinder().setOnClickListener((position, data) -> jump(data)));
-
+        scanAdapter.register(ScanResult.class, new ScanViewBinder().setOnClickListener((position, data) -> connect(data)));
         rvScan.setLayoutManager(new LinearLayoutManager(this));
         rvScan.setHasFixedSize(true);
         rvScan.setItemAnimator(null);
         rvScan.setAdapter(scanAdapter);
     }
 
-    private void jump(ScanResult result) {
-        toast("click result:" + result.getBleDevice().getMacAddress());
+    private void connect(ScanResult result) {
+        Jumper.make(this, BleConnectActivity.class)
+                .putString(Constant.INTENT_BLE_DEVICE, result.getBleDevice().getMacAddress())
+                .jump();
     }
 
     @Override

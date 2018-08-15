@@ -1,12 +1,15 @@
 package com.joey.cheetah.sample.java.scan;
 
 import android.annotation.SuppressLint;
+import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleOwner;
+import android.arch.lifecycle.OnLifecycleEvent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.joey.cheetah.mvp.AbsPresenter;
+import com.joey.cheetah.sample.java.AbsBlePresenter;
 import com.joey.rxble.RxBle;
 import com.joey.rxble.RxBleOperator;
 import com.polidea.rxandroidble2.scan.ScanRecord;
@@ -17,38 +20,29 @@ import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+import io.reactivex.subjects.PublishSubject;
 
 /**
  * Description:
  * author:Joey
  * date:2018/8/14
  */
-public class BleScanPresenter extends AbsPresenter<IBleScanView>{
-    private RxBleOperator mOperator;
+public class BleScanPresenter extends AbsBlePresenter<IBleScanView> {
     private boolean scanning;
     private List<ScanResult> datas;
     public BleScanPresenter(IBleScanView view) {
         super(view);
-        mOperator = RxBle.create();
-    }
-
-    public void mark() {
-        RxBle.markState();
-    }
-
-    public void restore() {
-        RxBle.restoreState();
     }
 
     @SuppressLint("CheckResult")
     public void scan() {
         if (scanning) {
-            mOperator.stopScan();
+            operator().stopScan();
             scanning = false;
             if (isValid()) mView.showScan();
         } else {
             scanning = true;
-            mOperator.scan()
+            operator().scan()
                     .observeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doOnSubscribe(disposable -> { if (isValid()) mView.showStopScan();})
@@ -59,9 +53,23 @@ public class BleScanPresenter extends AbsPresenter<IBleScanView>{
 
     }
 
-    private boolean diff(ScanResult result) {
-        if (datas == null || datas.isEmpty()) return true;
-        return true;
+
+    @SuppressLint("CheckResult")
+    public void open() {
+        operator().enable()
+                .subscribe(client -> {if (isValid())mView.toast("open bluetooth success!");},
+                        throwable -> {if (isValid())mView.toast("open bluetooth failed!");});
+    }
+
+    public void close() {
+        operator().disable();
+        if (isValid()) mView.toast("close blue tooth success!");
+    }
+    
+    @Override
+    public void onPause() {
+        operator().stopScan();
+        if (isValid()) mView.showScan();
     }
 
     private void result(ScanResult result) {
@@ -72,33 +80,12 @@ public class BleScanPresenter extends AbsPresenter<IBleScanView>{
             if (TextUtils.equals(datas.get(i).getBleDevice().getMacAddress(),
                     result.getBleDevice().getMacAddress())) {
                 datas.set(i, result);
-                break;
-            } else {
-                datas.add(result);
+                if (isValid()) mView.refresh(datas);
+                return;
             }
         }
-        if (datas.size() == 0) {
-            datas.add(result);
-        }
+        datas.add(result);
         if (isValid()) mView.refresh(datas);
-    }
-
-    @SuppressLint("CheckResult")
-    public void open() {
-        mOperator.enable()
-                .subscribe(client -> {if (isValid())mView.toast("open bluetooth success!");},
-                        throwable -> {if (isValid())mView.toast("open bluetooth failed!");});
-    }
-
-    public void close() {
-        mOperator.disable();
-        if (isValid()) mView.toast("close blue tooth success!");
-    }
-
-    @Override
-    public void onDestroyed(@NonNull LifecycleOwner owner) {
-        super.onDestroyed(owner);
-        mOperator.release();
     }
 
     @Override

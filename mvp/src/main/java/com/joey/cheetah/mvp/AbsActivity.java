@@ -52,7 +52,7 @@ public abstract class AbsActivity extends AppCompatActivity implements IView {
         super.onSaveInstanceState(outState);
     }
 
-    private void initArguments(Intent intent) {
+    protected void initArguments(Intent intent) {
 
     }
 

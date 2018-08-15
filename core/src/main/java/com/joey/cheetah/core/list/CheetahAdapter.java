@@ -5,6 +5,7 @@ import android.support.v7.util.DiffUtil;
 
 import java.util.List;
 
+import me.drakeet.multitype.ItemViewBinder;
 import me.drakeet.multitype.MultiTypeAdapter;
 
 /**
@@ -13,8 +14,10 @@ import me.drakeet.multitype.MultiTypeAdapter;
  * date:2018/8/14
  */
 public class CheetahAdapter extends MultiTypeAdapter{
+
+
     DiffCallback mDiffCallback;
-    
+
     public void enableDiff(DiffCallback callback) {
         mDiffCallback = callback;
         DiffUtil.calculateDiff(mDiffCallback).dispatchUpdatesTo(this);
