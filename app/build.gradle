@@ -32,7 +32,7 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    api project(':rxblelib')
+    implementation 'com.github.JoeSteven:RxBle:1.0.0'
 }
 repositories {
     mavenCentral()

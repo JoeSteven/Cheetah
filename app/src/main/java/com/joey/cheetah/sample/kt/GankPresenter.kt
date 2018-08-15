@@ -2,7 +2,6 @@ package com.joey.cheetah.sample.kt
 
 import android.os.Bundle
 import android.os.Environment
-import com.joey.cheetah.core.global.Global
 import com.joey.cheetah.core.media.ImageHelper
 import com.joey.cheetah.mvp.AbsPresenter
 import io.reactivex.Observable
