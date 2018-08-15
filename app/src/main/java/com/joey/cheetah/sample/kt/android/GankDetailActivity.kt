@@ -2,8 +2,7 @@ package com.joey.cheetah.sample.kt.android
 
 import android.content.Intent
 import android.view.View
-import android.webkit.WebChromeClient
-import android.webkit.WebView
+import android.webkit.*
 import com.joey.cheetah.mvp.AbsActivity
 import com.joey.cheetah.sample.R
 import com.joey.cheetah.sample.constant.Constant
@@ -21,6 +20,14 @@ class GankDetailActivity : AbsActivity() {
 
     override fun initView() {
         webview.loadUrl(url)
+        webview.settings.javaScriptEnabled = true
+        webview.webViewClient = object: WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                view?.loadUrl(url)
+                return true
+            }
+        }
+
         webview.webChromeClient = object : WebChromeClient(){
             override fun onProgressChanged(view: WebView?, newProgress: Int) {
                 if (newProgress == 100) progress.visibility = View.GONE
