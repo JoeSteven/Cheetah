@@ -35,6 +35,7 @@ public class RxJavaManager implements IAsyncExecutor, IBusStop {
 
     /**
      * when you start to subscribe an observable, add Disposable
+     *
      * @param disposable
      */
     public void add(Disposable disposable) {
@@ -60,6 +61,7 @@ public class RxJavaManager implements IAsyncExecutor, IBusStop {
 
     /**
      * post event
+     *
      * @param event event instance
      */
     public <T> void post(T event) {
@@ -70,37 +72,35 @@ public class RxJavaManager implements IAsyncExecutor, IBusStop {
      * register to receive an event, like EventBus, this is RxBus
      * poster will post event in io thread!
      * receiver will receive event in main thread
-     * @param event your event, like EventBus
+     *
+     * @param event    your event, like EventBus
      * @param consumer callback, pass event to subscriber
      */
     public <T> void subscribe(Class<T> event, Consumer<T> consumer) {
-        subscribeCustomThread(event, consumer, Schedulers.io(), AndroidSchedulers.mainThread());
+        subscribeCustomThread(event, consumer, AndroidSchedulers.mainThread());
     }
 
     /**
      * poster will post event in its own thread
      * receiver will receive this event in poster's thread !!
+     *
      * @param event
      * @param consumer
      * @param <T>
      */
     public <T> void subscribeOnPostThread(Class<T> event, Consumer<T> consumer) {
-        subscribeCustomThread(event, consumer, null, null);
+        subscribeCustomThread(event, consumer, null);
     }
 
     /**
      * invoke this method to custom the thread of post event and receive event
      */
-    public <T> void subscribeCustomThread(Class<T> event, Consumer<T> consumer,  Scheduler postScheduler,
-                              Scheduler subscribeScheduler) {
+    public <T> void subscribeCustomThread(Class<T> event, Consumer<T> consumer, Scheduler subscribeScheduler) {
         Flowable<T> observable = mRxBus.subscribe(event);
-        if (postScheduler != null) {
-            observable = observable.subscribeOn(postScheduler);
-        }
         if (subscribeScheduler != null) {
             observable = observable.observeOn(subscribeScheduler);
         }
-        Disposable disposable =observable.subscribe(consumer);
+        Disposable disposable = observable.subscribe(consumer);
         mCompositeSubscription.add(disposable);
         if (subscriptionMap == null) {
             subscriptionMap = new ConcurrentHashMap<>();
@@ -110,6 +110,7 @@ public class RxJavaManager implements IAsyncExecutor, IBusStop {
 
     /**
      * unsubscribe an event
+     *
      * @param event event class
      */
     public <T> void unsubscribe(Class<T> event) {

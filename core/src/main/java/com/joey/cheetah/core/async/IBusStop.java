@@ -37,10 +37,9 @@ public interface IBusStop {
     <T> void subscribeOnPostThread(Class<T> event, Consumer<T> consumer);
 
     /**
-     * invoke this method to custom the thread of post event and receive event
+     * invoke this method to custom the thread of receive event
      */
-    <T> void subscribeCustomThread(Class<T> event, Consumer<T> consumer, Scheduler postScheduler,
-                                   Scheduler subscribeScheduler);
+    <T> void subscribeCustomThread(Class<T> event, Consumer<T> consumer, Scheduler subscribeScheduler);
 
     /**
      * unsubscribe an event
