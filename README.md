@@ -27,21 +27,21 @@ Cheetah 目前划分为两层，基础功能层 (core) 和架构层 (mvp)。
 
 #### 功能
 
-[初始化](./readme/init) : init
+[初始化](./readme/init.md) : init
 
-[并发](./readme/async) ：async
+[并发](./readme/async.md) ：async
 
-[网络](./readme/net) : net
+[网络](./readme/net.md) : net
 
-[权限](./readme/permission) : permission
+[权限](./readme/permission.md) : permission
 
-[工具](./readme/utils) : utils
+[工具](./readme/utils.md) : utils
 
-[列表](./readme/list) : list
+[列表](./readme/list.md) : list
 
-[koltin 扩展](./readme/extension) : ktextension...待开发
+[koltin 扩展](./readme/extension.md) : ktextension...待开发
 
-[WebView](./readme/web) : web
+[WebView](./readme/web.md) : web
 
-[数据库](./readme/database) : database…待开发
+[数据库](./readme/database.md) : database…待开发
 
