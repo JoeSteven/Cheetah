@@ -15,7 +15,7 @@ public class ApiTask extends InitTask{
     }
 
     @Override
-    public Type type() {
-        return Type.EMERGENCY;
+    public Priority priority() {
+        return Priority.EMERGENCY;
     }
 }

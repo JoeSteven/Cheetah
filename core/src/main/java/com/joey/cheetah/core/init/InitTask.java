@@ -13,7 +13,7 @@ public abstract class InitTask implements IAsyncExecutor.AsyncTask {
     private long duration = -1;
     private boolean done = false;
 
-    public enum Type {
+    public enum Priority {
         EMERGENCY,// run before application super.onCreate
         URGENT,// run after application super.onCreate
         BACKGROUND// run in background thread
@@ -24,13 +24,13 @@ public abstract class InitTask implements IAsyncExecutor.AsyncTask {
         execute();
         duration = System.currentTimeMillis() - start;
         done = true;
-        if (Global.debug() && type() != Type.BACKGROUND) {
+        if (Global.debug() && priority() != Priority.BACKGROUND) {
             printDuration();
         }
     }
 
     private void printDuration() {
-        String msg = type() + " task " + name() + " duration ===>" + duration();
+        String msg = priority() + " task " + name() + " duration ===>" + duration();
         if (duration < 200) {
             CLog.d(CLog.LOG_INIT, msg);
         } else if (duration > 200) {
@@ -48,7 +48,7 @@ public abstract class InitTask implements IAsyncExecutor.AsyncTask {
 
     protected abstract void execute();
 
-    public abstract Type type();
+    public abstract Priority priority();
 
     public String name() {
         return getClass().getSimpleName();

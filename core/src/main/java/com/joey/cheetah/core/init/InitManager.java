@@ -34,7 +34,7 @@ public abstract class InitManager {
      * @param task init task
      */
     public void add(InitTask task) {
-        switch (task.type()) {
+        switch (task.priority()) {
             case EMERGENCY:
                 emergencyTasks.add(task);
                 break;
@@ -46,7 +46,7 @@ public abstract class InitManager {
                 break;
             default:
                 throw new IllegalArgumentException(task.name() +
-                        " type is illegal! Type must be EMERGENCY, URGENT or BACKGROUND !");
+                        " priority is illegal! Priority must be EMERGENCY, URGENT or BACKGROUND !");
         }
     }
 
@@ -66,6 +66,7 @@ public abstract class InitManager {
     public void afterOnCreate() {
         for (InitTask task : urgentTasks) {
             task.run();
+            monitorTask(task);
         }
         for (InitTask task : backgroundTasks) {
             mAsyncExecutor.execute(task);

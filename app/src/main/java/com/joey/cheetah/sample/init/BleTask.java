@@ -19,7 +19,7 @@ public class BleTask extends InitTask{
     }
 
     @Override
-    public Type type() {
-        return Type.URGENT;
+    public Priority priority() {
+        return Priority.URGENT;
     }
 }

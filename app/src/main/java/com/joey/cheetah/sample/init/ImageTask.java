@@ -18,7 +18,7 @@ public class ImageTask extends InitTask {
     }
 
     @Override
-    public InitTask.Type type() {
-        return Type.EMERGENCY;
+    public Priority priority() {
+        return Priority.EMERGENCY;
     }
 }

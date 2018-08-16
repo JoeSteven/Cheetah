@@ -15,7 +15,7 @@ public class DemoBackgroundTask extends InitTask {
     }
 
     @Override
-    public Type type() {
-        return Type.BACKGROUND;
+    public Priority priority() {
+        return Priority.BACKGROUND;
     }
 }
