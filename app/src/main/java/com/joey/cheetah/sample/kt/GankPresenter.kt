@@ -21,20 +21,20 @@ class GankPresenter(view:IGankView) : AbsPresenter<IGankView>(view){
         add(repository.queryAndroid()
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { mView.loading() }
-                .doOnNext { mView.stopLoading() }
+                .doOnSuccess { mView.stopLoading() }
                 .doOnError { mView.stopLoading() }
                 .subscribe({ t -> mView.showContent(t) },
-                        { e -> mView.toast("load data failed! ${e.toString()}") }))
+                        { e -> mView.toast("load data failed! $e") }))
     }
 
     fun querySurprise(){
         add(repository.querySurprise()
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { mView.loading() }
-                .doOnNext { mView.stopLoading() }
+                .doOnSuccess { mView.stopLoading() }
                 .doOnError { mView.stopLoading() }
                 .subscribe({t -> mView.showContent(t)},
-                        { e -> mView.toast("load data failed! ${e.toString()}")}))
+                        { e -> mView.toast("load data failed! $e")}))
     }
 
     override fun onSaveData(outState: Bundle?) {

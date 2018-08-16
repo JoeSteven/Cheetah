@@ -2,6 +2,7 @@ package com.joey.cheetah.sample.Api
 
 import com.joey.cheetah.sample.kt.Response
 import io.reactivex.Observable
+import io.reactivex.Single
 import retrofit2.http.GET
 
 /**
@@ -12,8 +13,8 @@ import retrofit2.http.GET
 interface GankService {
 
     @GET("api/random/data/Android/20")
-    fun queryAndroid():Observable<Response>
+    fun queryAndroid():Single<Response>
 
     @GET("api/random/data/福利/20")
-    fun querySurprise():Observable<Response>
+    fun querySurprise():Single<Response>
 }
