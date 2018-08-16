@@ -19,7 +19,7 @@
   - `AbsFragment`:应用Fragment的顶层基类，与 `AbsActivity` 一样。
   - `AbsFragmentActivity` : 持有Fragment的 Activity 的顶层基类，该类封装了 Fragment 的相关操作方法，并且强制子类去实现创建，恢复实例，attach 实例这三个方法，把三个逻辑独立开，避免重复创建，重复attach等bug。支持一个页面同时展示多个Fragment的管理。
 
-####Presenter
+#### Presenter
 
 - 抽象类：`AbsPresenter` 应用 Presenter 的顶层基类，一个 Presenter 只应该对应一个 View 接口，以泛型的形式声明绑定，该类实现了 LifecycleObserver 用于同步View的生命周期，持有了一些P层常用的对象进行并发，事件分发注册等操作
 - 注解：`@Presenter` ，该注解用于绑定 View 和 Presenter ，在View层中声明Presenter时加上该注解，则会自动绑定，绑定的逻辑由 `IPresenterProvider` 提供，业务层可以自己实现
@@ -30,9 +30,9 @@ Model 层主要为数据仓库，一般只需要 Presenter 单向获取数据，
 
 ### 用法
 
-#### View
+####  View
 
-#####1.继承自 `AbsActivity` ，以下方法均是按顺序执行
+##### 1.继承自 `AbsActivity` ，以下方法均是按顺序执行
 
 ```java
     @Presenter
@@ -86,7 +86,7 @@ Model 层主要为数据仓库，一般只需要 Presenter 单向获取数据，
 
 
 
-#####2.继承自`AbsFragmentActivity`， 除了 `AbsActivity` 中的相关方法外，还必须实现以下方法
+##### 2.继承自`AbsFragmentActivity`， 除了 `AbsActivity` 中的相关方法外，还必须实现以下方法
 
 ```java
     @Override
@@ -134,7 +134,7 @@ void switchFragment(Fragment targetFragment, @IdRes int contentId, String tag)
 
 
 
-##### 3.继承自`AbsFragment`，基本与 `AbsActivity` 用法相同，也绑定了ButterKnife，可以直接使用。initData方法调用逻辑与`AbsActivity`一致
+#####  3.继承自`AbsFragment`，基本与 `AbsActivity` 用法相同，也绑定了ButterKnife，可以直接使用。initData方法调用逻辑与`AbsActivity`一致
 
 ```java
     @Override
@@ -161,13 +161,13 @@ void switchFragment(Fragment targetFragment, @IdRes int contentId, String tag)
 
 
 
-#### Presenter
+####  Presenter
 
-##### 继承自`AbsPresenter`，需要指定绑定的 View 接口类型，
+#####  继承自`AbsPresenter`，需要指定绑定的 View 接口类型，
 
-##### 并发模块使用RxJava，所以在进行订阅的时候需要调用add() 方法来管理订阅
+#####  并发模块使用RxJava，所以在进行订阅的时候需要调用add() 方法来管理订阅
 
-##### 理论上每个Presenter 都应该实现数据的保存和恢复，因此强制子类实现这两个方法
+#####  理论上每个Presenter 都应该实现数据的保存和恢复，因此强制子类实现这两个方法
 
 ```Java
 public class GankPresenter extends AbsPresenter<IGankView>{
