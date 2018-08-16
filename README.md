@@ -19,7 +19,29 @@ Cheetah 目前划分为两层，基础功能层 (core) 和架构层 (mvp)。
 
 ### 模块说明
 
-[MVP]()
+使用的时候请优先阅读初始化模块的文档，然后再是架构文档
 
-[]()
+####架构
+
+[MVP](./readme/mvp.md)
+
+####功能
+
+[初始化](./readme/init) : init
+
+[并发](./readme/async) ：async
+
+[网络](./readme/net) : net
+
+[权限](./readme/permission) : permission
+
+[工具](./readme/utils) : utils
+
+[列表](./readme/list) : list
+
+[koltin 扩展](./readme/extension) : ktextension...待开发
+
+[WebView](./readme/web) : web
+
+[数据库](./readme/database) : database…待开发
 

@@ -32,6 +32,16 @@ public abstract class AbsPresenter<T extends IView> implements LifecycleObserver
 
     }
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    public void onResume(@NonNull LifecycleOwner owner) {
+
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    public void onPause(@NonNull LifecycleOwner owner) {
+
+    }
+
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public void onDestroyed(@NonNull LifecycleOwner owner) {
         // destroy view to void memory leak

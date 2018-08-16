@@ -39,8 +39,8 @@ public abstract class AbsFragment extends Fragment implements IView {
         if (mPresenterProvider != null) {
             mPresenterProvider.create(this);
         }
-        initPresenter();
         initArguments(getArguments());
+        initPresenter();
         initView();
         if (savedInstanceState != null && mPresenterProvider != null) {
             mPresenterProvider.onRestore(savedInstanceState);

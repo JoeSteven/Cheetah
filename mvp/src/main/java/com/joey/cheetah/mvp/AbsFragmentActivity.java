@@ -1,10 +1,12 @@
 package com.joey.cheetah.mvp;
 
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.SparseArray;
 
 /**
  * Description: Activity that holding fragment must extends this class
@@ -14,7 +16,7 @@ import android.support.v4.app.FragmentTransaction;
 public abstract class AbsFragmentActivity extends AbsActivity {
 
     private FragmentManager mFragmentManager;
-    private Fragment mCurrentFragment;
+    private SparseArray<Fragment> currentFragments = new SparseArray<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,63 +41,64 @@ public abstract class AbsFragmentActivity extends AbsActivity {
     /**
      * add new fragment to attach activity
      */
-    protected void addFragment(Fragment targetFragment, int contentId, String tag) {
+    protected void addFragment(Fragment targetFragment, @IdRes int contentId, String tag) {
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
-        if (mCurrentFragment != null) {
-            transaction.hide(mCurrentFragment);
+        if (currentFragments.get(contentId) != null) {
+            transaction.hide(currentFragments.get(contentId));
         }
         if (targetFragment.isAdded()) {
             transaction.show(targetFragment).commit();
         } else {
             transaction.add(contentId, targetFragment, tag).commit();
         }
-        mCurrentFragment = targetFragment;
+        currentFragments.put(contentId, targetFragment);
     }
 
 
     /**
      * add new fragment to attach activity and add it to the back stack
      */
-    protected void addFragmentToStack(Fragment targetFragment, int contentId, String tag) {
+    protected void addFragmentToStack(Fragment targetFragment, @IdRes int contentId, String tag) {
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
-        if (mCurrentFragment != null) {
-            transaction.hide(mCurrentFragment);
+        if (currentFragments.get(contentId) != null) {
+            transaction.hide(currentFragments.get(contentId));
         }
         transaction.add(contentId, targetFragment, tag);
         transaction.addToBackStack(null);
         transaction.commit();
-        mCurrentFragment = targetFragment;
+        currentFragments.put(contentId, targetFragment);
     }
 
     /**
      * destroy current fragment, replace it to a new fragment
      */
-    protected void replaceFragment(Fragment targetFragment, int contentId, String tag) {
+    protected void replaceFragment(Fragment targetFragment, @IdRes int contentId, String tag) {
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
         transaction.replace(contentId, targetFragment, tag);
         transaction.commit();
-        mCurrentFragment = targetFragment;
+        currentFragments.put(contentId, targetFragment);
     }
 
     /**
      * switch fragment between added fragments
      */
-    protected void switchFragment(Fragment targetFragment, int contentId, String tag) {
-        if (mCurrentFragment == null || targetFragment == null || mCurrentFragment == targetFragment) return;
+    protected void switchFragment(Fragment targetFragment, @IdRes int contentId, String tag) {
+        Fragment current = currentFragments.get(contentId);
+        if (current == null || targetFragment == null || current == targetFragment) return;
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
         if (!targetFragment.isAdded()) {
-            transaction.hide(mCurrentFragment).add(contentId, targetFragment, tag).commit();
+            transaction.hide(current).add(contentId, targetFragment, tag).commit();
         } else {
-            transaction.hide(mCurrentFragment).show(targetFragment).commit();
+            transaction.hide(current).show(targetFragment).commit();
         }
-        mCurrentFragment = targetFragment;
+        currentFragments.put(contentId, targetFragment);
     }
 
     protected FragmentManager fragmentManager() {
         return mFragmentManager;
     }
 
-    protected Fragment currentFragment() {
-        return mCurrentFragment;
+    protected Fragment currentFragment(@IdRes int contentId) {
+        return currentFragments.get(contentId);
     }
 }
