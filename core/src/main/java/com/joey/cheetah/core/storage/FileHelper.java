@@ -1,4 +1,4 @@
-package com.joey.cheetah.core.utils;
+package com.joey.cheetah.core.storage;
 
 import android.content.Context;
 import android.content.Intent;
@@ -31,7 +31,7 @@ import java.util.zip.ZipInputStream;
  * author:Joey
  * date:2018/8/1
  */
-public class FileUtil {
+public class FileHelper {
 
     public static void ensureDirExists(String path) {
         if (path == null) {

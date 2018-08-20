@@ -1,4 +1,4 @@
-package com.joey.cheetah.core.utils;
+package com.joey.cheetah.core.storage;
 
 
 import android.content.Context;
@@ -23,7 +23,7 @@ import java.util.Set;
  * .put("boolean", true)
  * .put("float", 0.1f)
  * .put("long", 100000L)
- * .putEnd("6", "test another string");
+ * .apply("6", "test another string");
  * OR
  * SharedPrefHelper.from(context)
  * .put("string", "test string")
@@ -100,7 +100,7 @@ public class SharedPrefHelper {
 
     /**
      * put K-V data into an editor
-     * invoke end() or putEnd(k,v) as last method in the call chain in order to  apply data
+     * invoke end() or apply(k,v) as last method in the call chain in order to  apply data
      *
      * @return SharedPreferencesHelper
      */

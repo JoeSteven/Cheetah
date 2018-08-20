@@ -10,10 +10,9 @@ import com.bumptech.glide.request.FutureTarget;
 import java.io.File;
 import java.util.concurrent.ExecutionException;
 
-import com.joey.cheetah.core.async.IAsyncExecutor;
 import com.joey.cheetah.core.media.glide.GlideApp;
 import com.joey.cheetah.core.media.glide.GlideRequests;
-import com.joey.cheetah.core.utils.FileUtil;
+import com.joey.cheetah.core.storage.FileHelper;
 
 /**
  * Description: 上层调用
@@ -88,11 +87,11 @@ public class ImageHelper {
         File srcFile = null;
         try {
             srcFile = target.get();
-            if (FileUtil.copy(srcFile.getAbsolutePath(), savePath)) {
-                FileUtil.saveImageToGallery(context(), new File(savePath));
+            if (FileHelper.copy(srcFile.getAbsolutePath(), savePath)) {
+                FileHelper.saveImageToGallery(context(), new File(savePath));
                 return new File(savePath);
             } else {
-                FileUtil.saveImageToGallery(context(), srcFile);
+                FileHelper.saveImageToGallery(context(), srcFile);
                 return srcFile;
             }
         } catch (InterruptedException e) {
