@@ -41,7 +41,7 @@ Cheetah 目前划分为两层，基础功能层 (core) 和架构层 (mvp)。
 
 [koltin 扩展](./readme/extension.md) : ktextension...待开发
 
-[WebView](./readme/web.md) : web
+[WebView](https://github.com/JoeSteven/XWebViewAssistant) : web模块没有直接包含在框架中，可以依赖我的一个封装库[XWebViewAssistant](https://github.com/JoeSteven/XWebViewAssistant)
 
 [数据库](./readme/database.md) : database…待开发
 
