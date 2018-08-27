@@ -43,7 +43,7 @@ Cheetah 目前划分为两层，基础功能层 (core) 和架构层 (mvp)。
 
 [WebView](https://github.com/JoeSteven/XWebViewAssistant) : web模块没有直接包含在框架中，可以依赖我的一个封装库[XWebViewAssistant](https://github.com/JoeSteven/XWebViewAssistant)
 
-[数据库](./readme/database.md) : database…待开发
+[持久化](./readme/database.md) : 目前支持`SharedPreferences` 
 
 蓝牙 : 蓝牙模块并没有直接包含在该框架中，可以依赖我的一个封装库[RxBle](https://github.com/JoeSteven/RxBle)
 

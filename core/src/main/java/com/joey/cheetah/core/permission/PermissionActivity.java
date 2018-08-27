@@ -6,7 +6,7 @@ package com.joey.cheetah.core.permission;
  * author:Joey
  * date:2018/7/30
  */
-import android.content.DialogInterface;
+
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -105,17 +105,9 @@ public class PermissionActivity extends AppCompatActivity {
         builder.setTitle(TextUtils.isEmpty(tipInfo.title) ? defaultTitle : tipInfo.title);
         builder.setMessage(TextUtils.isEmpty(tipInfo.content) ? defaultContent : tipInfo.content);
 
-        builder.setNegativeButton(TextUtils.isEmpty(tipInfo.cancel) ? defaultCancel : tipInfo.cancel, new DialogInterface.OnClickListener(){
-            @Override public void onClick(DialogInterface dialog, int which) {
-                permissionsDenied();
-            }
-        });
+        builder.setNegativeButton(TextUtils.isEmpty(tipInfo.cancel) ? defaultCancel : tipInfo.cancel, (dialog, which) -> permissionsDenied());
 
-        builder.setPositiveButton(TextUtils.isEmpty(tipInfo.ensure) ? defaultEnsure : tipInfo.ensure, new DialogInterface.OnClickListener() {
-            @Override public void onClick(DialogInterface dialog, int which) {
-                PermissionUtil.gotoSetting(PermissionActivity.this);
-            }
-        });
+        builder.setPositiveButton(TextUtils.isEmpty(tipInfo.ensure) ? defaultEnsure : tipInfo.ensure, (dialog, which) -> PermissionUtil.gotoSetting(PermissionActivity.this));
 
         builder.setCancelable(false);
         builder.show();

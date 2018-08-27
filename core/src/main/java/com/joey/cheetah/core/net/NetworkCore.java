@@ -99,6 +99,8 @@ public class NetworkCore {
         return (T) mServices.get(id);
     }
 
+    // TODO: 2018/8/24 网络状态获取及监听
+
     private OkHttpClient.Builder addInterceptor(OkHttpClient.Builder builder) {
         return builder
                 .addInterceptor(new ApiCommonParamsInterceptor(mHeaders.build(), mParams.build().query()))
@@ -110,7 +112,7 @@ public class NetworkCore {
                 }).setLevel(HttpLoggingInterceptor.Level.BODY));
     }
 
-    public OkHttpClient.Builder createClientBuilder() {
+    private OkHttpClient.Builder createClientBuilder() {
         return new OkHttpClient.Builder();
     }
 
