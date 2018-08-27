@@ -46,6 +46,7 @@ public class ApiCommonParamsInterceptor implements Interceptor {
     }
 
     private String createQuery(String query) {
+        if (TextUtils.isEmpty(mCommonParams)) return query;
         if (TextUtils.isEmpty(query)) return mCommonParams;
         return mCommonParams + "&" + query;
     }
