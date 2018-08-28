@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.joey.cheetah.core.CheetahApplicationInitializer;
+import com.joey.cheetah.core.storage.SharedPrefHelper;
 import com.joey.cheetah.sample.init.SampleInitManger;
 
 /**

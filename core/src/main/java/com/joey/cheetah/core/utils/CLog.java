@@ -2,8 +2,6 @@ package com.joey.cheetah.core.utils;
 
 import android.util.Log;
 
-import com.joey.cheetah.core.BuildConfig;
-
 /**
  * Description: An util to print log for project
  * author:Joey
@@ -15,7 +13,11 @@ public class CLog {
 
     private volatile static boolean force = false;
 
-    private static boolean debug = BuildConfig.DEBUG || force;
+    private static boolean debug = false;
+
+    public static void debug(boolean isDebug) {
+        debug = isDebug;
+    }
 
     /**
      * force to print log for release package
@@ -27,31 +29,31 @@ public class CLog {
     }
 
     public static void v(String tag, String msg) {
-        if (debug) {
+        if (debug || force) {
             Log.v(tag, msg);
         }
     }
 
     public static void d(String tag, String msg) {
-        if (debug) {
+        if (debug || force) {
             Log.d(tag, msg);
         }
     }
 
     public static void i(String tag, String msg) {
-        if (debug) {
+        if (debug || force) {
             Log.i(tag, msg);
         }
     }
 
     public static void w(String tag, String msg) {
-        if (debug) {
+        if (debug || force) {
             Log.w(tag, msg);
         }
     }
 
     public static void e(String tag, String msg) {
-        if (debug) {
+        if (debug || force) {
             Log.e(tag, msg);
         }
     }
