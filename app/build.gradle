@@ -23,6 +23,9 @@ android {
         sourceCompatibility 1.8
     }
 }
+androidExtensions {
+    experimental = true
+}
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
