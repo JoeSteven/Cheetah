@@ -12,9 +12,26 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        sampleSignConfig {
+            storeFile file("$rootDir/app/cheetahkey")
+            storePassword "cheetah"
+            keyAlias "cheetah_sample"
+            keyPassword "cheetah"
+        }
+    }
+
     buildTypes {
         release {
+            minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.sampleSignConfig
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
             minifyEnabled false
+            signingConfig signingConfigs.sampleSignConfig
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -23,6 +40,7 @@ android {
         sourceCompatibility 1.8
     }
 }
+//for kotlin
 androidExtensions {
     experimental = true
 }

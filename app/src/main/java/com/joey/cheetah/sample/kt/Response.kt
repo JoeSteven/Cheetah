@@ -1,5 +1,6 @@
 package com.joey.cheetah.sample.kt
 import android.os.Parcelable
+import android.support.annotation.Keep
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
@@ -10,12 +11,14 @@ import kotlinx.android.parcel.Parcelize
  * date:2018/8/15
  */
 @Parcelize
+@Keep
 data class Response(
     @SerializedName("error") val error: Boolean,
     @SerializedName("results") val results: List<GankData>
 ) : Parcelable
 
 @Parcelize
+@Keep
 data class GankData(
     @SerializedName("_id") val id: String,
     @SerializedName("createdAt") val createdAt: String,
