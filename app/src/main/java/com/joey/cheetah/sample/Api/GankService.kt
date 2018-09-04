@@ -12,7 +12,7 @@ import retrofit2.http.GET
  */
 interface GankService {
 
-    @GET("api/random/data/Android/20")
+    @GET("api/random/data/Android/20?paramsOrigin=3")
     fun queryAndroid():Single<Response>
 
     @GET("api/random/data/福利/20")

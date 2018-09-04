@@ -1,4 +1,4 @@
-package com.joey.cheetah.sample.init;
+package com.joey.cheetah.sample.init.task;
 
 import com.joey.cheetah.core.init.InitTask;
 import com.joey.cheetah.core.utils.CLog;
