@@ -34,6 +34,10 @@ public class Jumper {
         return new Jumper(from, to, "");
     }
 
+    public static Jumper make() {
+        return new Jumper(null, null, null);
+    }
+
     public static Jumper make(Activity from, String action) {
         return new Jumper(from, null, action);
     }
@@ -102,6 +106,10 @@ public class Jumper {
      */
     public void jump() {
         from.startActivity(intent);
+    }
+
+    public void jumpForResult(int requestCode) {
+        from.startActivityForResult(intent, requestCode);
     }
 
     /**

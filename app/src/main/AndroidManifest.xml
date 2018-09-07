@@ -32,7 +32,9 @@
         <activity android:name=".java.scan.BleScanActivity" />
         <activity android:name=".java.connect.BleConnectActivity" />
         <activity android:name=".kt.GankActivity" />
-        <activity android:name=".kt.android.GankDetailActivity"></activity>
+        <activity android:name=".kt.android.GankDetailActivity" />
+        <activity android:name=".extension.ExtensionActivity" />
+        <activity android:name=".extension.ExtensionJumpActivity"></activity>
     </application>
 
 </manifest>

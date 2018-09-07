@@ -2,6 +2,7 @@ package com.joey.cheetah.sample;
 
 import com.joey.cheetah.core.utils.Jumper;
 import com.joey.cheetah.mvp.AbsActivity;
+import com.joey.cheetah.sample.extension.ExtensionActivity;
 import com.joey.cheetah.sample.java.scan.BleScanActivity;
 import com.joey.cheetah.sample.kt.GankActivity;
 
@@ -19,11 +20,12 @@ public class MainActivity extends AbsActivity{
 
     @Override
     protected void initView() {
-        findViewById(R.id.bt_java).setOnClickListener(v -> {
-            Jumper.make(this, BleScanActivity.class).jump();});
+        findViewById(R.id.bt_java).setOnClickListener(v -> Jumper.make(this, BleScanActivity.class).jump());
 
-        findViewById(R.id.bt_kt).setOnClickListener(v -> {
-            Jumper.make(this, GankActivity.class).jump();});
+        findViewById(R.id.bt_kt).setOnClickListener(v -> Jumper.make(this, GankActivity.class).jump());
+
+        findViewById(R.id.bt_extension).setOnClickListener(v -> Jumper.make(this, ExtensionActivity.class).jump());
+
     }
 
     @Override
