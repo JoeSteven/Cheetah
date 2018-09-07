@@ -26,6 +26,10 @@ Jumper.make(this, GankActivity.class)// 显示跳转，必须
 Jumper.make(this, action)// 隐式跳转
 	//...
 	.jump(); 
+
+Jumper.make();// 构造一个 Jumper
+
+intent();// 获取intent
 ```
 
 

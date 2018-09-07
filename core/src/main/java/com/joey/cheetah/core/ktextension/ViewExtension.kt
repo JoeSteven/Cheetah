@@ -50,9 +50,12 @@ fun Activity.jumpWithParams(action: String) : Jumper {
     return Jumper.make(this, action)
 }
 
-fun Activity.globalContext() : Context {
-    return Global.context()
+fun Activity.jumper(): Jumper {
+    return Jumper.make()
 }
+
+val Activity.globalContext : Context
+    get() = Global.context()
 
 /*****************************extension for Activity end***************************************/
 
@@ -125,7 +128,7 @@ fun ImageView.loadUrl(img: Any?, resizeWidth: Int = -1, resizeHeight: Int = -1) 
 /**
  * extension for ImageView to load picture with custom params
  */
-fun ImageView.with(): GlideRequests {
+fun ImageView.glide(): GlideRequests {
     return GlideApp.with(context)
 }
 /*****************************extension for ImageView end***************************************/

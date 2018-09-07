@@ -2,7 +2,7 @@ package com.joey.cheetah.sample.extension
 
 import android.content.Intent
 import com.joey.cheetah.core.ktextension.isBlank
-import com.joey.cheetah.core.utils.Jumper
+import com.joey.cheetah.core.ktextension.jumper
 import com.joey.cheetah.mvp.AbsActivity
 import com.joey.cheetah.sample.R
 import kotlinx.android.synthetic.main.activity_extension_jump.*
@@ -17,7 +17,7 @@ class ExtensionJumpActivity : AbsActivity() {
         tvParams.text = "params is:${intent.getStringExtra("params")}"
     }
     override fun initView() {
-        btnResult.setOnClickListener { setResult(100, Jumper.make()
+        btnResult.setOnClickListener { setResult(100, jumper()
                 .putString("result", if(etResult.isBlank()) "null result" else etResult.text.toString())
                 .intent)
             finish()
@@ -25,7 +25,7 @@ class ExtensionJumpActivity : AbsActivity() {
     }
 
     override fun onBackPressed() {
-        setResult(100, Jumper.make().putString("result", "onback pressed").intent)
+        setResult(100, jumper().putString("result", "onback pressed").intent)
         super.onBackPressed()
     }
 

@@ -6,11 +6,9 @@ import android.widget.ImageView
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.joey.cheetah.core.ktextension.loadUrl
-import com.joey.cheetah.core.ktextension.screenWith
-import com.joey.cheetah.core.ktextension.with
+import com.joey.cheetah.core.ktextension.glide
 import com.joey.cheetah.core.list.AbsItemViewBinder
 import com.joey.cheetah.core.list.AbsViewHolder
-import com.joey.cheetah.core.utils.ResGetter
 import com.joey.cheetah.core.utils.UIUtil
 import com.joey.cheetah.sample.R
 import com.joey.cheetah.sample.kt.GankData
@@ -34,7 +32,7 @@ class GankSurpriseViewBinder : AbsItemViewBinder<GankData, GankSurpriseViewBinde
     }
 
     override fun onBind(holder: GankSurpriseViewHolder, item: GankData) {
-        holder.ivIcon.with().asBitmap()
+        holder.ivIcon.glide().asBitmap()
                 .load(item.url)
                 .into(object :SimpleTarget<Bitmap>(){
                     override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
