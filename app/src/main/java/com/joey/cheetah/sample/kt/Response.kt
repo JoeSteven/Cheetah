@@ -23,11 +23,11 @@ data class GankData(
     @SerializedName("_id") val id: String,
     @SerializedName("createdAt") val createdAt: String,
     @SerializedName("desc") val desc: String,
-    @SerializedName("images") val images: List<String>,
+    @SerializedName("images") val images: List<String>?,
     @SerializedName("publishedAt") val publishedAt: String,
-    @SerializedName("source") val source: String,
-    @SerializedName("type") val type: String,
-    @SerializedName("url") val url: String,
+    @SerializedName("source") val source: String?,
+    @SerializedName("type") val type: String?,
+    @SerializedName("url") val url: String?,
     @SerializedName("used") val used: Boolean,
-    @SerializedName("who") val who: String
+    @SerializedName("who") val who: String?
 ) : Parcelable
