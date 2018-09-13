@@ -58,9 +58,9 @@ public class CLog {
         }
     }
 
-    public static String className(Object object) {
-        if (object == null) return "null class";
-        return object.getClass().getSimpleName();
+    public static String msgWithclassName(Object object, String msg) {
+        if (object == null) return "null class ====> " + msg;
+        return object.getClass().getSimpleName() + " ====> " + msg;
     }
 
 }
