@@ -27,9 +27,21 @@ fun Activity.jump(target:Class<out Activity>) {
             .jump()
 }
 
+fun Activity.jumpAndFinish(target:Class<out Activity>) {
+    Jumper.make(this, target)
+            .jump()
+    finish()
+}
+
 fun Activity.jump(action:String) {
     Jumper.make(this, action)
             .jump()
+}
+
+fun Activity.jumpAndFinish(action:String) {
+    Jumper.make(this, action)
+            .jump()
+    finish()
 }
 
 fun Activity.jumpForResult(target: Class<out Activity>, requestCode:Int) {
@@ -65,8 +77,22 @@ fun Fragment.jump(target:Class<out Activity>) {
     this.activity?.jump(target)
 }
 
+fun Fragment.jumpAndFinish(target:Class<out Activity>) {
+    activity?.apply {
+        jump(target)
+        finish()
+    }
+}
+
 fun Fragment.jump(action:String) {
     this.activity?.jump(action)
+}
+
+fun Fragment.jumpAndFinish(action: String) {
+    activity?.apply {
+        jump(action)
+        finish()
+    }
 }
 
 fun Fragment.jumpForResult(target: Class<out Activity>, requestCode:Int) {
