@@ -96,7 +96,7 @@ public abstract class AbsActivity extends AppCompatActivity implements IView {
         return false;
     }
 
-    private long lastTime = 0;
+    private long lastTime = 0L;
 
     @Override
     public void onBackPressed() {

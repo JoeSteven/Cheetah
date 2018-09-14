@@ -3,6 +3,7 @@ package com.joey.cheetah.sample;
 import com.joey.cheetah.core.utils.Jumper;
 import com.joey.cheetah.mvp.AbsActivity;
 import com.joey.cheetah.sample.java.scan.BleScanActivity;
+import com.joey.cheetah.sample.kt.CameraActivity;
 import com.joey.cheetah.sample.kt.GankActivity;
 
 
@@ -24,6 +25,10 @@ public class MainActivity extends AbsActivity{
 
         findViewById(R.id.bt_kt).setOnClickListener(v -> {
             Jumper.make(this, GankActivity.class).jump();});
+
+        findViewById(R.id.bt_camera).setOnClickListener(v -> {
+            Jumper.make(this, CameraActivity.class).jump();});
+
     }
 
     @Override

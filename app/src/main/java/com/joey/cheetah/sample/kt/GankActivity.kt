@@ -12,6 +12,7 @@ class GankActivity : AbsFragmentActivity() {
     private val tagSurprise = "tag_surprise"
     private lateinit var androidFragment: GankAndroidFragment
     private lateinit var surpriseFragment: GankSurpriseFragment
+
     override fun initLayout(): Int {
         return R.layout.activity_gank
     }
