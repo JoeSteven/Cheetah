@@ -3,6 +3,7 @@
     package="com.joey.cheetah.core">
 
 
+    <uses-permission android:name="android.permission.CAMERA"/>
     <application >
         <activity android:name=".permission.PermissionActivity"/>
     </application>

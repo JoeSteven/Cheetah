@@ -33,7 +33,7 @@ public class PermissionUtil {
      * @param listener
      * @param permission 要申请的权限
      */
-    public static void requestPermission(Activity context, PermissionListener listener, String... permission) {
+    public static void requestPermission(Activity context, PermissionListener listener, @PermissionConstant.Permission  String... permission) {
         requestPermission(context, listener, permission, true, null);
     }
 

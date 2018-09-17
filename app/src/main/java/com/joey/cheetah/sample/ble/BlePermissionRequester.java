@@ -3,6 +3,7 @@ package com.joey.cheetah.sample.ble;
 import android.support.annotation.NonNull;
 
 import com.joey.cheetah.core.global.Global;
+import com.joey.cheetah.core.permission.PermissionConstant;
 import com.joey.cheetah.core.permission.PermissionListener;
 import com.joey.cheetah.core.permission.PermissionUtil;
 import com.joey.rxble.RxBle;
@@ -14,7 +15,7 @@ import com.joey.rxble.RxBle;
  */
 public class BlePermissionRequester implements RxBle.PermissionRequester {
     @Override
-    public void request(RxBle.PermissionListener listener, String... permissions) {
+    public void request(RxBle.PermissionListener listener,@PermissionConstant.Permission String... permissions) {
         if (Global.topActivity() == null) listener.onDenied();
         PermissionUtil.requestPermission(Global.topActivity(), new PermissionListener() {
 
