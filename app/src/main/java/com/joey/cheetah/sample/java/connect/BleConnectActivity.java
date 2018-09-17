@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.joey.cheetah.core.list.CheetahAdapter;
-import com.joey.cheetah.core.permission.PermissionContant;
 import com.joey.cheetah.mvp.AbsActivity;
 import com.joey.cheetah.mvp.auto.Presenter;
 import com.joey.cheetah.sample.R;

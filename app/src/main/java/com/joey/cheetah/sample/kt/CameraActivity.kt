@@ -3,11 +3,8 @@ package com.joey.cheetah.sample.kt
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.ImageFormat
-import android.os.Bundle
 import android.view.WindowManager
 import android.widget.FrameLayout
-import com.joey.cheetah.core.global.Global
 import com.joey.cheetah.mvp.AbsActivity
 import com.joey.cheetah.sample.R
 import kotlinx.android.synthetic.main.activity_camera.*
@@ -15,16 +12,8 @@ import android.util.DisplayMetrics
 import android.util.Log
 import com.joey.cheetah.core.camera.*
 import com.joey.cheetah.core.utils.ImageUtil
-import io.reactivex.Observable
-import io.reactivex.ObservableSource
-import io.reactivex.Scheduler
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.functions.Consumer
-import io.reactivex.functions.Function
-import io.reactivex.schedulers.Schedulers
 import java.io.File
 import java.io.FileOutputStream
-import java.io.OutputStream
 
 
 class CameraActivity : AbsActivity() {
@@ -51,7 +40,7 @@ class CameraActivity : AbsActivity() {
         fl_camera.addView(mCameraPreview)
         mCameraManager = CameraManager.getInstance()
         mCameraManager.setCameraHandle(mCameraPreview)
-        mCameraManager.setCameraId(CameraContant.CAMERAID_BACK)
+        mCameraManager.setCameraId(CameraConstant.CAMERAID_BACK)
         mCameraManager.setCameraPreviewWH(640,480)
 
 //        Observable.just("1","2","3").flatMap(Function<String, ObservableSource<String>> {
@@ -67,7 +56,7 @@ class CameraActivity : AbsActivity() {
 
                 val bitmap = BitmapFactory.decodeByteArray(data,0,data.size)
 
-                val rotateBitmap = ImageUtil.rotaingImageView(bitmap,CameraContant.CAMERAID_BACK)
+                val rotateBitmap = ImageUtil.rotaingImageView(bitmap, CameraConstant.CAMERAID_BACK)
 
                 if (rotateBitmap.compress(Bitmap.CompressFormat.JPEG,100,outStream)) {
                     outStream.flush()

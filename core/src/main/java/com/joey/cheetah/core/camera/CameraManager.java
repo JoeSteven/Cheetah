@@ -64,7 +64,7 @@ public class CameraManager {
      * 设置摄像头ID
      * @param cameraId
      */
-    public void setCameraId(@CameraContant.CameraID int cameraId) {
+    public void setCameraId(@CameraConstant.CameraID int cameraId) {
         mCameraHandle.setCameraId(cameraId);
     }
 

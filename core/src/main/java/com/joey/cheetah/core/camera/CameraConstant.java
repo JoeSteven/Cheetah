@@ -10,7 +10,7 @@ import java.lang.annotation.RetentionPolicy;
  * @author rain
  * @date 2018/09/12
  */
-public final class CameraContant {
+public final class CameraConstant {
 
     /**
      * 前置摄像头

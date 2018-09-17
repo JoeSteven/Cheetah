@@ -1,6 +1,8 @@
 package com.joey.cheetah.core.permission;
 
 import android.Manifest;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.annotation.StringDef;
 
 import java.lang.annotation.Retention;
@@ -11,7 +13,8 @@ import java.lang.annotation.RetentionPolicy;
  * @author rain
  * @date 2018/08/29
  */
-public final class PermissionContant {
+@RequiresApi(api = Build.VERSION_CODES.M)
+public final class PermissionConstant {
 
     public static final String CALENDAR   = Manifest.permission_group.CALENDAR;
     public static final String CAMERA     = Manifest.permission_group.CAMERA;
@@ -45,8 +48,7 @@ public final class PermissionContant {
     };
 
     private static final String[] PHONE_GROUP = {
-            Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_PHONE_NUMBERS,
-            Manifest.permission.CALL_PHONE, Manifest.permission.ANSWER_PHONE_CALLS,
+            Manifest.permission.READ_PHONE_STATE, Manifest.permission.CALL_PHONE,
             Manifest.permission.READ_CALL_LOG, Manifest.permission.WRITE_CALL_LOG,
             Manifest.permission.ADD_VOICEMAIL, Manifest.permission.USE_SIP,
             Manifest.permission.PROCESS_OUTGOING_CALLS
@@ -71,6 +73,7 @@ public final class PermissionContant {
     public @interface Permission {
 
     }
+
 
     public static String[] getPermissionsGroup(@Permission String permission) {
         switch (permission) {

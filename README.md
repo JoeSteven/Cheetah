@@ -47,3 +47,5 @@ Cheetah 目前划分为两层，基础功能层 (core) 和架构层 (mvp)。
 
 蓝牙 : 蓝牙模块并没有直接包含在该框架中，可以依赖我的一个封装库[RxBle](https://github.com/JoeSteven/RxBle)
 
+[相机](./readme/camera.md) : camera
+

@@ -35,7 +35,7 @@ public class Camera1Preview extends SurfaceView implements SurfaceHolder.Callbac
     /**
      * 效果最佳默认尺寸(640x480)
      */
-    private int mPreviewWidth = CameraContant.PREVIEWW, mPreviewHeight = CameraContant.PREVIEWH;
+    private int mPreviewWidth = CameraConstant.PREVIEWW, mPreviewHeight = CameraConstant.PREVIEWH;
 
     /**
      * 预览byte数据流
