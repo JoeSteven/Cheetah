@@ -1,4 +1,4 @@
-package com.joey.cheetah.core.net;
+package com.joey.cheetah.core.net.interceptor;
 
 import java.io.EOFException;
 import java.io.IOException;

@@ -29,11 +29,15 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".java.scan.BleScanActivity"/>
-        <activity android:name=".java.connect.BleConnectActivity"/>
-        <activity android:name=".kt.GankActivity"/>
-        <activity android:name=".kt.android.GankDetailActivity"/>
+
         <activity android:name=".kt.CameraActivity"/>
+        <activity android:name=".java.scan.BleScanActivity" />
+        <activity android:name=".java.connect.BleConnectActivity" />
+        <activity android:name=".kt.GankActivity" />
+        <activity android:name=".kt.android.GankDetailActivity" />
+        <activity android:name=".extension.ExtensionActivity" />
+        <activity android:name=".extension.ExtensionJumpActivity" />
+        <activity android:name=".dbdemo.DbDemoActivity"></activity>
     </application>
 
 </manifest>

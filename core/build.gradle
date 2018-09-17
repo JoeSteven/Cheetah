@@ -53,6 +53,15 @@ dependencies {
 
     api 'me.drakeet.multitype:multitype:3.4.4'
 
+    // database
+    api ("android.arch.persistence.room:runtime:1.1.1") {
+        exclude group:'android.arch.core'
+    }
+    api ("android.arch.persistence.room:rxjava2:1.1.1") {
+        exclude group:'android.arch.core'
+    }
+    kapt "android.arch.persistence.room:compiler:1.1.1"
+
 }
 repositories {
     mavenCentral()

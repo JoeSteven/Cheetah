@@ -14,44 +14,58 @@ import java.io.File
  * author:Joey
  * date:2018/8/15
  */
-class GankPresenter(view:IGankView) : AbsPresenter<IGankView>(view){
+class GankPresenter(view: IGankView) : AbsPresenter<IGankView>(view) {
     private val repository = GankRepository()
+    private var data: List<GankData> = ArrayList()
 
-    fun queryAndroid(){
+    fun queryAndroid() {
         add(repository.queryAndroid()
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe { mView.loading() }
-                .doOnSuccess { mView.stopLoading() }
-                .doOnError { mView.stopLoading() }
-                .subscribe({ t -> mView.showContent(t) },
-                        { e -> mView.toast("load data failed! $e") }))
+                .doOnSubscribe { mView?.loading() }
+                .doOnSuccess {
+                    mView?.stopLoading()
+                    data = it
+                }
+                .doOnError { mView?.stopLoading() }
+                .subscribe({ mView?.showContent(it) },
+                        { mView?.toast("load data failed! $it") }))
     }
 
-    fun querySurprise(){
+    fun querySurprise() {
         add(repository.querySurprise()
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe { mView.loading() }
-                .doOnSuccess { mView.stopLoading() }
-                .doOnError { mView.stopLoading() }
-                .subscribe({t -> mView.showContent(t)},
-                        { e -> mView.toast("load data failed! $e")}))
+                .doOnSubscribe { mView?.loading() }
+                .doOnSuccess {
+                    mView?.stopLoading()
+                    data = it
+                }
+                .doOnError { mView?.stopLoading() }
+                .subscribe({ mView?.showContent(it) },
+                        { mView?.toast("load data failed! $it") }))
     }
 
     override fun onSaveData(outState: Bundle?) {
+        outState?.putParcelableArrayList("Gank_Data", data as ArrayList)
     }
 
     override fun onRestoredData(savedInstanceState: Bundle?) {
+        mView?.apply {
+            loading()
+            data = savedInstanceState?.getParcelableArrayList("Gank_Data") ?: ArrayList()
+            stopLoading()
+            showContent(data)
+        }
     }
 
-    fun download(url: String) {
-        Observable.create<File> {
-            emitter ->
-            var dir = File(Environment.getExternalStorageDirectory().path +"/Cheetah")
+    fun download(url: String?) {
+        if (url == null) return
+        Observable.create<File> { emitter ->
+            var dir = File(Environment.getExternalStorageDirectory().path + "/Cheetah")
             if (!dir.exists()) {
                 dir.mkdirs()
             }
             var name = url.split("/")
-            val path = Environment.getExternalStorageDirectory().path + "/Cheetah/" + name[name.size-1]
+            val path = Environment.getExternalStorageDirectory().path + "/Cheetah/" + name[name.size - 1]
             val file = ImageHelper.saveImageIntoGallery(url, path)
             if (file != null) {
                 emitter.onNext(file)
@@ -62,8 +76,8 @@ class GankPresenter(view:IGankView) : AbsPresenter<IGankView>(view){
         }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe { mView.toast("start download") }
-                .doOnError{e -> e.printStackTrace()}
-                .subscribe ({ t: File? ->  mView.toast("download success ${t?.absolutePath}")}, {mView.toast("download failed")})
+                .doOnSubscribe { mView?.toast("start download") }
+                .doOnError { e -> e.printStackTrace() }
+                .subscribe({ t: File? -> mView?.toast("download success ${t?.absolutePath}") }, { mView?.toast("download failed") })
     }
 }

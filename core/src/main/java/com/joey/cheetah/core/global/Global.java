@@ -1,9 +1,16 @@
 package com.joey.cheetah.core.global;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
 
 import com.joey.cheetah.core.BuildConfig;
+
+import java.util.List;
+
+import static android.content.Context.ACTIVITY_SERVICE;
 
 /**
  * Description: Global config or attribute for project
@@ -46,4 +53,43 @@ public class Global {
         return sDebug;
     }
 
+    /**
+     * @return version code for package
+     */
+    public static int versionCode(String pkgName) {
+        if (TextUtils.isEmpty(pkgName)) return -1;
+        try {
+            return sContext.getPackageManager().getPackageInfo(pkgName, 0).versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return  -1;
+        }
+    }
+
+    /**
+     * @return version name for package
+     */
+    public static String versionName(String pkgName) {
+        if (TextUtils.isEmpty(pkgName)) return "-1";
+        try {
+            return sContext.getPackageManager().getPackageInfo(pkgName, 0).versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return  "-1";
+        }
+    }
+
+    /**
+     * @return is app foreground
+     */
+    public static boolean isAppForeground(String pkgName){
+        if (TextUtils.isEmpty(pkgName)) return false;
+        ActivityManager manager = (ActivityManager) sContext.getSystemService(ACTIVITY_SERVICE);
+        if (manager == null) return false;
+        List<ActivityManager.RunningAppProcessInfo> infos = manager.getRunningAppProcesses();
+        for (ActivityManager.RunningAppProcessInfo info :infos) {
+            return TextUtils.equals(info.processName, pkgName);
+        }
+        return false;
+    }
 }

@@ -3,15 +3,12 @@ package com.joey.cheetah.sample.kt.surprise
 import android.graphics.Bitmap
 import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
-import com.joey.cheetah.core.global.Global
 import com.joey.cheetah.core.ktextension.loadUrl
-import com.joey.cheetah.core.ktextension.with
+import com.joey.cheetah.core.ktextension.glide
 import com.joey.cheetah.core.list.AbsItemViewBinder
 import com.joey.cheetah.core.list.AbsViewHolder
-import com.joey.cheetah.core.utils.ResGetter
 import com.joey.cheetah.core.utils.UIUtil
 import com.joey.cheetah.sample.R
 import com.joey.cheetah.sample.kt.GankData
@@ -35,11 +32,11 @@ class GankSurpriseViewBinder : AbsItemViewBinder<GankData, GankSurpriseViewBinde
     }
 
     override fun onBind(holder: GankSurpriseViewHolder, item: GankData) {
-        holder.ivIcon.with().asBitmap()
+        holder.ivIcon.glide().asBitmap()
                 .load(item.url)
                 .into(object :SimpleTarget<Bitmap>(){
                     override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
-                        var imageWidth = (ResGetter.resources().displayMetrics.widthPixels - UIUtil.dip2px(20))/2
+                        var imageWidth = (UIUtil.screenWitdh() - UIUtil.dp2px(20))/2
                         var resizeHeight = (resource.height*1.0/resource.width)*imageWidth
                         holder.ivIcon.loadUrl(item.url, imageWidth, resizeHeight.toInt())
                     }

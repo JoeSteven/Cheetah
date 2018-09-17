@@ -19,7 +19,7 @@ class GankActivity : AbsFragmentActivity() {
 
     override fun initView() {
         btSurprise.setOnClickListener { toSurprise() }
-        btAndroid.setOnClickListener {toAndroid()}
+        btAndroid.setOnClickListener { toAndroid() }
     }
 
     private fun toAndroid() {
@@ -36,8 +36,8 @@ class GankActivity : AbsFragmentActivity() {
     }
 
     override fun restoreFragment(savedInstanceState: Bundle?) {
-        androidFragment = fragmentManager().findFragmentByTag(tagAndroid) as GankAndroidFragment
-        surpriseFragment = fragmentManager().findFragmentByTag(tagSurprise) as GankSurpriseFragment
+        androidFragment = fragmentManager().findFragmentByTag(tagAndroid) as GankAndroidFragment? ?: GankAndroidFragment()
+        surpriseFragment = fragmentManager().findFragmentByTag(tagSurprise) as GankSurpriseFragment? ?: GankSurpriseFragment()
     }
 
     override fun attachFragment() {
