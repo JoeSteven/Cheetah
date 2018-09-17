@@ -5,9 +5,9 @@ import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
-import android.support.annotation.NonNull;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -35,7 +35,7 @@ public class Camera1Preview extends SurfaceView implements SurfaceHolder.Callbac
     /**
      * 效果最佳默认尺寸(640x480)
      */
-    private int mPreviewWidth = 640, mPreviewHeight = 480;
+    private int mPreviewWidth = CameraContant.PREVIEWW, mPreviewHeight = CameraContant.PREVIEWH;
 
     /**
      * 预览byte数据流
@@ -62,8 +62,10 @@ public class Camera1Preview extends SurfaceView implements SurfaceHolder.Callbac
 
     @Override
     public void openCamera() {
-        if (mCamera == null) {
-            mCamera = Camera.open(mCameraId);
+        CameraOpenThread openThread = new CameraOpenThread("CameraOpenThread");
+
+        synchronized (openThread) {
+            openThread.openCamera();
         }
     }
 
@@ -192,6 +194,34 @@ public class Camera1Preview extends SurfaceView implements SurfaceHolder.Callbac
 
         if (mPreviewCallback != null) {
             mPreviewCallback.onPreviewFrame(data,mCameraId,width,height);
+        }
+    }
+
+    private class CameraOpenThread extends HandlerThread {
+
+        private Handler mHandler;
+
+        CameraOpenThread(String name) {
+            super(name);
+            start();
+            mHandler = new Handler(getLooper());
+        }
+
+        private void openCamera() {
+            mHandler.post(() -> {
+                if (mCamera == null) {
+                    mCamera = Camera.open(mCameraId);
+                    synchronized (CameraOpenThread.this) {
+                        notify();
+                    }
+                }
+            });
+
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

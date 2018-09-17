@@ -14,7 +14,7 @@
 
     <Button
         android:id="@+id/bt_switch"
-        android:text="switch"
+        android:text="拍照"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 </RelativeLayout>

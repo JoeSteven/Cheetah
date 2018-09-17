@@ -7,6 +7,7 @@ import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
+import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraDevice;
 import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CameraMetadata;
@@ -69,10 +70,12 @@ public class Camera2Preview extends TextureView implements TextureView.SurfaceTe
     private PreviewCallback mPreviewCallback;
     private CaptureCameraCallback mCaptureCameraCallback;
 
+    private CameraManager mCameraManager;
+
     /**
      * 效果最佳默认尺寸(640x480)
      */
-    private int mPreviewWidth = 640, mPreviewHeight = 480;
+    private int mPreviewWidth = CameraContant.PREVIEWW, mPreviewHeight = CameraContant.PREVIEWH;
 
     public Camera2Preview(Context context) {
         this(context,null);
@@ -83,6 +86,7 @@ public class Camera2Preview extends TextureView implements TextureView.SurfaceTe
 
         setSurfaceTextureListener(this);
         mConfiguration = new CameraConfiguration();
+        mCameraManager = (CameraManager) Global.context().getSystemService(Context.CAMERA_SERVICE);
     }
 
     @Override
@@ -111,22 +115,20 @@ public class Camera2Preview extends TextureView implements TextureView.SurfaceTe
     @SuppressLint("MissingPermission")
     @Override
     public void openCamera() {
-        //获得摄像头的管理器CameraManager
-        CameraManager cameraManager = (CameraManager) Global.context().getSystemService(Context.CAMERA_SERVICE);
         try {
             if (!mCameraOpenCloseLock.tryAcquire(2500, TimeUnit.MILLISECONDS)) {
                 throw new RuntimeException("Time out waiting to lock camera opening.");
             }
 
-            if (cameraManager != null) {
+            if (mCameraManager != null) {
                 //默认前置摄像头
                 if (mCameraId.equals("-1")) {
-                    mCameraId = cameraManager.getCameraIdList()[1];
+                    mCameraId = mCameraManager.getCameraIdList()[1];
                 }
 
-                mPreviewSize = mConfiguration.setCameraParameters(this,cameraManager,mCameraId,mPreviewWidth,mPreviewHeight);
+                mPreviewSize = mConfiguration.setCameraParameters(this,mCameraManager,mCameraId,mPreviewWidth,mPreviewHeight);
                 //打开相机
-                cameraManager.openCamera(mCameraId,mCameraDeviceStateCallback,null);
+                mCameraManager.openCamera(mCameraId,mCameraDeviceStateCallback,null);
             }
         } catch (CameraAccessException e) {
             e.printStackTrace();
@@ -184,28 +186,22 @@ public class Camera2Preview extends TextureView implements TextureView.SurfaceTe
         mPictureReader = ImageReader.newInstance(mPreviewSize.getWidth(),mPreviewSize.getHeight(),
                 ImageFormat.JPEG,2);
 
-        mImageReader.setOnImageAvailableListener(new ImageReader.OnImageAvailableListener() {
-            @Override
-            public void onImageAvailable(ImageReader reader) {
-                Image image = reader.acquireNextImage();
-                if (mPreviewCallback != null) {
-                    byte[] nv21Data = ImageUtil.getDataFromImage(image);
-                    mPreviewCallback.onPreviewFrame(nv21Data,Integer.valueOf(mCameraId),mPreviewSize.getWidth(),mPreviewSize.getHeight());
-                }
-                image.close();
+        mImageReader.setOnImageAvailableListener(reader -> {
+            Image image = reader.acquireNextImage();
+            if (mPreviewCallback != null) {
+                byte[] nv21Data = ImageUtil.getDataFromImage(image,ImageUtil.COLOR_FormatNV21);
+                mPreviewCallback.onPreviewFrame(nv21Data,Integer.valueOf(mCameraId),mPreviewSize.getWidth(),mPreviewSize.getHeight());
             }
+            image.close();
         }, mHandler);
 
-        mPictureReader.setOnImageAvailableListener(new ImageReader.OnImageAvailableListener() {
-            @Override
-            public void onImageAvailable(ImageReader reader) {
-                Image image = reader.acquireNextImage();
-                if (mCaptureCameraCallback != null) {
-                    byte[] jpgData = ImageUtil.getDataFromImage(image);
-                    mCaptureCameraCallback.onCapture(jpgData,mPreviewSize.getWidth(),mPreviewSize.getHeight());
-                }
-                image.close();
+        mPictureReader.setOnImageAvailableListener(reader -> {
+            Image image = reader.acquireNextImage();
+            if (mCaptureCameraCallback != null) {
+                byte[] jpgData = ImageUtil.getDataFromImage(image);
+                mCaptureCameraCallback.onCapture(jpgData,mPreviewSize.getWidth(),mPreviewSize.getHeight());
             }
+            image.close();
         },mHandler);
     }
 
@@ -218,7 +214,6 @@ public class Camera2Preview extends TextureView implements TextureView.SurfaceTe
         try {
             mPreviewBuilder.set(CaptureRequest.CONTROL_MODE, CameraMetadata.CONTROL_MODE_AUTO);
             mPreviewSession.setRepeatingRequest(mPreviewBuilder.build(), null, mHandler);
-            //成功配置后，便开始进行相机图像的监听
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }
@@ -262,14 +257,12 @@ public class Camera2Preview extends TextureView implements TextureView.SurfaceTe
     public void switchCamera() {
         stopCamera();
 
-        CameraManager cameraManager = (CameraManager) Global.context().getSystemService(Context.CAMERA_SERVICE);
-
-        if (cameraManager != null) {
+        if (mCameraManager != null) {
             try {
-                if (mCameraId.equals(cameraManager.getCameraIdList()[1])) {
-                    mCameraId = cameraManager.getCameraIdList()[0];
-                } else if (mCameraId.equals(cameraManager.getCameraIdList()[0])){
-                    mCameraId = cameraManager.getCameraIdList()[1];
+                if (mCameraId.equals(mCameraManager.getCameraIdList()[1])) {
+                    mCameraId = mCameraManager.getCameraIdList()[0];
+                } else if (mCameraId.equals(mCameraManager.getCameraIdList()[0])){
+                    mCameraId = mCameraManager.getCameraIdList()[1];
                 }
             } catch (CameraAccessException e) {
                 e.printStackTrace();
@@ -299,6 +292,13 @@ public class Camera2Preview extends TextureView implements TextureView.SurfaceTe
 
     @Override
     public boolean isFlashValid() {
+        try {
+            CameraCharacteristics cameraCharacteristics = mCameraManager.getCameraCharacteristics(mCameraId);
+
+            return cameraCharacteristics.get(CameraCharacteristics.FLASH_INFO_AVAILABLE).booleanValue();
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
         return false;
     }
 
@@ -310,11 +310,9 @@ public class Camera2Preview extends TextureView implements TextureView.SurfaceTe
 
     @Override
     public void setCameraId(int cameraId) {
-        CameraManager cameraManager = (CameraManager) Global.context().getSystemService(Context.CAMERA_SERVICE);
-
-        if (cameraManager != null) {
+        if (mCameraManager != null) {
             try {
-                mCameraId = cameraManager.getCameraIdList()[cameraId];
+                mCameraId = mCameraManager.getCameraIdList()[cameraId];
             } catch (CameraAccessException e) {
                 e.printStackTrace();
             };

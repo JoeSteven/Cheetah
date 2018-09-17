@@ -22,6 +22,10 @@ public final class CameraContant {
      */
     public static final int CAMERAID_BACK = 0;
 
+    public static final int PREVIEWW = 640;
+
+    public static final int PREVIEWH = 480;
+
     @IntDef({CAMERAID_FRONT,CAMERAID_BACK})
     @Retention(RetentionPolicy.SOURCE)
     public @interface CameraID{

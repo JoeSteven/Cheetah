@@ -1,9 +1,5 @@
 package com.joey.cheetah.core.camera;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
 /**
  * 相机管理操作类
  *
@@ -27,61 +23,73 @@ public class CameraManager {
         return instance;
     }
 
+    /**
+     * 设置具体Camera的实现
+     * @param cameraHandle Camera1Preview1、CameraPreview2
+     */
     public void setCameraHandle(CameraHandle cameraHandle) {
         mCameraHandle = cameraHandle;
-
-//        try {
-//            Class clazz = Class.forName("Camera");
-//
-//            clazz.getMethod()
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-
-
-//        try {
-//            Class clazz = Class.forName("com.joey.cheetah.core.camera.Camera1Preview");
-//            clazz.newInstance();
-//            Constructor constructor = clazz.getConstructor();
-//
-//            Object object = constructor.newInstance();
-//            Method method  = clazz.getMethod("setPreviewCameraWH",Integer.class,Integer.class);
-//            method.invoke(object,640,480);
-//
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (NoSuchMethodException e) {
-//            e.printStackTrace();
-//        } catch (IllegalAccessException e) {
-//            e.printStackTrace();
-//        } catch (InstantiationException e) {
-//            e.printStackTrace();
-//        } catch (InvocationTargetException e) {
-//            e.printStackTrace();
-//        }
     }
 
+    /**
+     * 打开相机
+     */
     public void startCamera() {
         mCameraHandle.openCamera();
     }
 
+    /**
+     * 关闭相机
+     */
     public void stopCamera() {
         mCameraHandle.stopCamera();
     }
 
+    /**
+     * 切换前后置相机
+     */
     public void switchCamera() {
         mCameraHandle.switchCamera();
     }
 
+    /**
+     * 是否支持闪光灯
+     * @return true-支持、false-不支持
+     */
+    public boolean isFlashValid() {
+        return mCameraHandle.isFlashValid();
+    }
+
+    /**
+     * 设置摄像头ID
+     * @param cameraId
+     */
     public void setCameraId(@CameraContant.CameraID int cameraId) {
         mCameraHandle.setCameraId(cameraId);
     }
 
+    /**
+     * 设置拍照数据回调
+     * @param callback
+     */
     public void setCameraCapture(CameraHandle.CaptureCameraCallback callback) {
         mCameraHandle.takePicture(callback);
     }
 
+    /**
+     * 设置相机预览数据回调
+     * @param callback
+     */
     public void setCameraPreview(CameraHandle.PreviewCallback callback) {
         mCameraHandle.onPreview(callback);
+    }
+
+    /**
+     * 设置预览的图像的宽高尺寸
+     * @param previewW 预览的宽
+     * @param previewH 预览的高
+     */
+    public void setCameraPreviewWH(int previewW,int previewH) {
+        mCameraHandle.setPreviewCameraWH(previewW, previewH);
     }
 }

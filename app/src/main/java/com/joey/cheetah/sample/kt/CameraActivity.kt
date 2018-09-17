@@ -36,7 +36,6 @@ class CameraActivity : AbsActivity() {
 
     override fun initView() {
         mCameraPreview = Camera1Preview(this)
-        mCameraPreview.setPreviewCameraWH(640,480)
 
         val windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         val dm = DisplayMetrics()
@@ -53,6 +52,7 @@ class CameraActivity : AbsActivity() {
         mCameraManager = CameraManager.getInstance()
         mCameraManager.setCameraHandle(mCameraPreview)
         mCameraManager.setCameraId(CameraContant.CAMERAID_BACK)
+        mCameraManager.setCameraPreviewWH(640,480)
 
 //        Observable.just("1","2","3").flatMap(Function<String, ObservableSource<String>> {
 //            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
