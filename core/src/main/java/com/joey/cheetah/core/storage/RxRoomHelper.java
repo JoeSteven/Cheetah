@@ -17,12 +17,16 @@ public class RxRoomHelper {
             try {
                 T result = operator.execute();
                 if (result != null) {
-                    emitter.onSuccess(result);
+                    if (!emitter.isDisposed()) {
+                        emitter.onSuccess(result);
+                    }
                 } else {
                     throw new Exception("result is null !");
                 }
             } catch (Throwable e) {
-                emitter.onError(e);
+                if (!emitter.isDisposed()) {
+                    emitter.onError(e);
+                }
             }
         });
 

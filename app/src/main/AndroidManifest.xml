@@ -5,6 +5,7 @@
 
     <uses-sdk tools:overrideLibrary="com.joey.rxble,com.joey.rxandroidble2" />
 
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -35,7 +36,8 @@
         <activity android:name=".kt.android.GankDetailActivity" />
         <activity android:name=".extension.ExtensionActivity" />
         <activity android:name=".extension.ExtensionJumpActivity" />
-        <activity android:name=".dbdemo.DbDemoActivity"></activity>
+        <activity android:name=".dbdemo.DbDemoActivity" />
+        <activity android:name=".udp.UdpActivity"></activity>
     </application>
 
 </manifest>
