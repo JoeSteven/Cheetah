@@ -68,6 +68,8 @@ Cheetah 目前划分为两层，基础功能层 (core) 和架构层 (mvp)。
 
 蓝牙 : 蓝牙模块并没有直接包含在该框架中，可以依赖我的一个封装库[RxBle](https://github.com/JoeSteven/RxBle)
 
+[相机](./readme/camera.md) : camera
+=======
 #### 混淆文件
 
 项目 release 版本混淆非常有必要，一方面提升代码安全性，大幅降低被反编译后的可读性，另一方面会压缩整个apk的包大小，节省推广及下载成本
