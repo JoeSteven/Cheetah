@@ -7,6 +7,7 @@ import com.joey.cheetah.sample.extension.ExtensionActivity;
 import com.joey.cheetah.sample.java.scan.BleScanActivity;
 import com.joey.cheetah.sample.kt.CameraActivity;
 import com.joey.cheetah.sample.kt.GankActivity;
+import com.joey.cheetah.sample.udp.UdpActivity;
 
 
 /**
@@ -29,6 +30,8 @@ public class MainActivity extends AbsActivity{
         findViewById(R.id.bt_extension).setOnClickListener(v -> Jumper.make(this, ExtensionActivity.class).jump());
 
         findViewById(R.id.bt_database).setOnClickListener(v -> Jumper.make(this, DbDemoActivity.class).jump());
+
+        findViewById(R.id.bt_udp).setOnClickListener(v -> Jumper.make(this, UdpActivity.class).jump());
     }
 
     @Override
