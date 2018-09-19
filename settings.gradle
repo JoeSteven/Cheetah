@@ -1,1 +1,1 @@
-include ':app', ':core', ':mvp'
+include ':app', ':core', ':mvp',":iot"
