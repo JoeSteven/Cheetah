@@ -60,7 +60,6 @@ class UDPBroadcaster(var context: Context) {
     }
 
     fun receive(buffer: ByteArray): Observable<DatagramPacket> {
-        var recv = true
         return Observable.create<DatagramPacket>({
             while (socket != null && socket?.isClosed?.not() as Boolean) {
                 try {

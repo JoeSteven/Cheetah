@@ -1,12 +1,9 @@
 package com.joey.cheetah.core.media.glide;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.support.annotation.Nullable;
 
 import com.bumptech.glide.load.engine.cache.DiskCache;
 import com.bumptech.glide.load.engine.cache.DiskLruCacheFactory;
-import com.joey.cheetah.core.media.unused.ImageConfig;
 
 import java.io.File;
 

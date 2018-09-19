@@ -36,7 +36,7 @@ public class IoTClient {
         this.config = config;
     }
 
-    public void connect(MqttCallback callback) throws MqttException {
+    public <T extends MqttCallback>void connect(T callback) throws MqttException {
         if (realClient == null) {
             realClient = new MqttClient(config.serverAddress, config.clientId, new MemoryPersistence());
         }

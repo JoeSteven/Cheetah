@@ -1,5 +1,7 @@
 package com.terminus.iot;
 
+import android.support.annotation.NonNull;
+
 import com.terminus.iot.msg.IMsgParser;
 import com.terminus.iot.msg.IotFrame;
 import com.terminus.iot.msg.IotMsgParser;
@@ -9,7 +11,7 @@ import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
-import lombok.NonNull;
+
 
 /**
  * Description:

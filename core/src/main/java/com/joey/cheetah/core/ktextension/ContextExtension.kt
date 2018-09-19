@@ -19,7 +19,7 @@ fun Context.versionName(pkgName: String = packageName): String {
 }
 
 fun Context.isAppForeGround(pkgName: String = packageName): Boolean {
-    return Global.isAppForeground(packageName)
+    return Global.isAppForeground(pkgName)
 }
 
 val Context.screenWidth: Int

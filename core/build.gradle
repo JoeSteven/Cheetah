@@ -51,7 +51,9 @@ dependencies {
     // RecyclerView
     implementation 'com.android.support:recyclerview-v7:27.1.1'
 
-    api 'me.drakeet.multitype:multitype:3.4.4'
+    api ('me.drakeet.multitype:multitype:3.4.4') {
+        exclude group:'com.android.support', module:'recyclerview-v7'
+    }
 
     // database
     api ("android.arch.persistence.room:runtime:1.1.1") {
