@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'com.github.dcendents.android-maven'
+apply from: "./publish.gradle"
 
 android {
     compileSdkVersion 27
@@ -22,6 +22,14 @@ android {
         sourceCompatibility 1.8
     }
 
+    sourceSets {
+        main{
+            java{
+                include '**/*.java'
+                include '**/*.kt'
+            }
+        }
+    }
 }
 
 group = 'com.github.JoeSteven' // 最好是你的 github 名字
@@ -44,23 +52,23 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.7.1'
 
     // butter knife
-    api 'com.jakewharton:butterknife:8.8.1'
+    implementation 'com.jakewharton:butterknife:8.8.1'
     kapt 'com.jakewharton:butterknife-compiler:8.8.1'
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     // RecyclerView
     implementation 'com.android.support:recyclerview-v7:27.1.1'
 
-    api ('me.drakeet.multitype:multitype:3.4.4') {
-        exclude group:'com.android.support', module:'recyclerview-v7'
+    api('me.drakeet.multitype:multitype:3.4.4') {
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
     }
 
     // database
-    api ("android.arch.persistence.room:runtime:1.1.1") {
-        exclude group:'android.arch.core'
+    api("android.arch.persistence.room:runtime:1.1.1") {
+        exclude group: 'android.arch.core'
     }
-    api ("android.arch.persistence.room:rxjava2:1.1.1") {
-        exclude group:'android.arch.core'
+    api("android.arch.persistence.room:rxjava2:1.1.1") {
+        exclude group: 'android.arch.core'
     }
     kapt "android.arch.persistence.room:compiler:1.1.1"
 
@@ -68,3 +76,8 @@ dependencies {
 repositories {
     mavenCentral()
 }
+
+ext.group_Id('com.joey.cheetah')
+ext.artifact_id('core')
+ext.version_name('1.1-SNAPSHOT')
+ext.aar_name('core-release.aar')
