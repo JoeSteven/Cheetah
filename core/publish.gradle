@@ -95,3 +95,29 @@ publishing {
         }
     }
 }
+
+task startClean() {
+    doLast {
+        println("clean complete")
+    }
+    finalizedBy clean
+//    dependsOn clean
+}
+
+task startBuild() {
+    doLast {
+        println("build complete")
+    }
+    finalizedBy build
+}
+
+task publishToMaven {
+    publish.dependsOn startBuild
+    startBuild.dependsOn clean
+    dependsOn publish
+//    dependsOn startClean
+//    dependsOn startBuild
+//    dependsOn publish
+//    startBuild.mustRunAfter startClean
+//    publish.mustRunAfter startBuild
+}
