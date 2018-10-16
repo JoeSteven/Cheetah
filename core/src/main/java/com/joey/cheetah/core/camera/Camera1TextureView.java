@@ -12,7 +12,6 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 import android.view.TextureView;
 
 import com.joey.cheetah.core.global.Global;
@@ -21,7 +20,6 @@ import com.joey.cheetah.core.utils.CLog;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
 /**
  * Camera1视频预览类
@@ -29,11 +27,10 @@ import java.util.function.Consumer;
  * @author rain
  * @date 2018/09/04
  */
-public class Camera1Preview extends SurfaceView implements SurfaceHolder.Callback,
-        CameraHandle,Camera.PreviewCallback {
+public class Camera1TextureView extends TextureView implements
+        CameraHandle, Camera.PreviewCallback {
     private static int START_PREVIEW = 0;
     private Camera mCamera;
-    private SurfaceHolder mSurfaceHolder;
     private List<Integer> pendingTask = new ArrayList<>();
 
     /**
@@ -58,16 +55,44 @@ public class Camera1Preview extends SurfaceView implements SurfaceHolder.Callbac
     private PreviewCallback mPreviewCallback;
 
     private CameraOpenThread mCameraThread;
+    private SurfaceTexture mSurface;
 
-    public Camera1Preview(Context context) {
+    private SurfaceTextureListener listener = new SurfaceTextureListener() {
+        @Override
+        public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
+            CLog.d("camera1", "surface texture ok" + Thread.currentThread());
+            mSurface = surface;
+            startPreview();
+        }
+
+        @Override
+        public void onSurfaceTextureSizeChanged(SurfaceTexture surface, int width, int height) {
+            mSurface = surface;
+            CLog.d("camera1", "surface texture changed" + Thread.currentThread());
+        }
+
+        @Override
+        public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
+            stopPreview();
+            mSurface = null;
+            surface.release();
+            CLog.d("camera1", "surface texture release" + Thread.currentThread());
+            return false;
+        }
+
+        @Override
+        public void onSurfaceTextureUpdated(SurfaceTexture surface) {
+
+        }
+    };
+
+    public Camera1TextureView(Context context) {
         this(context, null);
     }
 
-    public Camera1Preview(Context context, AttributeSet attrs) {
+    public Camera1TextureView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
-        mSurfaceHolder = getHolder();
-        mSurfaceHolder.addCallback(this);
+        setSurfaceTextureListener(listener);
     }
 
     @Override
@@ -83,25 +108,24 @@ public class Camera1Preview extends SurfaceView implements SurfaceHolder.Callbac
     public void startPreview() {
         if (mCameraThread != null) {
             mCameraThread.mHandler.post(() -> {
-                CLog.d("camera1", "try to start preview" + Thread.currentThread());
+                CLog.d("camera1", "try to start preview" + Thread.currentThread() +" surface is ok:"+ isAvailable());
                 if (mCamera == null) {
                     pendingTask.add(START_PREVIEW);
                     return;
                 }
+                if (mConfiguration == null) mConfiguration = new CameraConfiguration();
 
-                if (mConfiguration != null) {
-                    mConfiguration.setCameraParameters(mCamera, mCameraId, mPreviewWidth, mPreviewHeight);
-                    try {
+                mConfiguration.setCameraParameters(mCamera, mCameraId, mPreviewWidth, mPreviewHeight);
+                try {
 
-                        mCamera.setPreviewDisplay(mSurfaceHolder);
-                        mCamera.addCallbackBuffer(mPreBuffer);
-                        mCamera.setPreviewCallbackWithBuffer(Camera1Preview.this);
-                        mCamera.startPreview();
-                        CLog.d("camera1", "start preview success"+ Thread.currentThread());
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        CLog.d("camera1", "start preview error:" + e.toString());
-                    }
+                    mCamera.setPreviewTexture(mSurface);
+                    mCamera.addCallbackBuffer(mPreBuffer);
+                    mCamera.setPreviewCallbackWithBuffer(Camera1TextureView.this);
+                    mCamera.startPreview();
+                    CLog.d("camera1", "start preview success" + Thread.currentThread());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    CLog.d("camera1", "start preview error:" + e.toString());
                 }
             });
         }
@@ -113,7 +137,7 @@ public class Camera1Preview extends SurfaceView implements SurfaceHolder.Callbac
         if (mCameraThread != null) {
             mCameraThread.mHandler.post(() -> {
                 if (mCamera != null) {
-                    CLog.d("camera1", "stop camera"+ Thread.currentThread());
+                    CLog.d("camera1", "stop camera" + Thread.currentThread());
                     stopPreview();
                     mCamera.release();
                     mCamera = null;
@@ -136,14 +160,10 @@ public class Camera1Preview extends SurfaceView implements SurfaceHolder.Callbac
     public void stopPreview() {
         if (mCameraThread != null) {
             mCameraThread.mHandler.post(() -> {
-                CLog.d("camera1", "stop preview"+ Thread.currentThread());
+                mConfiguration = null;
+                CLog.d("camera1", "stop preview" + Thread.currentThread());
                 if (mCamera != null) {
                     mCamera.setPreviewCallbackWithBuffer(null);
-                    try {
-                        mCamera.setPreviewDisplay(null);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
                     mCamera.stopPreview();
                 }
             });
@@ -176,7 +196,7 @@ public class Camera1Preview extends SurfaceView implements SurfaceHolder.Callbac
         mPreviewWidth = width;
         mPreviewHeight = height;
 
-        mPreBuffer = new byte[width * height * (ImageFormat.getBitsPerPixel(ImageFormat.NV21))/8];
+        mPreBuffer = new byte[width * height * (ImageFormat.getBitsPerPixel(ImageFormat.NV21)) / 8];
     }
 
     @Override
@@ -196,7 +216,7 @@ public class Camera1Preview extends SurfaceView implements SurfaceHolder.Callbac
             Camera.Size size = camera11.getParameters().getPreviewSize();
             int width = size.width;
             int height = size.height;
-            callback.onCapture(data,width,height);
+            callback.onCapture(data, width, height);
 
             mCamera.startPreview();
         }));
@@ -207,34 +227,12 @@ public class Camera1Preview extends SurfaceView implements SurfaceHolder.Callbac
         mPreviewCallback = previewCallback;
     }
 
-    @Override
-    public void surfaceCreated(SurfaceHolder holder) {
-        if (mConfiguration == null) {
-            mConfiguration = new CameraConfiguration();
-        }
-        CLog.d("camera1", "on surface created "+ Thread.currentThread());
-        startPreview();
-    }
-
-    @Override
-    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-        CLog.d("camera1", "on surface changed"+ Thread.currentThread());
-        stopPreview();
-        startPreview();
-
-    }
-
-    @Override
-    public void surfaceDestroyed(SurfaceHolder holder) {
-        CLog.d("camera1", "on surface stop"+ Thread.currentThread());
-        stopCamera();
-    }
 
     @Override
     public void onPreviewFrame(byte[] data, Camera camera) {
 
         if (mPreBuffer == null) {
-            mPreBuffer = new byte[mPreviewWidth * mPreviewHeight * (ImageFormat.getBitsPerPixel(ImageFormat.NV21))/8];
+            mPreBuffer = new byte[mPreviewWidth * mPreviewHeight * (ImageFormat.getBitsPerPixel(ImageFormat.NV21)) / 8];
         }
 
         mCamera.addCallbackBuffer(mPreBuffer);
@@ -244,7 +242,7 @@ public class Camera1Preview extends SurfaceView implements SurfaceHolder.Callbac
         int height = size.height;
 
         if (mPreviewCallback != null) {
-            mPreviewCallback.onPreviewFrame(data,mCameraId,width,height);
+            mPreviewCallback.onPreviewFrame(data, mCameraId, width, height);
         }
     }
 
@@ -265,7 +263,7 @@ public class Camera1Preview extends SurfaceView implements SurfaceHolder.Callbac
                     synchronized (CameraOpenThread.this) {
                         notify();
                     }
-                    CLog.d("camera1", "open camera success"+ Thread.currentThread());
+                    CLog.d("camera1", "open camera success" + Thread.currentThread());
                     checkPendingTask();
                 }
             });
@@ -280,8 +278,8 @@ public class Camera1Preview extends SurfaceView implements SurfaceHolder.Callbac
     }
 
     private void checkPendingTask() {
-        for(int task: pendingTask) {
-            CLog.d("camera1", "execute pending task:"+ task);
+        for (int task : pendingTask) {
+            CLog.d("camera1", "execute pending task:" + task);
             if (task == START_PREVIEW) {
                 startPreview();
             }

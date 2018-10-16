@@ -38,23 +38,27 @@ public class CameraConfiguration {
      * @param previewH 预览的高
      */
     public void setCameraParameters(Camera camera, int cameraId, int previewW, int previewH) {
-        Camera.Parameters parameters = camera.getParameters();
-        List<String> focusModes = parameters.getSupportedFocusModes();
-        if (focusModes.contains("continuous-video")) {
-            parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
+        try {
+            Camera.Parameters parameters = camera.getParameters();
+            List<String> focusModes = parameters.getSupportedFocusModes();
+            if (focusModes.contains("continuous-video")) {
+                parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
+            }
+
+            Size localSize = getOptimalPreviewSize(
+                    parameters.getSupportedPreviewSizes(), previewW, previewH);
+            if (localSize != null) {
+                parameters.setPreviewSize(localSize.width, localSize.height);
+            }
+
+            parameters.setPreviewFormat(ImageFormat.NV21);
+            parameters.setPictureFormat(ImageFormat.JPEG);
+
+            camera.setDisplayOrientation(getDisplayOrientation(cameraId));
+            camera.setParameters(parameters);
+        } catch (RuntimeException e) {
+            e.printStackTrace();
         }
-
-        Size localSize = getOptimalPreviewSize(
-                parameters.getSupportedPreviewSizes(), previewW, previewH);
-        if (localSize != null) {
-            parameters.setPreviewSize(localSize.width, localSize.height);
-        }
-
-        parameters.setPreviewFormat(ImageFormat.NV21);
-        parameters.setPictureFormat(ImageFormat.JPEG);
-
-        camera.setDisplayOrientation(getDisplayOrientation(cameraId));
-        camera.setParameters(parameters);
     }
 
     /**
@@ -153,8 +157,8 @@ public class CameraConfiguration {
      * @param w         预览的宽
      * @param h         预览的高
      */
-    private Camera.Size getOptimalPreviewSize(List<Size> localList, int w, int h) {
-        Camera.Size optimalSize = null;
+    private Size getOptimalPreviewSize(List<Size> localList, int w, int h) {
+        Size optimalSize = null;
 
         List<Size> localArrayList = new ArrayList<Size>();
         Iterator<Size> localIterator = localList.iterator();

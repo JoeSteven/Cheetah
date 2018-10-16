@@ -18,6 +18,10 @@ import com.joey.cheetah.core.camera.CameraConstant;
 import com.joey.cheetah.core.global.Global;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -34,7 +38,7 @@ public class ImageUtil {
     public static final int COLOR_FormatI420 = 1;
     public static final int COLOR_FormatNV21 = 2;
 
-    @IntDef({COLOR_FormatI420,COLOR_FormatNV21})
+    @IntDef({COLOR_FormatI420, COLOR_FormatNV21})
     @Retention(RetentionPolicy.SOURCE)
     public @interface COLORFORMAT {
 
@@ -141,10 +145,11 @@ public class ImageUtil {
 
     /**
      * 旋转图片
+     *
      * @param bitmap 原始图片
      * @return 处理过后的图片
      */
-    public static Bitmap rotaingImageView(Bitmap bitmap,@CameraConstant.CameraID int cameraID) {
+    public static Bitmap rotaingImageView(Bitmap bitmap, @CameraConstant.CameraID int cameraID) {
         Matrix matrix = new Matrix();
 
         switch (cameraID) {
@@ -162,7 +167,8 @@ public class ImageUtil {
             matrix.postRotate(90);
         }
 
-        Bitmap resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        Bitmap resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap
+                .getHeight(), matrix, true);
 
         if (!bitmap.isRecycled()) {
             bitmap.recycle();
@@ -172,7 +178,6 @@ public class ImageUtil {
     }
 
     /**
-     *
      * @param path 图片路径
      * @return 旋转的角度
      */
@@ -200,4 +205,89 @@ public class ImageUtil {
         }
         return degree;
     }
+
+    /**
+     * 旋转图片
+     *
+     * @param angle  旋转角度
+     * @param bitmap 要旋转的图片
+     * @return 旋转后的图片
+     */
+    public static Bitmap rotate(Bitmap bitmap, int angle) {
+        Matrix matrix = new Matrix();
+        matrix.postRotate(angle);
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(),
+                bitmap.getHeight(), matrix, true);
+    }
+
+    /**
+     * 获取bitmap
+     *
+     * @param file
+     * @return bitmap
+     */
+    public static Bitmap getBitmapByFile(File file) {
+        FileInputStream fis = null;
+        Bitmap bitmap = null;
+        try {
+            fis = new FileInputStream(file);
+            bitmap = BitmapFactory.decodeStream(fis);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (OutOfMemoryError e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fis.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return bitmap;
+    }
+
+    /**
+     * 图片的缩放方法
+     *
+     * @param src       ：源图片资源
+     * @param newWidth  ：缩放后宽度
+     * @param newHeight ：缩放后高度
+     */
+    public static Bitmap scale(Bitmap src, double newWidth, double newHeight) {
+        // 记录src的宽高
+        float width = src.getWidth();
+        float height = src.getHeight();
+        // 创建一个matrix容器
+        Matrix matrix = new Matrix();
+        // 计算缩放比例
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeight) / height;
+        // 开始缩放
+        matrix.postScale(scaleWidth, scaleHeight);
+        // 创建缩放后的图片
+        return Bitmap.createBitmap(src, 0, 0, (int) width, (int) height,
+                matrix, true);
+    }
+
+    /**
+     * 保存图片为jpg
+     *
+     * @param bitmap   原图
+     * @param filePath 目标路径
+     */
+    public static void saveJPG_After(Bitmap bitmap, String filePath) {
+        File file = new File(filePath);
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            if (bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out)) {
+                out.flush();
+                out.close();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -35,7 +35,7 @@ public interface CameraHandle {
     /**
      * 设置预览图像的宽高
      */
-    void setPreviewCameraWH(int width,int height);
+    void setPreviewCameraWH(int width, int height);
 
     /**
      * 设置前置/后置摄像头
@@ -56,10 +56,10 @@ public interface CameraHandle {
     void onPreview(PreviewCallback previewCallback);
 
     interface PreviewCallback {
-        void onPreviewFrame(byte[] data,int cameraId,int width,int height);
+        void onPreviewFrame(byte[] data, int cameraId, int width, int height);
     }
 
     interface CaptureCameraCallback {
-        void onCapture(byte[] data,int width,int height);
+        void onCapture(byte[] data, int width, int height);
     }
 }
