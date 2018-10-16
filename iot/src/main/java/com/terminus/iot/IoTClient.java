@@ -2,8 +2,6 @@ package com.terminus.iot;
 
 import android.text.TextUtils;
 
-import com.terminus.iot.msg.IotFrame;
-
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
@@ -19,7 +17,6 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 public class IoTClient {
     private Config config;
     private MqttClient realClient;
-    private IoTCallback callback;
     private volatile short sequenceId;
 
 
@@ -51,12 +48,7 @@ public class IoTClient {
         realClient.setCallback(callback);
 
         if (!TextUtils.isEmpty(config.willTopic)) {
-            byte[] willByte = newFrame(IoTProtocol.MSG_TYPE_SYSTEM,
-                    generateId(),
-                    IoTProtocol.SERVICE_TYPE_ACCESS,
-                    IoTProtocol.CMD_TYPE_WILL,
-                    new String(config.password).getBytes()).toByte();
-            options.setWill(config.willTopic, willByte, 0, false);
+            options.setWill(config.willTopic, config.willBytes, 0, false);
         }
         realClient.connect(options);
     }
@@ -69,7 +61,7 @@ public class IoTClient {
         return realClient != null && realClient.isConnected();
     }
 
-    public void send(String sendTopic, short sequenceId, byte[] data) throws MqttException {
+    public void send(String sendTopic, int sequenceId, byte[] data) throws MqttException {
         MqttMessage message = new MqttMessage();
         message.setId(sequenceId);
         message.setQos(2);
@@ -94,16 +86,16 @@ public class IoTClient {
         return realClient;
     }
 
-    public IotFrame newFrame(byte msgType, short  sequenceId, short  serviceType, short cmd, byte[] body) {
-        return new IotFrame(msgType, sequenceId, serviceType, cmd, body)
-                .setRsaKey(config.rsaKey)
-                .setAesKey(config.aesKey);
+    public String devId() {
+        return config.devId;
     }
-    
-    public IotFrame newFrame() {
-        return new IotFrame()
-                .setRsaKey(config.rsaKey)
-                .setAesKey(config.aesKey);
+
+    public String rsaKey() {
+        return config.rsaKey;
+    }
+
+    public byte[] aesKey() {
+        return config.aesKey;
     }
 
     public synchronized short generateId() {
@@ -126,6 +118,7 @@ public class IoTClient {
         boolean autoReconnect = true;
         boolean cleanSession = false;
         String willTopic;
+        byte[] willBytes;
         String rsaKey;
         byte[] aesKey;
 
@@ -191,6 +184,11 @@ public class IoTClient {
             this.aesKey = aesKey;
             return this;
         }
+
+        public Config willBytes(byte[] willBytes) {
+            this.willBytes = willBytes;
+            return this;
+        }
  
 
         public IoTClient create() {
@@ -203,10 +201,8 @@ public class IoTClient {
                     || TextUtils.isEmpty(userName)
                     || TextUtils.isEmpty(devId)
                     || TextUtils.isEmpty(clientId)
-                    || password == null
-                    || TextUtils.isEmpty(rsaKey)
-                    || aesKey == null) {
-                throw new IllegalArgumentException("Config must be complete with serverAddress, userName, devId, clientId, password, rsaKey, aesKey!");
+                    || password == null) {
+                throw new IllegalArgumentException("Config must be complete with serverAddress, userName, devId, clientId, password!");
             }
         }
     }
