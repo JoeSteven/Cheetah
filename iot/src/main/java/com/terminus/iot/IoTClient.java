@@ -46,7 +46,7 @@ public class IoTClient {
         options.setPassword(config.password);
         options.setConnectionTimeout(config.connectionTimeout);
         options.setKeepAliveInterval(config.keepAliveInterval);
-        options.setAutomaticReconnect(true);
+        options.setAutomaticReconnect(config.autoReconnect);
 
         realClient.setCallback(callback);
 
@@ -65,13 +65,17 @@ public class IoTClient {
         realClient.subscribe(topics, qos);
     }
 
+    public boolean isConnected() {
+        return realClient != null && realClient.isConnected();
+    }
+
     public void send(String sendTopic, short sequenceId, byte[] data) throws MqttException {
         MqttMessage message = new MqttMessage();
         message.setId(sequenceId);
         message.setQos(2);
         message.setRetained(false);
         message.setPayload(data);
-        if (realClient != null) {
+        if (realClient != null && realClient.isConnected()) {
             realClient.publish(sendTopic, message);
         }
     }
