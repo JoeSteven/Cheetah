@@ -107,6 +107,9 @@ public class ImageHelper {
     }
 
     private static Context context() {
+        if (initContext == null) {
+            throw new IllegalArgumentException("You must init initContext");
+        }
         return initContext;
     }
 

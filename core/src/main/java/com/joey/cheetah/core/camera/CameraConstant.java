@@ -22,9 +22,9 @@ public final class CameraConstant {
      */
     public static final int CAMERAID_BACK = 0;
 
-    public static final int PREVIEWW = 640;
+    public static final int PREVIEWW = 480;
 
-    public static final int PREVIEWH = 480;
+    public static final int PREVIEWH = 640;
 
     @IntDef({CAMERAID_FRONT,CAMERAID_BACK})
     @Retention(RetentionPolicy.SOURCE)

@@ -23,7 +23,7 @@ public abstract class IoTCallback implements MqttCallback{
     private IoTClient client;
 
     public IoTCallback(IoTClient client) {
-       this(client, new IotMsgParser());
+       this(client, new IotMsgParser(client));
     }
 
     public IoTCallback(IoTClient client, IMsgParser parser) {
@@ -34,11 +34,6 @@ public abstract class IoTCallback implements MqttCallback{
     @Override
     public void connectionLost(Throwable cause) {
         // disconnected, try reconnect
-        try {
-            client.reconnect();
-        } catch (MqttException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override

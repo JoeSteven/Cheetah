@@ -6,6 +6,8 @@ import com.terminus.iot.utils.ConvertUtil;
 import com.terminus.iot.utils.Crc32Utils;
 import com.terminus.iot.utils.RSAUtil;
 
+import java.util.Arrays;
+
 /**
  * Description:
  * author:Joey
@@ -132,5 +134,16 @@ public class IotFrame {
 
         ret = ConvertUtil.byteMerger(ret, Body);
         return ret;
+    }
+
+    @Override
+    public String toString() {
+        return "IotFrame{" +
+                "MsgType=" + MsgType +
+                ", SequenceId=" + SequenceId +
+                ", ServiceType=" + ServiceType +
+                ", Cmd=" + Cmd +
+                ", Body=" + Arrays.toString(Body) +
+                '}';
     }
 }
