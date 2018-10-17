@@ -96,13 +96,13 @@ publishing {
     }
 }
 
-task startClean() {
-    doLast {
-        println("clean complete")
-    }
-    finalizedBy clean
-//    dependsOn clean
-}
+//task startClean() {
+//    doLast {
+//        println("clean complete")
+//    }
+//    finalizedBy clean
+////    dependsOn clean
+//}
 
 task startBuild() {
     doLast {
@@ -112,12 +112,12 @@ task startBuild() {
 }
 
 task publishToMaven {
-    publish.dependsOn startBuild
-    startBuild.dependsOn clean
+    dependsOn startBuild
     dependsOn publish
-//    dependsOn startClean
-//    dependsOn startBuild
-//    dependsOn publish
-//    startBuild.mustRunAfter startClean
-//    publish.mustRunAfter startBuild
+    publish.mustRunAfter startBuild
+    //    publish.dependsOn startBuild
+    //    dependsOn startClean
+    //    dependsOn startBuild
+    //    dependsOn publish
+    //    startBuild.mustRunAfter startClean
 }

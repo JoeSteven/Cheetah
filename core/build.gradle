@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply from: "./publish.gradle"
+apply from: "$rootDir/publish.gradle"
 
 android {
     compileSdkVersion 27
@@ -79,5 +79,5 @@ repositories {
 
 ext.group_Id('com.joey.cheetah')
 ext.artifact_id('core')
-ext.version_name('1.1-SNAPSHOT')
+ext.version_name('1.2-SNAPSHOT')
 ext.aar_name('core-release.aar')
