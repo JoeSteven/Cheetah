@@ -20,6 +20,22 @@ Cheetah 目前划分为两层，基础功能层 (core) 和架构层 (mvp)。
 - 可以将项目clone到本地后，导入需要的module进行开发
 - 也可以通过 gradle 直接依赖进行开发
 
+**版本号以最新tag为准**
+
+Core 模块：
+
+```groovy
+api 'com.joey.cheetah:core:[version]'
+```
+
+Mvp 模块：
+
+```groovy
+api 'com.joey.cheetah:mvp:[version]'
+```
+
+[依赖和发布](./readme/maven.md)
+
 ### 模块说明
 
 使用的时候请优先阅读初始化模块的文档，然后再是架构文档
