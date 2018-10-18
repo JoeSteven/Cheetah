@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.com.joey.cheetah.mvp.R;
+import com.joey.cheetah.core.ktextension.ContextExtensionKt;
 import com.joey.cheetah.core.ui.CToast;
 import com.joey.cheetah.mvp.auto.IPresenterProvider;
 import com.joey.cheetah.mvp.auto.PresenterProvider;

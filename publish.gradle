@@ -1,0 +1,103 @@
+apply plugin: 'maven-publish'
+
+
+def group_id(groupId) {
+    ext.GROUP_ID = groupId
+}
+
+def artifact_id(id) {
+    ext.ARTIFACT_ID = id
+}
+
+def version_name(version) {
+    ext.VERSION_NAME = version
+}
+
+def aar_name(aar) {
+    ext.AAR = aar
+}
+
+ext {
+    group_Id = this.&group_id
+    artifact_id = this.&artifact_id
+    version_name = this.&version_name
+    aar_name = this.&aar_name
+
+    GROUP_ID = 'default'
+    ARTIFACT_ID = 'default'
+    VERSION_NAME = '1.0'
+    AAR = 'release.aar'
+}
+
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier "sources"
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId GROUP_ID
+            artifactId ARTIFACT_ID
+            version VERSION_NAME
+            artifact(sourceJar)
+            artifact("$buildDir/outputs/aar/$AAR")
+
+            pom.withXml {
+                final dependenciesNode = asNode().appendNode('dependencies')
+
+                ext.addDependency = { Dependency dep, String scope ->
+                    if (dep.group == null || dep.version == null || dep.name == null || dep.name == "unspecified")
+                        return // ignore invalid dependencies
+
+                    final dependencyNode = dependenciesNode.appendNode('dependency')
+                    dependencyNode.appendNode('groupId', dep.group)
+                    dependencyNode.appendNode('artifactId', dep.name)
+                    dependencyNode.appendNode('version', dep.version)
+                    dependencyNode.appendNode('scope', scope)
+
+                    if (!dep.transitive) {
+                        // If this dependency is transitive, we should force exclude all its dependencies them from the POM
+                        final exclusionNode = dependencyNode.appendNode('exclusions').appendNode('exclusion')
+                        exclusionNode.appendNode('groupId', '*')
+                        exclusionNode.appendNode('artifactId', '*')
+                    } else if (!dep.properties.excludeRules.empty) {
+                        // Otherwise add specified exclude rules
+                        final exclusionNode = dependencyNode.appendNode('exclusions').appendNode('exclusion')
+                        dep.properties.excludeRules.each { ExcludeRule rule ->
+                            exclusionNode.appendNode('groupId', rule.group ?: '*')
+                            exclusionNode.appendNode('artifactId', rule.module ?: '*')
+                        }
+                    }
+                }
+
+                // List all "compile" dependencies (for old Gradle)
+                configurations.compile.getAllDependencies().each { dep -> addDependency(dep, "compile") }
+                // List all "api" dependencies (for new Gradle) as "compile" dependencies
+                configurations.api.getAllDependencies().each { dep -> addDependency(dep, "compile") }
+                // List all "implementation" dependencies (for new Gradle) as "runtime" dependencies
+                configurations.implementation.getAllDependencies().each { dep -> addDependency(dep, "runtime") }
+            }
+        }
+    }
+    repositories {
+        maven {
+            if (VERSION_NAME.endsWith("-SNAPSHOT")) {
+                url "$rootDir/maven/terminus-snapshot/"
+            } else {
+                url "$rootDir/maven/terminus/"
+            }
+        }
+        maven {
+            if (VERSION_NAME.endsWith("-SNAPSHOT")) {
+                url "http://192.168.201.176:8081/repository/terminus-SNAPSHOT/"
+            } else {
+                url "http://192.168.201.176:8081/repository/terminus/"
+            }
+            credentials {
+                username 'admin'
+                password 'admin123'
+            }
+        }
+    }
+}

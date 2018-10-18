@@ -80,6 +80,7 @@ val Context.audioManager
     get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager?
 
 val Context.batteryManager
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     get() = getSystemService(Context.BATTERY_SERVICE) as BatteryManager?
 
 val Context.bluetoothManager
@@ -114,6 +115,7 @@ val Context.inputMethodManager
     get() = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
 
 val Context.inputManager
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     get() = getSystemService(Context.INPUT_SERVICE) as InputManager?
 
 val Context.jobScheduler
@@ -138,6 +140,7 @@ val Context.mediaProjectionManager
     get() = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager?
 
 val Context.mediaRouter
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     get() = getSystemService(Context.MEDIA_ROUTER_SERVICE) as MediaRouter?
 
 val Context.mediaSessionManager
@@ -151,6 +154,7 @@ val Context.notificationManager
     get() = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager?
 
 val Context.nsdManager
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     get() = getSystemService(Context.NSD_SERVICE) as NsdManager?
 
 val Context.powerManager
