@@ -90,9 +90,9 @@ publishing {
         }
         maven {
             if (VERSION_NAME.endsWith("-SNAPSHOT")) {
-                url "http://192.168.201.176:8081/repository/terminus-SNAPSHOT/"
+                url "http://192.168.201.176:8081/repository/terminus-snapshot/"
             } else {
-                url "http://192.168.201.176:8081/repository/terminus/"
+                url "http://192.168.201.176:8081/repository/terminus-release/"
             }
             credentials {
                 username 'admin'
