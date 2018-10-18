@@ -21,6 +21,5 @@ android {
 group = 'com.github.JoeSteven' // 最好是你的 github 名字
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-//    api project(':core')
-    api 'com.joey.cheetah:core:1.8'
+    api project(':core')
 }

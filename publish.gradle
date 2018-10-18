@@ -83,41 +83,21 @@ publishing {
     repositories {
         maven {
             if (VERSION_NAME.endsWith("-SNAPSHOT")) {
-                url "http://localhost:8081/repository/terminus-SNAPSHOT/"
+                url "$rootDir/maven/terminus-snapshot/"
             } else {
-                url "http://localhost:8081/repository/terminus/"
+                url "$rootDir/maven/terminus/"
             }
-
+        }
+        maven {
+            if (VERSION_NAME.endsWith("-SNAPSHOT")) {
+                url "http://192.168.201.176:8081/repository/terminus-SNAPSHOT/"
+            } else {
+                url "http://192.168.201.176:8081/repository/terminus/"
+            }
             credentials {
                 username 'admin'
                 password 'admin123'
             }
         }
     }
-}
-
-//task startClean() {
-//    doLast {
-//        println("clean complete")
-//    }
-//    finalizedBy clean
-////    dependsOn clean
-//}
-
-task startBuild() {
-    doLast {
-        println("build complete")
-    }
-    finalizedBy build
-}
-
-task publishToMaven {
-    dependsOn startBuild
-    dependsOn publish
-    publish.mustRunAfter startBuild
-    //    publish.dependsOn startBuild
-    //    dependsOn startClean
-    //    dependsOn startBuild
-    //    dependsOn publish
-    //    startBuild.mustRunAfter startClean
 }

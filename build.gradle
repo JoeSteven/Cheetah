@@ -22,7 +22,10 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://jitpack.io' }
-        maven { url 'http://localhost:8081/repository/terminus/' }
+        maven { url 'http://192.168.201.176:8081/repository/terminus-SNAPSHOT/' }
+        maven { url 'http://192.168.201.176:8081/repository/terminus/' }
+        maven { url "$rootDir/maven/terminus-snapshot" }
+        maven { url "$rootDir/maven/terminus" }
     }
 }
 
