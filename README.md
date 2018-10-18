@@ -36,6 +36,17 @@ api 'com.joey.cheetah:mvp:[version]'
 
 [依赖和发布](./readme/maven.md)
 
+- 在依赖的module的 build.gradle 中添加如下代码(android{}中)
+
+```groovy
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+```
+
+
+
 ### 模块说明
 
 使用的时候请优先阅读初始化模块的文档，然后再是架构文档
