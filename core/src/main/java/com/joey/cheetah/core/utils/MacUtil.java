@@ -68,6 +68,7 @@ public class MacUtil {
      */
     public static String getLocalMacAddressFromWifiInfo(Context context) {
         WifiManager wifi = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+        @SuppressLint("MissingPermission")
         WifiInfo winfo = wifi.getConnectionInfo();
         String mac = winfo.getMacAddress();
         return mac;
