@@ -2,6 +2,7 @@ package com.joey.cheetah.core.ktextension
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.support.v4.app.Fragment
 import android.view.View
@@ -27,6 +28,17 @@ fun Activity.jump(target:Class<out Activity>) {
             .jump()
 }
 
+fun Activity.jump(intent: Intent) {
+    Jumper.make(this, intent)
+            .jump()
+}
+
+fun Activity.jumpAndFinish(intent: Intent) {
+    Jumper.make(this, intent)
+            .jump()
+    finish()
+}
+
 fun Activity.jumpAndFinish(target:Class<out Activity>) {
     Jumper.make(this, target)
             .jump()
@@ -44,6 +56,11 @@ fun Activity.jumpAndFinish(action:String) {
     finish()
 }
 
+fun Activity.jumpForResult(intent: Intent, requestCode:Int) {
+    Jumper.make(this, intent)
+            .jumpForResult(requestCode)
+}
+
 fun Activity.jumpForResult(target: Class<out Activity>, requestCode:Int) {
     Jumper.make(this, target)
             .jumpForResult(requestCode)
@@ -52,6 +69,10 @@ fun Activity.jumpForResult(target: Class<out Activity>, requestCode:Int) {
 fun Activity.jumpForResult(action:String, requestCode:Int) {
     Jumper.make(this, action)
             .jumpForResult(requestCode)
+}
+
+fun Activity.jumpWithParams(intent: Intent) : Jumper {
+    return Jumper.make(this, intent)
 }
 
 fun Activity.jumpWithParams(target: Class<out Activity>) : Jumper {

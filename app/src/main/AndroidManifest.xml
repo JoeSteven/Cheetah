@@ -41,6 +41,7 @@
         <activity android:name=".extension.ExtensionJumpActivity" />
         <activity android:name=".dbdemo.DbDemoActivity" />
         <activity android:name=".udp.UdpActivity"/>
+        <activity android:name=".photo.PhotoActivity"/>
     </application>
 
 </manifest>
