@@ -52,7 +52,7 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.7.1'
 
     // butter knife
-    implementation 'com.jakewharton:butterknife:8.8.1'
+    api 'com.jakewharton:butterknife:8.8.1'
     kapt 'com.jakewharton:butterknife-compiler:8.8.1'
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
@@ -80,5 +80,5 @@ repositories {
 
 ext.group_Id('com.joey.cheetah')
 ext.artifact_id('core')
-ext.version_name('1.0')
+ext.version_name('1.1')
 ext.aar_name('core-release.aar')
