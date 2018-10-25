@@ -9,7 +9,7 @@
         <activity android:name=".media.photo.PhotoGetActivity"/>
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.joey.cheetah.core.fileprovider"
+            android:authorities="@string/photo_file_provider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

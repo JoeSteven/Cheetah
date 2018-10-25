@@ -1,6 +1,9 @@
 package com.joey.cheetah.sample;
 
+import com.joey.cheetah.core.utils.CLog;
+import com.joey.cheetah.core.utils.HexString;
 import com.joey.cheetah.core.utils.Jumper;
+import com.joey.cheetah.core.utils.Md5Util;
 import com.joey.cheetah.mvp.AbsActivity;
 import com.joey.cheetah.sample.dbdemo.DbDemoActivity;
 import com.joey.cheetah.sample.extension.ExtensionActivity;
@@ -35,6 +38,7 @@ public class MainActivity extends AbsActivity{
         findViewById(R.id.bt_udp).setOnClickListener(v -> Jumper.make(this, UdpActivity.class).jump());
 
         findViewById(R.id.bt_photo).setOnClickListener(v -> Jumper.make(this, PhotoActivity.class).jump());
+        CLog.d("test_md5", Md5Util.toMd5("123456"));
     }
 
     @Override
