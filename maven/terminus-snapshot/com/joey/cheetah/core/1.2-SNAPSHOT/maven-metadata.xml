@@ -2,11 +2,12 @@
 <metadata>
   <groupId>com.joey.cheetah</groupId>
   <artifactId>core</artifactId>
+  <version>1.2-SNAPSHOT</version>
   <versioning>
-    <versions>
-      <version>1.0-SNAPSHOT</version>
-      <version>1.2-SNAPSHOT</version>
-    </versions>
+    <snapshot>
+      <timestamp>20181025.075502</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
     <lastUpdated>20181025075502</lastUpdated>
   </versioning>
 </metadata>
