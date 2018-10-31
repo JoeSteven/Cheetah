@@ -6,6 +6,8 @@ import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
 import android.os.Bundle;
 
+import com.joey.cheetah.core.media.ble.BleSplitData;
+import com.joey.cheetah.core.utils.CLog;
 import com.joey.cheetah.core.utils.HexString;
 import com.joey.cheetah.sample.java.AbsBlePresenter;
 import com.polidea.rxandroidble2.NotificationSetupMode;
@@ -16,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import io.reactivex.Single;
 import io.reactivex.SingleSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -49,15 +52,20 @@ public class BleConnectPresenter extends AbsBlePresenter<IBleConnectView> {
             operator().setConnectRetryTimes(3)
                     .setConnectRetryTimes(1000)
                     .connect(device)
-                    .doOnSubscribe(disposable -> { if (isValid()) mView.showConnecting(); })
+                    .doOnSubscribe(disposable -> {
+                        if (isValid()) mView.showConnecting();
+                    })
                     .flatMapSingle((Function<RxBleConnection, SingleSource<RxBleDeviceServices>>) RxBleConnection::discoverServices)
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(this::connectResult,
-                            throwable -> { if (isValid()) {
+                            throwable -> {
+                                if (isValid()) {
                                     mView.toast("connect failed:" + throwable.toString());
                                     mView.showConnect();
                                     mView.showConnectList(null);
-                                    connected = false; }});
+                                    connected = false;
+                                }
+                            });
         }
     }
 
@@ -70,9 +78,15 @@ public class BleConnectPresenter extends AbsBlePresenter<IBleConnectView> {
 
     @SuppressLint("CheckResult")
     public void write(UUID uuid, String s) {
-        operator().writeCharacteristic(device, uuid, HexString.hex2Byte(s))
+        BleSplitData data = new BleSplitData(HexString.hex2Byte(s), HexString.hex2Byte("0B7C7D7E"));
+        Single<byte[]> single = operator().writeCharacteristic(device, uuid, data.getDataList().get(0));
+        for (int i = 1; i < data.getDataList().size(); i++) {
+            int finalI = i;
+            single = single.flatMap((Function<byte[], SingleSource<byte[]>>) bytes -> operator().writeCharacteristic(device, uuid, data.getDataList().get(finalI)));
+        }
+        single.flatMap((Function<byte[], SingleSource<byte[]>>) bytes -> operator().writeCharacteristic(device, uuid, data.getEndFrame()))
                 .subscribe(bytes -> done("write success:" + HexString.byte2Hex(bytes)),
-                        e -> mView.toast("write error:" + e.toString()));
+                e -> mView.toast("write error:" + e.toString()));
     }
 
     public void notification(UUID uuid) {
@@ -121,6 +135,7 @@ public class BleConnectPresenter extends AbsBlePresenter<IBleConnectView> {
     }
 
     private void done(String message) {
+        CLog.d("hahaha", message);
         if (isValid()) {
             mView.showMessage(message);
         }
@@ -145,9 +160,11 @@ public class BleConnectPresenter extends AbsBlePresenter<IBleConnectView> {
     }
 
     @Override
-    public void onSaveData(Bundle outState) {}
+    public void onSaveData(Bundle outState) {
+    }
 
     @Override
-    public void onRestoredData(Bundle savedInstanceState) {}
+    public void onRestoredData(Bundle savedInstanceState) {
+    }
 
 }
