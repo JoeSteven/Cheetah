@@ -22,8 +22,8 @@ android {
 group = 'com.github.JoeSteven' // 最好是你的 github 名字
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.joey.cheetah:core:1.1'
-//    implementation project(':core')
+//    implementation 'com.joey.cheetah:core:1.1'
+    implementation project(':core')
 }
 
 ext.group_Id('com.joey.cheetah')

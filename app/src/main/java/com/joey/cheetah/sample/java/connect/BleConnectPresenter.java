@@ -64,14 +64,14 @@ public class BleConnectPresenter extends AbsBlePresenter<IBleConnectView> {
     @SuppressLint("CheckResult")
     public void read(UUID uuid) {
         operator().readCharacteristic(device, uuid)
-                .subscribe(bytes -> done("read success:" + HexString.bytesToHex(bytes)),
+                .subscribe(bytes -> done("read success:" + HexString.byte2Hex(bytes)),
                         e -> mView.toast("read error:" + e.toString()));
     }
 
     @SuppressLint("CheckResult")
     public void write(UUID uuid, String s) {
-        operator().writeCharacteristic(device, uuid, HexString.hexToBytes(s))
-                .subscribe(bytes -> done("write success:" + HexString.bytesToHex(bytes)),
+        operator().writeCharacteristic(device, uuid, HexString.hex2Byte(s))
+                .subscribe(bytes -> done("write success:" + HexString.byte2Hex(bytes)),
                         e -> mView.toast("write error:" + e.toString()));
     }
 
@@ -83,7 +83,7 @@ public class BleConnectPresenter extends AbsBlePresenter<IBleConnectView> {
                 .flatMap(observable -> observable)
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnError(e -> mView.switchNotifyOrIndicate("No notify", false))
-                .subscribe(bytes -> done("notify data:" + HexString.bytesToHex(bytes)),
+                .subscribe(bytes -> done("notify data:" + new String(bytes)),
                         e -> mView.toast("notify error:" + e.toString()));
     }
 
@@ -95,21 +95,21 @@ public class BleConnectPresenter extends AbsBlePresenter<IBleConnectView> {
                 .flatMap(observable -> observable)
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnError(e -> mView.switchNotifyOrIndicate("No Indicate", false))
-                .subscribe(bytes -> done("indicate data:" + HexString.bytesToHex(bytes)),
+                .subscribe(bytes -> done("indicate data:" + HexString.byte2Hex(bytes)),
                         e -> mView.toast("indicate error:" + e.toString()));
     }
 
     @SuppressLint("CheckResult")
     public void readDescriptor(BluetoothGattDescriptor result) {
         operator().readDescriptor(device, result)
-                .subscribe(bytes -> done("read success:" + HexString.bytesToHex(bytes)),
+                .subscribe(bytes -> done("read success:" + HexString.byte2Hex(bytes)),
                         e -> mView.toast("read error:" + e.toString()));
     }
 
     @SuppressLint("CheckResult")
     public void writeDescriptor(BluetoothGattDescriptor result, String s) {
-        operator().writeDescriptor(device, result, HexString.hexToBytes(s))
-                .subscribe(bytes -> done("write success:" + HexString.bytesToHex(bytes)),
+        operator().writeDescriptor(device, result, HexString.hex2Byte(s))
+                .subscribe(bytes -> done("write success:" + HexString.byte2Hex(bytes)),
                         e -> mView.toast("write error:" + e.toString()));
     }
 

@@ -73,6 +73,12 @@ dependencies {
     kapt "android.arch.persistence.room:compiler:1.1.1"
 
     api 'com.airbnb.android:lottie:2.7.0'
+
+    api ('com.journeyapps:zxing-android-embedded:3.6.0') {
+        exclude group: 'com.android.support'
+    }
+    api 'com.android.support:support-media-compat:27.1.1'
+    api 'com.android.support:support-v4:27.1.1'
 }
 repositories {
     mavenCentral()
@@ -81,5 +87,5 @@ repositories {
 ext.group_Id('com.joey.cheetah')
 ext.artifact_id('core')
 //ext.version_name('1.1')
-ext.version_name('1.2-SNAPSHOT')
+ext.version_name('1.5-SNAPSHOT')
 ext.aar_name('core-release.aar')
