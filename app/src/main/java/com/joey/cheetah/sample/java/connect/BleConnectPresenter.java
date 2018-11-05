@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import io.reactivex.Single;
 import io.reactivex.SingleSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -33,6 +32,7 @@ public class BleConnectPresenter extends AbsBlePresenter<IBleConnectView> {
     private boolean connected;
     private String device;
     private Disposable notifyOrIndicate;
+    private BleRepository repo = new BleRepository();
 
     public BleConnectPresenter(IBleConnectView view) {
         super(view);
@@ -42,14 +42,14 @@ public class BleConnectPresenter extends AbsBlePresenter<IBleConnectView> {
     public void connectOrDisconnect(String device) {
         this.device = device;
         if (connected) {
-            operator().disconnect();
+            repo.getOperator().disconnect();
             if (isValid()) {
                 mView.showConnect();
                 mView.showConnectList(new ArrayList<>());
             }
             connected = false;
         } else {
-            operator().setConnectRetryTimes(3)
+            repo.getOperator().setConnectRetryTimes(3)
                     .setConnectRetryTimes(1000)
                     .connect(device)
                     .doOnSubscribe(disposable -> {
@@ -71,7 +71,7 @@ public class BleConnectPresenter extends AbsBlePresenter<IBleConnectView> {
 
     @SuppressLint("CheckResult")
     public void read(UUID uuid) {
-        operator().readCharacteristic(device, uuid)
+        repo.getOperator().readCharacteristic(device, uuid)
                 .subscribe(bytes -> done("read success:" + HexString.byte2Hex(bytes)),
                         e -> mView.toast("read error:" + e.toString()));
     }
@@ -79,31 +79,34 @@ public class BleConnectPresenter extends AbsBlePresenter<IBleConnectView> {
     @SuppressLint("CheckResult")
     public void write(UUID uuid, String s) {
         BleSplitData data = new BleSplitData(HexString.hex2Byte(s), HexString.hex2Byte("0B7C7D7E"));
-        Single<byte[]> single = operator().writeCharacteristic(device, uuid, data.getDataList().get(0));
-        for (int i = 1; i < data.getDataList().size(); i++) {
-            int finalI = i;
-            single = single.flatMap((Function<byte[], SingleSource<byte[]>>) bytes -> operator().writeCharacteristic(device, uuid, data.getDataList().get(finalI)));
-        }
-        single.flatMap((Function<byte[], SingleSource<byte[]>>) bytes -> operator().writeCharacteristic(device, uuid, data.getEndFrame()))
+        repo.writeCharacteristic(device, uuid, data)
                 .subscribe(bytes -> done("write success:" + HexString.byte2Hex(bytes)),
                 e -> mView.toast("write error:" + e.toString()));
     }
 
     public void notification(UUID uuid) {
         disableNotifyOrIndicate();
-        notifyOrIndicate = operator().setupNotification(device, uuid, NotificationSetupMode.DEFAULT)
+        notifyOrIndicate = repo.notifyCharacteristic(device, uuid)
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(o -> mView.switchNotifyOrIndicate("Disable Notify", true))
-                .flatMap(observable -> observable)
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnError(e -> mView.switchNotifyOrIndicate("No notify", false))
-                .subscribe(bytes -> done("notify data:" + new String(bytes)),
+                .subscribe(response -> done("notify data:" + response.getData()),
                         e -> mView.toast("notify error:" + e.toString()));
+
+//        notifyOrIndicate = repo.getOperator().setupNotification(device, uuid, NotificationSetupMode.DEFAULT)
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .doOnNext(o -> mView.switchNotifyOrIndicate("Disable Notify", true))
+//                .flatMap(observable -> observable)
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .doOnError(e -> mView.switchNotifyOrIndicate("No notify", false))
+//                .subscribe(bytes -> done("notify data:" + new String(bytes)),
+//                        e -> mView.toast("notify error:" + e.toString()));
     }
 
     public void indicate(UUID uuid) {
         disableNotifyOrIndicate();
-        notifyOrIndicate = operator().setUpIndication(device, uuid, NotificationSetupMode.DEFAULT)
+        notifyOrIndicate = repo.getOperator().setUpIndication(device, uuid, NotificationSetupMode.DEFAULT)
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(o -> mView.switchNotifyOrIndicate("Disable Indicate", true))
                 .flatMap(observable -> observable)
@@ -115,14 +118,14 @@ public class BleConnectPresenter extends AbsBlePresenter<IBleConnectView> {
 
     @SuppressLint("CheckResult")
     public void readDescriptor(BluetoothGattDescriptor result) {
-        operator().readDescriptor(device, result)
+        repo.getOperator().readDescriptor(device, result)
                 .subscribe(bytes -> done("read success:" + HexString.byte2Hex(bytes)),
                         e -> mView.toast("read error:" + e.toString()));
     }
 
     @SuppressLint("CheckResult")
     public void writeDescriptor(BluetoothGattDescriptor result, String s) {
-        operator().writeDescriptor(device, result, HexString.hex2Byte(s))
+        repo.getOperator().writeDescriptor(device, result, HexString.hex2Byte(s))
                 .subscribe(bytes -> done("write success:" + HexString.byte2Hex(bytes)),
                         e -> mView.toast("write error:" + e.toString()));
     }

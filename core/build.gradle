@@ -87,5 +87,5 @@ repositories {
 ext.group_Id('com.joey.cheetah')
 ext.artifact_id('core')
 //ext.version_name('1.1')
-ext.version_name('1.5-SNAPSHOT')
+ext.version_name('1.6-SNAPSHOT')
 ext.aar_name('core-release.aar')
