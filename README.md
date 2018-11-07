@@ -84,7 +84,6 @@ api 'com.github.JoeSteven.Cheetah:mvp:[version]'
 
 蓝牙 : 蓝牙模块并没有直接包含在该框架中，可以依赖我的一个封装库[RxBle](https://github.com/JoeSteven/RxBle)
 
-[相机](./readme/camera.md) : camera
 =======
 #### 混淆文件
 
