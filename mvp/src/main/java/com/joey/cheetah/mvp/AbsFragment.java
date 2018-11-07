@@ -86,7 +86,7 @@ public abstract class AbsFragment extends Fragment implements IView {
     public void onSaveInstanceState(@NonNull Bundle outState) {
         outState.putBoolean(STATE_SAVE_IS_HIDDEN, isHidden());
         if (mPresenterProvider != null) {
-            mPresenterProvider.onRestore(outState);
+            mPresenterProvider.onSave(outState);
         }
         super.onSaveInstanceState(outState);
     }

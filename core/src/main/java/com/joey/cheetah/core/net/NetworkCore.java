@@ -2,14 +2,9 @@ package com.joey.cheetah.core.net;
 
 import android.util.SparseArray;
 
+import java.util.HashMap;
 
-import com.joey.cheetah.core.utils.CLog;
 import okhttp3.Headers;
-import okhttp3.HttpUrl;
-import okhttp3.OkHttpClient;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Description: create different services for API
@@ -19,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NetworkCore {
     private static NetworkCore sNetworkCore;
     private SparseArray<Object> mServices;
-    private HttpUrl.Builder mParams;
+    private HashMap<String, String> mParams;
     private Headers.Builder mHeaders;
 
     /**
@@ -41,16 +36,14 @@ public class NetworkCore {
     private NetworkCore(int serviceNumber) {
         this.mServices = new SparseArray<>(serviceNumber);
         mHeaders = new Headers.Builder();
-        mParams = new HttpUrl.Builder()
-                .scheme("http")
-                .host("www.com.joey.cheetah.com");
+        mParams = new HashMap<>();
     }
 
     /**
      * register common params for api
      */
     public NetworkCore registerParams(String key, String params) {
-        mParams.addQueryParameter(key, params);
+        mParams.put(key, params);
         return this;
     }
 
@@ -63,28 +56,35 @@ public class NetworkCore {
     }
 
     /**
-     * register an api service for specified request
-     *
-     * @param id      service id
-     * @param baseUrl service base url e.g. https://api.cheetah.com
-     * @param clazz   class for specified service
+     * @return register headers
      */
-    public <T> T registerService(int id, String baseUrl, Class<T> clazz) {
-        return registerService(id, baseUrl, clazz, addInterceptor(createClientBuilder()));
+    public Headers headers() {
+        return mHeaders.build();
     }
 
     /**
-     * create your own OkhttpClient for request
+     * @return register common params
      */
-    public  <T> T registerService(int id, String baseUrl, Class<T> clazz,
-                                       OkHttpClient.Builder builder) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(builder.build())
-                .build();
-        T service = retrofit.create(clazz);
+    public HashMap<String, String> params() {
+        return mParams;
+    }
+
+    /**
+     * start create an api service
+     * @param id id for this api service
+     * @param clazz clazz to create service
+     * @return NetworkServiceBuilder
+     */
+    public <T> NetworkServiceBuilder<T> createService(int id, Class<T> clazz) {
+        return new NetworkServiceBuilder<>(id, clazz);
+    }
+
+    /**
+     * register service
+     * @param id id for this api service
+     * @return service instantce
+     */
+    public <T> T register(int id, T service) {
         mServices.append(id, service);
         return service;
     }
@@ -98,22 +98,4 @@ public class NetworkCore {
     public <T> T service(int id) {
         return (T) mServices.get(id);
     }
-
-    // TODO: 2018/8/24 网络状态获取及监听
-
-    private OkHttpClient.Builder addInterceptor(OkHttpClient.Builder builder) {
-        return builder
-                .addInterceptor(new ApiCommonParamsInterceptor(mHeaders.build(), mParams.build().query()))
-                .addNetworkInterceptor(new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
-                    @Override
-                    public void log(String message) {
-                        CLog.d(CLog.LOG_API, message);
-                    }
-                }).setLevel(HttpLoggingInterceptor.Level.BODY));
-    }
-
-    private OkHttpClient.Builder createClientBuilder() {
-        return new OkHttpClient.Builder();
-    }
-
 }

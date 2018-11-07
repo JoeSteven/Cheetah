@@ -57,5 +57,39 @@ SharedPrefHelper.from(this)
 
 简化文件操作，API 较多，可以直接在类中查找相关方法
 
+### 3.Room - 数据库框架
+
+建议直接使用 Google 官方推出的数据库框架 Room，需要在应用项目的 build.gradle 中添加如下代码（room的依赖 cheetah 有了，需要为 apt 注解生成代码添加依赖）
+
+```groovy
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    kapt "android.arch.persistence.room:compiler:1.1.1"
+}
+```
+
+Room 可以实现操作接口化，并且查询可以返回 Flowable，便于使用 RxJava 进行操作，除了查询外，其余操作不能返回 RxJava 相关被观察对象，因此做了简单的封装：
+
+#### Java
+
+ ```java
+// 使用该方法可以返回一个 Single 对象来进行操作
+// 配合 lambda 表达式 可以比较简洁
+RxRoomHelper.toSingle(RxRoomOperator<T>);
+ ```
+
+#### Kotlin
+
+对 RoomDataBase 进行了扩展，toSingle可以直接使用, 参数为一个表达式，如下
+
+```kotlin
+AppDataBase.INSTANCE
+		.toSingle { AppDataBase.INSTANCE.userDao().insert(*user) }
+		.compose(SchedulersHelper.io_main())
+```
+
+
+
 
 

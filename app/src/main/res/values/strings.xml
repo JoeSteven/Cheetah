@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Cheetah</string>
+    <string name="photo_file_provider">com.joey.cheetah.sample</string>
 </resources>

@@ -51,7 +51,7 @@ public abstract class AbsItemViewBinder<T, VH extends AbsViewHolder<T>> extends 
         return holder;
     }
 
-    protected abstract VH createViewHolder(View itemView);
+    protected abstract VH createViewHolder(@NonNull View itemView);
 
     @Override
     protected void onBindViewHolder(@NonNull VH holder, @NonNull T item) {
@@ -59,6 +59,6 @@ public abstract class AbsItemViewBinder<T, VH extends AbsViewHolder<T>> extends 
        onBind(holder, item);
     }
 
-    protected abstract void onBind(VH holder, T item);
+    protected abstract void onBind(@NonNull VH holder, @NonNull T item);
 
 }

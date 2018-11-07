@@ -6,6 +6,7 @@ import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.OnLifecycleEvent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import com.joey.cheetah.core.async.IAsyncExecutor;
 import com.joey.cheetah.core.async.IBusStop;
@@ -19,10 +20,10 @@ import io.reactivex.disposables.Disposable;
  * date:2018/7/25
  */
 public abstract class AbsPresenter<T extends IView> implements LifecycleObserver {
-    protected T mView;
+    protected @Nullable T mView;
     private RxJavaManager mRxJavaManager;
 
-    public AbsPresenter(T view) {
+    public AbsPresenter(@NonNull T view) {
         mView = view;
         mView.getLifecycle().addObserver(this);
     }
@@ -48,6 +49,7 @@ public abstract class AbsPresenter<T extends IView> implements LifecycleObserver
         if (mRxJavaManager != null) {
             mRxJavaManager.clear();
         }
+        mView = null;
     }
 
     /**

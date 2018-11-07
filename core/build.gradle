@@ -22,6 +22,14 @@ android {
         sourceCompatibility 1.8
     }
 
+    sourceSets {
+        main{
+            java{
+                include '**/*.java'
+                include '**/*.kt'
+            }
+        }
+    }
 }
 
 group = 'com.github.JoeSteven' // 最好是你的 github 名字
@@ -51,8 +59,26 @@ dependencies {
     // RecyclerView
     implementation 'com.android.support:recyclerview-v7:27.1.1'
 
-    api 'me.drakeet.multitype:multitype:3.4.4'
+    api('me.drakeet.multitype:multitype:3.4.4') {
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+    }
 
+    // database
+    api("android.arch.persistence.room:runtime:1.1.1") {
+        exclude group: 'android.arch.core'
+    }
+    api("android.arch.persistence.room:rxjava2:1.1.1") {
+        exclude group: 'android.arch.core'
+    }
+    kapt "android.arch.persistence.room:compiler:1.1.1"
+
+    api 'com.airbnb.android:lottie:2.7.0'
+
+    api ('com.journeyapps:zxing-android-embedded:3.6.0') {
+        exclude group: 'com.android.support'
+    }
+    api 'com.android.support:support-media-compat:27.1.1'
+    api 'com.android.support:support-v4:27.1.1'
 }
 repositories {
     mavenCentral()

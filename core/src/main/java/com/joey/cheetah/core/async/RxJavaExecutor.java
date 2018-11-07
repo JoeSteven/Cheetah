@@ -32,7 +32,7 @@ public class RxJavaExecutor implements IAsyncExecutor {
 
     @Override
     public void execute(AsyncTask task, long delay) {
-        execute(task, null, 0L);
+        execute(task, null, delay);
     }
 
     @Override

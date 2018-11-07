@@ -1,18 +1,10 @@
 package com.joey.cheetah.sample.java.scan;
 
 import android.annotation.SuppressLint;
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.OnLifecycleEvent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
-import com.joey.cheetah.mvp.AbsPresenter;
 import com.joey.cheetah.sample.java.AbsBlePresenter;
-import com.joey.rxble.RxBle;
-import com.joey.rxble.RxBleOperator;
-import com.polidea.rxandroidble2.scan.ScanRecord;
 import com.polidea.rxandroidble2.scan.ScanResult;
 
 import java.util.ArrayList;
@@ -20,7 +12,6 @@ import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import io.reactivex.subjects.PublishSubject;
 
 /**
  * Description:

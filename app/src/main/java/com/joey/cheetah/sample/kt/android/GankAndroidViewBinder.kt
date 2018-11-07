@@ -1,13 +1,13 @@
 package com.joey.cheetah.sample.kt.android
 
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import com.joey.cheetah.core.ktextension.loadUrl
 import com.joey.cheetah.core.list.AbsItemViewBinder
 import com.joey.cheetah.core.list.AbsViewHolder
 import com.joey.cheetah.sample.R
 import com.joey.cheetah.sample.kt.GankData
+import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.item_gank_android.*
 
 /**
  * Description:
@@ -15,12 +15,8 @@ import com.joey.cheetah.sample.kt.GankData
  * date:2018/8/15
  */
 class GankAndroidViewBinder : AbsItemViewBinder<GankData, GankAndroidViewBinder.GankAndroidViewHolder>(){
-    inner class GankAndroidViewHolder(itemView: View):AbsViewHolder<GankData>(itemView) {
-        val ivIcon: ImageView = this.findViewById(R.id.ivIcon)
-        val tvTitle: TextView = findViewById(R.id.tvTitle)
-        val tvAuthor: TextView = findViewById(R.id.tvAuthor)
-        val tvTime: TextView = findViewById(R.id.tvTime)
-    }
+    inner class GankAndroidViewHolder(override val containerView: View?)
+        :AbsViewHolder<GankData>(containerView) , LayoutContainer
 
     override fun layout(): Int {
         return R.layout.item_gank_android

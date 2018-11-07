@@ -12,13 +12,14 @@ class GankActivity : AbsFragmentActivity() {
     private val tagSurprise = "tag_surprise"
     private lateinit var androidFragment: GankAndroidFragment
     private lateinit var surpriseFragment: GankSurpriseFragment
+
     override fun initLayout(): Int {
         return R.layout.activity_gank
     }
 
     override fun initView() {
         btSurprise.setOnClickListener { toSurprise() }
-        btAndroid.setOnClickListener {toAndroid()}
+        btAndroid.setOnClickListener { toAndroid() }
     }
 
     private fun toAndroid() {
@@ -35,8 +36,8 @@ class GankActivity : AbsFragmentActivity() {
     }
 
     override fun restoreFragment(savedInstanceState: Bundle?) {
-        androidFragment = fragmentManager().findFragmentByTag(tagAndroid) as GankAndroidFragment
-        surpriseFragment = fragmentManager().findFragmentByTag(tagSurprise) as GankSurpriseFragment
+        androidFragment = fragmentManager().findFragmentByTag(tagAndroid) as GankAndroidFragment? ?: GankAndroidFragment()
+        surpriseFragment = fragmentManager().findFragmentByTag(tagSurprise) as GankSurpriseFragment? ?: GankSurpriseFragment()
     }
 
     override fun attachFragment() {

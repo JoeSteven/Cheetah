@@ -1,3 +1,4 @@
 <resources>
     <string name="twice_quit_hint">再按一次退出</string>
+    <string name="photo_file_provider">com.joey.cheetah.core.fileprovider</string>
 </resources>

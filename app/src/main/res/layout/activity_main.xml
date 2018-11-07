@@ -1,19 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:gravity="center"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingTop="25dp"
+    android:gravity="center"
+    android:orientation="horizontal">
+
     <Button
         android:id="@+id/bt_java"
-        android:text="Java Activity"
-        android:textAllCaps="false"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:text="Go Ble"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/guideline"
+         />
+
     <Button
         android:id="@+id/bt_kt"
-        android:text="Kotlin Activity"
-        android:textAllCaps="false"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:text="Go Net"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/guideline"
+         />
+
+    <Button
+        android:id="@+id/bt_extension"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go Extension"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="20dp"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/bt_java"
+        app:layout_constraintRight_toLeftOf="@id/guideline"
+        />
+    <Button
+        android:id="@+id/bt_database"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go DataBase"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/bt_kt"
+        app:layout_constraintLeft_toRightOf="@id/guideline"
+        />
+
+    <Button
+        android:id="@+id/bt_udp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go UDP "
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="20dp"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/bt_extension"
+        app:layout_constraintRight_toLeftOf="@id/guideline"
+        />
+    <Button
+        android:id="@+id/bt_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go Photo "
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/bt_extension"
+        app:layout_constraintLeft_toRightOf="@id/guideline"
+        />
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+</android.support.constraint.ConstraintLayout>
