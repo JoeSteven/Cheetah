@@ -22,14 +22,14 @@ android {
         sourceCompatibility 1.8
     }
 
-    sourceSets {
-        main{
-            java{
-                include '**/*.java'
-                include '**/*.kt'
-            }
-        }
-    }
+//    sourceSets {
+//        main{
+//            java{
+//                include '**/*.java'
+//                include '**/*.kt'
+//            }
+//        }
+//    }
 }
 
 group = 'com.github.JoeSteven' // 最好是你的 github 名字
