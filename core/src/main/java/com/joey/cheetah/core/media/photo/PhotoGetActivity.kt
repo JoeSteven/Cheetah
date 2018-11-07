@@ -9,9 +9,11 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.support.v4.content.FileProvider
 import android.support.v7.app.AppCompatActivity
+import com.joey.cheetah.core.R
 import com.joey.cheetah.core.ktextension.jumpForResult
 import com.joey.cheetah.core.ktextension.jumpWithParams
 import com.joey.cheetah.core.storage.FileHelper
+import com.joey.cheetah.core.utils.ResGetter
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
@@ -58,7 +60,7 @@ class PhotoGetActivity: AppCompatActivity() {
         val mediaFile = File("${dir.path}/photo_$time.jpg")
         file = mediaFile
         if (Build.VERSION.SDK_INT >= 24) {
-            return FileProvider.getUriForFile(this, "com.joey.cheetah.core.fileprovider", mediaFile)
+            return FileProvider.getUriForFile(this, ResGetter.string(R.string.photo_file_provider), mediaFile)
         }
         return Uri.fromFile(mediaFile)
     }

@@ -6,6 +6,8 @@ import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
 import android.os.Bundle;
 
+import com.joey.cheetah.core.media.ble.BleSplitData;
+import com.joey.cheetah.core.utils.CLog;
 import com.joey.cheetah.core.utils.HexString;
 import com.joey.cheetah.sample.java.AbsBlePresenter;
 import com.polidea.rxandroidble2.NotificationSetupMode;
@@ -30,6 +32,7 @@ public class BleConnectPresenter extends AbsBlePresenter<IBleConnectView> {
     private boolean connected;
     private String device;
     private Disposable notifyOrIndicate;
+    private BleRepository repo = new BleRepository();
 
     public BleConnectPresenter(IBleConnectView view) {
         super(view);
@@ -39,77 +42,91 @@ public class BleConnectPresenter extends AbsBlePresenter<IBleConnectView> {
     public void connectOrDisconnect(String device) {
         this.device = device;
         if (connected) {
-            operator().disconnect();
+            repo.getOperator().disconnect();
             if (isValid()) {
                 mView.showConnect();
                 mView.showConnectList(new ArrayList<>());
             }
             connected = false;
         } else {
-            operator().setConnectRetryTimes(3)
+            repo.getOperator().setConnectRetryTimes(3)
                     .setConnectRetryTimes(1000)
                     .connect(device)
-                    .doOnSubscribe(disposable -> { if (isValid()) mView.showConnecting(); })
+                    .doOnSubscribe(disposable -> {
+                        if (isValid()) mView.showConnecting();
+                    })
                     .flatMapSingle((Function<RxBleConnection, SingleSource<RxBleDeviceServices>>) RxBleConnection::discoverServices)
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(this::connectResult,
-                            throwable -> { if (isValid()) {
+                            throwable -> {
+                                if (isValid()) {
                                     mView.toast("connect failed:" + throwable.toString());
                                     mView.showConnect();
                                     mView.showConnectList(null);
-                                    connected = false; }});
+                                    connected = false;
+                                }
+                            });
         }
     }
 
     @SuppressLint("CheckResult")
     public void read(UUID uuid) {
-        operator().readCharacteristic(device, uuid)
-                .subscribe(bytes -> done("read success:" + HexString.bytesToHex(bytes)),
+        repo.getOperator().readCharacteristic(device, uuid)
+                .subscribe(bytes -> done("read success:" + HexString.byte2Hex(bytes)),
                         e -> mView.toast("read error:" + e.toString()));
     }
 
     @SuppressLint("CheckResult")
     public void write(UUID uuid, String s) {
-        operator().writeCharacteristic(device, uuid, HexString.hexToBytes(s))
-                .subscribe(bytes -> done("write success:" + HexString.bytesToHex(bytes)),
-                        e -> mView.toast("write error:" + e.toString()));
+        BleSplitData data = new BleSplitData(HexString.hex2Byte(s), HexString.hex2Byte("0B7C7D7E"));
+        repo.writeCharacteristic(device, uuid, data)
+                .subscribe(bytes -> done("write success:" + HexString.byte2Hex(bytes)),
+                e -> mView.toast("write error:" + e.toString()));
     }
 
     public void notification(UUID uuid) {
         disableNotifyOrIndicate();
-        notifyOrIndicate = operator().setupNotification(device, uuid, NotificationSetupMode.DEFAULT)
+        notifyOrIndicate = repo.notifyCharacteristic(device, uuid)
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(o -> mView.switchNotifyOrIndicate("Disable Notify", true))
-                .flatMap(observable -> observable)
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnError(e -> mView.switchNotifyOrIndicate("No notify", false))
-                .subscribe(bytes -> done("notify data:" + HexString.bytesToHex(bytes)),
+                .subscribe(response -> done("notify data:" + response.getData()),
                         e -> mView.toast("notify error:" + e.toString()));
+
+//        notifyOrIndicate = repo.getOperator().setupNotification(device, uuid, NotificationSetupMode.DEFAULT)
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .doOnNext(o -> mView.switchNotifyOrIndicate("Disable Notify", true))
+//                .flatMap(observable -> observable)
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .doOnError(e -> mView.switchNotifyOrIndicate("No notify", false))
+//                .subscribe(bytes -> done("notify data:" + new String(bytes)),
+//                        e -> mView.toast("notify error:" + e.toString()));
     }
 
     public void indicate(UUID uuid) {
         disableNotifyOrIndicate();
-        notifyOrIndicate = operator().setUpIndication(device, uuid, NotificationSetupMode.DEFAULT)
+        notifyOrIndicate = repo.getOperator().setUpIndication(device, uuid, NotificationSetupMode.DEFAULT)
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(o -> mView.switchNotifyOrIndicate("Disable Indicate", true))
                 .flatMap(observable -> observable)
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnError(e -> mView.switchNotifyOrIndicate("No Indicate", false))
-                .subscribe(bytes -> done("indicate data:" + HexString.bytesToHex(bytes)),
+                .subscribe(bytes -> done("indicate data:" + HexString.byte2Hex(bytes)),
                         e -> mView.toast("indicate error:" + e.toString()));
     }
 
     @SuppressLint("CheckResult")
     public void readDescriptor(BluetoothGattDescriptor result) {
-        operator().readDescriptor(device, result)
-                .subscribe(bytes -> done("read success:" + HexString.bytesToHex(bytes)),
+        repo.getOperator().readDescriptor(device, result)
+                .subscribe(bytes -> done("read success:" + HexString.byte2Hex(bytes)),
                         e -> mView.toast("read error:" + e.toString()));
     }
 
     @SuppressLint("CheckResult")
     public void writeDescriptor(BluetoothGattDescriptor result, String s) {
-        operator().writeDescriptor(device, result, HexString.hexToBytes(s))
-                .subscribe(bytes -> done("write success:" + HexString.bytesToHex(bytes)),
+        repo.getOperator().writeDescriptor(device, result, HexString.hex2Byte(s))
+                .subscribe(bytes -> done("write success:" + HexString.byte2Hex(bytes)),
                         e -> mView.toast("write error:" + e.toString()));
     }
 
@@ -121,6 +138,7 @@ public class BleConnectPresenter extends AbsBlePresenter<IBleConnectView> {
     }
 
     private void done(String message) {
+        CLog.d("hahaha", message);
         if (isValid()) {
             mView.showMessage(message);
         }
@@ -145,9 +163,11 @@ public class BleConnectPresenter extends AbsBlePresenter<IBleConnectView> {
     }
 
     @Override
-    public void onSaveData(Bundle outState) {}
+    public void onSaveData(Bundle outState) {
+    }
 
     @Override
-    public void onRestoredData(Bundle savedInstanceState) {}
+    public void onRestoredData(Bundle savedInstanceState) {
+    }
 
 }

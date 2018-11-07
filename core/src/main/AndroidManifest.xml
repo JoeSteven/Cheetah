@@ -7,9 +7,14 @@
     <application >
         <activity android:name=".permission.PermissionActivity"/>
         <activity android:name=".media.photo.PhotoGetActivity"/>
+        <activity android:name=".media.scan.ScanCodeActivity"/>
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="fullSensor"
+            tools:replace="screenOrientation" />
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.joey.cheetah.core.fileprovider"
+            android:authorities="@string/photo_file_provider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
