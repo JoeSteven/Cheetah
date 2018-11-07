@@ -119,13 +119,9 @@ class BleRepository {
             responseID = "-1"
             response = null
             val id = pac.substring(0, 2)
-            if (canHandle(id)) {
-                responseID = id
-                response = StringBuilder()
-                response?.append(pac.substring(2))
-            } else {
-                return false
-            }
+            responseID = id
+            response = StringBuilder()
+            response?.append(pac.substring(2))
         } else {
             //是中间包
             response?.append(pac)
