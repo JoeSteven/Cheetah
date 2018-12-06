@@ -1,17 +1,16 @@
 package com.joey.cheetah.sample;
 
 import com.joey.cheetah.core.utils.CLog;
-import com.joey.cheetah.core.utils.HexString;
 import com.joey.cheetah.core.utils.Jumper;
 import com.joey.cheetah.core.utils.Md5Util;
 import com.joey.cheetah.mvp.AbsActivity;
 import com.joey.cheetah.sample.dbdemo.DbDemoActivity;
 import com.joey.cheetah.sample.extension.ExtensionActivity;
 import com.joey.cheetah.sample.java.scan.BleScanActivity;
-import com.joey.cheetah.sample.kt.CameraActivity;
 import com.joey.cheetah.sample.kt.GankActivity;
 import com.joey.cheetah.sample.photo.PhotoActivity;
 import com.joey.cheetah.sample.udp.UdpActivity;
+import com.joey.cheetah.core.media.scan.ScanCodeHelper;
 
 
 /**
@@ -38,7 +37,17 @@ public class MainActivity extends AbsActivity{
         findViewById(R.id.bt_udp).setOnClickListener(v -> Jumper.make(this, UdpActivity.class).jump());
 
         findViewById(R.id.bt_photo).setOnClickListener(v -> Jumper.make(this, PhotoActivity.class).jump());
+
+        findViewById(R.id.bt_scan).setOnClickListener(v -> scan());
+
         CLog.d("test_md5", Md5Util.toMd5("123456"));
+    }
+
+    private void scan() {
+        ScanCodeHelper.INSTANCE
+                .scan(this)
+                .subscribe(s -> toast(s),
+                        throwable -> toast(throwable.toString()));
     }
 
     @Override

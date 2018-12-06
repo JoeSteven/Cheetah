@@ -1,11 +1,10 @@
-package com.joey.zxingdemo
+package com.joey.cheetah.core.media.scan
 
 import android.app.Activity
-import com.joey.cheetah.core.media.scan.ScanCodeActivity
 import com.joey.cheetah.core.utils.Jumper
 import com.journeyapps.barcodescanner.CaptureActivity
 import io.reactivex.BackpressureStrategy
-import io.reactivex.Flowable
+import io.reactivex.Single
 import io.reactivex.subjects.PublishSubject
 import io.reactivex.subjects.Subject
 
@@ -28,6 +27,7 @@ object ScanCodeHelper {
         subjects.remove(key)
         if (subject != null && !subject.hasComplete()) {
             subject.onNext(path)
+            subject.onComplete()
         }
     }
 
@@ -39,13 +39,13 @@ object ScanCodeHelper {
         }
     }
 
-    fun scan(activity: Activity): Flowable<String>? {
+    fun scan(activity: Activity): Single<String> {
         val subject = PublishSubject.create<String>().toSerialized()
         subjects[activity.toString()] = subject
         Jumper.make(activity, ScanCodeActivity::class.java)
                 .putString("Scan_Result", activity.toString())
                 .jump()
-        return subject.toFlowable(BackpressureStrategy.BUFFER)
+        return subject.toFlowable(BackpressureStrategy.BUFFER).singleOrError()
     }
 
 
