@@ -96,7 +96,7 @@ public class RxJavaManager implements IAsyncExecutor, IBusStop {
      * invoke this method to custom the thread of post event and receive event
      */
     public <T> void subscribeCustomThread(Class<T> event, Consumer<T> consumer, Scheduler subscribeScheduler) {
-        if (subscriptionMap.containsKey(event)) {
+        if (subscriptionMap != null && subscriptionMap.containsKey(event)) {
             // 不重复注册事件
             return;
         }
