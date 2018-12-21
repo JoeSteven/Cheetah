@@ -28,6 +28,11 @@ public abstract class AbsPresenter<T extends IView> implements LifecycleObserver
         mView.getLifecycle().addObserver(this);
     }
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+    public void onCreate(@NonNull LifecycleOwner owner) {
+
+    }
+
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     public void onStart(@NonNull LifecycleOwner owner) {
 

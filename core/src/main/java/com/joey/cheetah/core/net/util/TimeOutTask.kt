@@ -7,7 +7,7 @@ import com.joey.cheetah.core.async.IAsyncExecutor
  * author:Joey
  * date:2018/9/26
  */
-class TImeOutTask<T>(private val frame: T) : IAsyncExecutor.AsyncResultTask<T> {
+class TimeOutTask<T>(private val frame: T) : IAsyncExecutor.AsyncResultTask<T> {
     @Volatile
     var isTimeout = false
         private set

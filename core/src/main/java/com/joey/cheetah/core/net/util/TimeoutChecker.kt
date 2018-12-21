@@ -13,7 +13,7 @@ import com.joey.cheetah.core.ktextension.logE
 class TimeoutChecker<in T> (private val timeout: Long, private val callback:(frame: T) -> Unit) {
 
     private val taskExecutor = RxJavaExecutor()
-    private val timeoutMap = SparseArray<TImeOutTask<T>>()
+    private val timeoutMap = SparseArray<TimeOutTask<T>>()
 
     private val timeoutCallback = object : IAsyncExecutor.IAsyncResultCallback<T> {
         override fun done(frame: T) {
@@ -25,7 +25,7 @@ class TimeoutChecker<in T> (private val timeout: Long, private val callback:(fra
 
     //计算超时
     fun countTimeout(id: Int, frame: T) {
-        val task = TImeOutTask(frame)
+        val task = TimeOutTask(frame)
         timeoutMap.put(id, task)
         taskExecutor.execute(task, timeoutCallback, timeout)
     }
