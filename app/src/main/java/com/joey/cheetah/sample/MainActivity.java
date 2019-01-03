@@ -6,6 +6,7 @@ import com.joey.cheetah.core.utils.Md5Util;
 import com.joey.cheetah.mvp.AbsActivity;
 import com.joey.cheetah.sample.dbdemo.DbDemoActivity;
 import com.joey.cheetah.sample.extension.ExtensionActivity;
+import com.joey.cheetah.sample.face.FaceActivity;
 import com.joey.cheetah.sample.java.scan.BleScanActivity;
 import com.joey.cheetah.sample.kt.GankActivity;
 import com.joey.cheetah.sample.photo.PhotoActivity;
@@ -39,6 +40,8 @@ public class MainActivity extends AbsActivity{
         findViewById(R.id.bt_photo).setOnClickListener(v -> Jumper.make(this, PhotoActivity.class).jump());
 
         findViewById(R.id.bt_scan).setOnClickListener(v -> scan());
+
+        findViewById(R.id.bt_face).setOnClickListener(v -> Jumper.make(this, FaceActivity.class).jump());
 
         CLog.d("test_md5", Md5Util.toMd5("123456"));
     }

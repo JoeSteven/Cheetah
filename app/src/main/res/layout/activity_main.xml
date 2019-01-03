@@ -85,6 +85,17 @@
         app:layout_constraintTop_toBottomOf="@id/bt_udp"
         app:layout_constraintRight_toLeftOf="@id/guideline"
         />
+    <Button
+        android:id="@+id/bt_face"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go face "
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/bt_photo"
+        app:layout_constraintLeft_toRightOf="@id/guideline"
+        />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
