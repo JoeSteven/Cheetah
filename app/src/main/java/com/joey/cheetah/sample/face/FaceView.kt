@@ -43,7 +43,7 @@ class FaceView:IFaceRecognitionView {
     }
 
     override fun onViewShow(faceInfo: FaceRecognitionLayout.FaceInfo, view: View) {
-        if (view is TextView) view.text = faceInfo.name
+        if (view is TextView && faceInfo.info is String) view.text = faceInfo.info as String
     }
 
     override fun createView(context:Context): View {

@@ -271,9 +271,6 @@ class FaceRecognitionLayout : FrameLayout {
                         val y: Float,
                         val width: Float,
                         val height: Float,
-                        val name: String = "", // 姓名
-                        val isVip: Boolean = false,// 是否vip
-                        val gender: String = "",// 性别
-                        val motion: String = ""// 情绪
+                        val info: Any
     )
 }

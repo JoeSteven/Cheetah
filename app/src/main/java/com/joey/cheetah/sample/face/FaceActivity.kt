@@ -28,7 +28,7 @@ class FaceActivity : AppCompatActivity() {
                 for (i in 0..count) {
                     var width = random.nextInt(300)
                     if (width < 200) width = 200
-                    faceList.add(FaceRecognitionLayout.FaceInfo(random.nextInt(screenWidth- width).toFloat(),random.nextInt(screenHeight-width).toFloat(), width.toFloat(), width.toFloat(), name = "$width"))
+                    faceList.add(FaceRecognitionLayout.FaceInfo(random.nextInt(screenWidth- width).toFloat(),random.nextInt(screenHeight-width).toFloat(), width.toFloat(), width.toFloat(), info = "name"))
 //                    faceList.add(FaceRecognitionLayout.FaceInfo(x.toFloat(),2*x.toFloat(), width.toFloat(), width.toFloat()))
                 }
                 faceView.showFaceInfo(faceList)
