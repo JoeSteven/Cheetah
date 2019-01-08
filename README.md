@@ -45,6 +45,12 @@ api 'com.joey.cheetah:mvp:[version]'
     }
 ```
 
+- 在app 的 `strings.xml` 中增加如下代码, 中括号为应用包名
+
+```Xml
+<string name="photo_file_provider">[your package].fileprovider</string>
+```
+
 
 
 ### 模块说明
@@ -94,6 +100,8 @@ api 'com.joey.cheetah:mvp:[version]'
 [持久化](./readme/database.md) : 目前支持`SharedPreferences` 
 
 蓝牙 : 蓝牙模块并没有直接包含在该框架中，可以依赖我的一个封装库[RxBle](https://github.com/JoeSteven/RxBle)
+
+[多人脸追踪UI框架](./readme/faceui.md) : 支持多人脸追踪的UI框架
 
 [相机](./readme/camera.md) : camera
 =======
