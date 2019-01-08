@@ -103,8 +103,6 @@ api 'com.joey.cheetah:mvp:[version]'
 
 [多人脸追踪UI框架](./readme/faceui.md) : 支持多人脸追踪的UI框架
 
-[相机](./readme/camera.md) : camera
-=======
 #### 混淆文件
 
 项目 release 版本混淆非常有必要，一方面提升代码安全性，大幅降低被反编译后的可读性，另一方面会压缩整个apk的包大小，节省推广及下载成本
