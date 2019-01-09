@@ -22,24 +22,11 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://jitpack.io' }
-        maven {
-            url 'https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn'
-            credentials {
-                username 'tDngW5'
-                password 'hJqX0j0yfu'
-            }
-        }
-        maven {
-            credentials {
-                username 'tDngW5'
-                password 'hJqX0j0yfu'
-            }
-            url 'https://repo.rdc.aliyun.com/repository/46895-snapshot-jKpBUU'
-        }
-        maven { url "$rootDir/maven/terminus-snapshot" }
-        maven { url "$rootDir/maven/terminus" }
+//        maven { url "$rootDir/maven/terminus-snapshot" }
+//        maven { url "$rootDir/maven/terminus" }
     }
 }
+apply from: "$rootDir/maven_tsl.gradle"
 
 task clean(type: Delete) {
     delete rootProject.buildDir
