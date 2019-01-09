@@ -88,15 +88,28 @@ publishing {
                 url "$rootDir/maven/terminus/"
             }
         }
+
+//        maven {
+//            if (VERSION_NAME.endsWith("-SNAPSHOT")) {
+//                url "http://192.168.201.176:8081/repository/terminus-snapshot/"
+//            } else {
+//                url "http://192.168.201.176:8081/repository/terminus-release/"
+//            }
+//            credentials {
+//                username 'admin'
+//                password 'admin123'
+//            }
+//        }
+
         maven {
             if (VERSION_NAME.endsWith("-SNAPSHOT")) {
-                url "http://192.168.201.176:8081/repository/terminus-snapshot/"
+                url "https://repo.rdc.aliyun.com/repository/46895-snapshot-jKpBUU"
             } else {
-                url "http://192.168.201.176:8081/repository/terminus-release/"
+                url "https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn"
             }
             credentials {
-                username 'admin'
-                password 'admin123'
+                username 'tDngW5'
+                password 'hJqX0j0yfu'
             }
         }
     }

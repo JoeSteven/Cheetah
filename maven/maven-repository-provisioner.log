@@ -1,0 +1,1019 @@
+11:12:04.957 [main] INFO  MavenRepositoryProvisioner - -----------------------------------
+11:12:04.961 [main] INFO  MavenRepositoryProvisioner -  Maven Repository Provisioner      
+11:12:04.961 [main] INFO  MavenRepositoryProvisioner -  simpligility technologies inc.    
+11:12:04.961 [main] INFO  MavenRepositoryProvisioner -  http://www.simpligility.com       
+11:12:04.961 [main] INFO  MavenRepositoryProvisioner - -----------------------------------
+11:12:05.005 [main] INFO  MavenRepositoryProvisioner - 
+Provisioning artifacts: null
+Source: https://repo1.maven.org/maven2
+Target: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/
+Username: tslandroid
+Password: ***************************************************
+IncludeSources: true
+IncludeJavadoc: true
+IncludeProvidedScope: false
+IncludeTestScope: false
+IncludeRuntimeScope: false
+Check target: true
+Verify only: false
+Local cache or source repository directory: /Users/joey/AndroidStudioProjects/Cheetah/maven/terminus
+
+
+11:12:05.005 [main] INFO  MavenRepositoryProvisioner -  Absolute path: /Users/joey/AndroidStudioProjects/Cheetah/maven/terminus
+11:12:05.006 [main] INFO  MavenRepositoryProvisioner - Detected local cache directory '/Users/joey/AndroidStudioProjects/Cheetah/maven/terminus'.
+11:12:05.006 [main] INFO  MavenRepositoryProvisioner - No artifact coordinates specified - using cache directory as source.
+11:12:05.006 [main] INFO  MavenRepositoryProvisioner - Artifact retrieval skipped. 
+11:12:05.006 [main] INFO  MavenRepositoryProvisioner - Artifact deployment starting.
+11:12:06.490 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.0/core-1.0.pom
+11:12:06.491 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:pom:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:07.320 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:pom:1.0 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:07.322 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:pom:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:07.323 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.0/core-1.0-aar.md5
+11:12:07.323 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:aar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:07.591 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:aar:1.0 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:07.591 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:aar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:07.592 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.0/core-1.0-sources.jar.md5
+11:12:07.592 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:sources.jar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:07.841 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:sources.jar:1.0 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:07.842 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:sources.jar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:07.842 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.0/core-1.0-pom.md5
+11:12:07.842 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:pom:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:08.101 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:pom:1.0 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:08.102 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:pom:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:08.102 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.0/core-1.0.aar
+11:12:08.102 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:aar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:09.472 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:aar:1.0 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:09.472 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:aar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:09.473 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.0/core-1.0-sources.jar
+11:12:09.473 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:jar:sources:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:10.237 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:jar:sources:1.0 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:10.240 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:jar:sources:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:10.240 [main] INFO  MavenRepositoryHelper - Deployment failed with Failed to deploy artifacts: Could not transfer artifact com.joey.cheetah:core:pom:1.0 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401), artifact might be deployed already.
+11:12:10.556 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.1/core-1.1.pom
+11:12:10.557 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:pom:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:11.204 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:pom:1.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:11.205 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:pom:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:11.205 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.1/core-1.1-sources.jar
+11:12:11.205 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:jar:sources:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:12.071 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:jar:sources:1.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:12.071 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:jar:sources:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:12.072 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.1/core-1.1-aar.md5
+11:12:12.072 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:aar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:12.280 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:aar:1.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:12.281 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:aar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:12.281 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.1/core-1.1-pom.md5
+11:12:12.281 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:pom:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:12.484 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:pom:1.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:12.485 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:pom:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:12.485 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.1/core-1.1.aar
+11:12:12.485 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:aar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:14.072 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:aar:1.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:14.072 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:aar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:14.073 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.1/core-1.1-sources.jar.md5
+11:12:14.073 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:sources.jar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:14.285 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:sources.jar:1.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:14.285 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:sources.jar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:14.285 [main] INFO  MavenRepositoryHelper - Deployment failed with Failed to deploy artifacts: Could not transfer artifact com.joey.cheetah:core:pom:1.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401), artifact might be deployed already.
+11:12:14.660 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.1/core-1.4.1-aar.md5
+11:12:14.660 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:aar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:15.376 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:aar:1.4.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:15.377 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:aar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:15.377 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.1/core-1.4.1.aar
+11:12:15.377 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:aar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:17.418 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:aar:1.4.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:17.418 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:aar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:17.418 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.1/core-1.4.1-sources.jar.md5
+11:12:17.418 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:sources.jar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:17.676 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:sources.jar:1.4.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:17.676 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:sources.jar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:17.676 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.1/core-1.4.1.pom
+11:12:17.676 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:pom:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:17.927 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:pom:1.4.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:17.927 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:pom:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:17.927 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.1/core-1.4.1-pom.md5
+11:12:17.927 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:pom:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:18.173 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:pom:1.4.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:18.173 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:pom:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:18.173 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.1/core-1.4.1-sources.jar
+11:12:18.173 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:jar:sources:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:19.251 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:jar:sources:1.4.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:19.251 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:jar:sources:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:19.251 [main] INFO  MavenRepositoryHelper - Deployment failed with Failed to deploy artifacts: Could not transfer artifact com.joey.cheetah:core:md5:aar:1.4.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401), artifact might be deployed already.
+11:12:19.488 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4/core-1.4.pom
+11:12:19.488 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:pom:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:20.299 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:pom:1.4 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:20.299 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:pom:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:20.299 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4/core-1.4-sources.jar.md5
+11:12:20.299 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:sources.jar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:20.553 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:sources.jar:1.4 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:20.553 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:sources.jar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:20.553 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4/core-1.4-sources.jar
+11:12:20.553 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:jar:sources:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:21.276 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:jar:sources:1.4 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:21.276 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:jar:sources:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:21.276 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4/core-1.4-pom.md5
+11:12:21.276 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:pom:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:21.526 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:pom:1.4 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:21.527 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:pom:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:21.527 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4/core-1.4.aar
+11:12:21.527 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:aar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:22.814 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:aar:1.4 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:22.814 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:aar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:22.814 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4/core-1.4-aar.md5
+11:12:22.814 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:aar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:23.065 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:aar:1.4 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:23.066 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:aar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:23.066 [main] INFO  MavenRepositoryHelper - Deployment failed with Failed to deploy artifacts: Could not transfer artifact com.joey.cheetah:core:pom:1.4 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401), artifact might be deployed already.
+11:12:23.396 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.3/core-1.3-aar.md5
+11:12:23.396 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:aar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:24.126 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:aar:1.3 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:24.126 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:aar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:24.126 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.3/core-1.3-sources.jar.md5
+11:12:24.126 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:sources.jar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:24.650 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:sources.jar:1.3 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:24.651 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:sources.jar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:24.651 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.3/core-1.3.pom
+11:12:24.651 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:pom:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:24.984 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:pom:1.3 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:24.984 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:pom:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:24.984 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.3/core-1.3.aar
+11:12:24.984 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:aar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:26.271 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:aar:1.3 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:26.271 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:aar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:26.272 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.3/core-1.3-sources.jar
+11:12:26.272 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:jar:sources:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:26.969 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:jar:sources:1.3 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:26.969 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:jar:sources:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:26.969 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.3/core-1.3-pom.md5
+11:12:26.969 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:pom:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:27.216 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:pom:1.3 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:27.216 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:pom:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:27.216 [main] INFO  MavenRepositoryHelper - Deployment failed with Failed to deploy artifacts: Could not transfer artifact com.joey.cheetah:core:md5:aar:1.3 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401), artifact might be deployed already.
+11:12:27.592 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.2/core-1.2-sources.jar
+11:12:27.592 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:jar:sources:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:28.608 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:jar:sources:1.2 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:28.608 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:jar:sources:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:28.608 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.2/core-1.2.pom
+11:12:28.609 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:pom:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:28.824 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:pom:1.2 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:28.824 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:pom:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:28.824 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.2/core-1.2-aar.md5
+11:12:28.824 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:aar:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:29.032 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:aar:1.2 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:29.033 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:aar:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:29.033 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.2/core-1.2-sources.jar.md5
+11:12:29.033 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:sources.jar:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:29.241 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:sources.jar:1.2 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:29.241 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:sources.jar:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:29.242 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.2/core-1.2.aar
+11:12:29.242 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:aar:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:30.283 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:aar:1.2 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:30.284 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:aar:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:30.284 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.2/core-1.2-pom.md5
+11:12:30.284 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:pom:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:30.490 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:pom:1.2 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:30.490 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:pom:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:30.490 [main] INFO  MavenRepositoryHelper - Deployment failed with Failed to deploy artifacts: Could not transfer artifact com.joey.cheetah:core:jar:sources:1.2 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401), artifact might be deployed already.
+11:12:30.800 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.2/core-1.4.2.aar
+11:12:30.800 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:aar:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:32.996 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:aar:1.4.2 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:32.997 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:aar:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:32.997 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.2/core-1.4.2-aar.md5
+11:12:32.997 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:aar:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:33.195 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:aar:1.4.2 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:33.195 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:aar:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:33.196 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.2/core-1.4.2-sources.jar
+11:12:33.196 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:jar:sources:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:34.140 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:jar:sources:1.4.2 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:34.140 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:jar:sources:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:34.140 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.2/core-1.4.2-pom.md5
+11:12:34.140 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:pom:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:34.352 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:pom:1.4.2 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:34.352 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:pom:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:34.352 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.2/core-1.4.2.pom
+11:12:34.352 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:pom:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:34.565 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:pom:1.4.2 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:34.565 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:pom:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:34.566 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.2/core-1.4.2-sources.jar.md5
+11:12:34.566 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:sources.jar:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:34.767 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:core:md5:sources.jar:1.4.2 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:34.768 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:sources.jar:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:34.768 [main] INFO  MavenRepositoryHelper - Deployment failed with Failed to deploy artifacts: Could not transfer artifact com.joey.cheetah:core:aar:1.4.2 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401), artifact might be deployed already.
+11:12:35.076 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.0/mvp-1.0-sources.jar
+11:12:35.076 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:jar:sources:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:35.709 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:jar:sources:1.0 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:35.709 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:jar:sources:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:35.709 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.0/mvp-1.0-aar.md5
+11:12:35.710 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:aar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:35.911 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:md5:aar:1.0 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:35.911 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:aar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:35.912 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.0/mvp-1.0.pom
+11:12:35.912 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:pom:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:36.158 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:pom:1.0 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:36.158 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:pom:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:36.158 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.0/mvp-1.0-sources.jar.md5
+11:12:36.158 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:sources.jar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:36.354 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:md5:sources.jar:1.0 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:36.354 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:sources.jar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:36.355 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.0/mvp-1.0.aar
+11:12:36.355 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:aar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:36.656 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:aar:1.0 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:36.656 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:aar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:36.656 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.0/mvp-1.0-pom.md5
+11:12:36.656 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:pom:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:36.855 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:md5:pom:1.0 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:36.855 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:pom:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:36.855 [main] INFO  MavenRepositoryHelper - Deployment failed with Failed to deploy artifacts: Could not transfer artifact com.joey.cheetah:mvp:jar:sources:1.0 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401), artifact might be deployed already.
+11:12:37.158 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.1/mvp-1.1-aar.md5
+11:12:37.158 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:aar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:37.881 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:md5:aar:1.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:37.881 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:aar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:37.881 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.1/mvp-1.1-sources.jar.md5
+11:12:37.881 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:sources.jar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:38.125 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:md5:sources.jar:1.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:38.125 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:sources.jar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:38.125 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.1/mvp-1.1.pom
+11:12:38.126 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:pom:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:38.376 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:pom:1.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:38.376 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:pom:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:38.376 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.1/mvp-1.1-sources.jar
+11:12:38.376 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:jar:sources:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:38.634 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:jar:sources:1.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:38.634 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:jar:sources:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:38.634 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.1/mvp-1.1-pom.md5
+11:12:38.634 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:pom:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:38.880 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:md5:pom:1.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:38.880 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:pom:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:38.881 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.1/mvp-1.1.aar
+11:12:38.881 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:aar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:39.253 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:aar:1.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:39.253 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:aar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:39.254 [main] INFO  MavenRepositoryHelper - Deployment failed with Failed to deploy artifacts: Could not transfer artifact com.joey.cheetah:mvp:md5:aar:1.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401), artifact might be deployed already.
+11:12:39.557 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.1/mvp-1.4.1-sources.jar
+11:12:39.557 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:jar:sources:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:40.343 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:jar:sources:1.4.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:40.344 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:jar:sources:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:40.344 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.1/mvp-1.4.1.aar
+11:12:40.344 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:aar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:40.717 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:aar:1.4.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:40.718 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:aar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:40.718 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.1/mvp-1.4.1-pom.md5
+11:12:40.718 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:pom:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:40.953 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:md5:pom:1.4.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:40.953 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:pom:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:40.954 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.1/mvp-1.4.1-sources.jar.md5
+11:12:40.954 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:sources.jar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:41.191 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:md5:sources.jar:1.4.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:41.191 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:sources.jar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:41.191 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.1/mvp-1.4.1-aar.md5
+11:12:41.191 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:aar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:41.438 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:md5:aar:1.4.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:41.438 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:aar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:41.439 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.1/mvp-1.4.1.pom
+11:12:41.439 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:pom:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:41.677 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:pom:1.4.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:41.677 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:pom:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:41.678 [main] INFO  MavenRepositoryHelper - Deployment failed with Failed to deploy artifacts: Could not transfer artifact com.joey.cheetah:mvp:jar:sources:1.4.1 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401), artifact might be deployed already.
+11:12:41.983 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4/mvp-1.4-pom.md5
+11:12:41.983 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:pom:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:42.801 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:md5:pom:1.4 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:42.801 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:pom:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:42.801 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4/mvp-1.4.pom
+11:12:42.801 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:pom:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:43.090 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:pom:1.4 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:43.090 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:pom:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:43.090 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4/mvp-1.4-sources.jar
+11:12:43.090 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:jar:sources:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:43.393 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:jar:sources:1.4 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:43.394 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:jar:sources:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:43.394 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4/mvp-1.4-sources.jar.md5
+11:12:43.394 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:sources.jar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:43.683 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:md5:sources.jar:1.4 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:43.684 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:sources.jar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:43.684 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4/mvp-1.4-aar.md5
+11:12:43.684 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:aar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:43.977 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:md5:aar:1.4 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:43.977 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:aar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:43.977 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4/mvp-1.4.aar
+11:12:43.977 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:aar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:44.421 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:aar:1.4 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:44.422 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:aar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:44.422 [main] INFO  MavenRepositoryHelper - Deployment failed with Failed to deploy artifacts: Could not transfer artifact com.joey.cheetah:mvp:md5:pom:1.4 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401), artifact might be deployed already.
+11:12:44.671 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.3/mvp-1.3.pom
+11:12:44.671 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:pom:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:45.377 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:pom:1.3 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:45.378 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:pom:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:45.378 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.3/mvp-1.3-sources.jar
+11:12:45.378 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:jar:sources:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:45.632 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:jar:sources:1.3 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:45.632 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:jar:sources:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:45.632 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.3/mvp-1.3-aar.md5
+11:12:45.632 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:aar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:45.888 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:md5:aar:1.3 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:45.888 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:aar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:45.888 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.3/mvp-1.3-pom.md5
+11:12:45.888 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:pom:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:46.135 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:md5:pom:1.3 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:46.135 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:pom:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:46.135 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.3/mvp-1.3.aar
+11:12:46.135 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:aar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:46.515 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:aar:1.3 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:46.515 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:aar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:46.515 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.3/mvp-1.3-sources.jar.md5
+11:12:46.515 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:sources.jar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:46.757 [main] INFO  LoggingTransferListener - Could not transfer artifact com.joey.cheetah:mvp:md5:sources.jar:1.3 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401)
+11:12:46.757 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:sources.jar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:12:46.757 [main] INFO  MavenRepositoryHelper - Deployment failed with Failed to deploy artifacts: Could not transfer artifact com.joey.cheetah:mvp:pom:1.3 from/to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/): Unauthorized (401), artifact might be deployed already.
+11:13:52.042 [main] INFO  MavenRepositoryProvisioner - -----------------------------------
+11:13:52.045 [main] INFO  MavenRepositoryProvisioner -  Maven Repository Provisioner      
+11:13:52.045 [main] INFO  MavenRepositoryProvisioner -  simpligility technologies inc.    
+11:13:52.045 [main] INFO  MavenRepositoryProvisioner -  http://www.simpligility.com       
+11:13:52.045 [main] INFO  MavenRepositoryProvisioner - -----------------------------------
+11:13:52.079 [main] INFO  MavenRepositoryProvisioner - 
+Provisioning artifacts: null
+Source: https://repo1.maven.org/maven2
+Target: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/
+Username: tDngW5
+Password: ******************************
+IncludeSources: true
+IncludeJavadoc: true
+IncludeProvidedScope: false
+IncludeTestScope: false
+IncludeRuntimeScope: false
+Check target: true
+Verify only: false
+Local cache or source repository directory: /Users/joey/AndroidStudioProjects/Cheetah/maven/terminus
+
+
+11:13:52.079 [main] INFO  MavenRepositoryProvisioner -  Absolute path: /Users/joey/AndroidStudioProjects/Cheetah/maven/terminus
+11:13:52.080 [main] INFO  MavenRepositoryProvisioner - Detected local cache directory '/Users/joey/AndroidStudioProjects/Cheetah/maven/terminus'.
+11:13:52.080 [main] INFO  MavenRepositoryProvisioner - No artifact coordinates specified - using cache directory as source.
+11:13:52.080 [main] INFO  MavenRepositoryProvisioner - Artifact retrieval skipped. 
+11:13:52.080 [main] INFO  MavenRepositoryProvisioner - Artifact deployment starting.
+11:13:53.182 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.0/core-1.0.pom
+11:13:53.183 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:pom:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:13:54.541 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.0/core-1.0.pom (7 KB at 4.5 KB/sec)
+11:13:54.542 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:pom:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:13:54.542 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.0/core-1.0-aar.md5
+11:13:54.542 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:aar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:13:55.036 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.0/core-1.0-aar.md5 (32 B at 0.1 KB/sec)
+11:13:55.036 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:aar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:13:55.037 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.0/core-1.0-sources.jar.md5
+11:13:55.037 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:sources.jar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:13:55.510 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.0/core-1.0-sources.jar.md5 (32 B at 0.1 KB/sec)
+11:13:55.510 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:sources.jar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:13:55.510 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.0/core-1.0-pom.md5
+11:13:55.510 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:pom:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:13:55.967 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.0/core-1.0-pom.md5 (32 B at 0.1 KB/sec)
+11:13:55.967 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:pom:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:13:55.967 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.0/core-1.0.aar
+11:13:55.967 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:aar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:13:57.300 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.0/core-1.0.aar (155 KB at 116.2 KB/sec)
+11:13:57.300 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:aar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:13:57.300 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.0/core-1.0-sources.jar
+11:13:57.300 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:jar:sources:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:13:58.125 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.0/core-1.0-sources.jar (67 KB at 80.2 KB/sec)
+11:13:58.125 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:jar:sources:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:13:58.130 [main] INFO  LoggingRepositoryListener - Resolving metadata com.joey.cheetah:core/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:13:58.134 [main] INFO  LoggingTransferListener - Downloading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml
+11:13:58.233 [main] INFO  LoggingRepositoryListener - Resolved metadata com.joey.cheetah:core/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:13:58.247 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml
+11:13:58.247 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:13:58.711 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml (296 B at 0.6 KB/sec)
+11:13:58.711 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:13:59.033 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.1/core-1.1.pom
+11:13:59.034 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:pom:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:00.195 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.1/core-1.1.pom (7 KB at 5.4 KB/sec)
+11:14:00.196 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:pom:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:00.196 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.1/core-1.1-sources.jar
+11:14:00.196 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:jar:sources:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:01.158 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.1/core-1.1-sources.jar (70 KB at 72.4 KB/sec)
+11:14:01.159 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:jar:sources:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:01.159 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.1/core-1.1-aar.md5
+11:14:01.159 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:aar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:01.550 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.1/core-1.1-aar.md5 (32 B at 0.1 KB/sec)
+11:14:01.550 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:aar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:01.550 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.1/core-1.1-pom.md5
+11:14:01.550 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:pom:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:01.930 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.1/core-1.1-pom.md5 (32 B at 0.1 KB/sec)
+11:14:01.931 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:pom:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:01.931 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.1/core-1.1.aar
+11:14:01.931 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:aar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:03.161 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.1/core-1.1.aar (165 KB at 133.7 KB/sec)
+11:14:03.161 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:aar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:03.161 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.1/core-1.1-sources.jar.md5
+11:14:03.161 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:sources.jar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:03.553 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.1/core-1.1-sources.jar.md5 (32 B at 0.1 KB/sec)
+11:14:03.553 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:sources.jar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:03.553 [main] INFO  LoggingRepositoryListener - Resolving metadata com.joey.cheetah:core/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:03.554 [main] INFO  LoggingTransferListener - Downloading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml
+11:14:04.069 [main] INFO  LoggingTransferListener - Downloaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml (296 B at 0.6 KB/sec)
+11:14:04.069 [main] INFO  LoggingRepositoryListener - Resolved metadata com.joey.cheetah:core/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:04.084 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml
+11:14:04.084 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:04.457 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml (325 B at 0.9 KB/sec)
+11:14:04.457 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:04.819 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.1/core-1.4.1-aar.md5
+11:14:04.819 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:aar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:05.734 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.1/core-1.4.1-aar.md5 (32 B at 0.0 KB/sec)
+11:14:05.735 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:aar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:05.735 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.1/core-1.4.1.aar
+11:14:05.735 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:aar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:07.103 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.1/core-1.4.1.aar (190 KB at 138.4 KB/sec)
+11:14:07.103 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:aar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:07.103 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.1/core-1.4.1-sources.jar.md5
+11:14:07.103 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:sources.jar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:07.552 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.1/core-1.4.1-sources.jar.md5 (32 B at 0.1 KB/sec)
+11:14:07.552 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:sources.jar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:07.553 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.1/core-1.4.1.pom
+11:14:07.553 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:pom:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:08.167 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.1/core-1.4.1.pom (8 KB at 12.6 KB/sec)
+11:14:08.168 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:pom:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:08.168 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.1/core-1.4.1-pom.md5
+11:14:08.168 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:pom:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:08.610 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.1/core-1.4.1-pom.md5 (32 B at 0.1 KB/sec)
+11:14:08.610 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:pom:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:08.610 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.1/core-1.4.1-sources.jar
+11:14:08.610 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:jar:sources:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:09.426 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.1/core-1.4.1-sources.jar (84 KB at 102.2 KB/sec)
+11:14:09.427 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:jar:sources:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:09.427 [main] INFO  LoggingRepositoryListener - Resolving metadata com.joey.cheetah:core/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:09.427 [main] INFO  LoggingTransferListener - Downloading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml
+11:14:09.755 [main] INFO  LoggingTransferListener - Downloaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml (325 B at 1.0 KB/sec)
+11:14:09.755 [main] INFO  LoggingRepositoryListener - Resolved metadata com.joey.cheetah:core/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:09.757 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml
+11:14:09.758 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:10.225 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml (358 B at 0.7 KB/sec)
+11:14:10.225 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:10.534 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4/core-1.4.pom
+11:14:10.534 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:pom:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:11.701 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4/core-1.4.pom (8 KB at 6.6 KB/sec)
+11:14:11.701 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:pom:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:11.701 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4/core-1.4-sources.jar.md5
+11:14:11.701 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:sources.jar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:12.140 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4/core-1.4-sources.jar.md5 (32 B at 0.1 KB/sec)
+11:14:12.140 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:sources.jar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:12.141 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4/core-1.4-sources.jar
+11:14:12.141 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:jar:sources:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:13.040 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4/core-1.4-sources.jar (84 KB at 92.8 KB/sec)
+11:14:13.040 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:jar:sources:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:13.040 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4/core-1.4-pom.md5
+11:14:13.040 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:pom:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:13.479 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4/core-1.4-pom.md5 (32 B at 0.1 KB/sec)
+11:14:13.479 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:pom:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:13.479 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4/core-1.4.aar
+11:14:13.479 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:aar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:14.590 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4/core-1.4.aar (190 KB at 170.4 KB/sec)
+11:14:14.590 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:aar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:14.590 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4/core-1.4-aar.md5
+11:14:14.590 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:aar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:15.035 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4/core-1.4-aar.md5 (32 B at 0.1 KB/sec)
+11:14:15.035 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:aar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:15.035 [main] INFO  LoggingRepositoryListener - Resolving metadata com.joey.cheetah:core/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:15.035 [main] INFO  LoggingTransferListener - Downloading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml
+11:14:15.385 [main] INFO  LoggingTransferListener - Downloaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml (358 B at 1.0 KB/sec)
+11:14:15.386 [main] INFO  LoggingRepositoryListener - Resolved metadata com.joey.cheetah:core/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:15.388 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml
+11:14:15.388 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:15.839 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml (385 B at 0.8 KB/sec)
+11:14:15.839 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:16.149 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.3/core-1.3-aar.md5
+11:14:16.149 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:aar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:17.237 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.3/core-1.3-aar.md5 (32 B at 0.0 KB/sec)
+11:14:17.237 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:aar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:17.237 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.3/core-1.3-sources.jar.md5
+11:14:17.237 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:sources.jar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:17.762 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.3/core-1.3-sources.jar.md5 (32 B at 0.1 KB/sec)
+11:14:17.764 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:sources.jar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:17.764 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.3/core-1.3.pom
+11:14:17.764 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:pom:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:18.454 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.3/core-1.3.pom (8 KB at 11.2 KB/sec)
+11:14:18.454 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:pom:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:18.455 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.3/core-1.3.aar
+11:14:18.455 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:aar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:20.931 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.3/core-1.3.aar (190 KB at 76.5 KB/sec)
+11:14:20.931 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:aar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:20.931 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.3/core-1.3-sources.jar
+11:14:20.931 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:jar:sources:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:22.131 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.3/core-1.3-sources.jar (84 KB at 69.4 KB/sec)
+11:14:22.131 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:jar:sources:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:22.132 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.3/core-1.3-pom.md5
+11:14:22.132 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:pom:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:22.653 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.3/core-1.3-pom.md5 (32 B at 0.1 KB/sec)
+11:14:22.654 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:pom:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:22.654 [main] INFO  LoggingRepositoryListener - Resolving metadata com.joey.cheetah:core/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:22.654 [main] INFO  LoggingTransferListener - Downloading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml
+11:14:23.038 [main] INFO  LoggingTransferListener - Downloaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml (385 B at 1.0 KB/sec)
+11:14:23.038 [main] INFO  LoggingRepositoryListener - Resolved metadata com.joey.cheetah:core/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:23.040 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml
+11:14:23.040 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:23.576 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml (414 B at 0.8 KB/sec)
+11:14:23.576 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:23.939 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.2/core-1.2-sources.jar
+11:14:23.939 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:jar:sources:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:25.129 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.2/core-1.2-sources.jar (84 KB at 70.0 KB/sec)
+11:14:25.129 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:jar:sources:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:25.129 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.2/core-1.2.pom
+11:14:25.129 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:pom:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:25.701 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.2/core-1.2.pom (8 KB at 13.5 KB/sec)
+11:14:25.702 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:pom:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:25.702 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.2/core-1.2-aar.md5
+11:14:25.702 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:aar:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:26.083 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.2/core-1.2-aar.md5 (32 B at 0.1 KB/sec)
+11:14:26.083 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:aar:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:26.084 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.2/core-1.2-sources.jar.md5
+11:14:26.084 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:sources.jar:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:26.468 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.2/core-1.2-sources.jar.md5 (32 B at 0.1 KB/sec)
+11:14:26.468 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:sources.jar:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:26.469 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.2/core-1.2.aar
+11:14:26.469 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:aar:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:27.436 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.2/core-1.2.aar (190 KB at 195.6 KB/sec)
+11:14:27.437 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:aar:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:27.437 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.2/core-1.2-pom.md5
+11:14:27.437 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:pom:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:27.839 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.2/core-1.2-pom.md5 (32 B at 0.1 KB/sec)
+11:14:27.840 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:pom:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:27.840 [main] INFO  LoggingRepositoryListener - Resolving metadata com.joey.cheetah:core/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:27.840 [main] INFO  LoggingTransferListener - Downloading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml
+11:14:28.128 [main] INFO  LoggingTransferListener - Downloaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml (414 B at 1.4 KB/sec)
+11:14:28.128 [main] INFO  LoggingRepositoryListener - Resolved metadata com.joey.cheetah:core/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:28.130 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml
+11:14:28.130 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:28.603 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml (443 B at 0.9 KB/sec)
+11:14:28.603 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:28.973 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.2/core-1.4.2.aar
+11:14:28.974 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:aar:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:30.787 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.2/core-1.4.2.aar (202 KB at 111.3 KB/sec)
+11:14:30.787 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:aar:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:30.787 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.2/core-1.4.2-aar.md5
+11:14:30.788 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:aar:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:31.237 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.2/core-1.4.2-aar.md5 (32 B at 0.1 KB/sec)
+11:14:31.238 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:aar:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:31.238 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.2/core-1.4.2-sources.jar
+11:14:31.238 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:jar:sources:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:32.119 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.2/core-1.4.2-sources.jar (89 KB at 100.6 KB/sec)
+11:14:32.119 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:jar:sources:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:32.119 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.2/core-1.4.2-pom.md5
+11:14:32.119 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:pom:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:32.563 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.2/core-1.4.2-pom.md5 (32 B at 0.1 KB/sec)
+11:14:32.563 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:pom:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:32.563 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.2/core-1.4.2.pom
+11:14:32.563 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:pom:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:33.397 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.2/core-1.4.2.pom (8 KB at 9.3 KB/sec)
+11:14:33.397 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:pom:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:33.397 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.2/core-1.4.2-sources.jar.md5
+11:14:33.397 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core:md5:sources.jar:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:33.848 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/1.4.2/core-1.4.2-sources.jar.md5 (32 B at 0.1 KB/sec)
+11:14:33.848 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core:md5:sources.jar:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:33.849 [main] INFO  LoggingRepositoryListener - Resolving metadata com.joey.cheetah:core/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:33.849 [main] INFO  LoggingTransferListener - Downloading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml
+11:14:34.185 [main] INFO  LoggingTransferListener - Downloaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml (443 B at 1.3 KB/sec)
+11:14:34.186 [main] INFO  LoggingRepositoryListener - Resolved metadata com.joey.cheetah:core/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:34.187 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml
+11:14:34.188 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:core/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:34.647 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/core/maven-metadata.xml (476 B at 1.0 KB/sec)
+11:14:34.647 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:core/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:34.949 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.0/mvp-1.0-sources.jar
+11:14:34.949 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:jar:sources:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:35.925 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.0/mvp-1.0-sources.jar (7 KB at 7.0 KB/sec)
+11:14:35.925 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:jar:sources:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:35.925 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.0/mvp-1.0-aar.md5
+11:14:35.925 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:aar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:36.318 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.0/mvp-1.0-aar.md5 (32 B at 0.1 KB/sec)
+11:14:36.318 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:aar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:36.319 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.0/mvp-1.0.pom
+11:14:36.319 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:pom:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:37.116 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.0/mvp-1.0.pom (792 B at 1.0 KB/sec)
+11:14:37.117 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:pom:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:37.117 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.0/mvp-1.0-sources.jar.md5
+11:14:37.117 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:sources.jar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:37.490 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.0/mvp-1.0-sources.jar.md5 (32 B at 0.1 KB/sec)
+11:14:37.490 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:sources.jar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:37.490 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.0/mvp-1.0.aar
+11:14:37.490 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:aar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:38.154 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.0/mvp-1.0.aar (25 KB at 36.8 KB/sec)
+11:14:38.154 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:aar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:38.154 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.0/mvp-1.0-pom.md5
+11:14:38.155 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:pom:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:38.540 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.0/mvp-1.0-pom.md5 (32 B at 0.1 KB/sec)
+11:14:38.540 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:pom:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:38.540 [main] INFO  LoggingRepositoryListener - Resolving metadata com.joey.cheetah:mvp/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:38.541 [main] INFO  LoggingTransferListener - Downloading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml
+11:14:38.603 [main] INFO  LoggingRepositoryListener - Resolved metadata com.joey.cheetah:mvp/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:38.605 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml
+11:14:38.605 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:38.994 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml (295 B at 0.7 KB/sec)
+11:14:38.995 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:39.239 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.1/mvp-1.1-aar.md5
+11:14:39.239 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:aar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:40.196 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.1/mvp-1.1-aar.md5 (32 B at 0.0 KB/sec)
+11:14:40.196 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:aar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:40.196 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.1/mvp-1.1-sources.jar.md5
+11:14:40.196 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:sources.jar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:40.662 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.1/mvp-1.1-sources.jar.md5 (32 B at 0.1 KB/sec)
+11:14:40.662 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:sources.jar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:40.663 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.1/mvp-1.1.pom
+11:14:40.663 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:pom:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:41.332 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.1/mvp-1.1.pom (621 B at 0.9 KB/sec)
+11:14:41.333 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:pom:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:41.333 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.1/mvp-1.1-sources.jar
+11:14:41.333 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:jar:sources:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:42.236 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.1/mvp-1.1-sources.jar (7 KB at 7.5 KB/sec)
+11:14:42.236 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:jar:sources:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:42.236 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.1/mvp-1.1-pom.md5
+11:14:42.236 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:pom:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:42.706 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.1/mvp-1.1-pom.md5 (32 B at 0.1 KB/sec)
+11:14:42.706 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:pom:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:42.707 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.1/mvp-1.1.aar
+11:14:42.707 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:aar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:43.440 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.1/mvp-1.1.aar (25 KB at 33.3 KB/sec)
+11:14:43.440 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:aar:1.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:43.441 [main] INFO  LoggingRepositoryListener - Resolving metadata com.joey.cheetah:mvp/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:43.441 [main] INFO  LoggingTransferListener - Downloading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml
+11:14:43.805 [main] INFO  LoggingTransferListener - Downloaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml (295 B at 0.8 KB/sec)
+11:14:43.805 [main] INFO  LoggingRepositoryListener - Resolved metadata com.joey.cheetah:mvp/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:43.807 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml
+11:14:43.807 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:44.277 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml (324 B at 0.7 KB/sec)
+11:14:44.277 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:44.588 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.1/mvp-1.4.1-sources.jar
+11:14:44.588 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:jar:sources:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:45.948 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.1/mvp-1.4.1-sources.jar (7 KB at 5.0 KB/sec)
+11:14:45.948 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:jar:sources:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:45.949 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.1/mvp-1.4.1.aar
+11:14:45.949 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:aar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:46.749 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.1/mvp-1.4.1.aar (26 KB at 31.6 KB/sec)
+11:14:46.749 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:aar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:46.749 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.1/mvp-1.4.1-pom.md5
+11:14:46.749 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:pom:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:47.201 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.1/mvp-1.4.1-pom.md5 (32 B at 0.1 KB/sec)
+11:14:47.201 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:pom:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:47.202 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.1/mvp-1.4.1-sources.jar.md5
+11:14:47.202 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:sources.jar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:47.663 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.1/mvp-1.4.1-sources.jar.md5 (32 B at 0.1 KB/sec)
+11:14:47.663 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:sources.jar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:47.663 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.1/mvp-1.4.1-aar.md5
+11:14:47.663 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:aar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:48.121 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.1/mvp-1.4.1-aar.md5 (32 B at 0.1 KB/sec)
+11:14:48.121 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:aar:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:48.121 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.1/mvp-1.4.1.pom
+11:14:48.121 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:pom:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:48.752 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.1/mvp-1.4.1.pom (625 B at 1.0 KB/sec)
+11:14:48.752 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:pom:1.4.1 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:48.752 [main] INFO  LoggingRepositoryListener - Resolving metadata com.joey.cheetah:mvp/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:48.752 [main] INFO  LoggingTransferListener - Downloading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml
+11:14:49.082 [main] INFO  LoggingTransferListener - Downloaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml (324 B at 1.0 KB/sec)
+11:14:49.082 [main] INFO  LoggingRepositoryListener - Resolved metadata com.joey.cheetah:mvp/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:49.084 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml
+11:14:49.084 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:49.541 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml (357 B at 0.8 KB/sec)
+11:14:49.541 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:49.840 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4/mvp-1.4-pom.md5
+11:14:49.840 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:pom:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:50.759 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4/mvp-1.4-pom.md5 (32 B at 0.0 KB/sec)
+11:14:50.759 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:pom:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:50.759 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4/mvp-1.4.pom
+11:14:50.759 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:pom:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:51.367 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4/mvp-1.4.pom (621 B at 1.0 KB/sec)
+11:14:51.367 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:pom:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:51.367 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4/mvp-1.4-sources.jar
+11:14:51.367 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:jar:sources:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:52.216 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4/mvp-1.4-sources.jar (7 KB at 8.0 KB/sec)
+11:14:52.216 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:jar:sources:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:52.216 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4/mvp-1.4-sources.jar.md5
+11:14:52.216 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:sources.jar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:52.667 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4/mvp-1.4-sources.jar.md5 (32 B at 0.1 KB/sec)
+11:14:52.667 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:sources.jar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:52.667 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4/mvp-1.4-aar.md5
+11:14:52.667 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:aar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:53.127 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4/mvp-1.4-aar.md5 (32 B at 0.1 KB/sec)
+11:14:53.127 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:aar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:53.128 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4/mvp-1.4.aar
+11:14:53.128 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:aar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:54.005 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4/mvp-1.4.aar (26 KB at 28.8 KB/sec)
+11:14:54.005 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:aar:1.4 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:54.005 [main] INFO  LoggingRepositoryListener - Resolving metadata com.joey.cheetah:mvp/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:54.006 [main] INFO  LoggingTransferListener - Downloading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml
+11:14:54.374 [main] INFO  LoggingTransferListener - Downloaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml (357 B at 0.9 KB/sec)
+11:14:54.374 [main] INFO  LoggingRepositoryListener - Resolved metadata com.joey.cheetah:mvp/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:54.376 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml
+11:14:54.376 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:54.829 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml (384 B at 0.8 KB/sec)
+11:14:54.829 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:55.085 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.3/mvp-1.3.pom
+11:14:55.085 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:pom:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:56.196 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.3/mvp-1.3.pom (621 B at 0.5 KB/sec)
+11:14:56.196 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:pom:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:56.196 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.3/mvp-1.3-sources.jar
+11:14:56.196 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:jar:sources:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:56.820 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.3/mvp-1.3-sources.jar (7 KB at 10.9 KB/sec)
+11:14:56.821 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:jar:sources:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:56.821 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.3/mvp-1.3-aar.md5
+11:14:56.821 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:aar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:57.263 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.3/mvp-1.3-aar.md5 (32 B at 0.1 KB/sec)
+11:14:57.263 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:aar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:57.263 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.3/mvp-1.3-pom.md5
+11:14:57.263 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:pom:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:57.708 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.3/mvp-1.3-pom.md5 (32 B at 0.1 KB/sec)
+11:14:57.708 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:pom:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:57.708 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.3/mvp-1.3.aar
+11:14:57.708 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:aar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:58.510 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.3/mvp-1.3.aar (26 KB at 31.4 KB/sec)
+11:14:58.510 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:aar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:58.510 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.3/mvp-1.3-sources.jar.md5
+11:14:58.510 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:sources.jar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:58.959 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.3/mvp-1.3-sources.jar.md5 (32 B at 0.1 KB/sec)
+11:14:58.960 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:sources.jar:1.3 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:58.960 [main] INFO  LoggingRepositoryListener - Resolving metadata com.joey.cheetah:mvp/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:58.960 [main] INFO  LoggingTransferListener - Downloading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml
+11:14:59.281 [main] INFO  LoggingTransferListener - Downloaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml (384 B at 1.2 KB/sec)
+11:14:59.282 [main] INFO  LoggingRepositoryListener - Resolved metadata com.joey.cheetah:mvp/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:59.283 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml
+11:14:59.283 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:59.741 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml (413 B at 0.9 KB/sec)
+11:14:59.741 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:14:59.985 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.2/mvp-1.2.pom
+11:14:59.985 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:pom:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:01.213 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.2/mvp-1.2.pom (621 B at 0.5 KB/sec)
+11:15:01.213 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:pom:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:01.213 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.2/mvp-1.2-aar.md5
+11:15:01.213 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:aar:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:01.734 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.2/mvp-1.2-aar.md5 (32 B at 0.1 KB/sec)
+11:15:01.739 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:aar:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:01.739 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.2/mvp-1.2-pom.md5
+11:15:01.739 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:pom:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:02.257 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.2/mvp-1.2-pom.md5 (32 B at 0.1 KB/sec)
+11:15:02.257 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:pom:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:02.257 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.2/mvp-1.2-sources.jar.md5
+11:15:02.257 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:sources.jar:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:02.781 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.2/mvp-1.2-sources.jar.md5 (32 B at 0.1 KB/sec)
+11:15:02.782 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:sources.jar:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:02.782 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.2/mvp-1.2.aar
+11:15:02.782 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:aar:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:03.604 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.2/mvp-1.2.aar (26 KB at 30.7 KB/sec)
+11:15:03.604 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:aar:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:03.604 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.2/mvp-1.2-sources.jar
+11:15:03.604 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:jar:sources:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:04.284 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.2/mvp-1.2-sources.jar (7 KB at 10.0 KB/sec)
+11:15:04.284 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:jar:sources:1.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:04.284 [main] INFO  LoggingRepositoryListener - Resolving metadata com.joey.cheetah:mvp/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:04.284 [main] INFO  LoggingTransferListener - Downloading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml
+11:15:04.638 [main] INFO  LoggingTransferListener - Downloaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml (413 B at 1.1 KB/sec)
+11:15:04.638 [main] INFO  LoggingRepositoryListener - Resolved metadata com.joey.cheetah:mvp/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:04.640 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml
+11:15:04.640 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:05.163 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml (442 B at 0.8 KB/sec)
+11:15:05.163 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:05.471 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.2/mvp-1.4.2-sources.jar
+11:15:05.471 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:jar:sources:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:06.496 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.2/mvp-1.4.2-sources.jar (7 KB at 6.7 KB/sec)
+11:15:06.496 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:jar:sources:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:06.496 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.2/mvp-1.4.2-sources.jar.md5
+11:15:06.496 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:sources.jar:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:06.884 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.2/mvp-1.4.2-sources.jar.md5 (32 B at 0.1 KB/sec)
+11:15:06.884 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:sources.jar:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:06.885 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.2/mvp-1.4.2-pom.md5
+11:15:06.885 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:pom:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:07.274 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.2/mvp-1.4.2-pom.md5 (32 B at 0.1 KB/sec)
+11:15:07.274 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:pom:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:07.274 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.2/mvp-1.4.2.aar
+11:15:07.274 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:aar:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:07.934 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.2/mvp-1.4.2.aar (26 KB at 38.3 KB/sec)
+11:15:07.934 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:aar:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:07.934 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.2/mvp-1.4.2-aar.md5
+11:15:07.934 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:md5:aar:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:08.318 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.2/mvp-1.4.2-aar.md5 (32 B at 0.1 KB/sec)
+11:15:08.318 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:md5:aar:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:08.318 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.2/mvp-1.4.2.pom
+11:15:08.318 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp:pom:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:08.928 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/1.4.2/mvp-1.4.2.pom (625 B at 1.0 KB/sec)
+11:15:08.928 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp:pom:1.4.2 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:08.928 [main] INFO  LoggingRepositoryListener - Resolving metadata com.joey.cheetah:mvp/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:08.928 [main] INFO  LoggingTransferListener - Downloading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml
+11:15:09.225 [main] INFO  LoggingTransferListener - Downloaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml (442 B at 1.5 KB/sec)
+11:15:09.226 [main] INFO  LoggingRepositoryListener - Resolved metadata com.joey.cheetah:mvp/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:09.227 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml
+11:15:09.227 [main] INFO  LoggingRepositoryListener - Deploying com.joey.cheetah:mvp/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:09.622 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/joey/cheetah/mvp/maven-metadata.xml (475 B at 1.2 KB/sec)
+11:15:09.622 [main] INFO  LoggingRepositoryListener - Deployed com.joey.cheetah:mvp/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:09.947 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/terminus/iot/1.0/iot-1.0-sources.jar
+11:15:09.947 [main] INFO  LoggingRepositoryListener - Deploying com.terminus:iot:jar:sources:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:11.161 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/terminus/iot/1.0/iot-1.0-sources.jar (17 KB at 13.4 KB/sec)
+11:15:11.161 [main] INFO  LoggingRepositoryListener - Deployed com.terminus:iot:jar:sources:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:11.161 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/terminus/iot/1.0/iot-1.0-pom.md5
+11:15:11.161 [main] INFO  LoggingRepositoryListener - Deploying com.terminus:iot:md5:pom:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:11.600 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/terminus/iot/1.0/iot-1.0-pom.md5 (32 B at 0.1 KB/sec)
+11:15:11.600 [main] INFO  LoggingRepositoryListener - Deployed com.terminus:iot:md5:pom:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:11.601 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/terminus/iot/1.0/iot-1.0.pom
+11:15:11.601 [main] INFO  LoggingRepositoryListener - Deploying com.terminus:iot:pom:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:12.282 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/terminus/iot/1.0/iot-1.0.pom (3 KB at 3.5 KB/sec)
+11:15:12.283 [main] INFO  LoggingRepositoryListener - Deployed com.terminus:iot:pom:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:12.283 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/terminus/iot/1.0/iot-1.0-aar.md5
+11:15:12.283 [main] INFO  LoggingRepositoryListener - Deploying com.terminus:iot:md5:aar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:12.732 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/terminus/iot/1.0/iot-1.0-aar.md5 (32 B at 0.1 KB/sec)
+11:15:12.732 [main] INFO  LoggingRepositoryListener - Deployed com.terminus:iot:md5:aar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:12.732 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/terminus/iot/1.0/iot-1.0-sources.jar.md5
+11:15:12.732 [main] INFO  LoggingRepositoryListener - Deploying com.terminus:iot:md5:sources.jar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:13.213 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/terminus/iot/1.0/iot-1.0-sources.jar.md5 (32 B at 0.1 KB/sec)
+11:15:13.213 [main] INFO  LoggingRepositoryListener - Deployed com.terminus:iot:md5:sources.jar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:13.213 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/terminus/iot/1.0/iot-1.0.aar
+11:15:13.213 [main] INFO  LoggingRepositoryListener - Deploying com.terminus:iot:aar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:13.885 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/terminus/iot/1.0/iot-1.0.aar (23 KB at 33.4 KB/sec)
+11:15:13.885 [main] INFO  LoggingRepositoryListener - Deployed com.terminus:iot:aar:1.0 to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:13.886 [main] INFO  LoggingRepositoryListener - Resolving metadata com.terminus:iot/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:13.886 [main] INFO  LoggingTransferListener - Downloading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/terminus/iot/maven-metadata.xml
+11:15:13.963 [main] INFO  LoggingRepositoryListener - Resolved metadata com.terminus:iot/maven-metadata.xml from repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:13.965 [main] INFO  LoggingTransferListener - Uploading: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/terminus/iot/maven-metadata.xml
+11:15:13.965 [main] INFO  LoggingRepositoryListener - Deploying com.terminus:iot/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:14.406 [main] INFO  LoggingTransferListener - Uploaded: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/com/terminus/iot/maven-metadata.xml (291 B at 0.6 KB/sec)
+11:15:14.406 [main] INFO  LoggingRepositoryListener - Deployed com.terminus:iot/maven-metadata.xml to repositoryIdentifier (https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/, default, releases+snapshots)
+11:15:14.406 [main] INFO  MavenRepositoryProvisioner - Artifact deployment completed.
+11:15:14.406 [main] INFO  MavenRepositoryProvisioner - Processing Completed.
+11:15:14.407 [main] INFO  MavenRepositoryProvisioner - 
+Processing Summary
+-----------------------------------
+Configuration:
+
+Provisioning artifacts: null
+Source: https://repo1.maven.org/maven2
+Target: https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn/
+Username: tDngW5
+Password: ******************************
+IncludeSources: true
+IncludeJavadoc: true
+IncludeProvidedScope: false
+IncludeTestScope: false
+IncludeRuntimeScope: false
+Check target: true
+Verify only: false
+Local cache or source repository directory: /Users/joey/AndroidStudioProjects/Cheetah/maven/terminus
+
+Sucessful Deployments:
+
+com.joey.cheetah:core:aar:1.0
+com.joey.cheetah:core:aar:1.1
+com.joey.cheetah:core:aar:1.2
+com.joey.cheetah:core:aar:1.3
+com.joey.cheetah:core:aar:1.4
+com.joey.cheetah:core:aar:1.4.1
+com.joey.cheetah:core:aar:1.4.2
+com.joey.cheetah:core:jar:sources:1.0
+com.joey.cheetah:core:jar:sources:1.1
+com.joey.cheetah:core:jar:sources:1.2
+com.joey.cheetah:core:jar:sources:1.3
+com.joey.cheetah:core:jar:sources:1.4
+com.joey.cheetah:core:jar:sources:1.4.1
+com.joey.cheetah:core:jar:sources:1.4.2
+com.joey.cheetah:core:md5:aar:1.0
+com.joey.cheetah:core:md5:aar:1.1
+com.joey.cheetah:core:md5:aar:1.2
+com.joey.cheetah:core:md5:aar:1.3
+com.joey.cheetah:core:md5:aar:1.4
+com.joey.cheetah:core:md5:aar:1.4.1
+com.joey.cheetah:core:md5:aar:1.4.2
+com.joey.cheetah:core:md5:pom:1.0
+com.joey.cheetah:core:md5:pom:1.1
+com.joey.cheetah:core:md5:pom:1.2
+com.joey.cheetah:core:md5:pom:1.3
+com.joey.cheetah:core:md5:pom:1.4
+com.joey.cheetah:core:md5:pom:1.4.1
+com.joey.cheetah:core:md5:pom:1.4.2
+com.joey.cheetah:core:md5:sources.jar:1.0
+com.joey.cheetah:core:md5:sources.jar:1.1
+com.joey.cheetah:core:md5:sources.jar:1.2
+com.joey.cheetah:core:md5:sources.jar:1.3
+com.joey.cheetah:core:md5:sources.jar:1.4
+com.joey.cheetah:core:md5:sources.jar:1.4.1
+com.joey.cheetah:core:md5:sources.jar:1.4.2
+com.joey.cheetah:core:pom:1.0
+com.joey.cheetah:core:pom:1.1
+com.joey.cheetah:core:pom:1.2
+com.joey.cheetah:core:pom:1.3
+com.joey.cheetah:core:pom:1.4
+com.joey.cheetah:core:pom:1.4.1
+com.joey.cheetah:core:pom:1.4.2
+com.joey.cheetah:mvp:aar:1.0
+com.joey.cheetah:mvp:aar:1.1
+com.joey.cheetah:mvp:aar:1.2
+com.joey.cheetah:mvp:aar:1.3
+com.joey.cheetah:mvp:aar:1.4
+com.joey.cheetah:mvp:aar:1.4.1
+com.joey.cheetah:mvp:aar:1.4.2
+com.joey.cheetah:mvp:jar:sources:1.0
+com.joey.cheetah:mvp:jar:sources:1.1
+com.joey.cheetah:mvp:jar:sources:1.2
+com.joey.cheetah:mvp:jar:sources:1.3
+com.joey.cheetah:mvp:jar:sources:1.4
+com.joey.cheetah:mvp:jar:sources:1.4.1
+com.joey.cheetah:mvp:jar:sources:1.4.2
+com.joey.cheetah:mvp:md5:aar:1.0
+com.joey.cheetah:mvp:md5:aar:1.1
+com.joey.cheetah:mvp:md5:aar:1.2
+com.joey.cheetah:mvp:md5:aar:1.3
+com.joey.cheetah:mvp:md5:aar:1.4
+com.joey.cheetah:mvp:md5:aar:1.4.1
+com.joey.cheetah:mvp:md5:aar:1.4.2
+com.joey.cheetah:mvp:md5:pom:1.0
+com.joey.cheetah:mvp:md5:pom:1.1
+com.joey.cheetah:mvp:md5:pom:1.2
+com.joey.cheetah:mvp:md5:pom:1.3
+com.joey.cheetah:mvp:md5:pom:1.4
+com.joey.cheetah:mvp:md5:pom:1.4.1
+com.joey.cheetah:mvp:md5:pom:1.4.2
+com.joey.cheetah:mvp:md5:sources.jar:1.0
+com.joey.cheetah:mvp:md5:sources.jar:1.1
+com.joey.cheetah:mvp:md5:sources.jar:1.2
+com.joey.cheetah:mvp:md5:sources.jar:1.3
+com.joey.cheetah:mvp:md5:sources.jar:1.4
+com.joey.cheetah:mvp:md5:sources.jar:1.4.1
+com.joey.cheetah:mvp:md5:sources.jar:1.4.2
+com.joey.cheetah:mvp:pom:1.0
+com.joey.cheetah:mvp:pom:1.1
+com.joey.cheetah:mvp:pom:1.2
+com.joey.cheetah:mvp:pom:1.3
+com.joey.cheetah:mvp:pom:1.4
+com.joey.cheetah:mvp:pom:1.4.1
+com.joey.cheetah:mvp:pom:1.4.2
+com.terminus:iot:aar:1.0
+com.terminus:iot:jar:sources:1.0
+com.terminus:iot:md5:aar:1.0
+com.terminus:iot:md5:pom:1.0
+com.terminus:iot:md5:sources.jar:1.0
+com.terminus:iot:pom:1.0
+
+Failed Deployments:
+
+
+Skipped Deployments (POM already in target):
+
+
+Potential Deployments :
+
+
+
+11:15:14.407 [main] INFO  MavenRepositoryProvisioner - Exiting: SUCCESS 
+Deployment completed successfully.
+
+11:17:27.501 [main] INFO  MavenRepositoryProvisioner - -----------------------------------
+11:17:27.504 [main] INFO  MavenRepositoryProvisioner -  Maven Repository Provisioner      
+11:17:27.504 [main] INFO  MavenRepositoryProvisioner -  simpligility technologies inc.    
+11:17:27.504 [main] INFO  MavenRepositoryProvisioner -  http://www.simpligility.com       
+11:17:27.504 [main] INFO  MavenRepositoryProvisioner - -----------------------------------
+11:17:27.539 [main] INFO  MavenRepositoryProvisioner - 
+Provisioning artifacts: null
+Source: https://repo1.maven.org/maven2
+Target: https://repo.rdc.aliyun.com/repository/46895-snapshot-jKpBUU/
+Username: tDngW5
+Password: ******************************
+IncludeSources: true
+IncludeJavadoc: true
+IncludeProvidedScope: false
+IncludeTestScope: false
+IncludeRuntimeScope: false
+Check target: true
+Verify only: false
+Local cache or source repository directory: /Users/joey/AndroidStudioProjects/Cheetah/maven/terminus-snapshot
+
+
+11:17:27.539 [main] INFO  MavenRepositoryProvisioner -  Absolute path: /Users/joey/AndroidStudioProjects/Cheetah/maven/terminus-snapshot
+11:17:27.539 [main] INFO  MavenRepositoryProvisioner - Detected local cache directory '/Users/joey/AndroidStudioProjects/Cheetah/maven/terminus-snapshot'.
+11:17:27.539 [main] INFO  MavenRepositoryProvisioner - No artifact coordinates specified - using cache directory as source.
+11:17:27.539 [main] INFO  MavenRepositoryProvisioner - Artifact retrieval skipped. 
+11:17:27.540 [main] INFO  MavenRepositoryProvisioner - Artifact deployment starting.
+11:17:30.310 [main] INFO  MavenRepositoryProvisioner - Artifact deployment completed.
+11:17:30.311 [main] INFO  MavenRepositoryProvisioner - Processing Completed.
+11:17:30.311 [main] INFO  MavenRepositoryProvisioner - 
+Processing Summary
+-----------------------------------
+Configuration:
+
+Provisioning artifacts: null
+Source: https://repo1.maven.org/maven2
+Target: https://repo.rdc.aliyun.com/repository/46895-snapshot-jKpBUU/
+Username: tDngW5
+Password: ******************************
+IncludeSources: true
+IncludeJavadoc: true
+IncludeProvidedScope: false
+IncludeTestScope: false
+IncludeRuntimeScope: false
+Check target: true
+Verify only: false
+Local cache or source repository directory: /Users/joey/AndroidStudioProjects/Cheetah/maven/terminus-snapshot
+
+Sucessful Deployments:
+
+
+Failed Deployments:
+
+
+Skipped Deployments (POM already in target):
+
+
+Potential Deployments :
+
+
+
+11:17:30.311 [main] INFO  MavenRepositoryProvisioner - Exiting: SUCCESS 
+Deployment completed successfully.
+

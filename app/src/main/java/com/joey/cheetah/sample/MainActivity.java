@@ -1,5 +1,7 @@
 package com.joey.cheetah.sample;
 
+import android.view.View;
+
 import com.joey.cheetah.core.utils.CLog;
 import com.joey.cheetah.core.utils.Jumper;
 import com.joey.cheetah.core.utils.Md5Util;
@@ -43,7 +45,6 @@ public class MainActivity extends AbsActivity{
 
         findViewById(R.id.bt_face).setOnClickListener(v -> Jumper.make(this, FaceActivity.class).jump());
 
-        CLog.d("test_md5", Md5Util.toMd5("123456"));
     }
 
     private void scan() {
@@ -51,6 +52,24 @@ public class MainActivity extends AbsActivity{
                 .scan(this)
                 .subscribe(s -> toast(s),
                         throwable -> toast(throwable.toString()));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        findViewById(R.id.ll).post(() -> {
+            CLog.d("TestMeasure", "" + findViewById(R.id.ll).getHeight());
+            findViewById(R.id.tv_test).setVisibility(View.GONE);
+//            findViewById(R.id.tv_test).post(() -> {
+            int widthMeasureSpec = View.MeasureSpec.makeMeasureSpec((1 << 30) - 1,View.MeasureSpec.AT_MOST);
+            int heightMeasureSpec = View.MeasureSpec.makeMeasureSpec((1 << 30) - 1,View.MeasureSpec.AT_MOST);
+            findViewById(R.id.ll).measure(widthMeasureSpec, heightMeasureSpec);
+//            findViewById(R.id.ll).measure(,0);
+                CLog.d("TestMeasure", "" + findViewById(R.id.ll).getHeight());
+//            });
+
+        });
+
     }
 
     @Override

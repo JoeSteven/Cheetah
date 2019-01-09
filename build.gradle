@@ -22,8 +22,20 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://jitpack.io' }
-        maven { url 'http://192.168.201.176:8081/repository/terminus-snapshot/' }
-        maven { url 'http://192.168.201.176:8081/repository/terminus-release/' }
+        maven {
+            url 'https://repo.rdc.aliyun.com/repository/46895-release-0vMuPn'
+            credentials {
+                username 'tDngW5'
+                password 'hJqX0j0yfu'
+            }
+        }
+        maven {
+            credentials {
+                username 'tDngW5'
+                password 'hJqX0j0yfu'
+            }
+            url 'https://repo.rdc.aliyun.com/repository/46895-snapshot-jKpBUU'
+        }
         maven { url "$rootDir/maven/terminus-snapshot" }
         maven { url "$rootDir/maven/terminus" }
     }
