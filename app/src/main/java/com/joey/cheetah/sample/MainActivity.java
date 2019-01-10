@@ -62,7 +62,6 @@ public class MainActivity extends AbsActivity{
         super.onResume();
         if (RebootHelper.INSTANCE.isRebooted()) {
             toast("异常重启成功");
-            RebootHelper.INSTANCE.setRebooted(false);
         }
     }
 

@@ -12,7 +12,14 @@ import java.lang.NullPointerException
  * date:2019/1/10
  */
 object RebootHelper:ERebootConfig.OnExceptionOccurListener {
-    var isRebooted = SharedPrefHelper.from(Global.context()).getBoolean("is_reboot", false)
+    var isRebooted = initReboot()
+
+    private fun initReboot():Boolean {
+        val reboot = SharedPrefHelper.from(Global.context()).getBoolean("is_reboot", false)
+        SharedPrefHelper.from(Global.context()).apply("is_reboot", false)
+        return reboot
+    }
+
     override fun onErrorOccurred(e: Throwable, t: Thread) {
         logE("Reboot", "error occurred")
     }
@@ -24,7 +31,7 @@ object RebootHelper:ERebootConfig.OnExceptionOccurListener {
 
     override fun onReboot() {
         isRebooted = true
-        SharedPrefHelper.from(Global.context()).apply("is_reboot", isRebooted)
+        SharedPrefHelper.from(Global.context()).sharePreferences.edit().putBoolean("is_reboot", true).commit()
     }
 
 }
