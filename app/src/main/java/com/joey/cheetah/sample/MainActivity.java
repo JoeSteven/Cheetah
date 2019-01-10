@@ -7,6 +7,7 @@ import com.joey.cheetah.core.utils.Jumper;
 import com.joey.cheetah.core.utils.Md5Util;
 import com.joey.cheetah.mvp.AbsActivity;
 import com.joey.cheetah.sample.dbdemo.DbDemoActivity;
+import com.joey.cheetah.sample.exception.RebootHelper;
 import com.joey.cheetah.sample.extension.ExtensionActivity;
 import com.joey.cheetah.sample.face.FaceActivity;
 import com.joey.cheetah.sample.java.scan.BleScanActivity;
@@ -45,6 +46,8 @@ public class MainActivity extends AbsActivity{
 
         findViewById(R.id.bt_face).setOnClickListener(v -> Jumper.make(this, FaceActivity.class).jump());
 
+        findViewById(R.id.bt_reboot).setOnClickListener(v -> { throw new IllegalArgumentException("test exception"); });
+
     }
 
     private void scan() {
@@ -57,19 +60,10 @@ public class MainActivity extends AbsActivity{
     @Override
     protected void onResume() {
         super.onResume();
-        findViewById(R.id.ll).post(() -> {
-            CLog.d("TestMeasure", "" + findViewById(R.id.ll).getHeight());
-            findViewById(R.id.tv_test).setVisibility(View.GONE);
-//            findViewById(R.id.tv_test).post(() -> {
-            int widthMeasureSpec = View.MeasureSpec.makeMeasureSpec((1 << 30) - 1,View.MeasureSpec.AT_MOST);
-            int heightMeasureSpec = View.MeasureSpec.makeMeasureSpec((1 << 30) - 1,View.MeasureSpec.AT_MOST);
-            findViewById(R.id.ll).measure(widthMeasureSpec, heightMeasureSpec);
-//            findViewById(R.id.ll).measure(,0);
-                CLog.d("TestMeasure", "" + findViewById(R.id.ll).getHeight());
-//            });
-
-        });
-
+        if (RebootHelper.INSTANCE.isRebooted()) {
+            toast("异常重启成功");
+            RebootHelper.INSTANCE.setRebooted(false);
+        }
     }
 
     @Override

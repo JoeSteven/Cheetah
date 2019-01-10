@@ -57,6 +57,7 @@ dependencies {
     kapt 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation 'com.github.JoeSteven:RxBle:1.0.0'
     kapt "android.arch.persistence.room:compiler:1.1.1"
+    api project(':ereboot')
 }
 repositories {
     mavenCentral()
