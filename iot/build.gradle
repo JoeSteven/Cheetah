@@ -2,13 +2,13 @@ apply plugin: 'com.android.library'
 apply from: "$rootDir/publish.gradle"
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion rootProject.ext.compileSdkVersion
 
 
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 28
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -34,7 +34,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api 'org.slf4j:slf4j-api:1.7.21'
     api 'org.slf4j:slf4j-log4j12:1.7.21'
-    implementation 'com.android.support:support-annotations:27.1.1'
+    implementation APPCOMPAT_V7
     api 'bouncycastle:bcprov-jdk16:140'
     api 'commons-codec:commons-codec:1.10'
     api 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0'
