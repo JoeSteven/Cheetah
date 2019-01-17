@@ -200,13 +200,17 @@ class FaceRecognitionLayout : FrameLayout {
 
     private fun invisibleView(size: Int) {
         logD(tag, "clear showing view")
+        val showingViews = ArrayList<View>(showingView.values)
+        //showingView 里面置为不可见
+        for (view in showingViews) {
+            view.gone()
+        }
         if (size >= showingView.size){
             showingView.clear()
             return
         }
-        // 先从超出里面开始移除
+        // 从超出里面移除
         var left = showingView.size - size
-        val showingViews = ArrayList<View>(showingView.values)
         val deleteList = mutableListOf<View>()
         for (i in 0 until left) {
             if (i >= outOfCacheViewList.size) {
@@ -216,18 +220,12 @@ class FaceRecognitionLayout : FrameLayout {
             val view = outOfCacheViewList[i]
             if (view.parent != null) {
                 removeView(view)
-                showingViews.remove(view)
-                deleteList.add(view)
             }
+            showingViews.remove(view)
+            deleteList.add(view)
         }
         outOfCacheViewList.removeAll(deleteList)
-        //然后从showingView 里面置为不可见
-        for (view in showingViews) {
-            view.gone()
-        }
-
         showingView.clear()
-
     }
 
     // 超出缓存的列表在修改清除算法后其实已经承担了缓存扩容任务
