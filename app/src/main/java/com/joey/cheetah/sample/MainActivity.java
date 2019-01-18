@@ -1,10 +1,12 @@
 package com.joey.cheetah.sample;
 
+import android.os.Build;
 import android.view.View;
 
+import com.joey.cheetah.core.permission.PermissionUtil;
 import com.joey.cheetah.core.utils.CLog;
 import com.joey.cheetah.core.utils.Jumper;
-import com.joey.cheetah.core.utils.Md5Util;
+import com.joey.cheetah.core.utils.ResGetter;
 import com.joey.cheetah.mvp.AbsActivity;
 import com.joey.cheetah.sample.dbdemo.DbDemoActivity;
 import com.joey.cheetah.sample.extension.ExtensionActivity;
@@ -45,6 +47,7 @@ public class MainActivity extends AbsActivity{
 
         findViewById(R.id.bt_face).setOnClickListener(v -> Jumper.make(this, FaceActivity.class).jump());
 
+        findViewById(R.id.bt_permission).setOnClickListener(v -> PermissionUtil.gotoSetting(this, ResGetter.stringFormat(R.string.jump_to_setting_hint, "存储")));
     }
 
     private void scan() {
