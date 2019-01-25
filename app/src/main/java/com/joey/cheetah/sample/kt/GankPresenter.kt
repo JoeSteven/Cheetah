@@ -19,6 +19,7 @@ class GankPresenter(view: IGankView) : AbsPresenter<IGankView>(view) {
     private var data: List<GankData> = ArrayList()
 
     fun queryAndroid() {
+        repository.demoTest()
         add(repository.queryAndroid()
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { mView?.loading() }

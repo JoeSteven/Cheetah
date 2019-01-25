@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.google.zxing.integration.android.IntentIntegrator
-import com.joey.zxingdemo.ScanCodeHelper
 
 /**
  * Description:

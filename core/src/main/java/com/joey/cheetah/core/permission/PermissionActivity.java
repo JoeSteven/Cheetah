@@ -7,6 +7,7 @@ package com.joey.cheetah.core.permission;
  * date:2018/7/30
  */
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -28,11 +29,6 @@ public class PermissionActivity extends AppCompatActivity {
     private boolean showTip;
     private PermissionUtil.TipInfo tipInfo;
 
-    private final String defaultTitle = "帮助";
-    private final String defaultContent = "当前应用缺少必要权限。\n \n 请点击 \"设置\"-\"权限\"-打开所需权限。";
-    private final String defaultCancel = "取消";
-    private final String defaultEnsure = "设置";
-
     @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getIntent() == null || !getIntent().hasExtra("permission")) {
@@ -47,7 +43,7 @@ public class PermissionActivity extends AppCompatActivity {
         Serializable ser = getIntent().getSerializableExtra("tip");
 
         if (ser == null) {
-            tipInfo = new PermissionUtil.TipInfo(defaultTitle, defaultContent, defaultCancel, defaultEnsure);
+            tipInfo = new PermissionUtil.TipInfo(PermissionUtil.defaultTitle, PermissionUtil.defaultContent, PermissionUtil.defaultCancel, PermissionUtil.defaultEnsure);
         } else {
             tipInfo = (PermissionUtil.TipInfo)ser;
         }
@@ -102,12 +98,12 @@ public class PermissionActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(PermissionActivity.this);
 
-        builder.setTitle(TextUtils.isEmpty(tipInfo.title) ? defaultTitle : tipInfo.title);
-        builder.setMessage(TextUtils.isEmpty(tipInfo.content) ? defaultContent : tipInfo.content);
+        builder.setTitle(TextUtils.isEmpty(tipInfo.title) ? PermissionUtil.defaultTitle : tipInfo.title);
+        builder.setMessage(TextUtils.isEmpty(tipInfo.content) ? PermissionUtil.defaultContent : tipInfo.content);
 
-        builder.setNegativeButton(TextUtils.isEmpty(tipInfo.cancel) ? defaultCancel : tipInfo.cancel, (dialog, which) -> permissionsDenied());
+        builder.setNegativeButton(TextUtils.isEmpty(tipInfo.cancel) ? PermissionUtil.defaultCancel : tipInfo.cancel, (dialog, which) -> permissionsDenied());
 
-        builder.setPositiveButton(TextUtils.isEmpty(tipInfo.ensure) ? defaultEnsure : tipInfo.ensure, (dialog, which) -> PermissionUtil.gotoSetting(PermissionActivity.this));
+        builder.setPositiveButton(TextUtils.isEmpty(tipInfo.ensure) ? PermissionUtil.defaultEnsure : tipInfo.ensure, (dialog, which) -> PermissionUtil.gotoSetting(PermissionActivity.this));
 
         builder.setCancelable(false);
         builder.show();

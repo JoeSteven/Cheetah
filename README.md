@@ -34,7 +34,39 @@ Mvp 模块：
 api 'com.github.JoeSteven.Cheetah:mvp:[version]'
 ```
 
+[依赖和发布](./readme/maven.md)
 
+- 在依赖的module的 build.gradle 中添加如下代码(android{}中)
+
+```groovy
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+```
+
+- 在app 的 `strings.xml` 中增加如下代码, 中括号为应用包名
+
+```Xml
+<string name="photo_file_provider">[your package].fileprovider</string>
+```
+
+- 如果需要配置图片选择器的存放路径
+
+```kotlin
+// java 代码中添加如下代码修改路径
+PhotoGetter.setPhotoDir(File("[your path]"))
+
+```
+
+同时需要在res目录下增加一个 xml 目录，和一个provider_path.xml 的文件
+
+```Xml
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-path name="external_files" path="[your path]"/>
+</paths>
+```
 
 ### 模块说明
 
@@ -84,7 +116,8 @@ api 'com.github.JoeSteven.Cheetah:mvp:[version]'
 
 蓝牙 : 蓝牙模块并没有直接包含在该框架中，可以依赖我的一个封装库[RxBle](https://github.com/JoeSteven/RxBle)
 
-=======
+[多人脸追踪UI框架](./readme/faceui.md) : 支持多人脸追踪的UI框架
+
 #### 混淆文件
 
 项目 release 版本混淆非常有必要，一方面提升代码安全性，大幅降低被反编译后的可读性，另一方面会压缩整个apk的包大小，节省推广及下载成本

@@ -74,6 +74,55 @@
         app:layout_constraintTop_toBottomOf="@id/bt_extension"
         app:layout_constraintLeft_toRightOf="@id/guideline"
         />
+    <Button
+        android:id="@+id/bt_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go Scan "
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="20dp"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/bt_udp"
+        app:layout_constraintRight_toLeftOf="@id/guideline"
+        />
+    <Button
+        android:id="@+id/bt_face"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go face "
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/bt_photo"
+        app:layout_constraintLeft_toRightOf="@id/guideline"
+        />
+
+    <Button
+        android:id="@+id/bt_permission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go Permission "
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="20dp"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/bt_scan"
+        app:layout_constraintRight_toLeftOf="@id/guideline"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_test"
+            android:layout_width="200dp"
+            android:layout_height="20dp" />
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="20dp" />
+    </LinearLayout>
+
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
