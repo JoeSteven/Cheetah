@@ -34,7 +34,7 @@ Mvp 模块：
 api 'com.github.JoeSteven.Cheetah:mvp:[version]'
 ```
 
-[依赖和发布](./readme/maven.md)
+[](./readme/maven.md)
 
 - 在依赖的module的 build.gradle 中添加如下代码(android{}中)
 
