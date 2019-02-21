@@ -109,6 +109,16 @@
         app:layout_constraintRight_toLeftOf="@id/guideline"
         />
 
+    <Button
+        android:id="@+id/bt_reboot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go Crash "
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/bt_face"
+        app:layout_constraintLeft_toRightOf="@id/guideline"/>
     <LinearLayout
         android:id="@+id/ll"
         android:orientation="vertical"

@@ -6,6 +6,7 @@ import com.joey.cheetah.sample.init.task.BleTask;
 import com.joey.cheetah.sample.init.task.DebugTask;
 import com.joey.cheetah.sample.init.task.DemoBackgroundTask;
 import com.joey.cheetah.sample.init.task.ImageTask;
+import com.joey.cheetah.sample.init.task.RebootTask;
 
 /**
  * Description:
@@ -15,6 +16,7 @@ import com.joey.cheetah.sample.init.task.ImageTask;
 public class SampleInitManger extends InitManager {
     @Override
     public void addTask() {
+        add(new RebootTask());
         add(new DebugTask());
         add(new ApiTask());
         add(new BleTask());
