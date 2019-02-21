@@ -35,6 +35,6 @@ dependencies {
 
 ext.group_Id('com.terminus')
 ext.artifact_id('ereboot')
-ext.version_name('1.0-SNAPSHOT')
-//ext.version_name('1.7-SNAPSHOT')
+ext.version_name('1.0')
+//ext.version_name('1.0-SNAPSHOT')
 ext.aar_name('ereboot-release.aar')
