@@ -51,7 +51,22 @@ api 'com.joey.cheetah:mvp:[version]'
 <string name="photo_file_provider">[your package].fileprovider</string>
 ```
 
+- 如果需要配置图片选择器的存放路径
 
+```kotlin
+// java 代码中添加如下代码修改路径
+PhotoGetter.setPhotoDir(File("[your path]"))
+
+```
+
+同时需要在res目录下增加一个 xml 目录，和一个provider_path.xml 的文件
+
+```Xml
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-path name="external_files" path="[your path]"/>
+</paths>
+```
 
 ### 模块说明
 

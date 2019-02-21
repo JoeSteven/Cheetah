@@ -1,12 +1,13 @@
 package com.joey.cheetah.core.media.photo
 
 import android.app.Activity
+import android.os.Environment
 import com.joey.cheetah.core.utils.Jumper
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Flowable
-import io.reactivex.Single
 import io.reactivex.subjects.PublishSubject
 import io.reactivex.subjects.Subject
+import java.io.File
 
 /**
  * Description:
@@ -16,6 +17,15 @@ import io.reactivex.subjects.Subject
 object PhotoGetter {
 
     private val subjects = HashMap<String, Subject<String>>()
+
+    internal var photoDir = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "Cheetah_Core")
+
+    /**
+     * 配置存储照片的位置
+     */
+    fun setPhotoDir(dir:File) {
+        photoDir = dir
+    }
 
     internal fun dispatchSuccess(key: String, path: String) {
         val subject = subjects[key]

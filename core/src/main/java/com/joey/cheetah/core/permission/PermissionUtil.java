@@ -9,6 +9,8 @@ import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.PermissionChecker;
+import android.support.v7.app.AlertDialog;
+import android.text.TextUtils;
 import android.util.Log;
 
 import java.io.Serializable;
@@ -23,8 +25,12 @@ import java.util.HashMap;
 
 public class PermissionUtil {
 
-    public static final String TAG = "PermissionGrantor";
+    private static final String TAG = "PermissionGrantor";
     private static HashMap<String, PermissionListener> listenerMap = new HashMap();
+    final static String defaultTitle = "帮助";
+    final static String defaultContent = "当前应用缺少必要权限。\n\n请点击 \"设置\"-\"权限\"-打开所需权限。因为安卓手机种类繁多，本次跳转可能失败，如果失败请手动设置。";
+    final static String defaultCancel = "取消";
+    final static String defaultEnsure = "设置";
 
     /**
      * 申请授权，当用户拒绝时，会显示默认一个默认的Dialog提示用户
@@ -124,9 +130,24 @@ public class PermissionUtil {
      * @param context
      */
     public static void gotoSetting(@NonNull Activity context) {
-        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-        intent.setData(Uri.parse("package:" + context.getPackageName()));
-        context.startActivity(intent);
+        gotoSetting(context, new TipInfo(null, null, null, null));
+    }
+
+    public static void gotoSetting(@NonNull Activity context, String hint) {
+        gotoSetting(context, new TipInfo(null, hint, null, null));
+    }
+
+    public static void gotoSetting(@NonNull Activity context, TipInfo tipInfo) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(TextUtils.isEmpty(tipInfo.title) ? defaultTitle : tipInfo.title);
+        builder.setMessage(TextUtils.isEmpty(tipInfo.content) ? defaultContent : tipInfo.content);
+        builder.setNegativeButton(TextUtils.isEmpty(tipInfo.cancel) ? defaultCancel : tipInfo.cancel, (dialog, which) -> dialog.dismiss());
+        builder.setPositiveButton(TextUtils.isEmpty(tipInfo.ensure) ? defaultEnsure : tipInfo.ensure, (dialog, which) -> {
+            PermissionJumper.jumpToSettings(context);
+            dialog.dismiss();
+        });
+        builder.setCancelable(false);
+        builder.show();
     }
 
     /**

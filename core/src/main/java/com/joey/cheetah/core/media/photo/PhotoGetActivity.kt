@@ -54,7 +54,7 @@ class PhotoGetActivity: AppCompatActivity() {
     }
 
     private fun getMediaFileUri(): Uri {
-        val dir = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "Cheetah_Core")
+        val dir = PhotoGetter.photoDir
         FileHelper.ensureDirExists(dir)
         val time = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
         val mediaFile = File("${dir.path}/photo_$time.jpg")

@@ -3,7 +3,7 @@
   <groupId>com.joey.cheetah</groupId>
   <artifactId>mvp</artifactId>
   <versioning>
-    <release>1.4.2</release>
+    <release>1.4.4</release>
     <versions>
       <version>1.0</version>
       <version>1.1</version>
@@ -12,7 +12,9 @@
       <version>1.4</version>
       <version>1.4.1</version>
       <version>1.4.2</version>
+      <version>1.4.3</version>
+      <version>1.4.4</version>
     </versions>
-    <lastUpdated>20190108024722</lastUpdated>
+    <lastUpdated>20190118072328</lastUpdated>
   </versioning>
 </metadata>
