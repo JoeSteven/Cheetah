@@ -134,10 +134,7 @@ public class PermissionUtil {
     }
 
     public static void gotoSetting(@NonNull Activity context, String hint) {
-        gotoSetting(context, new TipInfo(null, hint, null, null));
-    }
-
-    public static void gotoSetting(@NonNull Activity context, TipInfo tipInfo) {
+        TipInfo tipInfo = new TipInfo(null, hint, null, null);
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(TextUtils.isEmpty(tipInfo.title) ? defaultTitle : tipInfo.title);
         builder.setMessage(TextUtils.isEmpty(tipInfo.content) ? defaultContent : tipInfo.content);
@@ -148,6 +145,10 @@ public class PermissionUtil {
         });
         builder.setCancelable(false);
         builder.show();
+    }
+
+    public static void gotoSetting(@NonNull Activity context, TipInfo tipInfo) {
+        PermissionJumper.jumpToSettings(context);
     }
 
     /**

@@ -22,11 +22,11 @@ android {
 group = 'com.github.JoeSteven' // 最好是你的 github 名字
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.joey.cheetah:core:1.4.4'
+    implementation 'com.joey.cheetah:core:1.4.5'
 //    implementation project(':core')
 }
 
 ext.group_Id('com.joey.cheetah')
 ext.artifact_id('mvp')
-ext.version_name('1.4.4')
+ext.version_name('1.4.5')
 ext.aar_name('mvp-release.aar')
