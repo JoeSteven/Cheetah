@@ -8,6 +8,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.SparseArray;
 
+import java.util.List;
+
 /**
  * Description: Activity that holding fragment must extends this class
  * author:Joey
@@ -16,7 +18,6 @@ import android.util.SparseArray;
 public abstract class AbsFragmentActivity extends AbsActivity {
 
     private FragmentManager mFragmentManager;
-    private SparseArray<Fragment> currentFragments = new SparseArray<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,10 +26,11 @@ public abstract class AbsFragmentActivity extends AbsActivity {
         //避免被系统回收后发生重复创建
         if (savedInstanceState == null) {
             createFragment();
+            attachFragment();
         } else {
             restoreFragment(savedInstanceState);
         }
-        attachFragment();
+        initFragment();
     }
 
     protected abstract void createFragment();
@@ -37,21 +39,24 @@ public abstract class AbsFragmentActivity extends AbsActivity {
 
     protected abstract void attachFragment();
 
+    protected void initFragment() {
+
+    }
+
 
     /**
      * add new fragment to attach activity
      */
     protected void addFragment(Fragment targetFragment, @IdRes int contentId, String tag) {
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
-        if (currentFragments.get(contentId) != null) {
-            transaction.hide(currentFragments.get(contentId));
+        if (currentFragment(contentId) != null) {
+            transaction.hide(currentFragment(contentId));
         }
         if (targetFragment.isAdded()) {
             transaction.show(targetFragment).commit();
         } else {
             transaction.add(contentId, targetFragment, tag).commit();
         }
-        currentFragments.put(contentId, targetFragment);
     }
 
 
@@ -59,14 +64,18 @@ public abstract class AbsFragmentActivity extends AbsActivity {
      * add new fragment to attach activity and add it to the back stack
      */
     protected void addFragmentToStack(Fragment targetFragment, @IdRes int contentId, String tag) {
-        FragmentTransaction transaction = mFragmentManager.beginTransaction();
-        if (currentFragments.get(contentId) != null) {
-            transaction.hide(currentFragments.get(contentId));
+        FragmentTransaction transaction = fragmentManager().beginTransaction();
+        Fragment current = currentFragment(contentId);
+        if (current != null && current != targetFragment) {
+            transaction.hide(current);
         }
-        transaction.add(contentId, targetFragment, tag);
-        transaction.addToBackStack(null);
-        transaction.commit();
-        currentFragments.put(contentId, targetFragment);
+        if (targetFragment.isAdded()) {
+            transaction.show(targetFragment).commit();
+        } else {
+            transaction.add(contentId, targetFragment, tag);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
     }
 
     /**
@@ -76,22 +85,24 @@ public abstract class AbsFragmentActivity extends AbsActivity {
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
         transaction.replace(contentId, targetFragment, tag);
         transaction.commit();
-        currentFragments.put(contentId, targetFragment);
     }
 
     /**
      * switch fragment between added fragments
      */
     protected void switchFragment(Fragment targetFragment, @IdRes int contentId, String tag) {
-        Fragment current = currentFragments.get(contentId);
-        if (current == null || targetFragment == null || current == targetFragment) return;
+        Fragment current = currentFragment(contentId);
+        if (current == null) {
+            addFragment(targetFragment, contentId, tag);
+            return;
+        }
+        if (targetFragment == null || current == targetFragment) return;
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
         if (!targetFragment.isAdded()) {
             transaction.hide(current).add(contentId, targetFragment, tag).commit();
         } else {
             transaction.hide(current).show(targetFragment).commit();
         }
-        currentFragments.put(contentId, targetFragment);
     }
 
     protected FragmentManager fragmentManager() {
@@ -99,6 +110,10 @@ public abstract class AbsFragmentActivity extends AbsActivity {
     }
 
     protected Fragment currentFragment(@IdRes int contentId) {
-        return currentFragments.get(contentId);
+        List<Fragment> fragments = fragmentManager().getFragments();
+        for (Fragment it : fragments) {
+            if (it.getId() == contentId && it.isAdded() && it.isVisible()) return it;
+        }
+        return null;
     }
 }
