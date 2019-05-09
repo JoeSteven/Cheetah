@@ -48,7 +48,7 @@ public class IoTClient {
         realClient.setCallback(callback);
 
         if (!TextUtils.isEmpty(config.willTopic)) {
-            options.setWill(config.willTopic, config.willBytes, 0, false);
+            options.setWill(config.willTopic, config.willBytes, 2, false);
         }
         realClient.connect(options);
     }

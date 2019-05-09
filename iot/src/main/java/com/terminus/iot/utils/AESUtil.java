@@ -9,7 +9,9 @@ import java.security.Security;
 import java.util.Arrays;
 
 import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
+import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
@@ -110,4 +112,17 @@ public class AESUtil {
         return encryptedText;
     }
 
+    public static byte[] getNewAesKey() {
+        //生成新的密钥
+        try {
+            KeyGenerator keygen = KeyGenerator.getInstance("AES");
+            SecretKey deskey = keygen.generateKey();
+            byte[] aes_key = new byte[16];
+            System.arraycopy(deskey.getEncoded(), 0, aes_key, 0, 16);
+            return aes_key;
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return "1234567890123456".getBytes();
+        }
+    }
 }

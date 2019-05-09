@@ -1,7 +1,5 @@
 package com.terminus.iot;
 
-import java.nio.ByteOrder;
-
 /**
  * Description: protocol for IoT
  * author:Joey
@@ -13,80 +11,91 @@ public class IoTProtocol {
     public static final  byte MSG_TYPE_USER = 1;          // 自定义消息
 
     // Service Type
-    public static final short SERVICE_TYPE_COMMON = 0;     // 通用业务
-    public static final short SERVICE_TYPE_ACCESS = 1;     // 设备接入业务
-    public static final short SERVICE_TYPE_PASS = 2;       // 智慧通行业务
-    public static final short SERVICE_TYPE_LOG = 3;        // 日志服务
-    public static final short SERVICE_TYPE_SMART_HOME = 4; // 智能家居
+    public static final short SERVICE_TYPE_COMMON = 0;       // 通用业务
+    public static final short SERVICE_TYPE_DEVICE = 1;       // 设备接入业务
+    public static final short SERVICE_TYPE_DATA_SYNC = 2;    // 数据同步
+    public static final short SERVICE_TYPE_BUSINESS_LOG = 3; // 日志服务
 
     /***
      * 设备接入业务:
      * */
-    // 端到云的请求命令
-    public static final short CMD_TYPE_UPDATE_AESKEY = 1;      // 更新AES Key。Body的PB模型为TSLIOTUpdateAESKeyRequest
-    public static final short CMD_TYPE_WILL = 2;               // 遗愿消息命令。Body为hamcsha1(mac, RSA公钥)。
+    public static final short CMD_TYPE_DEV_UPDATE_AESKEY = 1;             // 更新AES Key。 Body的PB模型为 TSLIOTUpdateAESKeyRequest
+    public static final short CMD_TYPE_DEV_WILL = 2;                      // 遗愿消息命令。Body为 hamcsha1(dev_id, RSA公钥)。
+    public static final short CMD_TYPE_DEV_REGISTER = 3;                  // 设备注册消息。Body的PB模型为 TSLIOTRegisterDeviceRequest
+    public static final short CMD_TYPE_DEV_STATUS = 4;                    // 设备状态上报。Body的PB模型为 TSLIOTDeviceStatusRequest
+    public static final short CMD_TYPE_DEV_OPERATE_LOG = 5;               // 设备操作日志上报。Body的PB模型为 TSLIOTDeviceLogOperateRequest
+    public static final short CMD_TYPE_DEV_WARNING = 6;                   // 设备事件上报。Body的PB模型为 TSLIOTDeviceWarningRequest
+    public static final short CMD_TYPE_DEV_CONTROL_CMD_ACK = 7;           // 设备端执行远程命令的结果。Body的PB模型为 TSLIOTDeviceControlCmdResponse message部分为执行结果，如果不支持返回“undefine”
+    public static final short CMD_TYPE_DEV_INFO_NET = 8;                  // 设备网络配置  Body的PB模型为 TSLIOTDeviceNetInfo
+    public static final short CMD_TYPE_DEV_INFO_SYSTEM = 9;               // 设备系统信息  Body的PB模型为 TSLIOTDeviceSystemInfo
+    public static final short CMD_TYPE_DEV_PWD_INFO = 10;                 // 设备密码      Body的PB模型为 TSLIOTPwdInfoRequest
 
     // 云到端的请求命令
-    public static       short CMD_TYPE_UPDATE_AESKEY_ACK = (short)0x8000;    // 更新AES Key结果。端收到此命令后才能进行后续请求。Body的PB模型为TSLIOTCommonResult
-    public static       short CMD_TYPE_UPDATE_SUBSCRIPTION = (short)0x8001;  // 更新端订阅话题列表。Body的PB模型为TSLIOTChangeSubscriptionRequest
-    public static       short CMD_TYPE_REFRESH_AESKEY = (short)0x8002;       // 请求设备端重新刷新一次AES KEY，Body为hamcsha1(mac, RSA公钥)。设备端需要重新更新AES Key流程
+    public static final short CMD_TYPE_UPDATE_AESKEY_ACK = (short)0x8001;        // 更新AES Key结果。端收到此命令后才能进行后续请求。Body的PB模型为TSLIOTCommonResult
+    public static final short CMD_TYPE_CONTROL_CMD = (short)0x8007;              // 服务端请求设备执行命令 Body为 TSLIOTDeviceControlCmdRequest
+    public static final short CMD_TYPE_UPDATE_SUBSCRIPTION = (short)0x8008;      // 更新端订阅话题列表。Body的PB模型为TSLIOTChangeSubscriptionRequest
+    public static final short CMD_TYPE_REFRESH_AESKEY = (short)0x8009;           // 请求设备端重新刷新一次AES KEY，Body为hamcsha1(mac, RSA公钥)。设备端需要重新更新AES Key流程
+    public static final short CMD_TYPE_DEV_MOD_PWD = (short)0x8010;              // 设备密码修改      Body的PB模型为 TSLIOTPwdInfoRequest
+
+    /***
+     * 数据同步业务:
+     */
+    // 端到云的请求命令
+    public static final short CMD_TYPE_PULL_DATA = 1;                         // 拉取数据。Body的PB模型为TSLIOTPullDataRequest
+    public static final short CMD_TYPE_UPDATE_ONCE_PWD_ACK = 5;       	      // 下发一次性密码结果。Body的PB模型为TSLIOTCommonResult
+    public static final short CMD_TYPE_UPLOAD_REQUIREMENT = 7;                 // 上报数据需求项，供平台端通知。Body的PB模型为TSLIOTNeedDataRequest
+
+    // 云到端的请求命令
+    public static short CMD_TYPE_DISPATCH_BLACK = (short)0x8002;        // 下发兼通知黑名单。Body的PB模型为 TSLIOTDispatchPersonListRequest
+    public static short CMD_TYPE_DISPATCH_ONCE_PWD = (short)0x8003;     // 下发一次性密码。Body的PB模型为TSLIOTIssueOncePWDRequest
+    public static final short CMD_TYPE_DISPATCH_PERSON = (short)0x8004;       // 下发兼通知人员信息。Body的PB模型为 TSLIOTDispatchPersonListRequest
+    public static short CMD_TYPE_DISPATCH_ROOM_INFO = (short)0x8005;    // 下发兼通知房间信息。Body的PB模型为 TSLIOTDispatchRoomInfoRequest
+    public static short CMD_TYPE_DISPATCH_MAKE_CARD = (short)0x8006;    // 下发兼通知制卡信息。Body的PB模型为 TSLIOTDispatchCardListRequest
+
+    public static class SyncDataType{
+        public static String SYNC_DATA_TYPE_PERSON = "person";                  //人员信息
+        public static String SYNC_DATA_TYPE_PERSON_USER = "user";                      //用户信息
+        public static String SYNC_DATA_TYPE_PERSON_VISTOR = "visitor";                  //访客信息
+
+        public static String SYNC_DATA_TYPE_BLACK = "black";                    //黑名单信息
+        public static String SYNC_DATA_TYPE_MAKE_CARD = "make_card";            //发卡数据
+        public static String SYNC_DATA_TYPE_ROOM_INFO = "room_info";            //房间信息
+
+    }
 
     /***
      * 通用业务:
      */
+    // 云到端的请求命令
+    public static short CMD_TYPE_PASS_RULE = (short)0x8003;            // 平台下发通行规则，Body的PB模型为 TSLIOTPassRule
+    public static short CMD_TYPE_UPDATE_TIME_ACK = (short)0x8004;      // 校时返回时间戳，Body的PB模型为TSLIOTTimeResult
+    public static short CMD_TYPE_UPGRADE_TASK = (short)0x8005;         // 服务端下发升级通知, Body的PB模型为 TSLIOTUpgradeTask
+    public static short CMD_TYPE_INIT_DATA_REQUEST = (short)0x8006;    // 设备数据初始化请求。设备需清除服务器下发的数据，包括住户信息、黑白名单、一次性密码等。Body为 TSLIOTCommonRequest
+    public static short CMD_TYPE_QR_INFO = (short)0x8007;              // 平台通知设备的二维码的解密秘钥及有效时间规则 Body的PB模型为 TSLIOTQrCodeInfo
+
     // 端到云的请求命令
-    public static final short CMD_TYPE_DEVICE_CONTROL_ACK = 1; // 设备控制结果。Body的PB模型为TSLIOTDeviceControlResult
-    public static final short CMD_TYPE_DATA_PASS_THROUGH_ACK = 2; // 数据透传通道响应
-    public static final short CMD_TYPE_MODIFY_PWD_ACK = 3; // 修改设备密码结果。Body的PB模型为TSLIOTCommonResult
-    public static final short CMD_TYPE_UPDATE_TIME = 4; // 校时请求。Body为mac（设备唯一标识）utf8 编码
-    public static final short CMD_TYPE_UPGRADE_STATUS_REQUEST = 5; // 设备升级状态报告。Body的PB模型为TSLIOTUpgradeStatusRequest
-    public static final short CMD_TYPE_UPGRADE_PROGRESS_REQUEST = 6; // 设备升级进度报告。Body的PB模型为 TSLIOTUpgradeProgressRequest
-    public static final short CMD_TYPE_ADD_DEVICE_REQUEST = 7; // 添加设备请求。Body的PB模型为 TSLIOTAddDeviceRequest
-    public static final short CMD_TYPE_UNBIND_DEVICE_REQUEST = 8; // 网关解绑子设备请求。Body的PB模型为 TSLIOTUnbindDeviceRequest
-    public static final short CMD_TYPE_INIT_DATA_ACK = 9; // 设备数据初始化请求结果。Body的PB模型为TSLIOTCommonResult
+    public static short CMD_TYPE_GET_PASS_RULE = 3;            		    // 请求设备的通行规则(除了人脸--刷卡/密码等)。Body的PB模型为TSLIOTCommonRequest
+    public static short CMD_TYPE_UPDATE_TIME = 4;               		// 校时请求。Body为 TSLIOTCommonRequest
+    public static short CMD_TYPE_UPGRADE_STATUS = 5;            		// 设备升级状态报告。Body的PB模型为 TSLIOTUpgradeStatus
+    public static short CMD_TYPE_INIT_DATA_ACK = 6;             		// 设备数据初始化请求结果。Body的PB模型为TSLIOTCommonResult
+    public static short CMD_TYPE_GET_QR_INFO = 7;                       // 设备端获取二维码的解密秘钥及有效时间规则 Body的PB模型为 TSLIOTCommonRequest
 
-    // 云到端的请求命令
-    public static       short CMD_TYPE_SYSTEM_EXCEPTION = (short)0x8000; // 系统通用处理异常。Body的PB模型为TSLIOTCommonResult
-    public static       short CMD_TYPE_DEVICE_CONTROL = (short)0x8001; // 设备控制请求,Body的PB模型为TSLIOTDeviceControlRequest
-    public static       short CMD_TYPE_DATA_PASS_THROUGH = (short)0x8002; // 数据透传通道
-    public static       short CMD_TYPE_MODIFY_PWD = (short)0x8003; // 修改设备密码，Body的PB模型为TSLIOTModifyPwdRequest
-    public static       short CMD_TYPE_UPDATE_TIME_ACK = (short)0x8004; // 校时返回时间戳，Body的PB模型为TSLIOTTimeResult
-    public static       short CMD_TYPE_UPGRADE_REQUEST = (short)0x8005; //服务端下发升级通知, Body的PB模型为TSLIOTUpgradeRequest
-    public static       short CMD_TYPE_INIT_DATA_REQUEST = (short)0x8006; // 设备数据初始化请求。设备需清除服务器下发的数据，包括住户信息、黑白名单、一次性密码等。Body为TSLIOTCommonRequest。
-    public static       short CMD_TYPE_ADD_DEVICE_ACK = (short)0x8007; // 设备数据初始化请求。设备需清除服务器下发的数据，包括住户信息、黑白名单、一次性密码等。Body为TSLIOTCommonRequest。
-    /**
-     * 智慧通行业务：
-     */
-// 端到云的请求命令
-    public static final short CMD_TYPE_PULL_LIST = 1; // 拉取黑白名单。Body的PB模型为TSLIOTPullListRequest
-    public static final short CMD_TYPE_DISPATCH_FILTER_LIST_ACK = 2; // 下发黑白名单结果。Body的PB模型为TSLIOTCommonResult
-    public static final short CMD_TYPE_DISPATCH_FACE_ID_ACK = 3; // 下发人脸识别结果。Body的PB模型为TSLIOTCommonResult
-    public static final short CMD_TYPE_DISPATCH_SIP_ACK = 4; // 下发SIP结果。Body的PB模型为TSLIOTCommonResult
-    public static final short CMD_TYPE_UPDATE_ONCE_PWD_ACK = 5; // 下发一次性密码结果。Body的PB模型为TSLIOTCommonResult
-    public static final short CMD_TYPE_DISPATCH_SIP_CONFIG_ACK = 6; // 下发SIP服务器配置结果。Body的PB模型为TSLIOTCommonResult
+    //服务间的
+    public static final short CMD_TYPE_SERVER_WILL = -1;              // 服务离线是广播，方便后期分布式服务部署需求
 
-    // 云到端的请求命令
-    public static       short CMD_TYPE_DISPATCH_FILTER_LIST = (short)0x8002; // 下发黑白名单。Body的PB模型为TSLIOTDispatchFilterListRequest
-    public static       short CMD_TYPE_DISPATCH_ONCE_PWD = (short)0x8003; // 下发一次性密码。Body的PB模型为TSLIOTIssueOncePWDRequest
-    public static       short CMD_TYPE_DISPATCH_FACE_ID = (short)0x8004; // 下发人脸特征值。Body的PB模型为TSLIOTDispatchFaceListRequest
-    public static       short CMD_TYPE_DISPATCH_SIP = (short)0x8005; // 下发SIP呼叫号。Body的PB模型为TSLIOTDispatchSipListRequest
-    public static       short CMD_TYPE_DISPATCH_SIP_CONFIG = (short)0x8006; // 下发SIP服务器配置。Body的PB模型为TSLIOTDispatchSipConfigRequest
 
     /**
-     * 日志服务：
+     * 业务数据记录：
      */
-// 端到云的请求命令
-    public static final short CMD_TYPE_UPDATE_LOG = 1; // 上报设备日志。Body的PB模型为TSLIOTUploadLogRequest
-    public static final short CMD_TYPE_SUB_DEVICE_ONLINE = 2; // 子设备在线状态更新。Body的PB模型为TSLIOTOnlineRequest
-    public static final short CMD_TYPE_UPDATE_DEVICE_INFO = 3; // 上报设备信息。Body的PB模型为TSLIOTUploadDeviceInfoRequest
-
+    // 端到云的请求命令
+    public static short CMD_TYPE_UPLOAD_PASS_LOG = 1;                       // 上报设备日志。Body的PB模型为 TSLIOTUploadPassLogRequest
     // 云到端的请求命令
-    public static       short CMD_TYPE_UPDATE_LOG_ACK = (short)0x8000; // 上报设备日志结果。Body的PB模型为TSLIOTCommonResult
+    public static short CMD_TYPE_UPLOAD_PASS_LOG_ACK = (short)0x8001;       // 上报设备日志结果。Body的PB模型为TSLIOTCommonResult
 
     /**
      * 智能家居：
      */
-// 端到云的请求命令
+    // 端到云的请求命令
     public static final short CMD_TYPE_UPDATE_ADMIN = 1; // 更新设备管理员信息。Body的PB模型为TSLIOTUpdateAdminRequest
 
     // 云到端的请求命令
@@ -118,33 +127,5 @@ public class IoTProtocol {
 
         private String status;
         private int code;
-    }
-
-
-    static{
-        if (ByteOrder.nativeOrder() != ByteOrder.LITTLE_ENDIAN){
-            CMD_TYPE_UPDATE_AESKEY_ACK      = 0x0080;
-            CMD_TYPE_UPDATE_SUBSCRIPTION    = 0x0180;
-            CMD_TYPE_REFRESH_AESKEY         = 0x0280;
-
-            CMD_TYPE_SYSTEM_EXCEPTION       = 0x0080;
-            CMD_TYPE_DEVICE_CONTROL         = 0x0180;
-            CMD_TYPE_DATA_PASS_THROUGH      = 0x0280;
-            CMD_TYPE_MODIFY_PWD             = 0x0380;
-            CMD_TYPE_UPDATE_TIME_ACK        = 0x0480;
-            CMD_TYPE_UPGRADE_REQUEST        = 0x0580;
-            CMD_TYPE_INIT_DATA_REQUEST      = 0x0680;
-            CMD_TYPE_ADD_DEVICE_ACK         = 0x0780;
-
-            CMD_TYPE_DISPATCH_FILTER_LIST   = 0x0280;
-            CMD_TYPE_DISPATCH_ONCE_PWD      = 0x0380;
-            CMD_TYPE_DISPATCH_FACE_ID       = 0x0480;
-            CMD_TYPE_DISPATCH_SIP           = 0x0580;
-            CMD_TYPE_DISPATCH_SIP_CONFIG    = 0x0680;
-
-
-            CMD_TYPE_UPDATE_LOG_ACK         = 0x0080;
-            CMD_TYPE_UPDATE_ADMIN_ACK       = 0x0080;
-        }
     }
 }
