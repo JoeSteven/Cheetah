@@ -8,7 +8,7 @@ import java.util.List;
  * @author rain
  * @date 2019/5/6
  */
-public class PersonInfoEvent {
+public class PersonInfoEvent extends BaseEvent{
     //设备ID
     public final String devId;
     //本次更新的最大版本号

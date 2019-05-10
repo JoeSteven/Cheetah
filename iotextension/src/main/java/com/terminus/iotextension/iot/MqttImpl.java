@@ -1,6 +1,8 @@
 package com.terminus.iotextension.iot;
 
 import com.terminus.iot.IoTClient;
+import com.terminus.iotextension.event.AeskeyEvent;
+import com.terminus.iotextension.event.BaseEvent;
 import com.terminus.iotextension.iot.config.DataType;
 import com.terminus.iotextension.iot.config.DevStatus;
 import com.terminus.iotextension.iot.config.Direction;
@@ -16,9 +18,9 @@ import org.eclipse.paho.client.mqttv3.MqttException;
  */
 public abstract class MqttImpl {
 
-    protected final static String TAG = "MQTT";
+    final static String TAG = "MQTT";
 
-    IotMessageCallback mIotMessageCallback;
+    IotMessageCallback<BaseEvent> mIotMessageCallback;
     IoTClient mIoTClient;
 
     abstract IoTClient initClient();
@@ -39,16 +41,20 @@ public abstract class MqttImpl {
                                 String imgUrl, String videoUrl);
 
     void send(String topic, int sequenceId, byte[] data) throws MqttException {
-        mIoTClient.send(topic, sequenceId, data);
+        if (check()) {
+            mIoTClient.send(topic, sequenceId, data);
+        }
     }
 
     boolean check() {
         return mIoTClient != null;
     }
 
-    public interface IotMessageCallback {
+    public interface IotMessageCallback<T> {
         void onError(Throwable throwable);
 
         void onSuccess();
+
+        void onEvent(T t);
     }
 }

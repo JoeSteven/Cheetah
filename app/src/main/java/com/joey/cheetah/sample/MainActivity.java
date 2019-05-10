@@ -17,6 +17,11 @@ import com.joey.cheetah.sample.kt.GankActivity;
 import com.joey.cheetah.sample.photo.PhotoActivity;
 import com.joey.cheetah.sample.udp.UdpActivity;
 import com.joey.cheetah.core.media.scan.ScanCodeHelper;
+import com.terminus.iotextension.event.AeskeyEvent;
+import com.terminus.iotextension.event.BaseEvent;
+import com.terminus.iotextension.event.PersonInfoEvent;
+import com.terminus.iotextension.iot.IotController;
+import com.terminus.iotextension.iot.MqttImpl;
 
 
 /**

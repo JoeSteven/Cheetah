@@ -10,6 +10,7 @@ import com.terminus.iot.utils.AESUtil;
 import com.terminus.iot.utils.ConvertUtil;
 import com.terminus.iot.utils.Sha1Util;
 import com.terminus.iotextension.event.AeskeyEvent;
+import com.terminus.iotextension.event.BaseEvent;
 import com.terminus.iotextension.event.PersonInfoEvent;
 import com.terminus.iotextension.iot.config.DataType;
 import com.terminus.iotextension.iot.config.DevStatus;
@@ -25,7 +26,6 @@ import com.terminus.iotextension.mqtt.protobuf.TSLIOTDevice;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.greenrobot.eventbus.EventBus;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -246,7 +246,9 @@ public class IotRespository extends MqttImpl {
                 PersonInfoEvent infoEvent = new PersonInfoEvent(result.getDevId(),result.getVersion(),
                         result.getMore(),result.getListList());
 
-                EventBus.getDefault().post(infoEvent);
+                if (mIotMessageCallback != null) {
+                    mIotMessageCallback.onEvent(infoEvent);
+                }
             }
 
         } catch (IOException e) {
@@ -412,7 +414,9 @@ public class IotRespository extends MqttImpl {
             IoTConstant.AES_KEY = AESUtil.getNewAesKey();
         }
 
-        EventBus.getDefault().post(new AeskeyEvent(IoTConstant.AES_KEY));
+        if (mIotMessageCallback != null) {
+            mIotMessageCallback.onEvent(new AeskeyEvent(IoTConstant.AES_KEY));
+        }
 
         IotFrame frame = newFrame(
                 IoTProtocol.MSG_TYPE_SYSTEM,
