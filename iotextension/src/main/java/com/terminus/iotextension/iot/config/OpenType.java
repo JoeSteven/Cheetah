@@ -7,7 +7,7 @@ package com.terminus.iotextension.iot.config;
 public enum OpenType {
 
     /**
-     * 书卡
+     * 刷卡
      */
     CARD(0),
 
