@@ -35,4 +35,16 @@ public enum PersonType {
     public String value() {
         return value;
     }
+
+    public static PersonType fromValue(String value){
+        PersonType[] personTypes = PersonType.values();
+
+        for (PersonType type : personTypes) {
+            if (type.value().equals(value)) {
+                return type;
+            }
+        }
+
+        return null;
+    }
 }

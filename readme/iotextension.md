@@ -264,7 +264,7 @@ public enum DataType {
    }
    ```
 
-	* 人员类型
+ * 人员类型
 
 ```java
 public enum PersonType {

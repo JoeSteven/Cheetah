@@ -35,4 +35,16 @@ public enum OpenStatus {
     public int value() {
         return value;
     }
+
+    public static OpenStatus fromValue(int value){
+        OpenStatus[] openStatuses = OpenStatus.values();
+
+        for (OpenStatus openStatus : openStatuses) {
+            if (openStatus.value() == value) {
+                return openStatus;
+            }
+        }
+
+        return null;
+    }
 }

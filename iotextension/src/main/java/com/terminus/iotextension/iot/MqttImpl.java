@@ -33,6 +33,16 @@ public abstract class MqttImpl {
 
     abstract void uploadNeedInfo();
 
+    abstract void requestQr();
+
+    abstract void requestRule();
+
+    abstract void requestSetting();
+
+    abstract void requestTime();
+
+    abstract void errorInfo(int personId,PersonType type,long version,String customInfo);
+
     abstract void asylocalData(DataType type, long version);
 
     abstract void uploadPassLog(int personId, String feature, PersonType personType,

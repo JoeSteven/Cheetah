@@ -443,7 +443,7 @@ public final class TSLIOTDataSync {
                 TSLIOTNeedDataRequest.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDataSync.TSLIOTNeedDataRequest.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDataSync.TSLIOTNeedDataRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1280,7 +1280,7 @@ public final class TSLIOTDataSync {
                 TSLIOTPullDataRequest.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDataSync.TSLIOTPullDataRequest.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDataSync.TSLIOTPullDataRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2421,7 +2421,7 @@ public final class TSLIOTDataSync {
                 TSLIOTPersonItem.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDataSync.TSLIOTPersonItem.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDataSync.TSLIOTPersonItem.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3727,7 +3727,7 @@ public final class TSLIOTDataSync {
                 TSLIOTMakeCardItem.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDataSync.TSLIOTMakeCardItem.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDataSync.TSLIOTMakeCardItem.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4765,7 +4765,7 @@ public final class TSLIOTDataSync {
                 TSLIOTRoomInfoItem.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDataSync.TSLIOTRoomInfoItem.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDataSync.TSLIOTRoomInfoItem.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5767,7 +5767,7 @@ public final class TSLIOTDataSync {
                 TSLIOTDispatchPersonListRequest.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDataSync.TSLIOTDispatchPersonListRequest.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDataSync.TSLIOTDispatchPersonListRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6987,7 +6987,7 @@ public final class TSLIOTDataSync {
                 TSLIOTDispatchCardListRequest.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDataSync.TSLIOTDispatchCardListRequest.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDataSync.TSLIOTDispatchCardListRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8207,7 +8207,7 @@ public final class TSLIOTDataSync {
                 TSLIOTDispatchRoomInfoRequest.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDataSync.TSLIOTDispatchRoomInfoRequest.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDataSync.TSLIOTDispatchRoomInfoRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -9458,7 +9458,7 @@ public final class TSLIOTDataSync {
                 TSLIOTIssueOncePWDRequest.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDataSync.TSLIOTIssueOncePWDRequest.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDataSync.TSLIOTIssueOncePWDRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -9981,6 +9981,1262 @@ public final class TSLIOTDataSync {
 
   }
 
+  public interface TSLIOTPersonErrorOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:TslIotProto.TSLIOTPersonError)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 设备id
+     * </pre>
+     *
+     * <code>string dev_id = 1;</code>
+     */
+    String getDevId();
+    /**
+     * <pre>
+     * 设备id
+     * </pre>
+     *
+     * <code>string dev_id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getDevIdBytes();
+
+    /**
+     * <pre>
+     * 对应用户ID
+     * </pre>
+     *
+     * <code>int64 person_id = 2;</code>
+     */
+    long getPersonId();
+
+    /**
+     * <pre>
+     * 人员类型; 用户:"user" 访客:"visitor"   黑名单:"black"
+     * </pre>
+     *
+     * <code>string person_type = 3;</code>
+     */
+    String getPersonType();
+    /**
+     * <pre>
+     * 人员类型; 用户:"user" 访客:"visitor"   黑名单:"black"
+     * </pre>
+     *
+     * <code>string person_type = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getPersonTypeBytes();
+
+    /**
+     * <pre>
+     * 版本号
+     * </pre>
+     *
+     * <code>int64 version = 4;</code>
+     */
+    long getVersion();
+
+    /**
+     * <pre>
+     * 错误类型  model_fail：建模失败
+     * </pre>
+     *
+     * <code>string error_type = 5;</code>
+     */
+    String getErrorType();
+    /**
+     * <pre>
+     * 错误类型  model_fail：建模失败
+     * </pre>
+     *
+     * <code>string error_type = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getErrorTypeBytes();
+
+    /**
+     * <pre>
+     * 错误描述
+     * </pre>
+     *
+     * <code>string error_info = 6;</code>
+     */
+    String getErrorInfo();
+    /**
+     * <pre>
+     * 错误描述
+     * </pre>
+     *
+     * <code>string error_info = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getErrorInfoBytes();
+  }
+  /**
+   * <pre>
+   * 设备端上报的 使用人员信息遇到的错误信息
+   * </pre>
+   *
+   * Protobuf type {@code TslIotProto.TSLIOTPersonError}
+   */
+  public  static final class TSLIOTPersonError extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:TslIotProto.TSLIOTPersonError)
+      TSLIOTPersonErrorOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TSLIOTPersonError.newBuilder() to construct.
+    private TSLIOTPersonError(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TSLIOTPersonError() {
+      devId_ = "";
+      personId_ = 0L;
+      personType_ = "";
+      version_ = 0L;
+      errorType_ = "";
+      errorInfo_ = "";
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TSLIOTPersonError(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              String s = input.readStringRequireUtf8();
+
+              devId_ = s;
+              break;
+            }
+            case 16: {
+
+              personId_ = input.readInt64();
+              break;
+            }
+            case 26: {
+              String s = input.readStringRequireUtf8();
+
+              personType_ = s;
+              break;
+            }
+            case 32: {
+
+              version_ = input.readInt64();
+              break;
+            }
+            case 42: {
+              String s = input.readStringRequireUtf8();
+
+              errorType_ = s;
+              break;
+            }
+            case 50: {
+              String s = input.readStringRequireUtf8();
+
+              errorInfo_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return TSLIOTDataSync.internal_static_TslIotProto_TSLIOTPersonError_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return TSLIOTDataSync.internal_static_TslIotProto_TSLIOTPersonError_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              TSLIOTPersonError.class, Builder.class);
+    }
+
+    public static final int DEV_ID_FIELD_NUMBER = 1;
+    private volatile Object devId_;
+    /**
+     * <pre>
+     * 设备id
+     * </pre>
+     *
+     * <code>string dev_id = 1;</code>
+     */
+    public String getDevId() {
+      Object ref = devId_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        devId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 设备id
+     * </pre>
+     *
+     * <code>string dev_id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDevIdBytes() {
+      Object ref = devId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        devId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PERSON_ID_FIELD_NUMBER = 2;
+    private long personId_;
+    /**
+     * <pre>
+     * 对应用户ID
+     * </pre>
+     *
+     * <code>int64 person_id = 2;</code>
+     */
+    public long getPersonId() {
+      return personId_;
+    }
+
+    public static final int PERSON_TYPE_FIELD_NUMBER = 3;
+    private volatile Object personType_;
+    /**
+     * <pre>
+     * 人员类型; 用户:"user" 访客:"visitor"   黑名单:"black"
+     * </pre>
+     *
+     * <code>string person_type = 3;</code>
+     */
+    public String getPersonType() {
+      Object ref = personType_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        personType_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 人员类型; 用户:"user" 访客:"visitor"   黑名单:"black"
+     * </pre>
+     *
+     * <code>string person_type = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPersonTypeBytes() {
+      Object ref = personType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        personType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VERSION_FIELD_NUMBER = 4;
+    private long version_;
+    /**
+     * <pre>
+     * 版本号
+     * </pre>
+     *
+     * <code>int64 version = 4;</code>
+     */
+    public long getVersion() {
+      return version_;
+    }
+
+    public static final int ERROR_TYPE_FIELD_NUMBER = 5;
+    private volatile Object errorType_;
+    /**
+     * <pre>
+     * 错误类型  model_fail：建模失败
+     * </pre>
+     *
+     * <code>string error_type = 5;</code>
+     */
+    public String getErrorType() {
+      Object ref = errorType_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        errorType_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 错误类型  model_fail：建模失败
+     * </pre>
+     *
+     * <code>string error_type = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getErrorTypeBytes() {
+      Object ref = errorType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        errorType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ERROR_INFO_FIELD_NUMBER = 6;
+    private volatile Object errorInfo_;
+    /**
+     * <pre>
+     * 错误描述
+     * </pre>
+     *
+     * <code>string error_info = 6;</code>
+     */
+    public String getErrorInfo() {
+      Object ref = errorInfo_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        errorInfo_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 错误描述
+     * </pre>
+     *
+     * <code>string error_info = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getErrorInfoBytes() {
+      Object ref = errorInfo_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        errorInfo_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getDevIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, devId_);
+      }
+      if (personId_ != 0L) {
+        output.writeInt64(2, personId_);
+      }
+      if (!getPersonTypeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, personType_);
+      }
+      if (version_ != 0L) {
+        output.writeInt64(4, version_);
+      }
+      if (!getErrorTypeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, errorType_);
+      }
+      if (!getErrorInfoBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, errorInfo_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getDevIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, devId_);
+      }
+      if (personId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, personId_);
+      }
+      if (!getPersonTypeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, personType_);
+      }
+      if (version_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, version_);
+      }
+      if (!getErrorTypeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, errorType_);
+      }
+      if (!getErrorInfoBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, errorInfo_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof TSLIOTPersonError)) {
+        return super.equals(obj);
+      }
+      TSLIOTPersonError other = (TSLIOTPersonError) obj;
+
+      boolean result = true;
+      result = result && getDevId()
+          .equals(other.getDevId());
+      result = result && (getPersonId()
+          == other.getPersonId());
+      result = result && getPersonType()
+          .equals(other.getPersonType());
+      result = result && (getVersion()
+          == other.getVersion());
+      result = result && getErrorType()
+          .equals(other.getErrorType());
+      result = result && getErrorInfo()
+          .equals(other.getErrorInfo());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + DEV_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getDevId().hashCode();
+      hash = (37 * hash) + PERSON_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getPersonId());
+      hash = (37 * hash) + PERSON_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getPersonType().hashCode();
+      hash = (37 * hash) + VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getVersion());
+      hash = (37 * hash) + ERROR_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getErrorType().hashCode();
+      hash = (37 * hash) + ERROR_INFO_FIELD_NUMBER;
+      hash = (53 * hash) + getErrorInfo().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static TSLIOTPersonError parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static TSLIOTPersonError parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static TSLIOTPersonError parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static TSLIOTPersonError parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static TSLIOTPersonError parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static TSLIOTPersonError parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static TSLIOTPersonError parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static TSLIOTPersonError parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static TSLIOTPersonError parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static TSLIOTPersonError parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static TSLIOTPersonError parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static TSLIOTPersonError parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(TSLIOTPersonError prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 设备端上报的 使用人员信息遇到的错误信息
+     * </pre>
+     *
+     * Protobuf type {@code TslIotProto.TSLIOTPersonError}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:TslIotProto.TSLIOTPersonError)
+        TSLIOTPersonErrorOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return TSLIOTDataSync.internal_static_TslIotProto_TSLIOTPersonError_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return TSLIOTDataSync.internal_static_TslIotProto_TSLIOTPersonError_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                TSLIOTPersonError.class, Builder.class);
+      }
+
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDataSync.TSLIOTPersonError.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        devId_ = "";
+
+        personId_ = 0L;
+
+        personType_ = "";
+
+        version_ = 0L;
+
+        errorType_ = "";
+
+        errorInfo_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return TSLIOTDataSync.internal_static_TslIotProto_TSLIOTPersonError_descriptor;
+      }
+
+      public TSLIOTPersonError getDefaultInstanceForType() {
+        return TSLIOTPersonError.getDefaultInstance();
+      }
+
+      public TSLIOTPersonError build() {
+        TSLIOTPersonError result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public TSLIOTPersonError buildPartial() {
+        TSLIOTPersonError result = new TSLIOTPersonError(this);
+        result.devId_ = devId_;
+        result.personId_ = personId_;
+        result.personType_ = personType_;
+        result.version_ = version_;
+        result.errorType_ = errorType_;
+        result.errorInfo_ = errorInfo_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof TSLIOTPersonError) {
+          return mergeFrom((TSLIOTPersonError)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(TSLIOTPersonError other) {
+        if (other == TSLIOTPersonError.getDefaultInstance()) return this;
+        if (!other.getDevId().isEmpty()) {
+          devId_ = other.devId_;
+          onChanged();
+        }
+        if (other.getPersonId() != 0L) {
+          setPersonId(other.getPersonId());
+        }
+        if (!other.getPersonType().isEmpty()) {
+          personType_ = other.personType_;
+          onChanged();
+        }
+        if (other.getVersion() != 0L) {
+          setVersion(other.getVersion());
+        }
+        if (!other.getErrorType().isEmpty()) {
+          errorType_ = other.errorType_;
+          onChanged();
+        }
+        if (!other.getErrorInfo().isEmpty()) {
+          errorInfo_ = other.errorInfo_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        TSLIOTPersonError parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (TSLIOTPersonError) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private Object devId_ = "";
+      /**
+       * <pre>
+       * 设备id
+       * </pre>
+       *
+       * <code>string dev_id = 1;</code>
+       */
+      public String getDevId() {
+        Object ref = devId_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          devId_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 设备id
+       * </pre>
+       *
+       * <code>string dev_id = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDevIdBytes() {
+        Object ref = devId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          devId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 设备id
+       * </pre>
+       *
+       * <code>string dev_id = 1;</code>
+       */
+      public Builder setDevId(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        devId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 设备id
+       * </pre>
+       *
+       * <code>string dev_id = 1;</code>
+       */
+      public Builder clearDevId() {
+        
+        devId_ = getDefaultInstance().getDevId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 设备id
+       * </pre>
+       *
+       * <code>string dev_id = 1;</code>
+       */
+      public Builder setDevIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        devId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long personId_ ;
+      /**
+       * <pre>
+       * 对应用户ID
+       * </pre>
+       *
+       * <code>int64 person_id = 2;</code>
+       */
+      public long getPersonId() {
+        return personId_;
+      }
+      /**
+       * <pre>
+       * 对应用户ID
+       * </pre>
+       *
+       * <code>int64 person_id = 2;</code>
+       */
+      public Builder setPersonId(long value) {
+        
+        personId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 对应用户ID
+       * </pre>
+       *
+       * <code>int64 person_id = 2;</code>
+       */
+      public Builder clearPersonId() {
+        
+        personId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private Object personType_ = "";
+      /**
+       * <pre>
+       * 人员类型; 用户:"user" 访客:"visitor"   黑名单:"black"
+       * </pre>
+       *
+       * <code>string person_type = 3;</code>
+       */
+      public String getPersonType() {
+        Object ref = personType_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          personType_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 人员类型; 用户:"user" 访客:"visitor"   黑名单:"black"
+       * </pre>
+       *
+       * <code>string person_type = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPersonTypeBytes() {
+        Object ref = personType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          personType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 人员类型; 用户:"user" 访客:"visitor"   黑名单:"black"
+       * </pre>
+       *
+       * <code>string person_type = 3;</code>
+       */
+      public Builder setPersonType(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        personType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 人员类型; 用户:"user" 访客:"visitor"   黑名单:"black"
+       * </pre>
+       *
+       * <code>string person_type = 3;</code>
+       */
+      public Builder clearPersonType() {
+        
+        personType_ = getDefaultInstance().getPersonType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 人员类型; 用户:"user" 访客:"visitor"   黑名单:"black"
+       * </pre>
+       *
+       * <code>string person_type = 3;</code>
+       */
+      public Builder setPersonTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        personType_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long version_ ;
+      /**
+       * <pre>
+       * 版本号
+       * </pre>
+       *
+       * <code>int64 version = 4;</code>
+       */
+      public long getVersion() {
+        return version_;
+      }
+      /**
+       * <pre>
+       * 版本号
+       * </pre>
+       *
+       * <code>int64 version = 4;</code>
+       */
+      public Builder setVersion(long value) {
+        
+        version_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 版本号
+       * </pre>
+       *
+       * <code>int64 version = 4;</code>
+       */
+      public Builder clearVersion() {
+        
+        version_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private Object errorType_ = "";
+      /**
+       * <pre>
+       * 错误类型  model_fail：建模失败
+       * </pre>
+       *
+       * <code>string error_type = 5;</code>
+       */
+      public String getErrorType() {
+        Object ref = errorType_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          errorType_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 错误类型  model_fail：建模失败
+       * </pre>
+       *
+       * <code>string error_type = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getErrorTypeBytes() {
+        Object ref = errorType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          errorType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 错误类型  model_fail：建模失败
+       * </pre>
+       *
+       * <code>string error_type = 5;</code>
+       */
+      public Builder setErrorType(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        errorType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 错误类型  model_fail：建模失败
+       * </pre>
+       *
+       * <code>string error_type = 5;</code>
+       */
+      public Builder clearErrorType() {
+        
+        errorType_ = getDefaultInstance().getErrorType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 错误类型  model_fail：建模失败
+       * </pre>
+       *
+       * <code>string error_type = 5;</code>
+       */
+      public Builder setErrorTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        errorType_ = value;
+        onChanged();
+        return this;
+      }
+
+      private Object errorInfo_ = "";
+      /**
+       * <pre>
+       * 错误描述
+       * </pre>
+       *
+       * <code>string error_info = 6;</code>
+       */
+      public String getErrorInfo() {
+        Object ref = errorInfo_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          errorInfo_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 错误描述
+       * </pre>
+       *
+       * <code>string error_info = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getErrorInfoBytes() {
+        Object ref = errorInfo_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          errorInfo_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 错误描述
+       * </pre>
+       *
+       * <code>string error_info = 6;</code>
+       */
+      public Builder setErrorInfo(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        errorInfo_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 错误描述
+       * </pre>
+       *
+       * <code>string error_info = 6;</code>
+       */
+      public Builder clearErrorInfo() {
+        
+        errorInfo_ = getDefaultInstance().getErrorInfo();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 错误描述
+       * </pre>
+       *
+       * <code>string error_info = 6;</code>
+       */
+      public Builder setErrorInfoBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        errorInfo_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:TslIotProto.TSLIOTPersonError)
+    }
+
+    // @@protoc_insertion_point(class_scope:TslIotProto.TSLIOTPersonError)
+    private static final TSLIOTPersonError DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new TSLIOTPersonError();
+    }
+
+    public static TSLIOTPersonError getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TSLIOTPersonError>
+        PARSER = new com.google.protobuf.AbstractParser<TSLIOTPersonError>() {
+      public TSLIOTPersonError parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TSLIOTPersonError(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TSLIOTPersonError> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<TSLIOTPersonError> getParserForType() {
+      return PARSER;
+    }
+
+    public TSLIOTPersonError getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_TslIotProto_TSLIOTNeedDataRequest_descriptor;
   private static final 
@@ -10026,6 +11282,11 @@ public final class TSLIOTDataSync {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_TslIotProto_TSLIOTIssueOncePWDRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_TslIotProto_TSLIOTPersonError_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_TslIotProto_TSLIOTPersonError_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -10063,8 +11324,12 @@ public final class TSLIOTDataSync {
       "omInfoItem\"\207\001\n\031TSLIOTIssueOncePWDRequest" +
       "\022\016\n\006dev_id\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\022\020\n\010en" +
       "d_time\030\003 \001(\003\022\016\n\006enable\030\004 \001(\010\022\022\n\nfree_cou" +
-      "nt\030\005 \001(\005\022\022\n\nstart_time\030\006 \001(\003B$\n\"com.tsls" +
-      "mart.service.mqtt.protobufb\006proto3"
+      "nt\030\005 \001(\005\022\022\n\nstart_time\030\006 \001(\003\"\204\001\n\021TSLIOTP" +
+      "ersonError\022\016\n\006dev_id\030\001 \001(\t\022\021\n\tperson_id\030" +
+      "\002 \001(\003\022\023\n\013person_type\030\003 \001(\t\022\017\n\007version\030\004 " +
+      "\001(\003\022\022\n\nerror_type\030\005 \001(\t\022\022\n\nerror_info\030\006 " +
+      "\001(\tB)\n\'com.terminus.iotextension.mqtt.pr" +
+      "otobufb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -10132,6 +11397,12 @@ public final class TSLIOTDataSync {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TslIotProto_TSLIOTIssueOncePWDRequest_descriptor,
         new String[] { "DevId", "Password", "EndTime", "Enable", "FreeCount", "StartTime", });
+    internal_static_TslIotProto_TSLIOTPersonError_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_TslIotProto_TSLIOTPersonError_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_TslIotProto_TSLIOTPersonError_descriptor,
+        new String[] { "DevId", "PersonId", "PersonType", "Version", "ErrorType", "ErrorInfo", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

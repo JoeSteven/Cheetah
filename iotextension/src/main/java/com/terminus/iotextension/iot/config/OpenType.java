@@ -65,4 +65,16 @@ public enum OpenType {
     public int value() {
         return value;
     }
+
+    public static OpenType fromValue(int value){
+        OpenType[] openTypes = OpenType.values();
+
+        for (OpenType openType : openTypes) {
+            if (openType.value() == value) {
+                return openType;
+            }
+        }
+
+        return null;
+    }
 }

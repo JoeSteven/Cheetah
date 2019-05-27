@@ -448,7 +448,7 @@ public final class TSLIOTCommon {
                 TSLIOTCommonResult.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTCommon.TSLIOTCommonResult.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTCommon.TSLIOTCommonResult.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1149,7 +1149,7 @@ public final class TSLIOTCommon {
                 TSLIOTCommonRequest.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTCommon.TSLIOTCommonRequest.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTCommon.TSLIOTCommonRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1681,7 +1681,7 @@ public final class TSLIOTCommon {
                 TSLIOTTimeResult.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTCommon.TSLIOTTimeResult.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTCommon.TSLIOTTimeResult.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2766,7 +2766,7 @@ public final class TSLIOTCommon {
                 TSLIOTUpgradeTask.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTCommon.TSLIOTUpgradeTask.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTCommon.TSLIOTUpgradeTask.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4266,7 +4266,7 @@ public final class TSLIOTCommon {
                 TSLIOTUpgradeStatus.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTCommon.TSLIOTUpgradeStatus.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTCommon.TSLIOTUpgradeStatus.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4834,21 +4834,21 @@ public final class TSLIOTCommon {
 
     /**
      * <pre>
-     * 设备刷卡校验project_id,  example: [xx,yy,zz]   当刷卡发现project_id = xx或yy或zz时开门
+     * 设备刷卡校验 permission_id,  example: [xx,yy,zz]   当刷卡发现permission_id = xx或yy或zz时开门
      * </pre>
      *
-     * <code>string pass_project_id = 3;</code>
+     * <code>string pass_permission_id = 3;</code>
      */
-    String getPassProjectId();
+    String getPassPermissionId();
     /**
      * <pre>
-     * 设备刷卡校验project_id,  example: [xx,yy,zz]   当刷卡发现project_id = xx或yy或zz时开门
+     * 设备刷卡校验 permission_id,  example: [xx,yy,zz]   当刷卡发现permission_id = xx或yy或zz时开门
      * </pre>
      *
-     * <code>string pass_project_id = 3;</code>
+     * <code>string pass_permission_id = 3;</code>
      */
     com.google.protobuf.ByteString
-        getPassProjectIdBytes();
+        getPassPermissionIdBytes();
 
     /**
      * <pre>
@@ -4893,7 +4893,7 @@ public final class TSLIOTCommon {
     private TSLIOTPassRule() {
       devId_ = "";
       keyPwd_ = "";
-      passProjectId_ = "";
+      passPermissionId_ = "";
       passPersonId_ = "";
       reserve_ = "";
     }
@@ -4944,7 +4944,7 @@ public final class TSLIOTCommon {
             case 26: {
               String s = input.readStringRequireUtf8();
 
-              passProjectId_ = s;
+              passPermissionId_ = s;
               break;
             }
             case 34: {
@@ -5067,42 +5067,42 @@ public final class TSLIOTCommon {
       }
     }
 
-    public static final int PASS_PROJECT_ID_FIELD_NUMBER = 3;
-    private volatile Object passProjectId_;
+    public static final int PASS_PERMISSION_ID_FIELD_NUMBER = 3;
+    private volatile Object passPermissionId_;
     /**
      * <pre>
-     * 设备刷卡校验project_id,  example: [xx,yy,zz]   当刷卡发现project_id = xx或yy或zz时开门
+     * 设备刷卡校验 permission_id,  example: [xx,yy,zz]   当刷卡发现permission_id = xx或yy或zz时开门
      * </pre>
      *
-     * <code>string pass_project_id = 3;</code>
+     * <code>string pass_permission_id = 3;</code>
      */
-    public String getPassProjectId() {
-      Object ref = passProjectId_;
+    public String getPassPermissionId() {
+      Object ref = passPermissionId_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
-        passProjectId_ = s;
+        passPermissionId_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * 设备刷卡校验project_id,  example: [xx,yy,zz]   当刷卡发现project_id = xx或yy或zz时开门
+     * 设备刷卡校验 permission_id,  example: [xx,yy,zz]   当刷卡发现permission_id = xx或yy或zz时开门
      * </pre>
      *
-     * <code>string pass_project_id = 3;</code>
+     * <code>string pass_permission_id = 3;</code>
      */
     public com.google.protobuf.ByteString
-        getPassProjectIdBytes() {
-      Object ref = passProjectId_;
+        getPassPermissionIdBytes() {
+      Object ref = passPermissionId_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
-        passProjectId_ = b;
+        passPermissionId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -5203,8 +5203,8 @@ public final class TSLIOTCommon {
       if (!getKeyPwdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, keyPwd_);
       }
-      if (!getPassProjectIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, passProjectId_);
+      if (!getPassPermissionIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, passPermissionId_);
       }
       if (!getPassPersonIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, passPersonId_);
@@ -5226,8 +5226,8 @@ public final class TSLIOTCommon {
       if (!getKeyPwdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, keyPwd_);
       }
-      if (!getPassProjectIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, passProjectId_);
+      if (!getPassPermissionIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, passPermissionId_);
       }
       if (!getPassPersonIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, passPersonId_);
@@ -5255,8 +5255,8 @@ public final class TSLIOTCommon {
           .equals(other.getDevId());
       result = result && getKeyPwd()
           .equals(other.getKeyPwd());
-      result = result && getPassProjectId()
-          .equals(other.getPassProjectId());
+      result = result && getPassPermissionId()
+          .equals(other.getPassPermissionId());
       result = result && getPassPersonId()
           .equals(other.getPassPersonId());
       result = result && getReserve()
@@ -5276,8 +5276,8 @@ public final class TSLIOTCommon {
       hash = (53 * hash) + getDevId().hashCode();
       hash = (37 * hash) + KEY_PWD_FIELD_NUMBER;
       hash = (53 * hash) + getKeyPwd().hashCode();
-      hash = (37 * hash) + PASS_PROJECT_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getPassProjectId().hashCode();
+      hash = (37 * hash) + PASS_PERMISSION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getPassPermissionId().hashCode();
       hash = (37 * hash) + PASS_PERSON_ID_FIELD_NUMBER;
       hash = (53 * hash) + getPassPersonId().hashCode();
       hash = (37 * hash) + RESERVE_FIELD_NUMBER;
@@ -5394,7 +5394,7 @@ public final class TSLIOTCommon {
                 TSLIOTPassRule.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTCommon.TSLIOTPassRule.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTCommon.TSLIOTPassRule.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5415,7 +5415,7 @@ public final class TSLIOTCommon {
 
         keyPwd_ = "";
 
-        passProjectId_ = "";
+        passPermissionId_ = "";
 
         passPersonId_ = "";
 
@@ -5445,7 +5445,7 @@ public final class TSLIOTCommon {
         TSLIOTPassRule result = new TSLIOTPassRule(this);
         result.devId_ = devId_;
         result.keyPwd_ = keyPwd_;
-        result.passProjectId_ = passProjectId_;
+        result.passPermissionId_ = passPermissionId_;
         result.passPersonId_ = passPersonId_;
         result.reserve_ = reserve_;
         onBuilt();
@@ -5497,8 +5497,8 @@ public final class TSLIOTCommon {
           keyPwd_ = other.keyPwd_;
           onChanged();
         }
-        if (!other.getPassProjectId().isEmpty()) {
-          passProjectId_ = other.passProjectId_;
+        if (!other.getPassPermissionId().isEmpty()) {
+          passPermissionId_ = other.passPermissionId_;
           onChanged();
         }
         if (!other.getPassPersonId().isEmpty()) {
@@ -5714,21 +5714,21 @@ public final class TSLIOTCommon {
         return this;
       }
 
-      private Object passProjectId_ = "";
+      private Object passPermissionId_ = "";
       /**
        * <pre>
-       * 设备刷卡校验project_id,  example: [xx,yy,zz]   当刷卡发现project_id = xx或yy或zz时开门
+       * 设备刷卡校验 permission_id,  example: [xx,yy,zz]   当刷卡发现permission_id = xx或yy或zz时开门
        * </pre>
        *
-       * <code>string pass_project_id = 3;</code>
+       * <code>string pass_permission_id = 3;</code>
        */
-      public String getPassProjectId() {
-        Object ref = passProjectId_;
+      public String getPassPermissionId() {
+        Object ref = passPermissionId_;
         if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           String s = bs.toStringUtf8();
-          passProjectId_ = s;
+          passPermissionId_ = s;
           return s;
         } else {
           return (String) ref;
@@ -5736,19 +5736,19 @@ public final class TSLIOTCommon {
       }
       /**
        * <pre>
-       * 设备刷卡校验project_id,  example: [xx,yy,zz]   当刷卡发现project_id = xx或yy或zz时开门
+       * 设备刷卡校验 permission_id,  example: [xx,yy,zz]   当刷卡发现permission_id = xx或yy或zz时开门
        * </pre>
        *
-       * <code>string pass_project_id = 3;</code>
+       * <code>string pass_permission_id = 3;</code>
        */
       public com.google.protobuf.ByteString
-          getPassProjectIdBytes() {
-        Object ref = passProjectId_;
+          getPassPermissionIdBytes() {
+        Object ref = passPermissionId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (String) ref);
-          passProjectId_ = b;
+          passPermissionId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -5756,49 +5756,49 @@ public final class TSLIOTCommon {
       }
       /**
        * <pre>
-       * 设备刷卡校验project_id,  example: [xx,yy,zz]   当刷卡发现project_id = xx或yy或zz时开门
+       * 设备刷卡校验 permission_id,  example: [xx,yy,zz]   当刷卡发现permission_id = xx或yy或zz时开门
        * </pre>
        *
-       * <code>string pass_project_id = 3;</code>
+       * <code>string pass_permission_id = 3;</code>
        */
-      public Builder setPassProjectId(
+      public Builder setPassPermissionId(
           String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        passProjectId_ = value;
+        passPermissionId_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 设备刷卡校验project_id,  example: [xx,yy,zz]   当刷卡发现project_id = xx或yy或zz时开门
+       * 设备刷卡校验 permission_id,  example: [xx,yy,zz]   当刷卡发现permission_id = xx或yy或zz时开门
        * </pre>
        *
-       * <code>string pass_project_id = 3;</code>
+       * <code>string pass_permission_id = 3;</code>
        */
-      public Builder clearPassProjectId() {
+      public Builder clearPassPermissionId() {
         
-        passProjectId_ = getDefaultInstance().getPassProjectId();
+        passPermissionId_ = getDefaultInstance().getPassPermissionId();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 设备刷卡校验project_id,  example: [xx,yy,zz]   当刷卡发现project_id = xx或yy或zz时开门
+       * 设备刷卡校验 permission_id,  example: [xx,yy,zz]   当刷卡发现permission_id = xx或yy或zz时开门
        * </pre>
        *
-       * <code>string pass_project_id = 3;</code>
+       * <code>string pass_permission_id = 3;</code>
        */
-      public Builder setPassProjectIdBytes(
+      public Builder setPassPermissionIdBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        passProjectId_ = value;
+        passPermissionId_ = value;
         onChanged();
         return this;
       }
@@ -6573,7 +6573,7 @@ public final class TSLIOTCommon {
                 TSLIOTQrCodeInfo.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTCommon.TSLIOTQrCodeInfo.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTCommon.TSLIOTQrCodeInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7136,6 +7136,824 @@ public final class TSLIOTCommon {
 
   }
 
+  public interface TSLIOTPlatformSettingOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:TslIotProto.TSLIOTPlatformSetting)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 是否可以访问互联网
+     * </pre>
+     *
+     * <code>bool access_network = 1;</code>
+     */
+    boolean getAccessNetwork();
+
+    /**
+     * <pre>
+     * 图片服务器的url前缀
+     * </pre>
+     *
+     * <code>string zimg_url_prefix = 2;</code>
+     */
+    String getZimgUrlPrefix();
+    /**
+     * <pre>
+     * 图片服务器的url前缀
+     * </pre>
+     *
+     * <code>string zimg_url_prefix = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getZimgUrlPrefixBytes();
+
+    /**
+     * <pre>
+     * web自带图片服务的前缀。当图片以此 "/api1/v1/image/"开头时拼接此前缀 例如服务端生成的动态二维码等 
+     * </pre>
+     *
+     * <code>string http_url_prefix = 3;</code>
+     */
+    String getHttpUrlPrefix();
+    /**
+     * <pre>
+     * web自带图片服务的前缀。当图片以此 "/api1/v1/image/"开头时拼接此前缀 例如服务端生成的动态二维码等 
+     * </pre>
+     *
+     * <code>string http_url_prefix = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getHttpUrlPrefixBytes();
+  }
+  /**
+   * Protobuf type {@code TslIotProto.TSLIOTPlatformSetting}
+   */
+  public  static final class TSLIOTPlatformSetting extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:TslIotProto.TSLIOTPlatformSetting)
+      TSLIOTPlatformSettingOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TSLIOTPlatformSetting.newBuilder() to construct.
+    private TSLIOTPlatformSetting(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TSLIOTPlatformSetting() {
+      accessNetwork_ = false;
+      zimgUrlPrefix_ = "";
+      httpUrlPrefix_ = "";
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TSLIOTPlatformSetting(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+
+              accessNetwork_ = input.readBool();
+              break;
+            }
+            case 18: {
+              String s = input.readStringRequireUtf8();
+
+              zimgUrlPrefix_ = s;
+              break;
+            }
+            case 26: {
+              String s = input.readStringRequireUtf8();
+
+              httpUrlPrefix_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return TSLIOTCommon.internal_static_TslIotProto_TSLIOTPlatformSetting_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return TSLIOTCommon.internal_static_TslIotProto_TSLIOTPlatformSetting_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              TSLIOTPlatformSetting.class, Builder.class);
+    }
+
+    public static final int ACCESS_NETWORK_FIELD_NUMBER = 1;
+    private boolean accessNetwork_;
+    /**
+     * <pre>
+     * 是否可以访问互联网
+     * </pre>
+     *
+     * <code>bool access_network = 1;</code>
+     */
+    public boolean getAccessNetwork() {
+      return accessNetwork_;
+    }
+
+    public static final int ZIMG_URL_PREFIX_FIELD_NUMBER = 2;
+    private volatile Object zimgUrlPrefix_;
+    /**
+     * <pre>
+     * 图片服务器的url前缀
+     * </pre>
+     *
+     * <code>string zimg_url_prefix = 2;</code>
+     */
+    public String getZimgUrlPrefix() {
+      Object ref = zimgUrlPrefix_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        zimgUrlPrefix_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 图片服务器的url前缀
+     * </pre>
+     *
+     * <code>string zimg_url_prefix = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getZimgUrlPrefixBytes() {
+      Object ref = zimgUrlPrefix_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        zimgUrlPrefix_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int HTTP_URL_PREFIX_FIELD_NUMBER = 3;
+    private volatile Object httpUrlPrefix_;
+    /**
+     * <pre>
+     * web自带图片服务的前缀。当图片以此 "/api1/v1/image/"开头时拼接此前缀 例如服务端生成的动态二维码等 
+     * </pre>
+     *
+     * <code>string http_url_prefix = 3;</code>
+     */
+    public String getHttpUrlPrefix() {
+      Object ref = httpUrlPrefix_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        httpUrlPrefix_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * web自带图片服务的前缀。当图片以此 "/api1/v1/image/"开头时拼接此前缀 例如服务端生成的动态二维码等 
+     * </pre>
+     *
+     * <code>string http_url_prefix = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getHttpUrlPrefixBytes() {
+      Object ref = httpUrlPrefix_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        httpUrlPrefix_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (accessNetwork_ != false) {
+        output.writeBool(1, accessNetwork_);
+      }
+      if (!getZimgUrlPrefixBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, zimgUrlPrefix_);
+      }
+      if (!getHttpUrlPrefixBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, httpUrlPrefix_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (accessNetwork_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, accessNetwork_);
+      }
+      if (!getZimgUrlPrefixBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, zimgUrlPrefix_);
+      }
+      if (!getHttpUrlPrefixBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, httpUrlPrefix_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof TSLIOTPlatformSetting)) {
+        return super.equals(obj);
+      }
+      TSLIOTPlatformSetting other = (TSLIOTPlatformSetting) obj;
+
+      boolean result = true;
+      result = result && (getAccessNetwork()
+          == other.getAccessNetwork());
+      result = result && getZimgUrlPrefix()
+          .equals(other.getZimgUrlPrefix());
+      result = result && getHttpUrlPrefix()
+          .equals(other.getHttpUrlPrefix());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ACCESS_NETWORK_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getAccessNetwork());
+      hash = (37 * hash) + ZIMG_URL_PREFIX_FIELD_NUMBER;
+      hash = (53 * hash) + getZimgUrlPrefix().hashCode();
+      hash = (37 * hash) + HTTP_URL_PREFIX_FIELD_NUMBER;
+      hash = (53 * hash) + getHttpUrlPrefix().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static TSLIOTPlatformSetting parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static TSLIOTPlatformSetting parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static TSLIOTPlatformSetting parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static TSLIOTPlatformSetting parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static TSLIOTPlatformSetting parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static TSLIOTPlatformSetting parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static TSLIOTPlatformSetting parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static TSLIOTPlatformSetting parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static TSLIOTPlatformSetting parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static TSLIOTPlatformSetting parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static TSLIOTPlatformSetting parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static TSLIOTPlatformSetting parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(TSLIOTPlatformSetting prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code TslIotProto.TSLIOTPlatformSetting}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:TslIotProto.TSLIOTPlatformSetting)
+        TSLIOTPlatformSettingOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return TSLIOTCommon.internal_static_TslIotProto_TSLIOTPlatformSetting_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return TSLIOTCommon.internal_static_TslIotProto_TSLIOTPlatformSetting_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                TSLIOTPlatformSetting.class, Builder.class);
+      }
+
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTCommon.TSLIOTPlatformSetting.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        accessNetwork_ = false;
+
+        zimgUrlPrefix_ = "";
+
+        httpUrlPrefix_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return TSLIOTCommon.internal_static_TslIotProto_TSLIOTPlatformSetting_descriptor;
+      }
+
+      public TSLIOTPlatformSetting getDefaultInstanceForType() {
+        return TSLIOTPlatformSetting.getDefaultInstance();
+      }
+
+      public TSLIOTPlatformSetting build() {
+        TSLIOTPlatformSetting result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public TSLIOTPlatformSetting buildPartial() {
+        TSLIOTPlatformSetting result = new TSLIOTPlatformSetting(this);
+        result.accessNetwork_ = accessNetwork_;
+        result.zimgUrlPrefix_ = zimgUrlPrefix_;
+        result.httpUrlPrefix_ = httpUrlPrefix_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof TSLIOTPlatformSetting) {
+          return mergeFrom((TSLIOTPlatformSetting)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(TSLIOTPlatformSetting other) {
+        if (other == TSLIOTPlatformSetting.getDefaultInstance()) return this;
+        if (other.getAccessNetwork() != false) {
+          setAccessNetwork(other.getAccessNetwork());
+        }
+        if (!other.getZimgUrlPrefix().isEmpty()) {
+          zimgUrlPrefix_ = other.zimgUrlPrefix_;
+          onChanged();
+        }
+        if (!other.getHttpUrlPrefix().isEmpty()) {
+          httpUrlPrefix_ = other.httpUrlPrefix_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        TSLIOTPlatformSetting parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (TSLIOTPlatformSetting) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private boolean accessNetwork_ ;
+      /**
+       * <pre>
+       * 是否可以访问互联网
+       * </pre>
+       *
+       * <code>bool access_network = 1;</code>
+       */
+      public boolean getAccessNetwork() {
+        return accessNetwork_;
+      }
+      /**
+       * <pre>
+       * 是否可以访问互联网
+       * </pre>
+       *
+       * <code>bool access_network = 1;</code>
+       */
+      public Builder setAccessNetwork(boolean value) {
+        
+        accessNetwork_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 是否可以访问互联网
+       * </pre>
+       *
+       * <code>bool access_network = 1;</code>
+       */
+      public Builder clearAccessNetwork() {
+        
+        accessNetwork_ = false;
+        onChanged();
+        return this;
+      }
+
+      private Object zimgUrlPrefix_ = "";
+      /**
+       * <pre>
+       * 图片服务器的url前缀
+       * </pre>
+       *
+       * <code>string zimg_url_prefix = 2;</code>
+       */
+      public String getZimgUrlPrefix() {
+        Object ref = zimgUrlPrefix_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          zimgUrlPrefix_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 图片服务器的url前缀
+       * </pre>
+       *
+       * <code>string zimg_url_prefix = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getZimgUrlPrefixBytes() {
+        Object ref = zimgUrlPrefix_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          zimgUrlPrefix_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 图片服务器的url前缀
+       * </pre>
+       *
+       * <code>string zimg_url_prefix = 2;</code>
+       */
+      public Builder setZimgUrlPrefix(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        zimgUrlPrefix_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 图片服务器的url前缀
+       * </pre>
+       *
+       * <code>string zimg_url_prefix = 2;</code>
+       */
+      public Builder clearZimgUrlPrefix() {
+        
+        zimgUrlPrefix_ = getDefaultInstance().getZimgUrlPrefix();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 图片服务器的url前缀
+       * </pre>
+       *
+       * <code>string zimg_url_prefix = 2;</code>
+       */
+      public Builder setZimgUrlPrefixBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        zimgUrlPrefix_ = value;
+        onChanged();
+        return this;
+      }
+
+      private Object httpUrlPrefix_ = "";
+      /**
+       * <pre>
+       * web自带图片服务的前缀。当图片以此 "/api1/v1/image/"开头时拼接此前缀 例如服务端生成的动态二维码等 
+       * </pre>
+       *
+       * <code>string http_url_prefix = 3;</code>
+       */
+      public String getHttpUrlPrefix() {
+        Object ref = httpUrlPrefix_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          httpUrlPrefix_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * web自带图片服务的前缀。当图片以此 "/api1/v1/image/"开头时拼接此前缀 例如服务端生成的动态二维码等 
+       * </pre>
+       *
+       * <code>string http_url_prefix = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getHttpUrlPrefixBytes() {
+        Object ref = httpUrlPrefix_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          httpUrlPrefix_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * web自带图片服务的前缀。当图片以此 "/api1/v1/image/"开头时拼接此前缀 例如服务端生成的动态二维码等 
+       * </pre>
+       *
+       * <code>string http_url_prefix = 3;</code>
+       */
+      public Builder setHttpUrlPrefix(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        httpUrlPrefix_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * web自带图片服务的前缀。当图片以此 "/api1/v1/image/"开头时拼接此前缀 例如服务端生成的动态二维码等 
+       * </pre>
+       *
+       * <code>string http_url_prefix = 3;</code>
+       */
+      public Builder clearHttpUrlPrefix() {
+        
+        httpUrlPrefix_ = getDefaultInstance().getHttpUrlPrefix();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * web自带图片服务的前缀。当图片以此 "/api1/v1/image/"开头时拼接此前缀 例如服务端生成的动态二维码等 
+       * </pre>
+       *
+       * <code>string http_url_prefix = 3;</code>
+       */
+      public Builder setHttpUrlPrefixBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        httpUrlPrefix_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:TslIotProto.TSLIOTPlatformSetting)
+    }
+
+    // @@protoc_insertion_point(class_scope:TslIotProto.TSLIOTPlatformSetting)
+    private static final TSLIOTPlatformSetting DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new TSLIOTPlatformSetting();
+    }
+
+    public static TSLIOTPlatformSetting getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TSLIOTPlatformSetting>
+        PARSER = new com.google.protobuf.AbstractParser<TSLIOTPlatformSetting>() {
+      public TSLIOTPlatformSetting parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TSLIOTPlatformSetting(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TSLIOTPlatformSetting> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<TSLIOTPlatformSetting> getParserForType() {
+      return PARSER;
+    }
+
+    public TSLIOTPlatformSetting getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_TslIotProto_TSLIOTCommonResult_descriptor;
   private static final 
@@ -7171,6 +7989,11 @@ public final class TSLIOTCommon {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_TslIotProto_TSLIOTQrCodeInfo_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_TslIotProto_TSLIOTPlatformSetting_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_TslIotProto_TSLIOTPlatformSetting_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -7192,14 +8015,17 @@ public final class TSLIOTCommon {
       "\030\n \001(\r\022\014\n\004type\030\013 \001(\r\"q\n\023TSLIOTUpgradeSta" +
       "tus\022\014\n\004step\030\001 \001(\r\022\014\n\004time\030\002 \001(\003\022\017\n\007task_" +
       "id\030\003 \001(\r\022\016\n\006dev_id\030\004 \001(\t\022\014\n\004code\030\005 \001(\005\022\017" +
-      "\n\007message\030\006 \001(\t\"s\n\016TSLIOTPassRule\022\016\n\006dev" +
-      "_id\030\001 \001(\t\022\017\n\007key_pwd\030\002 \001(\t\022\027\n\017pass_proje" +
-      "ct_id\030\003 \001(\t\022\026\n\016pass_person_id\030\004 \001(\t\022\017\n\007r" +
-      "eserve\030\005 \001(\t\"x\n\020TSLIOTQrCodeInfo\022\016\n\006dev_" +
-      "id\030\001 \001(\t\022\017\n\007aes_key\030\002 \001(\t\022\026\n\016rsa_public_" +
-      "key\030\003 \001(\t\022\032\n\022effective_duration\030\004 \001(\005\022\017\n" +
-      "\007reserve\030\005 \001(\tB$\n\"com.tslsmart.service.m" +
-      "qtt.protobufb\006proto3"
+      "\n\007message\030\006 \001(\t\"v\n\016TSLIOTPassRule\022\016\n\006dev" +
+      "_id\030\001 \001(\t\022\017\n\007key_pwd\030\002 \001(\t\022\032\n\022pass_permi" +
+      "ssion_id\030\003 \001(\t\022\026\n\016pass_person_id\030\004 \001(\t\022\017" +
+      "\n\007reserve\030\005 \001(\t\"x\n\020TSLIOTQrCodeInfo\022\016\n\006d" +
+      "ev_id\030\001 \001(\t\022\017\n\007aes_key\030\002 \001(\t\022\026\n\016rsa_publ" +
+      "ic_key\030\003 \001(\t\022\032\n\022effective_duration\030\004 \001(\005" +
+      "\022\017\n\007reserve\030\005 \001(\t\"a\n\025TSLIOTPlatformSetti" +
+      "ng\022\026\n\016access_network\030\001 \001(\010\022\027\n\017zimg_url_p" +
+      "refix\030\002 \001(\t\022\027\n\017http_url_prefix\030\003 \001(\tB)\n\'" +
+      "com.terminus.iotextension.mqtt.protobufb" +
+      "\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -7248,13 +8074,19 @@ public final class TSLIOTCommon {
     internal_static_TslIotProto_TSLIOTPassRule_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TslIotProto_TSLIOTPassRule_descriptor,
-        new String[] { "DevId", "KeyPwd", "PassProjectId", "PassPersonId", "Reserve", });
+        new String[] { "DevId", "KeyPwd", "PassPermissionId", "PassPersonId", "Reserve", });
     internal_static_TslIotProto_TSLIOTQrCodeInfo_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_TslIotProto_TSLIOTQrCodeInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TslIotProto_TSLIOTQrCodeInfo_descriptor,
         new String[] { "DevId", "AesKey", "RsaPublicKey", "EffectiveDuration", "Reserve", });
+    internal_static_TslIotProto_TSLIOTPlatformSetting_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_TslIotProto_TSLIOTPlatformSetting_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_TslIotProto_TSLIOTPlatformSetting_descriptor,
+        new String[] { "AccessNetwork", "ZimgUrlPrefix", "HttpUrlPrefix", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

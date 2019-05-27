@@ -30,4 +30,16 @@ public enum DevStatus {
     public int value() {
         return value;
     }
+
+    public static DevStatus fromValue(int value){
+        DevStatus[] devs = DevStatus.values();
+
+        for (DevStatus dev : devs) {
+            if (dev.value() == value) {
+                return dev;
+            }
+        }
+
+        return null;
+    }
 }

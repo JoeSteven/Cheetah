@@ -58,6 +58,31 @@ public class IotController extends MqttImpl {
     }
 
     @Override
+    public void requestQr() {
+        mIot.requestQr();
+    }
+
+    @Override
+    public void requestRule() {
+        mIot.requestRule();
+    }
+
+    @Override
+    public void requestSetting() {
+        mIot.requestSetting();
+    }
+
+    @Override
+    public void requestTime() {
+        mIot.requestTime();
+    }
+
+    @Override
+    public void errorInfo(int personId, PersonType type, long version, String customInfo) {
+        mIot.errorInfo(personId, type, version, customInfo);
+    }
+
+    @Override
     public void asylocalData(DataType type, long version) {
         mIot.asylocalData(type, version);
     }

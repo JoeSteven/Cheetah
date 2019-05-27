@@ -281,7 +281,7 @@ public final class TSLIOTBusinessLog {
 
       /**
        * <pre>
-       * 通行图片url
+       * 通行图片url, 多个图片路径 用;分割  （如果是两张图：头像图在前，整个截图大图在后）
        * </pre>
        *
        * <code>string pass_img = 11;</code>
@@ -289,7 +289,7 @@ public final class TSLIOTBusinessLog {
       String getPassImg();
       /**
        * <pre>
-       * 通行图片url
+       * 通行图片url, 多个图片路径 用;分割  （如果是两张图：头像图在前，整个截图大图在后）
        * </pre>
        *
        * <code>string pass_img = 11;</code>
@@ -314,6 +314,24 @@ public final class TSLIOTBusinessLog {
        */
       com.google.protobuf.ByteString
           getPassVideoBytes();
+
+      /**
+       * <pre>
+       * 预留字段，用于存储通行记录的特定信息 JsonString  例如二维码通行时带有二维码特定自定义信息 {"qrCustomInfo":"xxxx"}
+       * </pre>
+       *
+       * <code>string reserve = 13;</code>
+       */
+      String getReserve();
+      /**
+       * <pre>
+       * 预留字段，用于存储通行记录的特定信息 JsonString  例如二维码通行时带有二维码特定自定义信息 {"qrCustomInfo":"xxxx"}
+       * </pre>
+       *
+       * <code>string reserve = 13;</code>
+       */
+      com.google.protobuf.ByteString
+          getReserveBytes();
     }
     /**
      * Protobuf type {@code TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog}
@@ -340,6 +358,7 @@ public final class TSLIOTBusinessLog {
         cardNo_ = "";
         passImg_ = "";
         passVideo_ = "";
+        reserve_ = "";
       }
 
       @Override
@@ -437,6 +456,12 @@ public final class TSLIOTBusinessLog {
                 String s = input.readStringRequireUtf8();
 
                 passVideo_ = s;
+                break;
+              }
+              case 106: {
+                String s = input.readStringRequireUtf8();
+
+                reserve_ = s;
                 break;
               }
             }
@@ -713,7 +738,7 @@ public final class TSLIOTBusinessLog {
       private volatile Object passImg_;
       /**
        * <pre>
-       * 通行图片url
+       * 通行图片url, 多个图片路径 用;分割  （如果是两张图：头像图在前，整个截图大图在后）
        * </pre>
        *
        * <code>string pass_img = 11;</code>
@@ -732,7 +757,7 @@ public final class TSLIOTBusinessLog {
       }
       /**
        * <pre>
-       * 通行图片url
+       * 通行图片url, 多个图片路径 用;分割  （如果是两张图：头像图在前，整个截图大图在后）
        * </pre>
        *
        * <code>string pass_img = 11;</code>
@@ -793,6 +818,48 @@ public final class TSLIOTBusinessLog {
         }
       }
 
+      public static final int RESERVE_FIELD_NUMBER = 13;
+      private volatile Object reserve_;
+      /**
+       * <pre>
+       * 预留字段，用于存储通行记录的特定信息 JsonString  例如二维码通行时带有二维码特定自定义信息 {"qrCustomInfo":"xxxx"}
+       * </pre>
+       *
+       * <code>string reserve = 13;</code>
+       */
+      public String getReserve() {
+        Object ref = reserve_;
+        if (ref instanceof String) {
+          return (String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          reserve_ = s;
+          return s;
+        }
+      }
+      /**
+       * <pre>
+       * 预留字段，用于存储通行记录的特定信息 JsonString  例如二维码通行时带有二维码特定自定义信息 {"qrCustomInfo":"xxxx"}
+       * </pre>
+       *
+       * <code>string reserve = 13;</code>
+       */
+      public com.google.protobuf.ByteString
+          getReserveBytes() {
+        Object ref = reserve_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          reserve_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
       private byte memoizedIsInitialized = -1;
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
@@ -840,6 +907,9 @@ public final class TSLIOTBusinessLog {
         }
         if (!getPassVideoBytes().isEmpty()) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 12, passVideo_);
+        }
+        if (!getReserveBytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 13, reserve_);
         }
         unknownFields.writeTo(output);
       }
@@ -891,6 +961,9 @@ public final class TSLIOTBusinessLog {
         if (!getPassVideoBytes().isEmpty()) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, passVideo_);
         }
+        if (!getReserveBytes().isEmpty()) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, reserve_);
+        }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
         return size;
@@ -931,6 +1004,8 @@ public final class TSLIOTBusinessLog {
             .equals(other.getPassImg());
         result = result && getPassVideo()
             .equals(other.getPassVideo());
+        result = result && getReserve()
+            .equals(other.getReserve());
         result = result && unknownFields.equals(other.unknownFields);
         return result;
       }
@@ -968,6 +1043,8 @@ public final class TSLIOTBusinessLog {
         hash = (53 * hash) + getPassImg().hashCode();
         hash = (37 * hash) + PASS_VIDEO_FIELD_NUMBER;
         hash = (53 * hash) + getPassVideo().hashCode();
+        hash = (37 * hash) + RESERVE_FIELD_NUMBER;
+        hash = (53 * hash) + getReserve().hashCode();
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
@@ -1080,7 +1157,7 @@ public final class TSLIOTBusinessLog {
                   TSLIOTPassLog.class, Builder.class);
         }
 
-        // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.newBuilder()
+        // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -1121,6 +1198,8 @@ public final class TSLIOTBusinessLog {
 
           passVideo_ = "";
 
+          reserve_ = "";
+
           return this;
         }
 
@@ -1155,6 +1234,7 @@ public final class TSLIOTBusinessLog {
           result.cardNo_ = cardNo_;
           result.passImg_ = passImg_;
           result.passVideo_ = passVideo_;
+          result.reserve_ = reserve_;
           onBuilt();
           return result;
         }
@@ -1236,6 +1316,10 @@ public final class TSLIOTBusinessLog {
           }
           if (!other.getPassVideo().isEmpty()) {
             passVideo_ = other.passVideo_;
+            onChanged();
+          }
+          if (!other.getReserve().isEmpty()) {
+            reserve_ = other.reserve_;
             onChanged();
           }
           this.mergeUnknownFields(other.unknownFields);
@@ -1852,7 +1936,7 @@ public final class TSLIOTBusinessLog {
         private Object passImg_ = "";
         /**
          * <pre>
-         * 通行图片url
+         * 通行图片url, 多个图片路径 用;分割  （如果是两张图：头像图在前，整个截图大图在后）
          * </pre>
          *
          * <code>string pass_img = 11;</code>
@@ -1871,7 +1955,7 @@ public final class TSLIOTBusinessLog {
         }
         /**
          * <pre>
-         * 通行图片url
+         * 通行图片url, 多个图片路径 用;分割  （如果是两张图：头像图在前，整个截图大图在后）
          * </pre>
          *
          * <code>string pass_img = 11;</code>
@@ -1891,7 +1975,7 @@ public final class TSLIOTBusinessLog {
         }
         /**
          * <pre>
-         * 通行图片url
+         * 通行图片url, 多个图片路径 用;分割  （如果是两张图：头像图在前，整个截图大图在后）
          * </pre>
          *
          * <code>string pass_img = 11;</code>
@@ -1908,7 +1992,7 @@ public final class TSLIOTBusinessLog {
         }
         /**
          * <pre>
-         * 通行图片url
+         * 通行图片url, 多个图片路径 用;分割  （如果是两张图：头像图在前，整个截图大图在后）
          * </pre>
          *
          * <code>string pass_img = 11;</code>
@@ -1921,7 +2005,7 @@ public final class TSLIOTBusinessLog {
         }
         /**
          * <pre>
-         * 通行图片url
+         * 通行图片url, 多个图片路径 用;分割  （如果是两张图：头像图在前，整个截图大图在后）
          * </pre>
          *
          * <code>string pass_img = 11;</code>
@@ -2023,6 +2107,95 @@ public final class TSLIOTBusinessLog {
   checkByteStringIsUtf8(value);
           
           passVideo_ = value;
+          onChanged();
+          return this;
+        }
+
+        private Object reserve_ = "";
+        /**
+         * <pre>
+         * 预留字段，用于存储通行记录的特定信息 JsonString  例如二维码通行时带有二维码特定自定义信息 {"qrCustomInfo":"xxxx"}
+         * </pre>
+         *
+         * <code>string reserve = 13;</code>
+         */
+        public String getReserve() {
+          Object ref = reserve_;
+          if (!(ref instanceof String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            String s = bs.toStringUtf8();
+            reserve_ = s;
+            return s;
+          } else {
+            return (String) ref;
+          }
+        }
+        /**
+         * <pre>
+         * 预留字段，用于存储通行记录的特定信息 JsonString  例如二维码通行时带有二维码特定自定义信息 {"qrCustomInfo":"xxxx"}
+         * </pre>
+         *
+         * <code>string reserve = 13;</code>
+         */
+        public com.google.protobuf.ByteString
+            getReserveBytes() {
+          Object ref = reserve_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (String) ref);
+            reserve_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <pre>
+         * 预留字段，用于存储通行记录的特定信息 JsonString  例如二维码通行时带有二维码特定自定义信息 {"qrCustomInfo":"xxxx"}
+         * </pre>
+         *
+         * <code>string reserve = 13;</code>
+         */
+        public Builder setReserve(
+            String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          reserve_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * 预留字段，用于存储通行记录的特定信息 JsonString  例如二维码通行时带有二维码特定自定义信息 {"qrCustomInfo":"xxxx"}
+         * </pre>
+         *
+         * <code>string reserve = 13;</code>
+         */
+        public Builder clearReserve() {
+          
+          reserve_ = getDefaultInstance().getReserve();
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * 预留字段，用于存储通行记录的特定信息 JsonString  例如二维码通行时带有二维码特定自定义信息 {"qrCustomInfo":"xxxx"}
+         * </pre>
+         *
+         * <code>string reserve = 13;</code>
+         */
+        public Builder setReserveBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          reserve_ = value;
           onChanged();
           return this;
         }
@@ -2306,7 +2479,7 @@ public final class TSLIOTBusinessLog {
                 TSLIOTUploadPassLogRequest.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2836,17 +3009,18 @@ public final class TSLIOTBusinessLog {
       descriptor;
   static {
     String[] descriptorData = {
-      "\n\027TSLIOTBusinessLog.proto\022\013TslIotProto\"\325" +
+      "\n\027TSLIOTBusinessLog.proto\022\013TslIotProto\"\346" +
       "\002\n\032TSLIOTUploadPassLogRequest\022H\n\tpass_lo" +
       "gs\030\001 \003(\01325.TslIotProto.TSLIOTUploadPassL" +
-      "ogRequest.TSLIOTPassLog\032\354\001\n\rTSLIOTPassLo" +
+      "ogRequest.TSLIOTPassLog\032\375\001\n\rTSLIOTPassLo" +
       "g\022\016\n\006dev_id\030\001 \001(\t\022\021\n\tperson_id\030\002 \001(\003\022\017\n\007" +
       "feature\030\003 \001(\t\022\023\n\013person_type\030\004 \001(\t\022\021\n\tdi" +
       "rection\030\005 \001(\005\022\014\n\004time\030\006 \001(\003\022\023\n\013open_resu" +
       "lt\030\007 \001(\005\022\022\n\ndev_status\030\010 \001(\005\022\021\n\topen_typ" +
       "e\030\t \001(\005\022\017\n\007card_no\030\n \001(\t\022\020\n\010pass_img\030\013 \001" +
-      "(\t\022\022\n\npass_video\030\014 \001(\tB$\n\"com.tslsmart.s" +
-      "ervice.mqtt.protobufb\006proto3"
+      "(\t\022\022\n\npass_video\030\014 \001(\t\022\017\n\007reserve\030\r \001(\tB" +
+      ")\n\'com.terminus.iotextension.mqtt.protob" +
+      "ufb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2871,7 +3045,7 @@ public final class TSLIOTBusinessLog {
     internal_static_TslIotProto_TSLIOTUploadPassLogRequest_TSLIOTPassLog_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TslIotProto_TSLIOTUploadPassLogRequest_TSLIOTPassLog_descriptor,
-        new String[] { "DevId", "PersonId", "Feature", "PersonType", "Direction", "Time", "OpenResult", "DevStatus", "OpenType", "CardNo", "PassImg", "PassVideo", });
+        new String[] { "DevId", "PersonId", "Feature", "PersonType", "Direction", "Time", "OpenResult", "DevStatus", "OpenType", "CardNo", "PassImg", "PassVideo", "Reserve", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -296,7 +296,7 @@ public final class TSLIOTDevice {
                 TSLIOTUpdateAESKeyRequest.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDevice.TSLIOTUpdateAESKeyRequest.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDevice.TSLIOTUpdateAESKeyRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -849,7 +849,7 @@ public final class TSLIOTDevice {
                 TSLIOTChangeSubscriptionRequest.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDevice.TSLIOTChangeSubscriptionRequest.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDevice.TSLIOTChangeSubscriptionRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2474,7 +2474,7 @@ public final class TSLIOTDevice {
                 TSLIOTRegisterDeviceRequest.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDevice.TSLIOTRegisterDeviceRequest.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDevice.TSLIOTRegisterDeviceRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4839,7 +4839,7 @@ public final class TSLIOTDevice {
                 TSLIOTDeviceNetInfo.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDevice.TSLIOTDeviceNetInfo.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDevice.TSLIOTDeviceNetInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6509,7 +6509,7 @@ public final class TSLIOTDevice {
                 TSLIOTDeviceSystemInfo.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDevice.TSLIOTDeviceSystemInfo.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDevice.TSLIOTDeviceSystemInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7629,7 +7629,7 @@ public final class TSLIOTDevice {
                 TSLIOTDeviceSystemStatus.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDevice.TSLIOTDeviceSystemStatus.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDevice.TSLIOTDeviceSystemStatus.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8559,7 +8559,7 @@ public final class TSLIOTDevice {
                 TSLIOTDeviceStatusRequest.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDevice.TSLIOTDeviceStatusRequest.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDevice.TSLIOTDeviceStatusRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -9725,7 +9725,7 @@ public final class TSLIOTDevice {
                 TSLIOTDeviceLogOperateRequest.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDevice.TSLIOTDeviceLogOperateRequest.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDevice.TSLIOTDeviceLogOperateRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -10686,7 +10686,7 @@ public final class TSLIOTDevice {
                 TSLIOTDeviceWarningRequest.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDevice.TSLIOTDeviceWarningRequest.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDevice.TSLIOTDeviceWarningRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -11595,7 +11595,7 @@ public final class TSLIOTDevice {
                 TSLIOTDeviceControlCmdRequest.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDevice.TSLIOTDeviceControlCmdRequest.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDevice.TSLIOTDeviceControlCmdRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -12504,7 +12504,7 @@ public final class TSLIOTDevice {
                 TSLIOTDeviceControlCmdResponse.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDevice.TSLIOTDeviceControlCmdResponse.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDevice.TSLIOTDeviceControlCmdResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -13488,7 +13488,7 @@ public final class TSLIOTDevice {
                 TSLIOTPwdInfoRequest.class, Builder.class);
       }
 
-      // Construct using com.tslsmart.service.mqtt.protobuf.TSLIOTDevice.TSLIOTPwdInfoRequest.newBuilder()
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTDevice.TSLIOTPwdInfoRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -14132,8 +14132,8 @@ public final class TSLIOTDevice {
       "\t\022\014\n\004time\030\002 \001(\003\022\014\n\004code\030\003 \001(\005\022\017\n\007message" +
       "\030\004 \001(\t\"Z\n\024TSLIOTPwdInfoRequest\022\016\n\006dev_id" +
       "\030\001 \001(\t\022\017\n\007ble_pwd\030\002 \001(\t\022\017\n\007dev_pwd\030\003 \001(\t" +
-      "\022\020\n\010wifi_pwd\030\004 \001(\tB$\n\"com.tslsmart.servi" +
-      "ce.mqtt.protobufb\006proto3"
+      "\022\020\n\010wifi_pwd\030\004 \001(\tB)\n\'com.terminus.iotex" +
+      "tension.mqtt.protobufb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

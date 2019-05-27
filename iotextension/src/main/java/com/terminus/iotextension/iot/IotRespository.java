@@ -10,8 +10,14 @@ import com.terminus.iot.utils.AESUtil;
 import com.terminus.iot.utils.ConvertUtil;
 import com.terminus.iot.utils.Sha1Util;
 import com.terminus.iotextension.event.AeskeyEvent;
-import com.terminus.iotextension.event.BaseEvent;
+import com.terminus.iotextension.event.CodeEvent;
+import com.terminus.iotextension.event.DoorEvent;
 import com.terminus.iotextension.event.PersonInfoEvent;
+import com.terminus.iotextension.event.ResetEvent;
+import com.terminus.iotextension.event.RuleEvent;
+import com.terminus.iotextension.event.ServerEvent;
+import com.terminus.iotextension.event.TimeEvent;
+import com.terminus.iotextension.event.UninstallEvent;
 import com.terminus.iotextension.iot.config.DataType;
 import com.terminus.iotextension.iot.config.DevStatus;
 import com.terminus.iotextension.iot.config.Direction;
@@ -219,6 +225,107 @@ public class IotRespository extends MqttImpl {
 
     //通用业务
     private void commonMsg(IotFrame frame) {
+        switch (frame.getCmd()) {
+            case IoTProtocol.CMD_TYPE_QR_INFO:
+                codeInfo(frame);
+                break;
+            case IoTProtocol.CMD_TYPE_PASS_RULE:
+                passRule(frame);
+                break;
+            case IoTProtocol.CMD_TYPE_PLATFORM_SETTING:
+                serverConfig(frame);
+                break;
+            case IoTProtocol.CMD_TYPE_UPDATE_TIME_ACK:
+                checkTime(frame);
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * 校时
+     */
+    private void checkTime(IotFrame frame) {
+        InputStream input = new ByteArrayInputStream(frame.getBody());
+
+        try {
+            TSLIOTCommon.TSLIOTTimeResult result =
+                    TSLIOTCommon.TSLIOTTimeResult.parseFrom(input);
+
+            long time = result.getTime();
+
+            if (mIotMessageCallback != null) {
+                mIotMessageCallback.onEvent(new TimeEvent(time));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 系统设置
+     */
+    private void serverConfig(IotFrame frame) {
+        InputStream input = new ByteArrayInputStream(frame.getBody());
+
+        try {
+            TSLIOTCommon.TSLIOTPlatformSetting result =
+                    TSLIOTCommon.TSLIOTPlatformSetting.parseFrom(input);
+
+            boolean network = result.getAccessNetwork();
+            String zimgUrl = result.getZimgUrlPrefix();
+            String httpUrl = result.getHttpUrlPrefix();
+
+            if (mIotMessageCallback != null) {
+                mIotMessageCallback.onEvent(new ServerEvent(network,zimgUrl,httpUrl));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 设备规则校验字段
+     */
+    private void passRule(IotFrame frame) {
+        InputStream input = new ByteArrayInputStream(frame.getBody());
+
+        try {
+            TSLIOTCommon.TSLIOTPassRule result =
+                    TSLIOTCommon.TSLIOTPassRule.parseFrom(input);
+
+            String projectId = result.getPassPermissionId();
+            String personId = result.getPassPersonId();
+
+            if (mIotMessageCallback != null) {
+                mIotMessageCallback.onEvent(new RuleEvent(personId,projectId));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 二维码解密规则
+     */
+    private void codeInfo(IotFrame frame) {
+        InputStream input = new ByteArrayInputStream(frame.getBody());
+
+        try {
+            TSLIOTCommon.TSLIOTQrCodeInfo result =
+                    TSLIOTCommon.TSLIOTQrCodeInfo.parseFrom(input);
+
+            String aesKey = result.getAesKey();
+            String rsaKey = result.getRsaPublicKey();
+            int duration = result.getEffectiveDuration();
+
+            if (mIotMessageCallback != null) {
+                mIotMessageCallback.onEvent(new CodeEvent(aesKey,rsaKey,duration));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //数据业务
@@ -277,12 +384,8 @@ public class IotRespository extends MqttImpl {
                 checkAesResult(frame);
                 break;
             case IoTProtocol.CMD_TYPE_REFRESH_AESKEY:
-                String check = Sha1Util.EncodeDefault(IoTConstant.RSA_KEY,IoTConstant.MAC.getBytes());
-                assert check != null;
-                if (check.equals(new String(frame.getBody()))) {
-                    IoTConstant.AES_KEY = AESUtil.getNewAesKey();
-                    updateAesKey();
-                }
+                IoTConstant.AES_KEY = AESUtil.getNewAesKey();
+                updateAesKey();
                 break;
             case IoTProtocol.CMD_TYPE_CONTROL_CMD:
                 controlDevice(frame);
@@ -338,6 +441,66 @@ public class IotRespository extends MqttImpl {
          sendFrame(frame);
      }
 
+    @Override
+    public void requestQr() {
+        IotFrame frame = newFrame(
+                IoTProtocol.MSG_TYPE_SYSTEM,
+                mIoTClient.generateId(),
+                IoTProtocol.SERVICE_TYPE_COMMON,
+                IoTProtocol.CMD_TYPE_GET_QR_INFO,
+                IotPBUtil.constructCommonRequest());
+
+        sendFrame(frame);
+    }
+
+    @Override
+    public void requestRule() {
+        IotFrame frame = newFrame(
+                IoTProtocol.MSG_TYPE_SYSTEM,
+                mIoTClient.generateId(),
+                IoTProtocol.SERVICE_TYPE_COMMON,
+                IoTProtocol.CMD_TYPE_GET_PASS_RULE,
+                IotPBUtil.constructCommonRequest());
+
+        sendFrame(frame);
+    }
+
+    @Override
+    public void requestSetting() {
+        IotFrame frame = newFrame(
+                IoTProtocol.MSG_TYPE_SYSTEM,
+                mIoTClient.generateId(),
+                IoTProtocol.SERVICE_TYPE_COMMON,
+                IoTProtocol.CMD_TYPE_GET_PLATFORM_SETTING,
+                IotPBUtil.constructCommonRequest());
+
+        sendFrame(frame);
+    }
+
+    @Override
+    public void requestTime() {
+        IotFrame frame = newFrame(
+                IoTProtocol.MSG_TYPE_SYSTEM,
+                mIoTClient.generateId(),
+                IoTProtocol.SERVICE_TYPE_COMMON,
+                IoTProtocol.CMD_TYPE_UPDATE_TIME,
+                IotPBUtil.constructCommonRequest());
+
+        sendFrame(frame);
+    }
+
+    @Override
+    public void errorInfo(int personId,PersonType type,long version,String customInfo) {
+        IotFrame frame = newFrame(
+                IoTProtocol.MSG_TYPE_SYSTEM,
+                mIoTClient.generateId(),
+                IoTProtocol.SERVICE_TYPE_DATA_SYNC,
+                IoTProtocol.CMD_TYPE_PERSON_INFO_ERROR,
+                IotPBUtil.constructPersonError(personId,type,version,customInfo));
+
+        sendFrame(frame);
+    }
+
     /**
      * TODO:后续根据需求进行完善
      * 设备控制
@@ -351,10 +514,19 @@ public class IotRespository extends MqttImpl {
             String cmd = cmdResult.getCmd();
             switch (cmd) {
                 case "uninstall":
+                    if (mIotMessageCallback != null) {
+                        mIotMessageCallback.onEvent(new UninstallEvent(true));
+                    }
                     break;
                 case "open":
+                    if (mIotMessageCallback != null) {
+                        mIotMessageCallback.onEvent(new DoorEvent(true));
+                    }
                     break;
                 case "clear":
+                    if (mIotMessageCallback != null) {
+                        mIotMessageCallback.onEvent(new ResetEvent(true));
+                    }
                     break;
                 default:
                     break;

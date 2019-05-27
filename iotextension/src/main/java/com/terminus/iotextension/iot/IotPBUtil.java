@@ -9,6 +9,7 @@ import com.terminus.iotextension.iot.config.OpenStatus;
 import com.terminus.iotextension.iot.config.OpenType;
 import com.terminus.iotextension.iot.config.PersonType;
 import com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog;
+import com.terminus.iotextension.mqtt.protobuf.TSLIOTCommon;
 import com.terminus.iotextension.mqtt.protobuf.TSLIOTDataSync;
 import com.terminus.iotextension.mqtt.protobuf.TSLIOTDevice;
 
@@ -117,6 +118,30 @@ class IotPBUtil {
                 logBuilder.addPassLogs(log);
 
         return getBytes(logBuilder.build());
+    }
+
+    /**
+     * 通用请求
+     */
+    static byte[] constructCommonRequest() {
+        TSLIOTCommon.TSLIOTCommonRequest.Builder settingRequest = TSLIOTCommon.TSLIOTCommonRequest.newBuilder();
+
+        settingRequest.setDevId(IoTConstant.DEV_ID);
+
+        return getBytes(settingRequest.build());
+    }
+
+    static byte[] constructPersonError(int personId,PersonType type,long version,String errorInfo) {
+        TSLIOTDataSync.TSLIOTPersonError.Builder errorRequest = TSLIOTDataSync.TSLIOTPersonError.newBuilder();
+
+        errorRequest.setDevId(IoTConstant.DEV_ID);
+        errorRequest.setPersonId(personId);
+        errorRequest.setPersonType(type.value());
+        errorRequest.setVersion(version);
+        errorRequest.setErrorType("model_fail");
+        errorRequest.setErrorInfo(errorInfo);
+
+        return getBytes(errorRequest.build());
     }
 
     private static byte[] getBytes(GeneratedMessageV3 pb) {

@@ -30,4 +30,16 @@ public enum Direction {
         return value;
     }
 
+    public static Direction fromValue(int value){
+        Direction[] directions = Direction.values();
+
+        for (Direction direction : directions) {
+            if (direction.value() == value) {
+                return direction;
+            }
+        }
+
+        return null;
+    }
+
 }

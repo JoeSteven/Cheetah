@@ -45,4 +45,16 @@ public enum DataType {
     public String value() {
         return value;
     }
+
+    public static DataType fromValue(String value){
+        DataType[] datas = DataType.values();
+
+        for (DataType data : datas) {
+            if (data.value().equals(value)) {
+                return data;
+            }
+        }
+
+        return null;
+    }
 }

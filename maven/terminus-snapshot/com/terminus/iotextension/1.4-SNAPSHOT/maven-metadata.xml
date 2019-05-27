@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.terminus</groupId>
+  <artifactId>iotextension</artifactId>
+  <version>1.4-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20190522.070613</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20190522070613</lastUpdated>
+  </versioning>
+</metadata>

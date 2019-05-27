@@ -43,7 +43,8 @@ public class IoTProtocol {
     // 端到云的请求命令
     public static final short CMD_TYPE_PULL_DATA = 1;                         // 拉取数据。Body的PB模型为TSLIOTPullDataRequest
     public static final short CMD_TYPE_UPDATE_ONCE_PWD_ACK = 5;       	      // 下发一次性密码结果。Body的PB模型为TSLIOTCommonResult
-    public static final short CMD_TYPE_UPLOAD_REQUIREMENT = 7;                 // 上报数据需求项，供平台端通知。Body的PB模型为TSLIOTNeedDataRequest
+    public static final short CMD_TYPE_UPLOAD_REQUIREMENT = 7;                // 上报数据需求项，供平台端通知。Body的PB模型为TSLIOTNeedDataRequest
+    public static final short CMD_TYPE_PERSON_INFO_ERROR = 8;                 // 上报设备端使用人员数据时的错误信息。Body的PB模型为TSLIOTPersonError
 
     // 云到端的请求命令
     public static short CMD_TYPE_DISPATCH_BLACK = (short)0x8002;        // 下发兼通知黑名单。Body的PB模型为 TSLIOTDispatchPersonListRequest
@@ -67,11 +68,12 @@ public class IoTProtocol {
      * 通用业务:
      */
     // 云到端的请求命令
-    public static short CMD_TYPE_PASS_RULE = (short)0x8003;            // 平台下发通行规则，Body的PB模型为 TSLIOTPassRule
-    public static short CMD_TYPE_UPDATE_TIME_ACK = (short)0x8004;      // 校时返回时间戳，Body的PB模型为TSLIOTTimeResult
-    public static short CMD_TYPE_UPGRADE_TASK = (short)0x8005;         // 服务端下发升级通知, Body的PB模型为 TSLIOTUpgradeTask
-    public static short CMD_TYPE_INIT_DATA_REQUEST = (short)0x8006;    // 设备数据初始化请求。设备需清除服务器下发的数据，包括住户信息、黑白名单、一次性密码等。Body为 TSLIOTCommonRequest
-    public static short CMD_TYPE_QR_INFO = (short)0x8007;              // 平台通知设备的二维码的解密秘钥及有效时间规则 Body的PB模型为 TSLIOTQrCodeInfo
+    public static final short CMD_TYPE_PASS_RULE = (short)0x8003;            // 平台下发通行规则，Body的PB模型为 TSLIOTPassRule
+    public static final short CMD_TYPE_UPDATE_TIME_ACK = (short)0x8004;      // 校时返回时间戳，Body的PB模型为TSLIOTTimeResult
+    public static final short CMD_TYPE_UPGRADE_TASK = (short)0x8005;         // 服务端下发升级通知, Body的PB模型为 TSLIOTUpgradeTask
+    public static final short CMD_TYPE_INIT_DATA_REQUEST = (short)0x8006;    // 设备数据初始化请求。设备需清除服务器下发的数据，包括住户信息、黑白名单、一次性密码等。Body为 TSLIOTCommonRequest
+    public static final short CMD_TYPE_QR_INFO = (short)0x8007;              // 平台通知设备的二维码的解密秘钥及有效时间规则 Body的PB模型为 TSLIOTQrCodeInfo
+    public static final short CMD_TYPE_PLATFORM_SETTING = (short)0x8008;     // 平台下发系统配置 Body的PB模型为TSLIOTPlatformSetting
 
     // 端到云的请求命令
     public static short CMD_TYPE_GET_PASS_RULE = 3;            		    // 请求设备的通行规则(除了人脸--刷卡/密码等)。Body的PB模型为TSLIOTCommonRequest
@@ -79,6 +81,7 @@ public class IoTProtocol {
     public static short CMD_TYPE_UPGRADE_STATUS = 5;            		// 设备升级状态报告。Body的PB模型为 TSLIOTUpgradeStatus
     public static short CMD_TYPE_INIT_DATA_ACK = 6;             		// 设备数据初始化请求结果。Body的PB模型为TSLIOTCommonResult
     public static short CMD_TYPE_GET_QR_INFO = 7;                       // 设备端获取二维码的解密秘钥及有效时间规则 Body的PB模型为 TSLIOTCommonRequest
+    public static short CMD_TYPE_GET_PLATFORM_SETTING = 8;              // 请求获取平台设备Body TSLIOTCommonRequest
 
     //服务间的
     public static final short CMD_TYPE_SERVER_WILL = -1;              // 服务离线是广播，方便后期分布式服务部署需求
