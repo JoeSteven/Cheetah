@@ -82,6 +82,13 @@ public class IoTClient {
         }
     }
 
+    public void close() throws MqttException{
+        if (realClient != null && !realClient.isConnected()) {
+            realClient.close();
+            realClient = null;
+        }
+    }
+
     public MqttClient mqttClient() {
         return realClient;
     }

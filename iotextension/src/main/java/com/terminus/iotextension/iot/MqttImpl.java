@@ -33,6 +33,8 @@ public abstract class MqttImpl {
 
     abstract void uploadNeedInfo();
 
+    abstract void close();
+
     abstract void requestQr();
 
     abstract void requestRule();
@@ -63,7 +65,7 @@ public abstract class MqttImpl {
     public interface IotMessageCallback<T> {
         void onError(Throwable throwable);
 
-        void onSuccess();
+        void onSuccess(boolean reconnect);
 
         void onEvent(T t);
     }

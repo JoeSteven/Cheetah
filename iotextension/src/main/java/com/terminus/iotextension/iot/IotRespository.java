@@ -116,11 +116,15 @@ public class IotRespository extends MqttImpl {
                 @Override
                 public void connectComplete(boolean reconnect, String serverURI) {
                     try {
-                        if (!isConnect) {
+                        if (!isConnect && !reconnect) {
                             mIoTClient.subscribe(new String[]{IoTConstant.SUB_TOPIC},new int[1]);
 
                             updateAesKey();
                             isConnect = true;
+                        }
+
+                        if (mIotMessageCallback != null) {
+                            mIotMessageCallback.onSuccess(reconnect);
                         }
 
                     } catch (MqttException e) {
@@ -442,6 +446,21 @@ public class IotRespository extends MqttImpl {
      }
 
     @Override
+    public void close() {
+        try {
+            mIoTClient.close();
+        } catch (MqttException e) {
+            if (BuildConfig.DEBUG) {
+                Log.e(TAG, e.getMessage());
+            }
+
+            if (mIotMessageCallback != null) {
+                mIotMessageCallback.onError(e);
+            }
+        }
+    }
+
+    @Override
     public void requestQr() {
         IotFrame frame = newFrame(
                 IoTProtocol.MSG_TYPE_SYSTEM,
@@ -557,7 +576,7 @@ public class IotRespository extends MqttImpl {
 
                 registerDevice();
                 //注册成功
-                mIotMessageCallback.onSuccess();
+                mIotMessageCallback.onSuccess(false);
             }
         } catch (IOException e) {
             e.printStackTrace();

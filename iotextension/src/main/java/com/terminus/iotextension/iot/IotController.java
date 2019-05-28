@@ -58,6 +58,11 @@ public class IotController extends MqttImpl {
     }
 
     @Override
+    public void close() {
+        mIot.close();
+    }
+
+    @Override
     public void requestQr() {
         mIot.requestQr();
     }
