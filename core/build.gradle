@@ -44,11 +44,6 @@ dependencies {
     api SUPPORT_MEDIA_COMPAT
     api SUPPORT_V4
 
-
-    //thread
-    api RXJAVA2
-    api RXANDROID2
-
     //network
     api RETROFIT2
     api GSON
@@ -80,6 +75,10 @@ dependencies {
     api (ZXING_ANDROID_EMBEDDED) {
         exclude group: 'com.android.support'
     }
+
+    // 模块依赖
+    //thread
+    api project(BASIC_ASYNC)
 
 }
 repositories {
