@@ -1,5 +1,6 @@
 package com.joey.cheetah.core.utils;
 
+import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
@@ -11,7 +12,6 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.StringRes;
 
-import com.joey.cheetah.core.global.Global;
 
 /**
  * Description: An resource getter
@@ -19,9 +19,14 @@ import com.joey.cheetah.core.global.Global;
  * date:2018/7/26
  */
 public class ResGetter {
+    private static Context sContext = null;
+
+    public static void init(Context globalContext) {
+        sContext = globalContext;
+    }
 
     public static Resources resources() {
-        return Global.context().getResources();
+        return sContext.getResources();
     }
 
     public static String string(@StringRes int resID) {

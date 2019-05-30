@@ -6,6 +6,7 @@ import android.content.Context;
 import com.joey.cheetah.core.global.CheetahLifecycleCallbacks;
 import com.joey.cheetah.core.global.Global;
 import com.joey.cheetah.core.init.InitManager;
+import com.joey.cheetah.core.utils.ResGetter;
 
 /**
  * Description: Initializer for Application
@@ -27,6 +28,7 @@ public class CheetahApplicationInitializer {
         if (context instanceof Application) {
             ((Application) context).registerActivityLifecycleCallbacks(CheetahLifecycleCallbacks.inst());
         }
+        ResGetter.init(Global.context());
     }
 
 

@@ -145,13 +145,13 @@ public class BundleMaker {
     }
 
     public BundleMaker putParcelableArrayList(@Nullable String key,
-                                       @Nullable ArrayList<? extends Parcelable> value) {
+                                              @Nullable ArrayList<? extends Parcelable> value) {
         bundle.putParcelableArrayList(key, value);
         return this;
     }
 
     public BundleMaker putSparseParcelableArray(@Nullable String key,
-                                         @Nullable SparseArray<? extends Parcelable> value) {
+                                                @Nullable SparseArray<? extends Parcelable> value) {
         bundle.putSparseParcelableArray(key, value);
         return this;
     }
@@ -167,7 +167,7 @@ public class BundleMaker {
     }
 
     public BundleMaker putCharSequenceArrayList(@Nullable String key,
-                                         @Nullable ArrayList<CharSequence> value) {
+                                                @Nullable ArrayList<CharSequence> value) {
         bundle.putCharSequenceArrayList(key, value);
         return this;
     }

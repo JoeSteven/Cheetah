@@ -1,1 +1,1 @@
-include ':app', ':core', ':mvp', ':ereboot', ':async',":iot"
+include ':app', ':core', ':mvp', ':ereboot', ':async', ':utility',":iot"

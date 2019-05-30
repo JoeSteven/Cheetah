@@ -2,7 +2,6 @@ package com.joey.cheetah.core.utils;
 
 import android.util.Base64;
 
-import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
 import javax.crypto.Cipher;

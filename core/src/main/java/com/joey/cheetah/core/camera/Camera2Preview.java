@@ -24,7 +24,6 @@ import android.view.Surface;
 import android.view.TextureView;
 
 import com.joey.cheetah.core.global.Global;
-import com.joey.cheetah.core.utils.ImageUtil;
 
 import java.util.ArrayList;
 import java.util.List;

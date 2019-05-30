@@ -79,6 +79,7 @@ dependencies {
     // 模块依赖
     //thread
     api project(BASIC_ASYNC)
+    api project(BASIC_UTILITY)
 
 }
 repositories {

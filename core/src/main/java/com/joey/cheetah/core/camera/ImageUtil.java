@@ -1,4 +1,4 @@
-package com.joey.cheetah.core.utils;
+package com.joey.cheetah.core.camera;
 
 import android.annotation.TargetApi;
 import android.content.res.Configuration;
