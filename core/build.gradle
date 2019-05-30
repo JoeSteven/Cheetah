@@ -44,11 +44,6 @@ dependencies {
     api SUPPORT_MEDIA_COMPAT
     api SUPPORT_V4
 
-    //network
-    api RETROFIT2
-    api GSON
-    api ADAPTER_RXJAVA2
-
     //image load
     api GLIDE
     kapt GLIDE_COMPILER
@@ -80,6 +75,7 @@ dependencies {
     //thread
     api project(BASIC_ASYNC)
     api project(BASIC_UTILITY)
+    api project(BASIC_NETWORK)
 
 }
 repositories {
@@ -88,6 +84,6 @@ repositories {
 
 ext.group_Id('com.joey.cheetah')
 ext.artifact_id('core')
-ext.version_name('1.4.5')
-//ext.version_name('1.4.7-SNAPSHOT')
+//ext.version_name('1.4.5')
+ext.version_name('2.0.0-SNAPSHOT')
 ext.aar_name('core-release.aar')
