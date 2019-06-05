@@ -50,7 +50,7 @@ public abstract class MqttImpl {
     abstract void uploadPassLog(int personId, String feature, PersonType personType,
                                 Direction direction, long time, OpenStatus openStatus,
                                 DevStatus devStatus, OpenType openType, String cardNo,
-                                String imgUrl, String videoUrl);
+                                String imgUrl, String videoUrl,String reserve,long logId);
 
     void send(String topic, int sequenceId, byte[] data) throws MqttException {
         if (check()) {

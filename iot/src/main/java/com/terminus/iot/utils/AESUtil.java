@@ -1,5 +1,7 @@
 package com.terminus.iot.utils;
 
+import android.util.Log;
+
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 import java.security.Key;
@@ -86,6 +88,7 @@ public class AESUtil {
             cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(iv));
             encryptedText = cipher.doFinal(content);
         } catch (Exception e) {
+            Log.e(AESUtil.class.getSimpleName(),content + "," + keyBytes + "," + e.getMessage());
             // TODO Auto-generated catch block
             e.printStackTrace();
         }

@@ -47,11 +47,11 @@ public class IoTProtocol {
     public static final short CMD_TYPE_PERSON_INFO_ERROR = 8;                 // 上报设备端使用人员数据时的错误信息。Body的PB模型为TSLIOTPersonError
 
     // 云到端的请求命令
-    public static short CMD_TYPE_DISPATCH_BLACK = (short)0x8002;        // 下发兼通知黑名单。Body的PB模型为 TSLIOTDispatchPersonListRequest
-    public static short CMD_TYPE_DISPATCH_ONCE_PWD = (short)0x8003;     // 下发一次性密码。Body的PB模型为TSLIOTIssueOncePWDRequest
+    public static final short CMD_TYPE_DISPATCH_BLACK = (short)0x8002;        // 下发兼通知黑名单。Body的PB模型为 TSLIOTDispatchPersonListRequest
+    public static final short CMD_TYPE_DISPATCH_ONCE_PWD = (short)0x8003;     // 下发一次性密码。Body的PB模型为TSLIOTIssueOncePWDRequest
     public static final short CMD_TYPE_DISPATCH_PERSON = (short)0x8004;       // 下发兼通知人员信息。Body的PB模型为 TSLIOTDispatchPersonListRequest
-    public static short CMD_TYPE_DISPATCH_ROOM_INFO = (short)0x8005;    // 下发兼通知房间信息。Body的PB模型为 TSLIOTDispatchRoomInfoRequest
-    public static short CMD_TYPE_DISPATCH_MAKE_CARD = (short)0x8006;    // 下发兼通知制卡信息。Body的PB模型为 TSLIOTDispatchCardListRequest
+    public static final short CMD_TYPE_DISPATCH_ROOM_INFO = (short)0x8005;    // 下发兼通知房间信息。Body的PB模型为 TSLIOTDispatchRoomInfoRequest
+    public static final short CMD_TYPE_DISPATCH_MAKE_CARD = (short)0x8006;    // 下发兼通知制卡信息。Body的PB模型为 TSLIOTDispatchCardListRequest
 
     public static class SyncDataType{
         public static String SYNC_DATA_TYPE_PERSON = "person";                  //人员信息
@@ -93,7 +93,7 @@ public class IoTProtocol {
     // 端到云的请求命令
     public static short CMD_TYPE_UPLOAD_PASS_LOG = 1;                       // 上报设备日志。Body的PB模型为 TSLIOTUploadPassLogRequest
     // 云到端的请求命令
-    public static short CMD_TYPE_UPLOAD_PASS_LOG_ACK = (short)0x8001;       // 上报设备日志结果。Body的PB模型为TSLIOTCommonResult
+    public static final short CMD_TYPE_UPLOAD_PASS_LOG_ACK = (short)0x8001;       // 上报设备日志结果。Body的PB模型为TSLIOTCommonResult
 
     /**
      * 智能家居：

@@ -95,9 +95,9 @@ public class IotController extends MqttImpl {
     @Override
     public void uploadPassLog(int personId, String feature, PersonType personType, Direction direction,
                               long time, OpenStatus openStatus, DevStatus devStatus, OpenType openType,
-                              String cardNo, String imgUrl, String videoUrl) {
+                              String cardNo, String imgUrl, String videoUrl,String reserve,long logId) {
         mIot.uploadPassLog(personId, feature, personType, direction,
-                time, openStatus, devStatus, openType, cardNo, imgUrl, videoUrl);
+                time, openStatus, devStatus, openType, cardNo, imgUrl, videoUrl,reserve,logId);
     }
 
     public void setMessageCallback(IotMessageCallback messageCallback) {

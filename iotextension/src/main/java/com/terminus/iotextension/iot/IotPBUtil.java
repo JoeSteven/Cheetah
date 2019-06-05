@@ -96,7 +96,7 @@ class IotPBUtil {
     static byte[] constructPassLog(int personId, String feature, PersonType personType,
                                    Direction direction, long time, OpenStatus openStatus,
                                    DevStatus devStatus, OpenType openType, String cardNo,
-                                   String imgUrl, String videoUrl){
+                                   String imgUrl, String videoUrl,String reserve,long logId){
         TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.Builder logBuilder =
                 TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.newBuilder();
         TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog log =
@@ -114,6 +114,8 @@ class IotPBUtil {
                         .setCardNo(cardNo)
                         .setPassImg(imgUrl)
                         .setPassVideo(videoUrl)
+                        .setReserve(reserve)
+                        .setDevLogId(logId)
                         .build();
                 logBuilder.addPassLogs(log);
 

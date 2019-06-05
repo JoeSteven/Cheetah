@@ -12,6 +12,7 @@ import com.terminus.iot.utils.Sha1Util;
 import com.terminus.iotextension.event.AeskeyEvent;
 import com.terminus.iotextension.event.CodeEvent;
 import com.terminus.iotextension.event.DoorEvent;
+import com.terminus.iotextension.event.PasslogResultEvent;
 import com.terminus.iotextension.event.PersonInfoEvent;
 import com.terminus.iotextension.event.ResetEvent;
 import com.terminus.iotextension.event.RuleEvent;
@@ -25,6 +26,7 @@ import com.terminus.iotextension.iot.config.OpenStatus;
 import com.terminus.iotextension.iot.config.OpenType;
 import com.terminus.iotextension.iot.config.PersonType;
 import com.terminus.iotextension.mqtt.IotFrame;
+import com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog;
 import com.terminus.iotextension.mqtt.protobuf.TSLIOTCommon;
 import com.terminus.iotextension.mqtt.protobuf.TSLIOTDataSync;
 import com.terminus.iotextension.mqtt.protobuf.TSLIOTDevice;
@@ -373,9 +375,44 @@ public class IotRespository extends MqttImpl {
         }
     }
 
-    //TODO:日志业务 云端的回复,后续根据需求进行完善
     private void logMsg(IotFrame frame) {
+        switch (frame.getCmd()) {
+            case IoTProtocol.CMD_TYPE_UPLOAD_PASS_LOG_ACK:
+                passLogResult(frame);
+                break;
+            default:
+                break;
+        }
+    }
 
+    /**
+     * 数据上传结果
+     * @param frame
+     */
+    private void passLogResult(IotFrame frame) {
+        InputStream input = new ByteArrayInputStream(frame.getBody());
+        try {
+            TSLIOTBusinessLog.TSLIOTUploadPassLogResult result =
+                     TSLIOTBusinessLog.TSLIOTUploadPassLogResult.parseFrom(input);
+
+            if (result.getLogResultsList().size() > 0) {
+                PasslogResultEvent event = new PasslogResultEvent(result.getLogResultsList(),
+                        result.getLogResultsCount());
+
+                if (mIotMessageCallback != null) {
+                    mIotMessageCallback.onEvent(event);
+                }
+            }
+
+        } catch (IOException e) {
+            if (BuildConfig.DEBUG) {
+                Log.e(TAG, e.getMessage());
+            }
+
+            if (mIotMessageCallback != null) {
+                mIotMessageCallback.onError(e);
+            }
+        }
     }
 
     /**
@@ -418,14 +455,15 @@ public class IotRespository extends MqttImpl {
     @Override
     public void uploadPassLog(int personId, String feature, PersonType personType, Direction direction,
                               long time, OpenStatus openStatus, DevStatus devStatus, OpenType openType,
-                              String cardNo, String imgUrl, String videoUrl) {
+                              String cardNo, String imgUrl, String videoUrl,String reserve,long logId) {
         IotFrame frame = newFrame(
                 IoTProtocol.MSG_TYPE_SYSTEM,
                 mIoTClient.generateId(),
                 IoTProtocol.SERVICE_TYPE_BUSINESS_LOG,
                 IoTProtocol.CMD_TYPE_UPLOAD_PASS_LOG,
                 IotPBUtil.constructPassLog(personId, feature, personType, direction,
-                        time, openStatus, devStatus, openType, cardNo, imgUrl, videoUrl));
+                        time, openStatus, devStatus, openType, cardNo, imgUrl, videoUrl,
+                        reserve,logId));
 
         sendFrame(frame);
     }

@@ -1,6 +1,7 @@
 package com.joey.cheetah.sample;
 
 import android.os.Build;
+import android.util.Log;
 import android.view.View;
 
 import com.joey.cheetah.core.permission.PermissionUtil;
@@ -71,6 +72,7 @@ public class MainActivity extends AbsActivity{
         if (RebootHelper.INSTANCE.isRebooted()) {
             toast("异常重启成功");
         }
+
     }
 
     @Override

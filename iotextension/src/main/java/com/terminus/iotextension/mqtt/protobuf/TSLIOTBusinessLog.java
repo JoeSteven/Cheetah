@@ -236,7 +236,7 @@ public final class TSLIOTBusinessLog {
 
       /**
        * <pre>
-       * 成功：0，失败：1,  2:无效二维码（TOTP失败,BASE64解码失败,AES解码失败） , 3:无效用户(phone不存在，phone过期)
+       * 成功：0，失败：1,  2:二维码有效期超时 3.二维码无权限   4:无效用户
        * </pre>
        *
        * <code>int32 open_result = 7;</code>
@@ -332,6 +332,15 @@ public final class TSLIOTBusinessLog {
        */
       com.google.protobuf.ByteString
           getReserveBytes();
+
+      /**
+       * <pre>
+       * 设备端日志id
+       * </pre>
+       *
+       * <code>int64 dev_log_id = 14;</code>
+       */
+      long getDevLogId();
     }
     /**
      * Protobuf type {@code TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog}
@@ -359,6 +368,7 @@ public final class TSLIOTBusinessLog {
         passImg_ = "";
         passVideo_ = "";
         reserve_ = "";
+        devLogId_ = 0L;
       }
 
       @Override
@@ -462,6 +472,11 @@ public final class TSLIOTBusinessLog {
                 String s = input.readStringRequireUtf8();
 
                 reserve_ = s;
+                break;
+              }
+              case 112: {
+
+                devLogId_ = input.readInt64();
                 break;
               }
             }
@@ -657,7 +672,7 @@ public final class TSLIOTBusinessLog {
       private int openResult_;
       /**
        * <pre>
-       * 成功：0，失败：1,  2:无效二维码（TOTP失败,BASE64解码失败,AES解码失败） , 3:无效用户(phone不存在，phone过期)
+       * 成功：0，失败：1,  2:二维码有效期超时 3.二维码无权限   4:无效用户
        * </pre>
        *
        * <code>int32 open_result = 7;</code>
@@ -860,6 +875,19 @@ public final class TSLIOTBusinessLog {
         }
       }
 
+      public static final int DEV_LOG_ID_FIELD_NUMBER = 14;
+      private long devLogId_;
+      /**
+       * <pre>
+       * 设备端日志id
+       * </pre>
+       *
+       * <code>int64 dev_log_id = 14;</code>
+       */
+      public long getDevLogId() {
+        return devLogId_;
+      }
+
       private byte memoizedIsInitialized = -1;
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
@@ -910,6 +938,9 @@ public final class TSLIOTBusinessLog {
         }
         if (!getReserveBytes().isEmpty()) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 13, reserve_);
+        }
+        if (devLogId_ != 0L) {
+          output.writeInt64(14, devLogId_);
         }
         unknownFields.writeTo(output);
       }
@@ -964,6 +995,10 @@ public final class TSLIOTBusinessLog {
         if (!getReserveBytes().isEmpty()) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, reserve_);
         }
+        if (devLogId_ != 0L) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt64Size(14, devLogId_);
+        }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
         return size;
@@ -1006,6 +1041,8 @@ public final class TSLIOTBusinessLog {
             .equals(other.getPassVideo());
         result = result && getReserve()
             .equals(other.getReserve());
+        result = result && (getDevLogId()
+            == other.getDevLogId());
         result = result && unknownFields.equals(other.unknownFields);
         return result;
       }
@@ -1045,6 +1082,9 @@ public final class TSLIOTBusinessLog {
         hash = (53 * hash) + getPassVideo().hashCode();
         hash = (37 * hash) + RESERVE_FIELD_NUMBER;
         hash = (53 * hash) + getReserve().hashCode();
+        hash = (37 * hash) + DEV_LOG_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getDevLogId());
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
@@ -1200,6 +1240,8 @@ public final class TSLIOTBusinessLog {
 
           reserve_ = "";
 
+          devLogId_ = 0L;
+
           return this;
         }
 
@@ -1235,6 +1277,7 @@ public final class TSLIOTBusinessLog {
           result.passImg_ = passImg_;
           result.passVideo_ = passVideo_;
           result.reserve_ = reserve_;
+          result.devLogId_ = devLogId_;
           onBuilt();
           return result;
         }
@@ -1321,6 +1364,9 @@ public final class TSLIOTBusinessLog {
           if (!other.getReserve().isEmpty()) {
             reserve_ = other.reserve_;
             onChanged();
+          }
+          if (other.getDevLogId() != 0L) {
+            setDevLogId(other.getDevLogId());
           }
           this.mergeUnknownFields(other.unknownFields);
           onChanged();
@@ -1733,7 +1779,7 @@ public final class TSLIOTBusinessLog {
         private int openResult_ ;
         /**
          * <pre>
-         * 成功：0，失败：1,  2:无效二维码（TOTP失败,BASE64解码失败,AES解码失败） , 3:无效用户(phone不存在，phone过期)
+         * 成功：0，失败：1,  2:二维码有效期超时 3.二维码无权限   4:无效用户
          * </pre>
          *
          * <code>int32 open_result = 7;</code>
@@ -1743,7 +1789,7 @@ public final class TSLIOTBusinessLog {
         }
         /**
          * <pre>
-         * 成功：0，失败：1,  2:无效二维码（TOTP失败,BASE64解码失败,AES解码失败） , 3:无效用户(phone不存在，phone过期)
+         * 成功：0，失败：1,  2:二维码有效期超时 3.二维码无权限   4:无效用户
          * </pre>
          *
          * <code>int32 open_result = 7;</code>
@@ -1756,7 +1802,7 @@ public final class TSLIOTBusinessLog {
         }
         /**
          * <pre>
-         * 成功：0，失败：1,  2:无效二维码（TOTP失败,BASE64解码失败,AES解码失败） , 3:无效用户(phone不存在，phone过期)
+         * 成功：0，失败：1,  2:二维码有效期超时 3.二维码无权限   4:无效用户
          * </pre>
          *
          * <code>int32 open_result = 7;</code>
@@ -2196,6 +2242,44 @@ public final class TSLIOTBusinessLog {
   checkByteStringIsUtf8(value);
           
           reserve_ = value;
+          onChanged();
+          return this;
+        }
+
+        private long devLogId_ ;
+        /**
+         * <pre>
+         * 设备端日志id
+         * </pre>
+         *
+         * <code>int64 dev_log_id = 14;</code>
+         */
+        public long getDevLogId() {
+          return devLogId_;
+        }
+        /**
+         * <pre>
+         * 设备端日志id
+         * </pre>
+         *
+         * <code>int64 dev_log_id = 14;</code>
+         */
+        public Builder setDevLogId(long value) {
+          
+          devLogId_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * 设备端日志id
+         * </pre>
+         *
+         * <code>int64 dev_log_id = 14;</code>
+         */
+        public Builder clearDevLogId() {
+          
+          devLogId_ = 0L;
           onChanged();
           return this;
         }
@@ -2990,6 +3074,1776 @@ public final class TSLIOTBusinessLog {
 
   }
 
+  public interface TSLIOTLogCommonResultOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:TslIotProto.TSLIOTLogCommonResult)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 设备id
+     * </pre>
+     *
+     * <code>string dev_id = 1;</code>
+     */
+    String getDevId();
+    /**
+     * <pre>
+     * 设备id
+     * </pre>
+     *
+     * <code>string dev_id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getDevIdBytes();
+
+    /**
+     * <pre>
+     * 设备端日志id
+     * </pre>
+     *
+     * <code>int64 dev_log_id = 2;</code>
+     */
+    long getDevLogId();
+
+    /**
+     * <pre>
+     * 错误码，0表示成功
+     * </pre>
+     *
+     * <code>int32 code = 3;</code>
+     */
+    int getCode();
+
+    /**
+     * <pre>
+     * 返回信息
+     * </pre>
+     *
+     * <code>string message = 4;</code>
+     */
+    String getMessage();
+    /**
+     * <pre>
+     * 返回信息
+     * </pre>
+     *
+     * <code>string message = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getMessageBytes();
+  }
+  /**
+   * Protobuf type {@code TslIotProto.TSLIOTLogCommonResult}
+   */
+  public  static final class TSLIOTLogCommonResult extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:TslIotProto.TSLIOTLogCommonResult)
+      TSLIOTLogCommonResultOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TSLIOTLogCommonResult.newBuilder() to construct.
+    private TSLIOTLogCommonResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TSLIOTLogCommonResult() {
+      devId_ = "";
+      devLogId_ = 0L;
+      code_ = 0;
+      message_ = "";
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TSLIOTLogCommonResult(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              String s = input.readStringRequireUtf8();
+
+              devId_ = s;
+              break;
+            }
+            case 16: {
+
+              devLogId_ = input.readInt64();
+              break;
+            }
+            case 24: {
+
+              code_ = input.readInt32();
+              break;
+            }
+            case 34: {
+              String s = input.readStringRequireUtf8();
+
+              message_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTLogCommonResult_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTLogCommonResult_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              TSLIOTLogCommonResult.class, Builder.class);
+    }
+
+    public static final int DEV_ID_FIELD_NUMBER = 1;
+    private volatile Object devId_;
+    /**
+     * <pre>
+     * 设备id
+     * </pre>
+     *
+     * <code>string dev_id = 1;</code>
+     */
+    public String getDevId() {
+      Object ref = devId_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        devId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 设备id
+     * </pre>
+     *
+     * <code>string dev_id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDevIdBytes() {
+      Object ref = devId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        devId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DEV_LOG_ID_FIELD_NUMBER = 2;
+    private long devLogId_;
+    /**
+     * <pre>
+     * 设备端日志id
+     * </pre>
+     *
+     * <code>int64 dev_log_id = 2;</code>
+     */
+    public long getDevLogId() {
+      return devLogId_;
+    }
+
+    public static final int CODE_FIELD_NUMBER = 3;
+    private int code_;
+    /**
+     * <pre>
+     * 错误码，0表示成功
+     * </pre>
+     *
+     * <code>int32 code = 3;</code>
+     */
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int MESSAGE_FIELD_NUMBER = 4;
+    private volatile Object message_;
+    /**
+     * <pre>
+     * 返回信息
+     * </pre>
+     *
+     * <code>string message = 4;</code>
+     */
+    public String getMessage() {
+      Object ref = message_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        message_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 返回信息
+     * </pre>
+     *
+     * <code>string message = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      Object ref = message_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getDevIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, devId_);
+      }
+      if (devLogId_ != 0L) {
+        output.writeInt64(2, devLogId_);
+      }
+      if (code_ != 0) {
+        output.writeInt32(3, code_);
+      }
+      if (!getMessageBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, message_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getDevIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, devId_);
+      }
+      if (devLogId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, devLogId_);
+      }
+      if (code_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, code_);
+      }
+      if (!getMessageBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, message_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof TSLIOTLogCommonResult)) {
+        return super.equals(obj);
+      }
+      TSLIOTLogCommonResult other = (TSLIOTLogCommonResult) obj;
+
+      boolean result = true;
+      result = result && getDevId()
+          .equals(other.getDevId());
+      result = result && (getDevLogId()
+          == other.getDevLogId());
+      result = result && (getCode()
+          == other.getCode());
+      result = result && getMessage()
+          .equals(other.getMessage());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + DEV_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getDevId().hashCode();
+      hash = (37 * hash) + DEV_LOG_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getDevLogId());
+      hash = (37 * hash) + CODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCode();
+      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessage().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static TSLIOTLogCommonResult parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static TSLIOTLogCommonResult parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static TSLIOTLogCommonResult parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static TSLIOTLogCommonResult parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static TSLIOTLogCommonResult parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static TSLIOTLogCommonResult parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static TSLIOTLogCommonResult parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static TSLIOTLogCommonResult parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static TSLIOTLogCommonResult parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static TSLIOTLogCommonResult parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static TSLIOTLogCommonResult parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static TSLIOTLogCommonResult parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(TSLIOTLogCommonResult prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code TslIotProto.TSLIOTLogCommonResult}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:TslIotProto.TSLIOTLogCommonResult)
+        TSLIOTLogCommonResultOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTLogCommonResult_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTLogCommonResult_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                TSLIOTLogCommonResult.class, Builder.class);
+      }
+
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        devId_ = "";
+
+        devLogId_ = 0L;
+
+        code_ = 0;
+
+        message_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTLogCommonResult_descriptor;
+      }
+
+      public TSLIOTLogCommonResult getDefaultInstanceForType() {
+        return TSLIOTLogCommonResult.getDefaultInstance();
+      }
+
+      public TSLIOTLogCommonResult build() {
+        TSLIOTLogCommonResult result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public TSLIOTLogCommonResult buildPartial() {
+        TSLIOTLogCommonResult result = new TSLIOTLogCommonResult(this);
+        result.devId_ = devId_;
+        result.devLogId_ = devLogId_;
+        result.code_ = code_;
+        result.message_ = message_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof TSLIOTLogCommonResult) {
+          return mergeFrom((TSLIOTLogCommonResult)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(TSLIOTLogCommonResult other) {
+        if (other == TSLIOTLogCommonResult.getDefaultInstance()) return this;
+        if (!other.getDevId().isEmpty()) {
+          devId_ = other.devId_;
+          onChanged();
+        }
+        if (other.getDevLogId() != 0L) {
+          setDevLogId(other.getDevLogId());
+        }
+        if (other.getCode() != 0) {
+          setCode(other.getCode());
+        }
+        if (!other.getMessage().isEmpty()) {
+          message_ = other.message_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        TSLIOTLogCommonResult parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (TSLIOTLogCommonResult) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private Object devId_ = "";
+      /**
+       * <pre>
+       * 设备id
+       * </pre>
+       *
+       * <code>string dev_id = 1;</code>
+       */
+      public String getDevId() {
+        Object ref = devId_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          devId_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 设备id
+       * </pre>
+       *
+       * <code>string dev_id = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDevIdBytes() {
+        Object ref = devId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          devId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 设备id
+       * </pre>
+       *
+       * <code>string dev_id = 1;</code>
+       */
+      public Builder setDevId(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        devId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 设备id
+       * </pre>
+       *
+       * <code>string dev_id = 1;</code>
+       */
+      public Builder clearDevId() {
+        
+        devId_ = getDefaultInstance().getDevId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 设备id
+       * </pre>
+       *
+       * <code>string dev_id = 1;</code>
+       */
+      public Builder setDevIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        devId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long devLogId_ ;
+      /**
+       * <pre>
+       * 设备端日志id
+       * </pre>
+       *
+       * <code>int64 dev_log_id = 2;</code>
+       */
+      public long getDevLogId() {
+        return devLogId_;
+      }
+      /**
+       * <pre>
+       * 设备端日志id
+       * </pre>
+       *
+       * <code>int64 dev_log_id = 2;</code>
+       */
+      public Builder setDevLogId(long value) {
+        
+        devLogId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 设备端日志id
+       * </pre>
+       *
+       * <code>int64 dev_log_id = 2;</code>
+       */
+      public Builder clearDevLogId() {
+        
+        devLogId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int code_ ;
+      /**
+       * <pre>
+       * 错误码，0表示成功
+       * </pre>
+       *
+       * <code>int32 code = 3;</code>
+       */
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <pre>
+       * 错误码，0表示成功
+       * </pre>
+       *
+       * <code>int32 code = 3;</code>
+       */
+      public Builder setCode(int value) {
+        
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 错误码，0表示成功
+       * </pre>
+       *
+       * <code>int32 code = 3;</code>
+       */
+      public Builder clearCode() {
+        
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private Object message_ = "";
+      /**
+       * <pre>
+       * 返回信息
+       * </pre>
+       *
+       * <code>string message = 4;</code>
+       */
+      public String getMessage() {
+        Object ref = message_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          message_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 返回信息
+       * </pre>
+       *
+       * <code>string message = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMessageBytes() {
+        Object ref = message_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          message_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 返回信息
+       * </pre>
+       *
+       * <code>string message = 4;</code>
+       */
+      public Builder setMessage(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 返回信息
+       * </pre>
+       *
+       * <code>string message = 4;</code>
+       */
+      public Builder clearMessage() {
+        
+        message_ = getDefaultInstance().getMessage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 返回信息
+       * </pre>
+       *
+       * <code>string message = 4;</code>
+       */
+      public Builder setMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:TslIotProto.TSLIOTLogCommonResult)
+    }
+
+    // @@protoc_insertion_point(class_scope:TslIotProto.TSLIOTLogCommonResult)
+    private static final TSLIOTLogCommonResult DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new TSLIOTLogCommonResult();
+    }
+
+    public static TSLIOTLogCommonResult getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TSLIOTLogCommonResult>
+        PARSER = new com.google.protobuf.AbstractParser<TSLIOTLogCommonResult>() {
+      public TSLIOTLogCommonResult parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TSLIOTLogCommonResult(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TSLIOTLogCommonResult> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<TSLIOTLogCommonResult> getParserForType() {
+      return PARSER;
+    }
+
+    public TSLIOTLogCommonResult getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TSLIOTUploadPassLogResultOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:TslIotProto.TSLIOTUploadPassLogResult)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 开门日志响应结果
+     * </pre>
+     *
+     * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+     */
+    java.util.List<TSLIOTLogCommonResult>
+        getLogResultsList();
+    /**
+     * <pre>
+     * 开门日志响应结果
+     * </pre>
+     *
+     * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+     */
+    TSLIOTLogCommonResult getLogResults(int index);
+    /**
+     * <pre>
+     * 开门日志响应结果
+     * </pre>
+     *
+     * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+     */
+    int getLogResultsCount();
+    /**
+     * <pre>
+     * 开门日志响应结果
+     * </pre>
+     *
+     * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+     */
+    java.util.List<? extends TSLIOTLogCommonResultOrBuilder>
+        getLogResultsOrBuilderList();
+    /**
+     * <pre>
+     * 开门日志响应结果
+     * </pre>
+     *
+     * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+     */
+    TSLIOTLogCommonResultOrBuilder getLogResultsOrBuilder(
+            int index);
+  }
+  /**
+   * Protobuf type {@code TslIotProto.TSLIOTUploadPassLogResult}
+   */
+  public  static final class TSLIOTUploadPassLogResult extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:TslIotProto.TSLIOTUploadPassLogResult)
+      TSLIOTUploadPassLogResultOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TSLIOTUploadPassLogResult.newBuilder() to construct.
+    private TSLIOTUploadPassLogResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TSLIOTUploadPassLogResult() {
+      logResults_ = java.util.Collections.emptyList();
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TSLIOTUploadPassLogResult(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                logResults_ = new java.util.ArrayList<TSLIOTLogCommonResult>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              logResults_.add(
+                  input.readMessage(TSLIOTLogCommonResult.parser(), extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          logResults_ = java.util.Collections.unmodifiableList(logResults_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogResult_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogResult_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              TSLIOTUploadPassLogResult.class, Builder.class);
+    }
+
+    public static final int LOG_RESULTS_FIELD_NUMBER = 1;
+    private java.util.List<TSLIOTLogCommonResult> logResults_;
+    /**
+     * <pre>
+     * 开门日志响应结果
+     * </pre>
+     *
+     * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+     */
+    public java.util.List<TSLIOTLogCommonResult> getLogResultsList() {
+      return logResults_;
+    }
+    /**
+     * <pre>
+     * 开门日志响应结果
+     * </pre>
+     *
+     * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+     */
+    public java.util.List<? extends TSLIOTLogCommonResultOrBuilder>
+        getLogResultsOrBuilderList() {
+      return logResults_;
+    }
+    /**
+     * <pre>
+     * 开门日志响应结果
+     * </pre>
+     *
+     * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+     */
+    public int getLogResultsCount() {
+      return logResults_.size();
+    }
+    /**
+     * <pre>
+     * 开门日志响应结果
+     * </pre>
+     *
+     * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+     */
+    public TSLIOTLogCommonResult getLogResults(int index) {
+      return logResults_.get(index);
+    }
+    /**
+     * <pre>
+     * 开门日志响应结果
+     * </pre>
+     *
+     * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+     */
+    public TSLIOTLogCommonResultOrBuilder getLogResultsOrBuilder(
+        int index) {
+      return logResults_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < logResults_.size(); i++) {
+        output.writeMessage(1, logResults_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < logResults_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, logResults_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof TSLIOTUploadPassLogResult)) {
+        return super.equals(obj);
+      }
+      TSLIOTUploadPassLogResult other = (TSLIOTUploadPassLogResult) obj;
+
+      boolean result = true;
+      result = result && getLogResultsList()
+          .equals(other.getLogResultsList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getLogResultsCount() > 0) {
+        hash = (37 * hash) + LOG_RESULTS_FIELD_NUMBER;
+        hash = (53 * hash) + getLogResultsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static TSLIOTUploadPassLogResult parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static TSLIOTUploadPassLogResult parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static TSLIOTUploadPassLogResult parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static TSLIOTUploadPassLogResult parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static TSLIOTUploadPassLogResult parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static TSLIOTUploadPassLogResult parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static TSLIOTUploadPassLogResult parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static TSLIOTUploadPassLogResult parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static TSLIOTUploadPassLogResult parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static TSLIOTUploadPassLogResult parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static TSLIOTUploadPassLogResult parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static TSLIOTUploadPassLogResult parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(TSLIOTUploadPassLogResult prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code TslIotProto.TSLIOTUploadPassLogResult}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:TslIotProto.TSLIOTUploadPassLogResult)
+        TSLIOTUploadPassLogResultOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogResult_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogResult_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                TSLIOTUploadPassLogResult.class, Builder.class);
+      }
+
+      // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getLogResultsFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (logResultsBuilder_ == null) {
+          logResults_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          logResultsBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogResult_descriptor;
+      }
+
+      public TSLIOTUploadPassLogResult getDefaultInstanceForType() {
+        return TSLIOTUploadPassLogResult.getDefaultInstance();
+      }
+
+      public TSLIOTUploadPassLogResult build() {
+        TSLIOTUploadPassLogResult result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public TSLIOTUploadPassLogResult buildPartial() {
+        TSLIOTUploadPassLogResult result = new TSLIOTUploadPassLogResult(this);
+        int from_bitField0_ = bitField0_;
+        if (logResultsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            logResults_ = java.util.Collections.unmodifiableList(logResults_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.logResults_ = logResults_;
+        } else {
+          result.logResults_ = logResultsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof TSLIOTUploadPassLogResult) {
+          return mergeFrom((TSLIOTUploadPassLogResult)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(TSLIOTUploadPassLogResult other) {
+        if (other == TSLIOTUploadPassLogResult.getDefaultInstance()) return this;
+        if (logResultsBuilder_ == null) {
+          if (!other.logResults_.isEmpty()) {
+            if (logResults_.isEmpty()) {
+              logResults_ = other.logResults_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureLogResultsIsMutable();
+              logResults_.addAll(other.logResults_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.logResults_.isEmpty()) {
+            if (logResultsBuilder_.isEmpty()) {
+              logResultsBuilder_.dispose();
+              logResultsBuilder_ = null;
+              logResults_ = other.logResults_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              logResultsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getLogResultsFieldBuilder() : null;
+            } else {
+              logResultsBuilder_.addAllMessages(other.logResults_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        TSLIOTUploadPassLogResult parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (TSLIOTUploadPassLogResult) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<TSLIOTLogCommonResult> logResults_ =
+        java.util.Collections.emptyList();
+      private void ensureLogResultsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          logResults_ = new java.util.ArrayList<TSLIOTLogCommonResult>(logResults_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          TSLIOTLogCommonResult, TSLIOTLogCommonResult.Builder, TSLIOTLogCommonResultOrBuilder> logResultsBuilder_;
+
+      /**
+       * <pre>
+       * 开门日志响应结果
+       * </pre>
+       *
+       * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+       */
+      public java.util.List<TSLIOTLogCommonResult> getLogResultsList() {
+        if (logResultsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(logResults_);
+        } else {
+          return logResultsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * 开门日志响应结果
+       * </pre>
+       *
+       * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+       */
+      public int getLogResultsCount() {
+        if (logResultsBuilder_ == null) {
+          return logResults_.size();
+        } else {
+          return logResultsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * 开门日志响应结果
+       * </pre>
+       *
+       * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+       */
+      public TSLIOTLogCommonResult getLogResults(int index) {
+        if (logResultsBuilder_ == null) {
+          return logResults_.get(index);
+        } else {
+          return logResultsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * 开门日志响应结果
+       * </pre>
+       *
+       * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+       */
+      public Builder setLogResults(
+          int index, TSLIOTLogCommonResult value) {
+        if (logResultsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureLogResultsIsMutable();
+          logResults_.set(index, value);
+          onChanged();
+        } else {
+          logResultsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 开门日志响应结果
+       * </pre>
+       *
+       * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+       */
+      public Builder setLogResults(
+          int index, TSLIOTLogCommonResult.Builder builderForValue) {
+        if (logResultsBuilder_ == null) {
+          ensureLogResultsIsMutable();
+          logResults_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          logResultsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 开门日志响应结果
+       * </pre>
+       *
+       * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+       */
+      public Builder addLogResults(TSLIOTLogCommonResult value) {
+        if (logResultsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureLogResultsIsMutable();
+          logResults_.add(value);
+          onChanged();
+        } else {
+          logResultsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 开门日志响应结果
+       * </pre>
+       *
+       * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+       */
+      public Builder addLogResults(
+          int index, TSLIOTLogCommonResult value) {
+        if (logResultsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureLogResultsIsMutable();
+          logResults_.add(index, value);
+          onChanged();
+        } else {
+          logResultsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 开门日志响应结果
+       * </pre>
+       *
+       * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+       */
+      public Builder addLogResults(
+          TSLIOTLogCommonResult.Builder builderForValue) {
+        if (logResultsBuilder_ == null) {
+          ensureLogResultsIsMutable();
+          logResults_.add(builderForValue.build());
+          onChanged();
+        } else {
+          logResultsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 开门日志响应结果
+       * </pre>
+       *
+       * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+       */
+      public Builder addLogResults(
+          int index, TSLIOTLogCommonResult.Builder builderForValue) {
+        if (logResultsBuilder_ == null) {
+          ensureLogResultsIsMutable();
+          logResults_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          logResultsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 开门日志响应结果
+       * </pre>
+       *
+       * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+       */
+      public Builder addAllLogResults(
+          Iterable<? extends TSLIOTLogCommonResult> values) {
+        if (logResultsBuilder_ == null) {
+          ensureLogResultsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, logResults_);
+          onChanged();
+        } else {
+          logResultsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 开门日志响应结果
+       * </pre>
+       *
+       * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+       */
+      public Builder clearLogResults() {
+        if (logResultsBuilder_ == null) {
+          logResults_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          logResultsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 开门日志响应结果
+       * </pre>
+       *
+       * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+       */
+      public Builder removeLogResults(int index) {
+        if (logResultsBuilder_ == null) {
+          ensureLogResultsIsMutable();
+          logResults_.remove(index);
+          onChanged();
+        } else {
+          logResultsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 开门日志响应结果
+       * </pre>
+       *
+       * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+       */
+      public TSLIOTLogCommonResult.Builder getLogResultsBuilder(
+          int index) {
+        return getLogResultsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * 开门日志响应结果
+       * </pre>
+       *
+       * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+       */
+      public TSLIOTLogCommonResultOrBuilder getLogResultsOrBuilder(
+          int index) {
+        if (logResultsBuilder_ == null) {
+          return logResults_.get(index);  } else {
+          return logResultsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * 开门日志响应结果
+       * </pre>
+       *
+       * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+       */
+      public java.util.List<? extends TSLIOTLogCommonResultOrBuilder>
+           getLogResultsOrBuilderList() {
+        if (logResultsBuilder_ != null) {
+          return logResultsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(logResults_);
+        }
+      }
+      /**
+       * <pre>
+       * 开门日志响应结果
+       * </pre>
+       *
+       * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+       */
+      public TSLIOTLogCommonResult.Builder addLogResultsBuilder() {
+        return getLogResultsFieldBuilder().addBuilder(
+            TSLIOTLogCommonResult.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 开门日志响应结果
+       * </pre>
+       *
+       * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+       */
+      public TSLIOTLogCommonResult.Builder addLogResultsBuilder(
+          int index) {
+        return getLogResultsFieldBuilder().addBuilder(
+            index, TSLIOTLogCommonResult.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 开门日志响应结果
+       * </pre>
+       *
+       * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
+       */
+      public java.util.List<TSLIOTLogCommonResult.Builder>
+           getLogResultsBuilderList() {
+        return getLogResultsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          TSLIOTLogCommonResult, TSLIOTLogCommonResult.Builder, TSLIOTLogCommonResultOrBuilder>
+          getLogResultsFieldBuilder() {
+        if (logResultsBuilder_ == null) {
+          logResultsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              TSLIOTLogCommonResult, TSLIOTLogCommonResult.Builder, TSLIOTLogCommonResultOrBuilder>(
+                  logResults_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          logResults_ = null;
+        }
+        return logResultsBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:TslIotProto.TSLIOTUploadPassLogResult)
+    }
+
+    // @@protoc_insertion_point(class_scope:TslIotProto.TSLIOTUploadPassLogResult)
+    private static final TSLIOTUploadPassLogResult DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new TSLIOTUploadPassLogResult();
+    }
+
+    public static TSLIOTUploadPassLogResult getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TSLIOTUploadPassLogResult>
+        PARSER = new com.google.protobuf.AbstractParser<TSLIOTUploadPassLogResult>() {
+      public TSLIOTUploadPassLogResult parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TSLIOTUploadPassLogResult(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TSLIOTUploadPassLogResult> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<TSLIOTUploadPassLogResult> getParserForType() {
+      return PARSER;
+    }
+
+    public TSLIOTUploadPassLogResult getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_TslIotProto_TSLIOTUploadPassLogRequest_descriptor;
   private static final 
@@ -3000,6 +4854,16 @@ public final class TSLIOTBusinessLog {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_TslIotProto_TSLIOTUploadPassLogRequest_TSLIOTPassLog_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_TslIotProto_TSLIOTLogCommonResult_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_TslIotProto_TSLIOTLogCommonResult_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_TslIotProto_TSLIOTUploadPassLogResult_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_TslIotProto_TSLIOTUploadPassLogResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3009,18 +4873,23 @@ public final class TSLIOTBusinessLog {
       descriptor;
   static {
     String[] descriptorData = {
-      "\n\027TSLIOTBusinessLog.proto\022\013TslIotProto\"\346" +
+      "\n\027TSLIOTBusinessLog.proto\022\013TslIotProto\"\372" +
       "\002\n\032TSLIOTUploadPassLogRequest\022H\n\tpass_lo" +
       "gs\030\001 \003(\01325.TslIotProto.TSLIOTUploadPassL" +
-      "ogRequest.TSLIOTPassLog\032\375\001\n\rTSLIOTPassLo" +
+      "ogRequest.TSLIOTPassLog\032\221\002\n\rTSLIOTPassLo" +
       "g\022\016\n\006dev_id\030\001 \001(\t\022\021\n\tperson_id\030\002 \001(\003\022\017\n\007" +
       "feature\030\003 \001(\t\022\023\n\013person_type\030\004 \001(\t\022\021\n\tdi" +
       "rection\030\005 \001(\005\022\014\n\004time\030\006 \001(\003\022\023\n\013open_resu" +
       "lt\030\007 \001(\005\022\022\n\ndev_status\030\010 \001(\005\022\021\n\topen_typ" +
       "e\030\t \001(\005\022\017\n\007card_no\030\n \001(\t\022\020\n\010pass_img\030\013 \001" +
-      "(\t\022\022\n\npass_video\030\014 \001(\t\022\017\n\007reserve\030\r \001(\tB" +
-      ")\n\'com.terminus.iotextension.mqtt.protob" +
-      "ufb\006proto3"
+      "(\t\022\022\n\npass_video\030\014 \001(\t\022\017\n\007reserve\030\r \001(\t\022" +
+      "\022\n\ndev_log_id\030\016 \001(\003\"Z\n\025TSLIOTLogCommonRe" +
+      "sult\022\016\n\006dev_id\030\001 \001(\t\022\022\n\ndev_log_id\030\002 \001(\003" +
+      "\022\014\n\004code\030\003 \001(\005\022\017\n\007message\030\004 \001(\t\"T\n\031TSLIO" +
+      "TUploadPassLogResult\0227\n\013log_results\030\001 \003(" +
+      "\0132\".TslIotProto.TSLIOTLogCommonResultB)\n" +
+      "\'com.terminus.iotextension.mqtt.protobuf" +
+      "b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3045,7 +4914,19 @@ public final class TSLIOTBusinessLog {
     internal_static_TslIotProto_TSLIOTUploadPassLogRequest_TSLIOTPassLog_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TslIotProto_TSLIOTUploadPassLogRequest_TSLIOTPassLog_descriptor,
-        new String[] { "DevId", "PersonId", "Feature", "PersonType", "Direction", "Time", "OpenResult", "DevStatus", "OpenType", "CardNo", "PassImg", "PassVideo", "Reserve", });
+        new String[] { "DevId", "PersonId", "Feature", "PersonType", "Direction", "Time", "OpenResult", "DevStatus", "OpenType", "CardNo", "PassImg", "PassVideo", "Reserve", "DevLogId", });
+    internal_static_TslIotProto_TSLIOTLogCommonResult_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_TslIotProto_TSLIOTLogCommonResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_TslIotProto_TSLIOTLogCommonResult_descriptor,
+        new String[] { "DevId", "DevLogId", "Code", "Message", });
+    internal_static_TslIotProto_TSLIOTUploadPassLogResult_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_TslIotProto_TSLIOTUploadPassLogResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_TslIotProto_TSLIOTUploadPassLogResult_descriptor,
+        new String[] { "LogResults", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

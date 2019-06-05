@@ -3,8 +3,10 @@ package com.joey.cheetah.sample.photo
 import android.Manifest
 import android.graphics.BitmapFactory
 import android.util.Base64
+import android.view.KeyEvent
 import com.joey.cheetah.core.ktextension.loadUrl
 import com.joey.cheetah.core.ktextension.logD
+import com.joey.cheetah.core.ktextension.logI
 import com.joey.cheetah.core.ktextension.toBytes
 import com.joey.cheetah.core.media.photo.PhotoGetter
 import com.joey.cheetah.core.permission.PermissionListener
@@ -62,4 +64,10 @@ class PhotoActivity : AbsActivity(), PermissionListener {
         ivShow.loadUrl(BitmapFactory.decodeByteArray(img, 0, img.size))
     }
 
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            finish()
+        }
+        return super.onKeyDown(keyCode, event)
+    }
 }
