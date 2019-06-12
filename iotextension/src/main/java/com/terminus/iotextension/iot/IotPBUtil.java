@@ -5,6 +5,7 @@ import com.google.protobuf.GeneratedMessageV3;
 import com.terminus.iotextension.iot.config.DataType;
 import com.terminus.iotextension.iot.config.DevStatus;
 import com.terminus.iotextension.iot.config.Direction;
+import com.terminus.iotextension.iot.config.NetType;
 import com.terminus.iotextension.iot.config.OpenStatus;
 import com.terminus.iotextension.iot.config.OpenType;
 import com.terminus.iotextension.iot.config.PersonType;
@@ -144,6 +145,23 @@ class IotPBUtil {
         errorRequest.setErrorInfo(errorInfo);
 
         return getBytes(errorRequest.build());
+    }
+
+    static byte[] constructNetInfo(NetType netType,String netName,String outIp,String innerIp,
+                                   String mask,String gateWay,String dns1,String dns2) {
+        TSLIOTDevice.TSLIOTDeviceNetInfo.Builder netInfoRequest = TSLIOTDevice.TSLIOTDeviceNetInfo.newBuilder();
+
+        netInfoRequest.setDevId(IoTConstant.DEV_ID);
+        netInfoRequest.setNetType(netType.value());
+        netInfoRequest.setNetName(netName);
+        netInfoRequest.setOuterIp(outIp);
+        netInfoRequest.setInnerIp(innerIp);
+        netInfoRequest.setMask(mask);
+        netInfoRequest.setGateway(gateWay);
+        netInfoRequest.setDns1(dns1);
+        netInfoRequest.setDns2(dns2);
+
+        return getBytes(netInfoRequest.build());
     }
 
     private static byte[] getBytes(GeneratedMessageV3 pb) {

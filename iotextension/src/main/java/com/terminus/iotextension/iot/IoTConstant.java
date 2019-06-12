@@ -27,7 +27,6 @@ public class IoTConstant {
     //功能说明:0.支持NFC卡；1.支持指纹；2.支持门锁长开 3.支持IBeacon 5.支持梯控 6.支持一次性密码 7.支持远程开门 9.支持多连接 10.支持新一代门禁 12
     // .支持双模开锁
     public static List<Integer> FUNCTIONS;
-    public static List<DataType> NEEDITEMS;
 
     public static byte[] AES_KEY = {};
     public static String DEV_ID = "";

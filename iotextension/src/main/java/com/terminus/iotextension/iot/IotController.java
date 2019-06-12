@@ -4,6 +4,7 @@ import com.terminus.iot.IoTClient;
 import com.terminus.iotextension.iot.config.DataType;
 import com.terminus.iotextension.iot.config.DevStatus;
 import com.terminus.iotextension.iot.config.Direction;
+import com.terminus.iotextension.iot.config.NetType;
 import com.terminus.iotextension.iot.config.OpenStatus;
 import com.terminus.iotextension.iot.config.OpenType;
 import com.terminus.iotextension.iot.config.PersonType;
@@ -37,61 +38,133 @@ public class IotController extends MqttImpl {
         return mIot.initClient();
     }
 
+    /**
+     * Mqtt连接
+     */
     @Override
     public void connect() {
         mIot.connect();
     }
 
+    /**
+     * Mqtt断开连接
+     */
     @Override
     public void disConnect() {
         mIot.disConnect();
     }
 
+    /**
+     * Mqtt重链
+     */
     @Override
     public void reConnect() {
         mIot.reConnect();
     }
 
+    /**
+     * 上传本地设备的网络配置信息
+     * @param netType 网络类型
+     * @param netName 网卡名称
+     * @param outIp 外网ip地址
+     * @param innerIp 局域网ip地址
+     * @param mask 掩码
+     * @param gateWay 网关
+     * @param dns1 DNS1
+     * @param dns2 DNS2
+     */
     @Override
-    public void uploadNeedInfo() {
-        mIot.uploadNeedInfo();
+    public void uploadNetInfo(NetType netType, String netName, String outIp, String innerIp, String mask
+            , String gateWay, String dns1, String dns2) {
+        mIot.uploadNetInfo(netType,netName,outIp,innerIp,mask,gateWay,dns1,dns2);
     }
 
+    /**
+     * 上报本地客户端所需的数据
+     */
+    @Override
+    public void uploadNeedInfo(DataType... dataType) {
+        mIot.uploadNeedInfo(dataType);
+    }
+
+    /**
+     * 关闭Mqtt
+     */
     @Override
     public void close() {
         mIot.close();
     }
 
+    /**
+     * 请求二维码扫描规则
+     */
     @Override
     public void requestQr() {
         mIot.requestQr();
     }
 
+    /**
+     * 请求设备的通行规
+     */
     @Override
     public void requestRule() {
         mIot.requestRule();
     }
 
+    /**
+     * 请求配置信息
+     */
     @Override
     public void requestSetting() {
         mIot.requestSetting();
     }
 
+    /**
+     * 时间同步请求
+     */
     @Override
     public void requestTime() {
         mIot.requestTime();
     }
 
+    /**
+     * 上报设备端使用人员数据时的错误信息
+     * @param personId 用户ID
+     * @param type 人员类型
+     * @param version 人员类型
+     * @param customInfo 错误描述
+     */
     @Override
     public void errorInfo(int personId, PersonType type, long version, String customInfo) {
         mIot.errorInfo(personId, type, version, customInfo);
     }
 
+    /**
+     * 同步数据
+     * @param type 数据类型
+     * @param version 版本号
+     */
     @Override
     public void asylocalData(DataType type, long version) {
         mIot.asylocalData(type, version);
     }
 
+    /**
+     * 上传通行日志信息
+     * @param personId 用户ID
+     * @param feature 人员特征信息(json)
+     * @param personType 人员类型
+     * @param direction 进出方向
+     * @param time 通行时间
+     * @param openStatus 开门状态
+     * @param devStatus 设备状态
+     * @param openType 开门方式
+     * @param cardNo 卡号
+     * @param imgUrl 图片地址
+     * @param videoUrl 视频地址
+     * @param reserve 自定义信息
+     * @param logId 设备端日志ID
+     */
     @Override
     public void uploadPassLog(int personId, String feature, PersonType personType, Direction direction,
                               long time, OpenStatus openStatus, DevStatus devStatus, OpenType openType,
@@ -183,11 +256,6 @@ public class IotController extends MqttImpl {
 
         public Bulider functions(List<Integer> functions) {
             IoTConstant.FUNCTIONS = functions;
-            return this;
-        }
-
-        public Bulider needItems(List<DataType> items) {
-            IoTConstant.NEEDITEMS = items;
             return this;
         }
 

@@ -15,6 +15,7 @@ import com.terminus.iotextension.event.DoorEvent;
 import com.terminus.iotextension.event.PasslogResultEvent;
 import com.terminus.iotextension.event.PersonInfoEvent;
 import com.terminus.iotextension.event.ResetEvent;
+import com.terminus.iotextension.event.RoomInfoEvent;
 import com.terminus.iotextension.event.RuleEvent;
 import com.terminus.iotextension.event.ServerEvent;
 import com.terminus.iotextension.event.TimeEvent;
@@ -22,6 +23,7 @@ import com.terminus.iotextension.event.UninstallEvent;
 import com.terminus.iotextension.iot.config.DataType;
 import com.terminus.iotextension.iot.config.DevStatus;
 import com.terminus.iotextension.iot.config.Direction;
+import com.terminus.iotextension.iot.config.NetType;
 import com.terminus.iotextension.iot.config.OpenStatus;
 import com.terminus.iotextension.iot.config.OpenType;
 import com.terminus.iotextension.iot.config.PersonType;
@@ -38,6 +40,9 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author rain
@@ -56,6 +61,7 @@ public class IotRespository extends MqttImpl {
                 .password(IoTConstant.PASSWORD.toCharArray())
                 .rsaKey(IoTConstant.RSA_KEY)
                 .autoReconnect(true)
+                .cleanSession(true)
                 .willTopic(IoTConstant.PUB_TOPIC)
                 .willBytes(newFrame(IoTProtocol.MSG_TYPE_SYSTEM,
                         Short.MAX_VALUE,
@@ -199,6 +205,19 @@ public class IotRespository extends MqttImpl {
         }
     }
 
+    @Override
+    public void uploadNetInfo(NetType netType, String netName, String outIp, String innerIp,
+                              String mask, String gateWay, String dns1, String dns2) {
+        IotFrame frame = newFrame(
+                IoTProtocol.MSG_TYPE_SYSTEM,
+                mIoTClient.generateId(),
+                IoTProtocol.SERVICE_TYPE_DEVICE,
+                IoTProtocol.CMD_TYPE_DEV_INFO_NET,
+                IotPBUtil.constructNetInfo(netType,netName,outIp,innerIp,mask,gateWay,dns1,dns2));
+
+        sendFrame(frame);
+    }
+
     private void messageWorked(IotFrame frame) {
         switch (frame.getMsgType()) {
             case IoTProtocol.MSG_TYPE_SYSTEM:
@@ -340,8 +359,41 @@ public class IotRespository extends MqttImpl {
             case IoTProtocol.CMD_TYPE_DISPATCH_PERSON:
                 workPersonList(frame);
                 break;
+            case IoTProtocol.CMD_TYPE_DISPATCH_ROOM_INFO:
+                workRoomList(frame);
+                break;
             default:
                 break;
+        }
+    }
+
+    /**
+     * 房间信息请求平台端的回复
+     * @param frame PB
+     */
+    private void workRoomList(IotFrame frame) {
+        InputStream input = new ByteArrayInputStream(frame.getBody());
+        try {
+            TSLIOTDataSync.TSLIOTDispatchRoomInfoRequest result =
+                    TSLIOTDataSync.TSLIOTDispatchRoomInfoRequest.parseFrom(input);
+
+            if (result.getListList().size() > 0) {
+                RoomInfoEvent infoEvent = new RoomInfoEvent(result.getDevId(),result.getVersion(),
+                        result.getMore(),result.getListList());
+
+                if (mIotMessageCallback != null) {
+                    mIotMessageCallback.onEvent(infoEvent);
+                }
+            }
+
+        } catch (IOException e) {
+            if (BuildConfig.DEBUG) {
+                Log.e(TAG, e.getMessage());
+            }
+
+            if (mIotMessageCallback != null) {
+                mIotMessageCallback.onError(e);
+            }
         }
     }
 
@@ -469,22 +521,26 @@ public class IotRespository extends MqttImpl {
     }
 
     /**
-     * 上传所需数据类型
+     * 上传所需数据
      */
      @Override
-     public void uploadNeedInfo() {
+     public void uploadNeedInfo(DataType... type) {
         IotFrame frame = newFrame(
                 IoTProtocol.MSG_TYPE_SYSTEM,
                 mIoTClient.generateId(),
                 IoTProtocol.SERVICE_TYPE_DATA_SYNC,
                 IoTProtocol.CMD_TYPE_UPLOAD_REQUIREMENT,
-                IotPBUtil.constructNeedDataSync(IoTConstant.NEEDITEMS));
+                IotPBUtil.constructNeedDataSync(Arrays.asList(type)));
 
          sendFrame(frame);
      }
 
     @Override
     public void close() {
+        if (!check()) {
+            return;
+        }
+
         try {
             mIoTClient.close();
         } catch (MqttException e) {

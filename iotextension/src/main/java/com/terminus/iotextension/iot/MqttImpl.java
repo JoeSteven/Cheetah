@@ -6,11 +6,14 @@ import com.terminus.iotextension.event.BaseEvent;
 import com.terminus.iotextension.iot.config.DataType;
 import com.terminus.iotextension.iot.config.DevStatus;
 import com.terminus.iotextension.iot.config.Direction;
+import com.terminus.iotextension.iot.config.NetType;
 import com.terminus.iotextension.iot.config.OpenStatus;
 import com.terminus.iotextension.iot.config.OpenType;
 import com.terminus.iotextension.iot.config.PersonType;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
+
+import java.util.List;
 
 /**
  * @author rain
@@ -31,7 +34,10 @@ public abstract class MqttImpl {
 
     abstract void reConnect();
 
-    abstract void uploadNeedInfo();
+    abstract void uploadNetInfo(NetType netType, String netName, String outIp, String innerIp,
+                                String mask, String gateWay, String dns1, String dns2);
+
+    abstract void uploadNeedInfo(DataType... type);
 
     abstract void close();
 
