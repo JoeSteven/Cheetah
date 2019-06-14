@@ -22,9 +22,44 @@ public enum OpenStatus {
     ERROR_CODE(2),
 
     /**
+     * 二维码过期
+     */
+    ERROR_CODE_TIMEOUT(3),
+
+    /**
+     * 二维码-用户无权限
+     */
+    ERROR_CODE_USER(4),
+
+    /**
      * 无效用户
      */
-    ERROR_USER(3);
+    ERROR_USER(5),
+
+    /**
+     * 体重异常
+     */
+    ERROR_WEIGHT(6),
+
+    /**
+     * 人员数量异常
+     */
+    ERROR_NUM(7),
+
+    /**
+     * 人脸比对失败
+     */
+    ERROR_COMPARE(8),
+
+    /**
+     * 人员权限超时
+     */
+    ERROR_USER_TIMEOUT(9),
+
+    /**
+     * 开门失败
+     */
+    ERROR_DOOR(10);
 
     private int value;
 

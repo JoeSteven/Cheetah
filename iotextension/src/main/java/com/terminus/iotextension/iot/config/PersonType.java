@@ -24,7 +24,7 @@ public enum PersonType {
     /**
      * 陌生人
      */
-    UNKNOWN("unkonwn");
+    UNKNOWN("unknown");
 
     PersonType(String value) {
         this.value = value;

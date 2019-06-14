@@ -54,7 +54,12 @@ public enum OpenType {
     /**
      * 二维码开门
      */
-    CODE(9);
+    CODE(9),
+
+    /**
+     * 呼叫开门
+     */
+    CALL(10);
 
     private int value;
 

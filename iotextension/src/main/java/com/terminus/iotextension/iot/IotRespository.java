@@ -40,9 +40,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author rain
@@ -60,8 +58,7 @@ public class IotRespository extends MqttImpl {
                 .userName(IoTConstant.USER_NAME)
                 .password(IoTConstant.PASSWORD.toCharArray())
                 .rsaKey(IoTConstant.RSA_KEY)
-                .autoReconnect(true)
-                .cleanSession(true)
+                .autoReconnect(false)
                 .willTopic(IoTConstant.PUB_TOPIC)
                 .willBytes(newFrame(IoTProtocol.MSG_TYPE_SYSTEM,
                         Short.MAX_VALUE,
@@ -132,7 +129,10 @@ public class IotRespository extends MqttImpl {
                         }
 
                         if (mIotMessageCallback != null) {
-                            mIotMessageCallback.onSuccess(reconnect);
+                            //重连之后进行触发
+                            if (reconnect) {
+                                mIotMessageCallback.onSuccess(true);
+                            }
                         }
 
                     } catch (MqttException e) {
@@ -180,6 +180,21 @@ public class IotRespository extends MqttImpl {
                 if (mIotMessageCallback != null) {
                     mIotMessageCallback.onError(e);
                 }
+            }
+        }
+    }
+
+    @Override
+    public void disConnectForce() {
+        try {
+            mIoTClient.mqttClient().disconnectForcibly();
+        } catch (MqttException e) {
+            if (BuildConfig.DEBUG) {
+                Log.e(TAG, e.getMessage());
+            }
+
+            if (mIotMessageCallback != null) {
+                mIotMessageCallback.onError(e);
             }
         }
     }

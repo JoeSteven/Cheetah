@@ -55,6 +55,14 @@ public class IotController extends MqttImpl {
     }
 
     /**
+     * 强制断链
+     */
+    @Override
+    public void disConnectForce() {
+        mIot.disConnectForce();
+    }
+
+    /**
      * Mqtt重链
      */
     @Override

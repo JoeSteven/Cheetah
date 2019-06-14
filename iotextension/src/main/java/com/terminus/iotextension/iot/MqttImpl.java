@@ -32,6 +32,8 @@ public abstract class MqttImpl {
 
     abstract void disConnect();
 
+    abstract void disConnectForce();
+
     abstract void reConnect();
 
     abstract void uploadNetInfo(NetType netType, String netName, String outIp, String innerIp,
