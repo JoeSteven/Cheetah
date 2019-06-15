@@ -32,7 +32,12 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     compileOnly APPCOMPAT_V7
-    compileOnly project(BASIC_UTILITY)
+    if (DEBUG.toBoolean()) {
+        compileOnly project(BASIC_UTILITY)
+    } else {
+        compileOnly BASIC_UTILITY_
+    }
+
     //thread
     api RXJAVA2
     api RXANDROID2
