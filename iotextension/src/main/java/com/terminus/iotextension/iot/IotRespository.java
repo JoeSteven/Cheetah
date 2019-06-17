@@ -49,6 +49,7 @@ import java.util.Arrays;
 public class IotRespository extends MqttImpl {
 
     private boolean isConnect;
+    private boolean isRegis;
 
     @Override
     public IoTClient initClient() {
@@ -58,6 +59,7 @@ public class IotRespository extends MqttImpl {
                 .userName(IoTConstant.USER_NAME)
                 .password(IoTConstant.PASSWORD.toCharArray())
                 .rsaKey(IoTConstant.RSA_KEY)
+                .keepAliveInterval(20)
                 .autoReconnect(false)
                 .willTopic(IoTConstant.PUB_TOPIC)
                 .willBytes(newFrame(IoTProtocol.MSG_TYPE_SYSTEM,
@@ -121,18 +123,15 @@ public class IotRespository extends MqttImpl {
                 @Override
                 public void connectComplete(boolean reconnect, String serverURI) {
                     try {
-                        if (!isConnect && !reconnect) {
-                            mIoTClient.subscribe(new String[]{IoTConstant.SUB_TOPIC},new int[1]);
+                        if (!isConnect) {
+                            mIoTClient.subscribe(new String[]{IoTConstant.SUB_TOPIC},new int[]{2});
 
                             updateAesKey();
                             isConnect = true;
                         }
 
                         if (mIotMessageCallback != null) {
-                            //重连之后进行触发
-                            if (reconnect) {
-                                mIotMessageCallback.onSuccess(true);
-                            }
+                            mIotMessageCallback.onSuccess(reconnect,isRegis);
                         }
 
                     } catch (MqttException e) {
@@ -144,6 +143,7 @@ public class IotRespository extends MqttImpl {
 
                 @Override
                 public void connectionLost(Throwable cause) {
+                    isConnect = false;
                     if (mIotMessageCallback != null) {
                         mIotMessageCallback.onError(cause);
                     }
@@ -185,6 +185,7 @@ public class IotRespository extends MqttImpl {
     }
 
     @Override
+    @Deprecated
     public void disConnectForce() {
         try {
             mIoTClient.mqttClient().disconnectForcibly();
@@ -454,7 +455,7 @@ public class IotRespository extends MqttImpl {
 
     /**
      * 数据上传结果
-     * @param frame
+     * @param frame PB
      */
     private void passLogResult(IotFrame frame) {
         InputStream input = new ByteArrayInputStream(frame.getBody());
@@ -557,7 +558,10 @@ public class IotRespository extends MqttImpl {
         }
 
         try {
+            isRegis = false;
+            mIoTClient.mqttClient().unsubscribe(new String[]{IoTConstant.SUB_TOPIC});
             mIoTClient.close();
+            mIoTClient = null;
         } catch (MqttException e) {
             if (BuildConfig.DEBUG) {
                 Log.e(TAG, e.getMessage());
@@ -685,7 +689,8 @@ public class IotRespository extends MqttImpl {
 
                 registerDevice();
                 //注册成功
-                mIotMessageCallback.onSuccess(false);
+                isRegis = true;
+                mIotMessageCallback.onSuccess(false, true);
             }
         } catch (IOException e) {
             e.printStackTrace();

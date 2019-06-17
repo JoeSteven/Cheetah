@@ -73,7 +73,7 @@ public abstract class MqttImpl {
     public interface IotMessageCallback<T> {
         void onError(Throwable throwable);
 
-        void onSuccess(boolean reconnect);
+        void onSuccess(boolean reconnect, boolean regis);
 
         void onEvent(T t);
     }

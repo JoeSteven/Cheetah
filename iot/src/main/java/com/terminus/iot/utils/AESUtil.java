@@ -9,6 +9,8 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.Security;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -39,6 +41,7 @@ public class AESUtil {
     //
     private static Key key;
     private static Cipher cipher;
+    private static Map<String,Cipher> cipherMap = new HashMap<>();
 
     //byte[] iv = { 0x30, 0x31, 0x30, 0x32, 0x30, 0x33, 0x30, 0x34, 0x30, 0x35, 0x30, 0x36, 0x30, 0x37, 0x30, 0x38 };
     private static final byte[] iv = {0xA, 1, 0xB, 5, 4, 0xF, 7, 9, 0x17, 3, 1, 6, 8, 0xC, 0xD, 91};
@@ -60,7 +63,12 @@ public class AESUtil {
         key = new SecretKeySpec(keyBytes, KEY_ALGORITHM);
         try {
             // 初始化cipher
-            cipher = Cipher.getInstance(algorithmStr, "BC");
+            if (cipher == null) {
+                cipher = Cipher.getInstance(algorithmStr, "BC");
+                cipherMap.put("key",cipher);
+            } else {
+                cipher = cipherMap.get("key");
+            }
         } catch (NoSuchAlgorithmException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
