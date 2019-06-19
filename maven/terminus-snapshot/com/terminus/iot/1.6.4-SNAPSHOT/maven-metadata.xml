@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.terminus</groupId>
+  <artifactId>iot</artifactId>
+  <version>1.6.4-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20190619.205300</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20190619205300</lastUpdated>
+  </versioning>
+</metadata>

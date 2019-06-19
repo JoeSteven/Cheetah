@@ -66,7 +66,7 @@
               @Override
               public void onSuccess() {
                   //设备注册成功时上报当前设备需求的数据信息
-                	mIotController.uploadNeedInfo();
+                	mIotController.uploadNeedInfo(DataType.PERSON);
                 /**
   							 * 本地与后端同步请求更新数据
   							 * type 数据类型
@@ -83,7 +83,7 @@
                   } else if (baseEvent instanceof PersonInfoEvent) {
                       //下发的人员数据信息,业务层序根据该数据信息进行相应的人员录入或是删除等操作
                       PersonInfoEvent event = (PersonInfoEvent) baseEvent;
-                  }
+                  }...
               }
           });
   ```

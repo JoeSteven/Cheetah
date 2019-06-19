@@ -49,7 +49,6 @@ import java.util.Arrays;
 public class IotRespository extends MqttImpl {
 
     private boolean isConnect;
-    private boolean isRegis;
 
     @Override
     public IoTClient initClient() {
@@ -59,7 +58,6 @@ public class IotRespository extends MqttImpl {
                 .userName(IoTConstant.USER_NAME)
                 .password(IoTConstant.PASSWORD.toCharArray())
                 .rsaKey(IoTConstant.RSA_KEY)
-                .keepAliveInterval(20)
                 .autoReconnect(false)
                 .willTopic(IoTConstant.PUB_TOPIC)
                 .willBytes(newFrame(IoTProtocol.MSG_TYPE_SYSTEM,
@@ -131,7 +129,7 @@ public class IotRespository extends MqttImpl {
                         }
 
                         if (mIotMessageCallback != null) {
-                            mIotMessageCallback.onSuccess(reconnect,isRegis);
+                            mIotMessageCallback.onSuccess(reconnect,false);
                         }
 
                     } catch (MqttException e) {
@@ -558,7 +556,6 @@ public class IotRespository extends MqttImpl {
         }
 
         try {
-            isRegis = false;
             mIoTClient.mqttClient().unsubscribe(new String[]{IoTConstant.SUB_TOPIC});
             mIoTClient.close();
             mIoTClient = null;
@@ -689,7 +686,6 @@ public class IotRespository extends MqttImpl {
 
                 registerDevice();
                 //注册成功
-                isRegis = true;
                 mIotMessageCallback.onSuccess(false, true);
             }
         } catch (IOException e) {

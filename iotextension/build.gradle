@@ -38,7 +38,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     api 'com.google.protobuf:protobuf-java:3.5.1'
     api 'com.google.protobuf:protoc:3.1.0'
-    implementation 'com.terminus:iot:1.6.1-SNAPSHOT'
+    implementation 'com.terminus:iot:1.6.4-SNAPSHOT'
 }
 
 repositories {
@@ -50,5 +50,5 @@ repositories {
 
 ext.group_Id('com.terminus')
 ext.artifact_id('iotextension')
-ext.version_name('1.5.6-SNAPSHOT')
+ext.version_name('1.5.8-SNAPSHOT')
 ext.aar_name('iotextension-release.aar')

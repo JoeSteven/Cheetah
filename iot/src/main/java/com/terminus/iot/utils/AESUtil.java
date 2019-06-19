@@ -4,6 +4,8 @@ import android.util.Log;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
@@ -40,8 +42,9 @@ public class AESUtil {
     private static final String algorithmStr = "AES/CBC/PKCS7Padding";
     //
     private static Key key;
-    private static Cipher cipher;
+    private static Cipher cipherDe,cipherEn;
     private static Map<String,Cipher> cipherMap = new HashMap<>();
+    private static Map<String,Key> keyMap = new HashMap<>();
 
     //byte[] iv = { 0x30, 0x31, 0x30, 0x32, 0x30, 0x33, 0x30, 0x34, 0x30, 0x35, 0x30, 0x36, 0x30, 0x37, 0x30, 0x38 };
     private static final byte[] iv = {0xA, 1, 0xB, 5, 4, 0xF, 7, 9, 0x17, 3, 1, 6, 8, 0xC, 0xD, 91};
@@ -62,12 +65,30 @@ public class AESUtil {
         // 转化成JAVA的密钥格式
         key = new SecretKeySpec(keyBytes, KEY_ALGORITHM);
         try {
-            // 初始化cipher
-            if (cipher == null) {
-                cipher = Cipher.getInstance(algorithmStr, "BC");
-                cipherMap.put("key",cipher);
+            if (cipherMap.get("cipherDe") == null) {
+                cipherDe = Cipher.getInstance(algorithmStr,"BC");
+                cipherDe.init(Cipher.DECRYPT_MODE,key, new IvParameterSpec(iv));
+                cipherMap.put("cipherDe",cipherDe);
             } else {
-                cipher = cipherMap.get("key");
+                cipherDe = cipherMap.get("cipherDe");
+            }
+
+            // 初始化cipher
+            if (cipherMap.get("cipherEn") == null) {
+                cipherEn = Cipher.getInstance(algorithmStr, "BC");
+                cipherEn.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(iv));
+                cipherMap.put("cipherEn",cipherEn);
+            } else {
+                cipherEn = cipherMap.get("cipherEn");
+            }
+
+            if (keyMap.get("key") == null) {
+                keyMap.put("key",key);
+            } else {
+                if (!keyMap.get("key").equals(key)) {
+                    keyMap.remove("key");
+                    keyMap.put("key",key);
+                }
             }
         } catch (NoSuchAlgorithmException e) {
             // TODO Auto-generated catch block
@@ -77,6 +98,10 @@ public class AESUtil {
             e.printStackTrace();
         } catch (NoSuchProviderException e) {
             // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (InvalidAlgorithmParameterException e) {
+            e.printStackTrace();
+        } catch (InvalidKeyException e) {
             e.printStackTrace();
         }
     }
@@ -93,8 +118,7 @@ public class AESUtil {
         init(keyBytes);
         System.out.println("IV：" + new String(iv));
         try {
-            cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(iv));
-            encryptedText = cipher.doFinal(content);
+            encryptedText = cipherEn.doFinal(content);
         } catch (Exception e) {
             Log.e(AESUtil.class.getSimpleName(),content + "," + keyBytes + "," + e.getMessage());
             // TODO Auto-generated catch block
@@ -114,8 +138,7 @@ public class AESUtil {
         byte[] encryptedText = null;
         init(keyBytes);
         try {
-            cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(iv));
-            encryptedText = cipher.doFinal(encryptedData);
+            encryptedText = cipherDe.doFinal(encryptedData);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
