@@ -9,6 +9,7 @@ import com.terminus.iotextension.iot.config.Direction;
 import com.terminus.iotextension.iot.config.NetType;
 import com.terminus.iotextension.iot.config.OpenStatus;
 import com.terminus.iotextension.iot.config.OpenType;
+import com.terminus.iotextension.iot.config.PersonError;
 import com.terminus.iotextension.iot.config.PersonType;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
@@ -51,7 +52,7 @@ public abstract class MqttImpl {
 
     abstract void requestTime();
 
-    abstract void errorInfo(int personId,PersonType type,long version,String customInfo);
+    abstract void errorInfo(int personId, PersonType type, PersonError error,long version, String customInfo);
 
     abstract void asylocalData(DataType type, long version);
 

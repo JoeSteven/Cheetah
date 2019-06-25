@@ -7,6 +7,7 @@ import com.terminus.iotextension.iot.config.Direction;
 import com.terminus.iotextension.iot.config.NetType;
 import com.terminus.iotextension.iot.config.OpenStatus;
 import com.terminus.iotextension.iot.config.OpenType;
+import com.terminus.iotextension.iot.config.PersonError;
 import com.terminus.iotextension.iot.config.PersonType;
 
 import java.util.List;
@@ -139,12 +140,13 @@ public class IotController extends MqttImpl {
      * 上报设备端使用人员数据时的错误信息
      * @param personId 用户ID
      * @param type 人员类型
-     * @param version 人员类型
+     * @param error 错误类型
+     * @param version 人员版本
      * @param customInfo 错误描述
      */
     @Override
-    public void errorInfo(int personId, PersonType type, long version, String customInfo) {
-        mIot.errorInfo(personId, type, version, customInfo);
+    public void errorInfo(int personId, PersonType type, PersonError error,long version, String customInfo) {
+        mIot.errorInfo(personId, type, error,version, customInfo);
     }
 
     /**

@@ -8,6 +8,7 @@ import com.terminus.iotextension.iot.config.Direction;
 import com.terminus.iotextension.iot.config.NetType;
 import com.terminus.iotextension.iot.config.OpenStatus;
 import com.terminus.iotextension.iot.config.OpenType;
+import com.terminus.iotextension.iot.config.PersonError;
 import com.terminus.iotextension.iot.config.PersonType;
 import com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog;
 import com.terminus.iotextension.mqtt.protobuf.TSLIOTCommon;
@@ -134,14 +135,14 @@ class IotPBUtil {
         return getBytes(settingRequest.build());
     }
 
-    static byte[] constructPersonError(int personId,PersonType type,long version,String errorInfo) {
+    static byte[] constructPersonError(int personId, PersonType type, PersonError error,long version, String errorInfo) {
         TSLIOTDataSync.TSLIOTPersonError.Builder errorRequest = TSLIOTDataSync.TSLIOTPersonError.newBuilder();
 
         errorRequest.setDevId(IoTConstant.DEV_ID);
         errorRequest.setPersonId(personId);
         errorRequest.setPersonType(type.value());
         errorRequest.setVersion(version);
-        errorRequest.setErrorType("model_fail");
+        errorRequest.setErrorType(error.value());
         errorRequest.setErrorInfo(errorInfo);
 
         return getBytes(errorRequest.build());

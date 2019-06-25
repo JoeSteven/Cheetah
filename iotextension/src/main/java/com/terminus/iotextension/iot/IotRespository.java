@@ -26,6 +26,7 @@ import com.terminus.iotextension.iot.config.Direction;
 import com.terminus.iotextension.iot.config.NetType;
 import com.terminus.iotextension.iot.config.OpenStatus;
 import com.terminus.iotextension.iot.config.OpenType;
+import com.terminus.iotextension.iot.config.PersonError;
 import com.terminus.iotextension.iot.config.PersonType;
 import com.terminus.iotextension.mqtt.IotFrame;
 import com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog;
@@ -619,13 +620,13 @@ public class IotRespository extends MqttImpl {
     }
 
     @Override
-    public void errorInfo(int personId,PersonType type,long version,String customInfo) {
+    public void errorInfo(int personId, PersonType type, PersonError error,long version, String customInfo) {
         IotFrame frame = newFrame(
                 IoTProtocol.MSG_TYPE_SYSTEM,
                 mIoTClient.generateId(),
                 IoTProtocol.SERVICE_TYPE_DATA_SYNC,
                 IoTProtocol.CMD_TYPE_PERSON_INFO_ERROR,
-                IotPBUtil.constructPersonError(personId,type,version,customInfo));
+                IotPBUtil.constructPersonError(personId,type,error,version,customInfo));
 
         sendFrame(frame);
     }

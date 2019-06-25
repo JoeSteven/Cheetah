@@ -40,16 +40,19 @@ public class AESUtil {
     private static final String KEY_ALGORITHM = "AES";
     // 加解密算法/模式/填充方式
     private static final String algorithmStr = "AES/CBC/PKCS7Padding";
+//    private static final String algorithmStrDe = "AES/CBC/NoPadding";
     //
     private static Key key;
-    private static Cipher cipherDe,cipherEn;
+    private static Cipher cipherDe,cipherEn,cipherQr;
     private static Map<String,Cipher> cipherMap = new HashMap<>();
     private static Map<String,Key> keyMap = new HashMap<>();
+    public static final String QR = "qr";
+    public static final String NORMAL = "normal";
 
     //byte[] iv = { 0x30, 0x31, 0x30, 0x32, 0x30, 0x33, 0x30, 0x34, 0x30, 0x35, 0x30, 0x36, 0x30, 0x37, 0x30, 0x38 };
     private static final byte[] iv = {0xA, 1, 0xB, 5, 4, 0xF, 7, 9, 0x17, 3, 1, 6, 8, 0xC, 0xD, 91};
 
-    private static void init(byte[] keyBytes) {
+    private static void init(byte[] keyBytes,String type) {
 
         // 如果密钥不足16位，那么就补足.  这个if 中的内容很重要
         int base = 16;
@@ -65,30 +68,52 @@ public class AESUtil {
         // 转化成JAVA的密钥格式
         key = new SecretKeySpec(keyBytes, KEY_ALGORITHM);
         try {
-            if (cipherMap.get("cipherDe") == null) {
-                cipherDe = Cipher.getInstance(algorithmStr,"BC");
-                cipherDe.init(Cipher.DECRYPT_MODE,key, new IvParameterSpec(iv));
-                cipherMap.put("cipherDe",cipherDe);
-            } else {
-                cipherDe = cipherMap.get("cipherDe");
-            }
+            switch (type) {
+                case QR:
+                    if (cipherMap.get("cipherQr") == null) {
+                        cipherQr = Cipher.getInstance(algorithmStr,"BC");
+                        cipherQr.init(Cipher.DECRYPT_MODE,key, new IvParameterSpec(iv));
+                        cipherMap.put("cipherQr",cipherQr);
+                        keyMap.put("keyQr",key);
+                    } else {
+                        cipherQr = cipherMap.get("cipherQr");
+                        if (!keyMap.get("keyQr").equals(key)) {
+                            keyMap.remove("keyQr");
+                            keyMap.put("keyQr",key);
+                            cipherQr.init(Cipher.DECRYPT_MODE,key, new IvParameterSpec(iv));
+                            cipherMap.remove("cipherQr");
+                            cipherMap.put("cipherQr",cipherQr);
+                        }
+                    }
+                    break;
+                case NORMAL:
+                default:
+                    if (cipherMap.get("cipherDe") == null && cipherMap.get("cipherEn") == null) {
+                        cipherDe = Cipher.getInstance(algorithmStr,"BC");
+                        cipherDe.init(Cipher.DECRYPT_MODE,key, new IvParameterSpec(iv));
+                        cipherMap.put("cipherDe",cipherDe);
 
-            // 初始化cipher
-            if (cipherMap.get("cipherEn") == null) {
-                cipherEn = Cipher.getInstance(algorithmStr, "BC");
-                cipherEn.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(iv));
-                cipherMap.put("cipherEn",cipherEn);
-            } else {
-                cipherEn = cipherMap.get("cipherEn");
-            }
+                        cipherEn = Cipher.getInstance(algorithmStr,"BC");
+                        cipherEn.init(Cipher.ENCRYPT_MODE,key, new IvParameterSpec(iv));
+                        cipherMap.put("cipherEn",cipherEn);
 
-            if (keyMap.get("key") == null) {
-                keyMap.put("key",key);
-            } else {
-                if (!keyMap.get("key").equals(key)) {
-                    keyMap.remove("key");
-                    keyMap.put("key",key);
-                }
+                        keyMap.put("key",key);
+                    } else {
+                        cipherDe = cipherMap.get("cipherDe");
+                        cipherEn = cipherMap.get("cipherEn");
+
+                        if (!keyMap.get("key").equals(key)) {
+                            keyMap.remove("key");
+                            keyMap.put("key",key);
+                            cipherDe.init(Cipher.DECRYPT_MODE,key, new IvParameterSpec(iv));
+                            cipherEn.init(Cipher.ENCRYPT_MODE,key, new IvParameterSpec(iv));
+                            cipherMap.remove("cipherDe");
+                            cipherMap.remove("cipherEn");
+                            cipherMap.put("cipherDe",cipherDe);
+                            cipherMap.put("cipherEn",cipherEn);
+                        }
+                    }
+                    break;
             }
         } catch (NoSuchAlgorithmException e) {
             // TODO Auto-generated catch block
@@ -106,6 +131,10 @@ public class AESUtil {
         }
     }
 
+    public static byte[] encrypt(byte[] content, byte[] keyBytes) {
+        return encrypt(content, keyBytes,"");
+    }
+
     /**
      * 加密方法
      *
@@ -113,10 +142,9 @@ public class AESUtil {
      * @param keyBytes 加密密钥
      * @return
      */
-    public static byte[] encrypt(byte[] content, byte[] keyBytes) {
+    public static byte[] encrypt(byte[] content, byte[] keyBytes,String type) {
         byte[] encryptedText = null;
-        init(keyBytes);
-        System.out.println("IV：" + new String(iv));
+        init(keyBytes,type);
         try {
             encryptedText = cipherEn.doFinal(content);
         } catch (Exception e) {
@@ -127,6 +155,10 @@ public class AESUtil {
         return encryptedText;
     }
 
+    public static byte[] decrypt(byte[] encryptedData, byte[] keyBytes) {
+        return decrypt(encryptedData, keyBytes,"");
+    }
+
     /**
      * 解密方法
      *
@@ -134,11 +166,16 @@ public class AESUtil {
      * @param keyBytes      解密密钥
      * @return
      */
-    public static byte[] decrypt(byte[] encryptedData, byte[] keyBytes) {
+    public static byte[] decrypt(byte[] encryptedData, byte[] keyBytes,String type) {
         byte[] encryptedText = null;
-        init(keyBytes);
+        init(keyBytes,type);
+        Log.i(KEY_ALGORITHM, new String(encryptedData));
         try {
-            encryptedText = cipherDe.doFinal(encryptedData);
+            if (QR.equals(type)) {
+                encryptedText = cipherQr.doFinal(encryptedData);
+            } else {
+                encryptedText = cipherDe.doFinal(encryptedData);
+            }
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

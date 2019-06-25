@@ -34,7 +34,7 @@ public class QRRuleUtil {
      */
     public static QRInfo parseFromQrStr(String qrStr, String aesKey, String rsaPublicKeyStr) throws Exception{
         byte[] qrBytes = new BASE64Decoder().decodeBuffer(qrStr);
-        qrBytes = AESUtil.decrypt(qrBytes, aesKey.getBytes());
+        qrBytes = AESUtil.decrypt(qrBytes, aesKey.getBytes(),AESUtil.QR);
         byte[] qrTimeBytes = null;
         byte[] tokenBytes = null;
         byte[] customBytes = null;
