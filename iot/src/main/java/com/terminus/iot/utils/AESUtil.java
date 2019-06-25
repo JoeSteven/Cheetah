@@ -169,7 +169,6 @@ public class AESUtil {
     public static byte[] decrypt(byte[] encryptedData, byte[] keyBytes,String type) {
         byte[] encryptedText = null;
         init(keyBytes,type);
-        Log.i(KEY_ALGORITHM, new String(encryptedData));
         try {
             if (QR.equals(type)) {
                 encryptedText = cipherQr.doFinal(encryptedData);

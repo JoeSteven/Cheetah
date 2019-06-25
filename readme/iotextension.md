@@ -18,23 +18,23 @@
                   .userName(productKey + devId)
                   .passWord(Sha1Util.EncodeDefault(IoTConstant.RSA_KEY, devId.getBytes()))
                   //Iot的后台地址
-    			  .address(xx)
-    			  //category、devName、type和model根据文档和设备选取相应的数值传入
+    							.address(xx)
+    							//category、devName、type和model根据文档和设备选取相应的数值传入
                   .category(xx)
                   .devName(xx)
                   .type(xx)
                   .model(xx)
-    			  //软件版本号
+    							//软件版本号
                   .softVersion(xx)
-    			  /硬件版本号
+    							//硬件版本号
                   .hardVersion(xx)
-    			  //串号
+    							//串号
                   .sn(xx)
-    			  //Mac地址
+    							//Mac地址
                   .mac(xx)
-    			  //第一次初始化默认值为空，需进行随机生成，下次再初始化时传入响应过后固化下来的key
+    							//第一次初始化默认值为空，需进行随机生成，下次再初始化时传入响应过后固化下来的key
                   .aesKey(xx)
-    			  //该数据类型为DataType,传入当前设备需求的数据类型信息
+    							//该数据类型为DataType,传入当前设备需求的数据类型信息
                   .needItems(xx)
                   .subTopic("/down/" + productKey + "/" + devId)
                   .pubTopic("/up/" + productKey + "/" + devId)
@@ -64,15 +64,10 @@
               }
   
               @Override
-              public void onSuccess() {
-                  //设备注册成功时上报当前设备需求的数据信息
-                	mIotController.uploadNeedInfo(DataType.PERSON);
-                /**
-  							 * 本地与后端同步请求更新数据
-  							 * type 数据类型
-  							 * version 当前数据类型的最新版本号,初请求时为0
-  							 */
-                	mIotController.asylocalData(type,version);
+              public void onSuccess(boolean reconnect,boolean regis) {
+                	if(regis) {
+                    //当注册成功后，根据业务需求进行拉取数据、二维码规则、通行规则、服务器配置信息等请求
+                  }
               }
   
               @Override
@@ -83,12 +78,71 @@
                   } else if (baseEvent instanceof PersonInfoEvent) {
                       //下发的人员数据信息,业务层序根据该数据信息进行相应的人员录入或是删除等操作
                       PersonInfoEvent event = (PersonInfoEvent) baseEvent;
-                  }...
+                  } else if (baseEvent instanceof CodeEvent) {
+                    	//二维码验证规则事件
+                      CodeEvent event = (CodeEvent) baseEvent;
+                  } else if (baseEvent instanceof RuleEvent) {
+                    	//通行规则事件
+                      RuleEvent event = (RuleEvent) baseEvent;
+                  } else if (baseEvent instanceof ServerEvent) {
+                    	//服务器配置信息事件
+                      ServerEvent event = (ServerEvent) baseEvent;
+                  } else if (baseEvent instanceof TimeEvent) {
+                    	//时间轮询结果事件
+                      TimeEvent event = (TimeEvent) baseEvent;
+                  } else if (baseEvent instanceof PasslogResultEvent) {
+                    	//通行日志记录结果事件
+                      PasslogResultEvent event = (PasslogResultEvent) baseEvent;
+                  }
               }
           });
   ```
 
 2.其余接口
+
+ - 请求所需的数据
+
+   ```java
+   /**
+    * DataType type 数据类型(PERSON、BLACK、VISITOR、CARD、ROOM、USER)
+    */
+   mIotController.uploadNeedInfo(DataType... type);
+   ```
+
+ - 时间请求
+
+   ```java
+   //需定时跟服务器进行同步
+   mIotController.requestTime();
+   ```
+
+ - 请求服务器配置信息
+
+   ```java
+   mIotController.requestSetting();
+   ```
+
+ - 请求通行规则
+
+   ```java
+   mIotController.requestRule();
+   ```
+
+ - 请求二维码规则
+
+   ```java
+   mIotController.requestQr();
+   ```
+
+ - 拉取数据
+
+   ```java
+   /**
+    * @param type 人员数据类型
+    * @param version 当前数据类型的最新版本号,初请求时为0
+    */
+   mIotController.asylocalData(type,version);
+   ```
 
 * 停止连接
 
@@ -116,10 +170,10 @@
    * @param devStatus 设备状态
    * @param openType 开门方式
    * @param cardNo 卡编号
-   * @param imgurl 通行图片的Url
+   * @param img 通行图片的Url
    * @param videoUrl 通行视屏的Url
    */
-  mIotController.uploadPassLog(personId, feature, personType, direction,
+  mIotController.uploadPassLog(personId, feature, type, direction,
                                   time, openStatus, devStatus, openType, cardNo, imgurl, videoUrl);
   ```
 
@@ -127,34 +181,34 @@
 
 * 请求数据类型
 
-```java
-public enum DataType {
-    /**
-     * user+visitor
-     */
-    PERSON,
-    /**
-     * user
-     */
-    USER,
-    /**
-     * visitor
-     */
-    VISITOR,
-    /**
-     * 黑名单
-     */
-    BLACK,
-    /**
-     * 发卡数据
-     */
-    CARD,
-    /**
-     * 房间信息
-     */
-    ROOM;
-}
-```
+  ```java
+  public enum DataTyjpe {
+   		/**
+       * user+visitor
+       */
+      PERSON,
+      /**
+       * user
+       */
+      USER,
+      /**
+       * visitor
+       */
+      VISITOR,
+      /**
+       * 黑名单
+       */
+      BLACK,
+      /**
+       * 发卡数据
+       */
+      CARD,
+      /**
+       * 房间信息
+       */
+      ROOM;
+  }
+  ```
 
  * 设备状态
 
@@ -194,6 +248,52 @@ public enum DataType {
    }
    ```
 
+ * 网络类型
+
+   ```java
+   public enum NetType {
+       /**
+        * GPRS
+        */
+       GPRS,
+   
+       /**
+        * Wifi
+        */
+       WIFI,
+   
+       /**
+        * 有线网
+        */
+       Ethernet,
+   
+       /**
+        * lora
+        */
+       LoRa,
+   
+       /**
+        * zeta
+        */
+       ZETA,
+   
+       /**
+        * nb
+        */
+       NB,
+   
+       /**
+        * 3G
+        */
+       TG,
+   
+       /**
+        * 4G
+        */
+       FG;
+   }
+   ```
+
  * 开关门结果
 
    ```java
@@ -202,18 +302,56 @@ public enum DataType {
         * 成功
         */
        SUCCESS,
+   
        /**
         * 失败
         */
        FAIL,
+   
        /**
         * 无效二维码
         */
        ERROR_CODE,
+   
+       /**
+        * 二维码过期
+        */
+       ERROR_CODE_TIMEOUT,
+   
+       /**
+        * 二维码-用户无权限
+        */
+       ERROR_CODE_USER,
+   
        /**
         * 无效用户
         */
-       ERROR_USER;
+       ERROR_USER,
+   
+       /**
+        * 体重异常
+        */
+       ERROR_WEIGHT,
+   
+       /**
+        * 人员数量异常
+        */
+       ERROR_NUM,
+   
+       /**
+        * 人脸比对失败
+        */
+       ERROR_COMPARE,
+   
+       /**
+        * 人员权限超时
+        */
+       ERROR_USER_TIMEOUT,
+   
+       /**
+        * 开门失败
+        */
+       ERROR_DOOR;
    }
    ```
 
@@ -225,65 +363,126 @@ public enum DataType {
         * 刷卡
         */
        CARD,
+   
        /**
         * 一次性密码
         */
        ONCE_PASSWORD,
+   
        /**
         * APP远程
         */
        APP_REMOTE,
+   
        /**
         * 门内开门
         */
        INDOOR,
+   
        /**
         * 人脸识别
         */
        FACE,
+   
        /**
         * 指纹识别
         */
        FINGER,
+   
        /**
         * 普通密码
         */
        NORMAL_PASSWORD,
+   
        /**
         * DTMF
         */
        DTMF,
+   
        /**
         * APP蓝牙
-        */
-       APP_BLUETOOTH,
-       /**
-        * 二维码开门
-        */
-       CODE;
-   }
-   ```
+     */
+	    APP_BLUETOOTH,
+	
+	    /**
+	     * 二维码开门
+	     */
+	    CODE,
+	
+	    /**
+	     * 呼叫开门
+	     */
+	    CALL;
+	}
+	```
+	
+* 下发人员错误描述
 
- * 人员类型
+  ```java
+  public enum PersonError {
+      /**
+       * 没有照片
+       */
+      NOPIC,
+  
+      /**
+       * 建模失败
+       */
+      MODEL,
+  
+      /**
+       * 图片内容为空
+       */
+      EMPTY,
+  
+      /**
+       * 格式错误
+       */
+      FORMAT,
+  
+      /**
+       * 检测不到人脸
+       */
+      NOFACE,
+  
+      /**
+       * 人脸大小不合格
+       */
+      SIZE,
+  
+      /**
+       * 人脸角度不合格
+       */
+      ANGLE,
+      /**
+       * 其他
+       */
+      OTHER;
+  }
+  ```
 
-```java
-public enum PersonType {
-    /**
-     * 用户
-     */
-    USER,
-    /**
-     * 黑名单
-     */
-    BLACK,
-    /**
-     * 访客
-     */
-    VISITOR,
-    /**
-     * 陌生人
-     */
-    UNKNOWN(;
-}
-```
+* 人员类型
+
+  ``` java
+  public enum PersonType {
+      /**
+       * 用户
+       */
+      USER,
+      /**
+       * 黑名单
+       */
+      BLACK,
+      /**
+       * 访客
+       */
+      VISITOR,
+      /**
+       * 陌生人
+       */
+      UNKNOWN(;
+  }
+  ```
+
+  
 
