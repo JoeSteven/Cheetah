@@ -1,9 +1,9 @@
 package com.joey.cheetah.core.net.util
 
+import android.util.Log
 import android.util.SparseArray
 import com.joey.cheetah.core.async.IAsyncExecutor
 import com.joey.cheetah.core.async.RxJavaExecutor
-import com.joey.cheetah.core.ktextension.logE
 
 /**
  * Description:
@@ -34,12 +34,12 @@ class TimeoutChecker<in T> (private val timeout: Long, private val callback:(fra
         val task = timeoutMap[id] ?: return false
         return if (task.isTimeout){
             timeoutMap.remove(id)
-            logE("TimeoutChecker", "timeout for request id:$id")
+            Log.e("TimeoutChecker", "timeout for request id:$id")
             true
         } else {
             task.cancel()
             timeoutMap.remove(id)
-            logE("TimeoutChecker", "request $id didn't timeout")
+            Log.e("TimeoutChecker", "request $id didn't timeout")
             false
         }
     }
