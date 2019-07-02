@@ -25,7 +25,7 @@ public final class TSLIOTBusinessLog {
      *
      * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
      */
-    java.util.List<TSLIOTUploadPassLogRequest.TSLIOTPassLog>
+    java.util.List<com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog> 
         getPassLogsList();
     /**
      * <pre>
@@ -34,7 +34,7 @@ public final class TSLIOTBusinessLog {
      *
      * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
      */
-    TSLIOTUploadPassLogRequest.TSLIOTPassLog getPassLogs(int index);
+    com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog getPassLogs(int index);
     /**
      * <pre>
      * 开门日志
@@ -50,7 +50,7 @@ public final class TSLIOTBusinessLog {
      *
      * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
      */
-    java.util.List<? extends TSLIOTUploadPassLogRequest.TSLIOTPassLogOrBuilder>
+    java.util.List<? extends com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLogOrBuilder> 
         getPassLogsOrBuilderList();
     /**
      * <pre>
@@ -59,8 +59,8 @@ public final class TSLIOTBusinessLog {
      *
      * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
      */
-    TSLIOTUploadPassLogRequest.TSLIOTPassLogOrBuilder getPassLogsOrBuilder(
-            int index);
+    com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLogOrBuilder getPassLogsOrBuilder(
+        int index);
   }
   /**
    * <pre>
@@ -82,7 +82,7 @@ public final class TSLIOTBusinessLog {
       passLogs_ = java.util.Collections.emptyList();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -93,7 +93,7 @@ public final class TSLIOTBusinessLog {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -115,11 +115,11 @@ public final class TSLIOTBusinessLog {
             }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                passLogs_ = new java.util.ArrayList<TSLIOTPassLog>();
+                passLogs_ = new java.util.ArrayList<com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog>();
                 mutable_bitField0_ |= 0x00000001;
               }
               passLogs_.add(
-                  input.readMessage(TSLIOTPassLog.parser(), extensionRegistry));
+                  input.readMessage(com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.parser(), extensionRegistry));
               break;
             }
           }
@@ -139,14 +139,14 @@ public final class TSLIOTBusinessLog {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogRequest_descriptor;
+      return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogRequest_descriptor;
     }
 
-    protected FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogRequest_fieldAccessorTable
+      return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              TSLIOTUploadPassLogRequest.class, Builder.class);
+              com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.class, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.Builder.class);
     }
 
     public interface TSLIOTPassLogOrBuilder extends
@@ -160,7 +160,7 @@ public final class TSLIOTBusinessLog {
        *
        * <code>string dev_id = 1;</code>
        */
-      String getDevId();
+      java.lang.String getDevId();
       /**
        * <pre>
        * 设备id
@@ -187,7 +187,7 @@ public final class TSLIOTBusinessLog {
        *
        * <code>string feature = 3;</code>
        */
-      String getFeature();
+      java.lang.String getFeature();
       /**
        * <pre>
        * 人员特征描述 用 json描述 // 男女，头发长短，年龄估计，等
@@ -205,7 +205,7 @@ public final class TSLIOTBusinessLog {
        *
        * <code>string person_type = 4;</code>
        */
-      String getPersonType();
+      java.lang.String getPersonType();
       /**
        * <pre>
        * 人员类型："user":用户 "black":黑名单（报警）"visitor"：访客 "unknown":陌生人
@@ -268,7 +268,7 @@ public final class TSLIOTBusinessLog {
        *
        * <code>string card_no = 10;</code>
        */
-      String getCardNo();
+      java.lang.String getCardNo();
       /**
        * <pre>
        * 4-人脸识别开门，5-指纹识别开门, 6-普通密码开门, 7-DTMF开门, 8-app蓝牙开门（由APP上报，设备不用上报）, 9-二维码开门
@@ -286,7 +286,7 @@ public final class TSLIOTBusinessLog {
        *
        * <code>string pass_img = 11;</code>
        */
-      String getPassImg();
+      java.lang.String getPassImg();
       /**
        * <pre>
        * 通行图片url, 多个图片路径 用;分割  （如果是两张图：头像图在前，整个截图大图在后）
@@ -304,7 +304,7 @@ public final class TSLIOTBusinessLog {
        *
        * <code>string pass_video = 12;</code>
        */
-      String getPassVideo();
+      java.lang.String getPassVideo();
       /**
        * <pre>
        * 通行视频url
@@ -322,7 +322,7 @@ public final class TSLIOTBusinessLog {
        *
        * <code>string reserve = 13;</code>
        */
-      String getReserve();
+      java.lang.String getReserve();
       /**
        * <pre>
        * 预留字段，用于存储通行记录的特定信息 JsonString  例如二维码通行时带有二维码特定自定义信息 {"qrCustomInfo":"xxxx"}
@@ -371,7 +371,7 @@ public final class TSLIOTBusinessLog {
         devLogId_ = 0L;
       }
 
-      @Override
+      @java.lang.Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
@@ -382,7 +382,7 @@ public final class TSLIOTBusinessLog {
           throws com.google.protobuf.InvalidProtocolBufferException {
         this();
         if (extensionRegistry == null) {
-          throw new NullPointerException();
+          throw new java.lang.NullPointerException();
         }
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -403,7 +403,7 @@ public final class TSLIOTBusinessLog {
                 break;
               }
               case 10: {
-                String s = input.readStringRequireUtf8();
+                java.lang.String s = input.readStringRequireUtf8();
 
                 devId_ = s;
                 break;
@@ -414,13 +414,13 @@ public final class TSLIOTBusinessLog {
                 break;
               }
               case 26: {
-                String s = input.readStringRequireUtf8();
+                java.lang.String s = input.readStringRequireUtf8();
 
                 feature_ = s;
                 break;
               }
               case 34: {
-                String s = input.readStringRequireUtf8();
+                java.lang.String s = input.readStringRequireUtf8();
 
                 personType_ = s;
                 break;
@@ -451,25 +451,25 @@ public final class TSLIOTBusinessLog {
                 break;
               }
               case 82: {
-                String s = input.readStringRequireUtf8();
+                java.lang.String s = input.readStringRequireUtf8();
 
                 cardNo_ = s;
                 break;
               }
               case 90: {
-                String s = input.readStringRequireUtf8();
+                java.lang.String s = input.readStringRequireUtf8();
 
                 passImg_ = s;
                 break;
               }
               case 98: {
-                String s = input.readStringRequireUtf8();
+                java.lang.String s = input.readStringRequireUtf8();
 
                 passVideo_ = s;
                 break;
               }
               case 106: {
-                String s = input.readStringRequireUtf8();
+                java.lang.String s = input.readStringRequireUtf8();
 
                 reserve_ = s;
                 break;
@@ -493,18 +493,18 @@ public final class TSLIOTBusinessLog {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogRequest_TSLIOTPassLog_descriptor;
+        return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogRequest_TSLIOTPassLog_descriptor;
       }
 
-      protected FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogRequest_TSLIOTPassLog_fieldAccessorTable
+        return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogRequest_TSLIOTPassLog_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                TSLIOTPassLog.class, Builder.class);
+                com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.class, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.Builder.class);
       }
 
       public static final int DEV_ID_FIELD_NUMBER = 1;
-      private volatile Object devId_;
+      private volatile java.lang.Object devId_;
       /**
        * <pre>
        * 设备id
@@ -512,14 +512,14 @@ public final class TSLIOTBusinessLog {
        *
        * <code>string dev_id = 1;</code>
        */
-      public String getDevId() {
-        Object ref = devId_;
-        if (ref instanceof String) {
-          return (String) ref;
+      public java.lang.String getDevId() {
+        java.lang.Object ref = devId_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
         } else {
           com.google.protobuf.ByteString bs = 
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           devId_ = s;
           return s;
         }
@@ -533,11 +533,11 @@ public final class TSLIOTBusinessLog {
        */
       public com.google.protobuf.ByteString
           getDevIdBytes() {
-        Object ref = devId_;
-        if (ref instanceof String) {
+        java.lang.Object ref = devId_;
+        if (ref instanceof java.lang.String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           devId_ = b;
           return b;
         } else {
@@ -559,7 +559,7 @@ public final class TSLIOTBusinessLog {
       }
 
       public static final int FEATURE_FIELD_NUMBER = 3;
-      private volatile Object feature_;
+      private volatile java.lang.Object feature_;
       /**
        * <pre>
        * 人员特征描述 用 json描述 // 男女，头发长短，年龄估计，等
@@ -567,14 +567,14 @@ public final class TSLIOTBusinessLog {
        *
        * <code>string feature = 3;</code>
        */
-      public String getFeature() {
-        Object ref = feature_;
-        if (ref instanceof String) {
-          return (String) ref;
+      public java.lang.String getFeature() {
+        java.lang.Object ref = feature_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
         } else {
           com.google.protobuf.ByteString bs = 
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           feature_ = s;
           return s;
         }
@@ -588,11 +588,11 @@ public final class TSLIOTBusinessLog {
        */
       public com.google.protobuf.ByteString
           getFeatureBytes() {
-        Object ref = feature_;
-        if (ref instanceof String) {
+        java.lang.Object ref = feature_;
+        if (ref instanceof java.lang.String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           feature_ = b;
           return b;
         } else {
@@ -601,7 +601,7 @@ public final class TSLIOTBusinessLog {
       }
 
       public static final int PERSON_TYPE_FIELD_NUMBER = 4;
-      private volatile Object personType_;
+      private volatile java.lang.Object personType_;
       /**
        * <pre>
        * 人员类型："user":用户 "black":黑名单（报警）"visitor"：访客 "unknown":陌生人
@@ -609,14 +609,14 @@ public final class TSLIOTBusinessLog {
        *
        * <code>string person_type = 4;</code>
        */
-      public String getPersonType() {
-        Object ref = personType_;
-        if (ref instanceof String) {
-          return (String) ref;
+      public java.lang.String getPersonType() {
+        java.lang.Object ref = personType_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
         } else {
           com.google.protobuf.ByteString bs = 
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           personType_ = s;
           return s;
         }
@@ -630,11 +630,11 @@ public final class TSLIOTBusinessLog {
        */
       public com.google.protobuf.ByteString
           getPersonTypeBytes() {
-        Object ref = personType_;
-        if (ref instanceof String) {
+        java.lang.Object ref = personType_;
+        if (ref instanceof java.lang.String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           personType_ = b;
           return b;
         } else {
@@ -708,7 +708,7 @@ public final class TSLIOTBusinessLog {
       }
 
       public static final int CARD_NO_FIELD_NUMBER = 10;
-      private volatile Object cardNo_;
+      private volatile java.lang.Object cardNo_;
       /**
        * <pre>
        * 4-人脸识别开门，5-指纹识别开门, 6-普通密码开门, 7-DTMF开门, 8-app蓝牙开门（由APP上报，设备不用上报）, 9-二维码开门
@@ -716,14 +716,14 @@ public final class TSLIOTBusinessLog {
        *
        * <code>string card_no = 10;</code>
        */
-      public String getCardNo() {
-        Object ref = cardNo_;
-        if (ref instanceof String) {
-          return (String) ref;
+      public java.lang.String getCardNo() {
+        java.lang.Object ref = cardNo_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
         } else {
           com.google.protobuf.ByteString bs = 
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           cardNo_ = s;
           return s;
         }
@@ -737,11 +737,11 @@ public final class TSLIOTBusinessLog {
        */
       public com.google.protobuf.ByteString
           getCardNoBytes() {
-        Object ref = cardNo_;
-        if (ref instanceof String) {
+        java.lang.Object ref = cardNo_;
+        if (ref instanceof java.lang.String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           cardNo_ = b;
           return b;
         } else {
@@ -750,7 +750,7 @@ public final class TSLIOTBusinessLog {
       }
 
       public static final int PASS_IMG_FIELD_NUMBER = 11;
-      private volatile Object passImg_;
+      private volatile java.lang.Object passImg_;
       /**
        * <pre>
        * 通行图片url, 多个图片路径 用;分割  （如果是两张图：头像图在前，整个截图大图在后）
@@ -758,14 +758,14 @@ public final class TSLIOTBusinessLog {
        *
        * <code>string pass_img = 11;</code>
        */
-      public String getPassImg() {
-        Object ref = passImg_;
-        if (ref instanceof String) {
-          return (String) ref;
+      public java.lang.String getPassImg() {
+        java.lang.Object ref = passImg_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
         } else {
           com.google.protobuf.ByteString bs = 
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           passImg_ = s;
           return s;
         }
@@ -779,11 +779,11 @@ public final class TSLIOTBusinessLog {
        */
       public com.google.protobuf.ByteString
           getPassImgBytes() {
-        Object ref = passImg_;
-        if (ref instanceof String) {
+        java.lang.Object ref = passImg_;
+        if (ref instanceof java.lang.String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           passImg_ = b;
           return b;
         } else {
@@ -792,7 +792,7 @@ public final class TSLIOTBusinessLog {
       }
 
       public static final int PASS_VIDEO_FIELD_NUMBER = 12;
-      private volatile Object passVideo_;
+      private volatile java.lang.Object passVideo_;
       /**
        * <pre>
        * 通行视频url
@@ -800,14 +800,14 @@ public final class TSLIOTBusinessLog {
        *
        * <code>string pass_video = 12;</code>
        */
-      public String getPassVideo() {
-        Object ref = passVideo_;
-        if (ref instanceof String) {
-          return (String) ref;
+      public java.lang.String getPassVideo() {
+        java.lang.Object ref = passVideo_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
         } else {
           com.google.protobuf.ByteString bs = 
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           passVideo_ = s;
           return s;
         }
@@ -821,11 +821,11 @@ public final class TSLIOTBusinessLog {
        */
       public com.google.protobuf.ByteString
           getPassVideoBytes() {
-        Object ref = passVideo_;
-        if (ref instanceof String) {
+        java.lang.Object ref = passVideo_;
+        if (ref instanceof java.lang.String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           passVideo_ = b;
           return b;
         } else {
@@ -834,7 +834,7 @@ public final class TSLIOTBusinessLog {
       }
 
       public static final int RESERVE_FIELD_NUMBER = 13;
-      private volatile Object reserve_;
+      private volatile java.lang.Object reserve_;
       /**
        * <pre>
        * 预留字段，用于存储通行记录的特定信息 JsonString  例如二维码通行时带有二维码特定自定义信息 {"qrCustomInfo":"xxxx"}
@@ -842,14 +842,14 @@ public final class TSLIOTBusinessLog {
        *
        * <code>string reserve = 13;</code>
        */
-      public String getReserve() {
-        Object ref = reserve_;
-        if (ref instanceof String) {
-          return (String) ref;
+      public java.lang.String getReserve() {
+        java.lang.Object ref = reserve_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
         } else {
           com.google.protobuf.ByteString bs = 
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           reserve_ = s;
           return s;
         }
@@ -863,11 +863,11 @@ public final class TSLIOTBusinessLog {
        */
       public com.google.protobuf.ByteString
           getReserveBytes() {
-        Object ref = reserve_;
-        if (ref instanceof String) {
+        java.lang.Object ref = reserve_;
+        if (ref instanceof java.lang.String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           reserve_ = b;
           return b;
         } else {
@@ -1004,15 +1004,15 @@ public final class TSLIOTBusinessLog {
         return size;
       }
 
-      @Override
-      public boolean equals(final Object obj) {
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof TSLIOTPassLog)) {
+        if (!(obj instanceof com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog)) {
           return super.equals(obj);
         }
-        TSLIOTPassLog other = (TSLIOTPassLog) obj;
+        com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog other = (com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog) obj;
 
         boolean result = true;
         result = result && getDevId()
@@ -1047,7 +1047,7 @@ public final class TSLIOTBusinessLog {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public int hashCode() {
         if (memoizedHashCode != 0) {
           return memoizedHashCode;
@@ -1090,69 +1090,69 @@ public final class TSLIOTBusinessLog {
         return hash;
       }
 
-      public static TSLIOTPassLog parseFrom(
+      public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static TSLIOTPassLog parseFrom(
+      public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static TSLIOTPassLog parseFrom(
+      public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static TSLIOTPassLog parseFrom(
+      public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static TSLIOTPassLog parseFrom(byte[] data)
+      public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static TSLIOTPassLog parseFrom(
+      public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static TSLIOTPassLog parseFrom(java.io.InputStream input)
+      public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static TSLIOTPassLog parseFrom(
+      public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static TSLIOTPassLog parseDelimitedFrom(java.io.InputStream input)
+      public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static TSLIOTPassLog parseDelimitedFrom(
+      public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static TSLIOTPassLog parseFrom(
+      public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static TSLIOTPassLog parseFrom(
+      public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -1164,7 +1164,7 @@ public final class TSLIOTBusinessLog {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(TSLIOTPassLog prototype) {
+      public static Builder newBuilder(com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       public Builder toBuilder() {
@@ -1172,9 +1172,9 @@ public final class TSLIOTBusinessLog {
             ? new Builder() : new Builder().mergeFrom(this);
       }
 
-      @Override
+      @java.lang.Override
       protected Builder newBuilderForType(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
       }
@@ -1184,17 +1184,17 @@ public final class TSLIOTBusinessLog {
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
           // @@protoc_insertion_point(builder_implements:TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog)
-          TSLIOTPassLogOrBuilder {
+          com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLogOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogRequest_TSLIOTPassLog_descriptor;
+          return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogRequest_TSLIOTPassLog_descriptor;
         }
 
-        protected FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogRequest_TSLIOTPassLog_fieldAccessorTable
+          return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogRequest_TSLIOTPassLog_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  TSLIOTPassLog.class, Builder.class);
+                  com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.class, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.Builder.class);
         }
 
         // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.newBuilder()
@@ -1203,7 +1203,7 @@ public final class TSLIOTBusinessLog {
         }
 
         private Builder(
-            BuilderParent parent) {
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
           maybeForceBuilderInitialization();
         }
@@ -1247,23 +1247,23 @@ public final class TSLIOTBusinessLog {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogRequest_TSLIOTPassLog_descriptor;
+          return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogRequest_TSLIOTPassLog_descriptor;
         }
 
-        public TSLIOTPassLog getDefaultInstanceForType() {
-          return TSLIOTPassLog.getDefaultInstance();
+        public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog getDefaultInstanceForType() {
+          return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.getDefaultInstance();
         }
 
-        public TSLIOTPassLog build() {
-          TSLIOTPassLog result = buildPartial();
+        public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog build() {
+          com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
           return result;
         }
 
-        public TSLIOTPassLog buildPartial() {
-          TSLIOTPassLog result = new TSLIOTPassLog(this);
+        public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog buildPartial() {
+          com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog result = new com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog(this);
           result.devId_ = devId_;
           result.personId_ = personId_;
           result.feature_ = feature_;
@@ -1287,7 +1287,7 @@ public final class TSLIOTBusinessLog {
         }
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            Object value) {
+            java.lang.Object value) {
           return (Builder) super.setField(field, value);
         }
         public Builder clearField(
@@ -1300,25 +1300,25 @@ public final class TSLIOTBusinessLog {
         }
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, Object value) {
+            int index, java.lang.Object value) {
           return (Builder) super.setRepeatedField(field, index, value);
         }
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            Object value) {
+            java.lang.Object value) {
           return (Builder) super.addRepeatedField(field, value);
         }
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof TSLIOTPassLog) {
-            return mergeFrom((TSLIOTPassLog)other);
+          if (other instanceof com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog) {
+            return mergeFrom((com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(TSLIOTPassLog other) {
-          if (other == TSLIOTPassLog.getDefaultInstance()) return this;
+        public Builder mergeFrom(com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog other) {
+          if (other == com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.getDefaultInstance()) return this;
           if (!other.getDevId().isEmpty()) {
             devId_ = other.devId_;
             onChanged();
@@ -1381,11 +1381,11 @@ public final class TSLIOTBusinessLog {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          TSLIOTPassLog parsedMessage = null;
+          com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (TSLIOTPassLog) e.getUnfinishedMessage();
+            parsedMessage = (com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -1395,7 +1395,7 @@ public final class TSLIOTBusinessLog {
           return this;
         }
 
-        private Object devId_ = "";
+        private java.lang.Object devId_ = "";
         /**
          * <pre>
          * 设备id
@@ -1403,16 +1403,16 @@ public final class TSLIOTBusinessLog {
          *
          * <code>string dev_id = 1;</code>
          */
-        public String getDevId() {
-          Object ref = devId_;
-          if (!(ref instanceof String)) {
+        public java.lang.String getDevId() {
+          java.lang.Object ref = devId_;
+          if (!(ref instanceof java.lang.String)) {
             com.google.protobuf.ByteString bs =
                 (com.google.protobuf.ByteString) ref;
-            String s = bs.toStringUtf8();
+            java.lang.String s = bs.toStringUtf8();
             devId_ = s;
             return s;
           } else {
-            return (String) ref;
+            return (java.lang.String) ref;
           }
         }
         /**
@@ -1424,11 +1424,11 @@ public final class TSLIOTBusinessLog {
          */
         public com.google.protobuf.ByteString
             getDevIdBytes() {
-          Object ref = devId_;
+          java.lang.Object ref = devId_;
           if (ref instanceof String) {
             com.google.protobuf.ByteString b = 
                 com.google.protobuf.ByteString.copyFromUtf8(
-                    (String) ref);
+                    (java.lang.String) ref);
             devId_ = b;
             return b;
           } else {
@@ -1443,7 +1443,7 @@ public final class TSLIOTBusinessLog {
          * <code>string dev_id = 1;</code>
          */
         public Builder setDevId(
-            String value) {
+            java.lang.String value) {
           if (value == null) {
     throw new NullPointerException();
   }
@@ -1522,7 +1522,7 @@ public final class TSLIOTBusinessLog {
           return this;
         }
 
-        private Object feature_ = "";
+        private java.lang.Object feature_ = "";
         /**
          * <pre>
          * 人员特征描述 用 json描述 // 男女，头发长短，年龄估计，等
@@ -1530,16 +1530,16 @@ public final class TSLIOTBusinessLog {
          *
          * <code>string feature = 3;</code>
          */
-        public String getFeature() {
-          Object ref = feature_;
-          if (!(ref instanceof String)) {
+        public java.lang.String getFeature() {
+          java.lang.Object ref = feature_;
+          if (!(ref instanceof java.lang.String)) {
             com.google.protobuf.ByteString bs =
                 (com.google.protobuf.ByteString) ref;
-            String s = bs.toStringUtf8();
+            java.lang.String s = bs.toStringUtf8();
             feature_ = s;
             return s;
           } else {
-            return (String) ref;
+            return (java.lang.String) ref;
           }
         }
         /**
@@ -1551,11 +1551,11 @@ public final class TSLIOTBusinessLog {
          */
         public com.google.protobuf.ByteString
             getFeatureBytes() {
-          Object ref = feature_;
+          java.lang.Object ref = feature_;
           if (ref instanceof String) {
             com.google.protobuf.ByteString b = 
                 com.google.protobuf.ByteString.copyFromUtf8(
-                    (String) ref);
+                    (java.lang.String) ref);
             feature_ = b;
             return b;
           } else {
@@ -1570,7 +1570,7 @@ public final class TSLIOTBusinessLog {
          * <code>string feature = 3;</code>
          */
         public Builder setFeature(
-            String value) {
+            java.lang.String value) {
           if (value == null) {
     throw new NullPointerException();
   }
@@ -1611,7 +1611,7 @@ public final class TSLIOTBusinessLog {
           return this;
         }
 
-        private Object personType_ = "";
+        private java.lang.Object personType_ = "";
         /**
          * <pre>
          * 人员类型："user":用户 "black":黑名单（报警）"visitor"：访客 "unknown":陌生人
@@ -1619,16 +1619,16 @@ public final class TSLIOTBusinessLog {
          *
          * <code>string person_type = 4;</code>
          */
-        public String getPersonType() {
-          Object ref = personType_;
-          if (!(ref instanceof String)) {
+        public java.lang.String getPersonType() {
+          java.lang.Object ref = personType_;
+          if (!(ref instanceof java.lang.String)) {
             com.google.protobuf.ByteString bs =
                 (com.google.protobuf.ByteString) ref;
-            String s = bs.toStringUtf8();
+            java.lang.String s = bs.toStringUtf8();
             personType_ = s;
             return s;
           } else {
-            return (String) ref;
+            return (java.lang.String) ref;
           }
         }
         /**
@@ -1640,11 +1640,11 @@ public final class TSLIOTBusinessLog {
          */
         public com.google.protobuf.ByteString
             getPersonTypeBytes() {
-          Object ref = personType_;
+          java.lang.Object ref = personType_;
           if (ref instanceof String) {
             com.google.protobuf.ByteString b = 
                 com.google.protobuf.ByteString.copyFromUtf8(
-                    (String) ref);
+                    (java.lang.String) ref);
             personType_ = b;
             return b;
           } else {
@@ -1659,7 +1659,7 @@ public final class TSLIOTBusinessLog {
          * <code>string person_type = 4;</code>
          */
         public Builder setPersonType(
-            String value) {
+            java.lang.String value) {
           if (value == null) {
     throw new NullPointerException();
   }
@@ -1890,7 +1890,7 @@ public final class TSLIOTBusinessLog {
           return this;
         }
 
-        private Object cardNo_ = "";
+        private java.lang.Object cardNo_ = "";
         /**
          * <pre>
          * 4-人脸识别开门，5-指纹识别开门, 6-普通密码开门, 7-DTMF开门, 8-app蓝牙开门（由APP上报，设备不用上报）, 9-二维码开门
@@ -1898,16 +1898,16 @@ public final class TSLIOTBusinessLog {
          *
          * <code>string card_no = 10;</code>
          */
-        public String getCardNo() {
-          Object ref = cardNo_;
-          if (!(ref instanceof String)) {
+        public java.lang.String getCardNo() {
+          java.lang.Object ref = cardNo_;
+          if (!(ref instanceof java.lang.String)) {
             com.google.protobuf.ByteString bs =
                 (com.google.protobuf.ByteString) ref;
-            String s = bs.toStringUtf8();
+            java.lang.String s = bs.toStringUtf8();
             cardNo_ = s;
             return s;
           } else {
-            return (String) ref;
+            return (java.lang.String) ref;
           }
         }
         /**
@@ -1919,11 +1919,11 @@ public final class TSLIOTBusinessLog {
          */
         public com.google.protobuf.ByteString
             getCardNoBytes() {
-          Object ref = cardNo_;
+          java.lang.Object ref = cardNo_;
           if (ref instanceof String) {
             com.google.protobuf.ByteString b = 
                 com.google.protobuf.ByteString.copyFromUtf8(
-                    (String) ref);
+                    (java.lang.String) ref);
             cardNo_ = b;
             return b;
           } else {
@@ -1938,7 +1938,7 @@ public final class TSLIOTBusinessLog {
          * <code>string card_no = 10;</code>
          */
         public Builder setCardNo(
-            String value) {
+            java.lang.String value) {
           if (value == null) {
     throw new NullPointerException();
   }
@@ -1979,7 +1979,7 @@ public final class TSLIOTBusinessLog {
           return this;
         }
 
-        private Object passImg_ = "";
+        private java.lang.Object passImg_ = "";
         /**
          * <pre>
          * 通行图片url, 多个图片路径 用;分割  （如果是两张图：头像图在前，整个截图大图在后）
@@ -1987,16 +1987,16 @@ public final class TSLIOTBusinessLog {
          *
          * <code>string pass_img = 11;</code>
          */
-        public String getPassImg() {
-          Object ref = passImg_;
-          if (!(ref instanceof String)) {
+        public java.lang.String getPassImg() {
+          java.lang.Object ref = passImg_;
+          if (!(ref instanceof java.lang.String)) {
             com.google.protobuf.ByteString bs =
                 (com.google.protobuf.ByteString) ref;
-            String s = bs.toStringUtf8();
+            java.lang.String s = bs.toStringUtf8();
             passImg_ = s;
             return s;
           } else {
-            return (String) ref;
+            return (java.lang.String) ref;
           }
         }
         /**
@@ -2008,11 +2008,11 @@ public final class TSLIOTBusinessLog {
          */
         public com.google.protobuf.ByteString
             getPassImgBytes() {
-          Object ref = passImg_;
+          java.lang.Object ref = passImg_;
           if (ref instanceof String) {
             com.google.protobuf.ByteString b = 
                 com.google.protobuf.ByteString.copyFromUtf8(
-                    (String) ref);
+                    (java.lang.String) ref);
             passImg_ = b;
             return b;
           } else {
@@ -2027,7 +2027,7 @@ public final class TSLIOTBusinessLog {
          * <code>string pass_img = 11;</code>
          */
         public Builder setPassImg(
-            String value) {
+            java.lang.String value) {
           if (value == null) {
     throw new NullPointerException();
   }
@@ -2068,7 +2068,7 @@ public final class TSLIOTBusinessLog {
           return this;
         }
 
-        private Object passVideo_ = "";
+        private java.lang.Object passVideo_ = "";
         /**
          * <pre>
          * 通行视频url
@@ -2076,16 +2076,16 @@ public final class TSLIOTBusinessLog {
          *
          * <code>string pass_video = 12;</code>
          */
-        public String getPassVideo() {
-          Object ref = passVideo_;
-          if (!(ref instanceof String)) {
+        public java.lang.String getPassVideo() {
+          java.lang.Object ref = passVideo_;
+          if (!(ref instanceof java.lang.String)) {
             com.google.protobuf.ByteString bs =
                 (com.google.protobuf.ByteString) ref;
-            String s = bs.toStringUtf8();
+            java.lang.String s = bs.toStringUtf8();
             passVideo_ = s;
             return s;
           } else {
-            return (String) ref;
+            return (java.lang.String) ref;
           }
         }
         /**
@@ -2097,11 +2097,11 @@ public final class TSLIOTBusinessLog {
          */
         public com.google.protobuf.ByteString
             getPassVideoBytes() {
-          Object ref = passVideo_;
+          java.lang.Object ref = passVideo_;
           if (ref instanceof String) {
             com.google.protobuf.ByteString b = 
                 com.google.protobuf.ByteString.copyFromUtf8(
-                    (String) ref);
+                    (java.lang.String) ref);
             passVideo_ = b;
             return b;
           } else {
@@ -2116,7 +2116,7 @@ public final class TSLIOTBusinessLog {
          * <code>string pass_video = 12;</code>
          */
         public Builder setPassVideo(
-            String value) {
+            java.lang.String value) {
           if (value == null) {
     throw new NullPointerException();
   }
@@ -2157,7 +2157,7 @@ public final class TSLIOTBusinessLog {
           return this;
         }
 
-        private Object reserve_ = "";
+        private java.lang.Object reserve_ = "";
         /**
          * <pre>
          * 预留字段，用于存储通行记录的特定信息 JsonString  例如二维码通行时带有二维码特定自定义信息 {"qrCustomInfo":"xxxx"}
@@ -2165,16 +2165,16 @@ public final class TSLIOTBusinessLog {
          *
          * <code>string reserve = 13;</code>
          */
-        public String getReserve() {
-          Object ref = reserve_;
-          if (!(ref instanceof String)) {
+        public java.lang.String getReserve() {
+          java.lang.Object ref = reserve_;
+          if (!(ref instanceof java.lang.String)) {
             com.google.protobuf.ByteString bs =
                 (com.google.protobuf.ByteString) ref;
-            String s = bs.toStringUtf8();
+            java.lang.String s = bs.toStringUtf8();
             reserve_ = s;
             return s;
           } else {
-            return (String) ref;
+            return (java.lang.String) ref;
           }
         }
         /**
@@ -2186,11 +2186,11 @@ public final class TSLIOTBusinessLog {
          */
         public com.google.protobuf.ByteString
             getReserveBytes() {
-          Object ref = reserve_;
+          java.lang.Object ref = reserve_;
           if (ref instanceof String) {
             com.google.protobuf.ByteString b = 
                 com.google.protobuf.ByteString.copyFromUtf8(
-                    (String) ref);
+                    (java.lang.String) ref);
             reserve_ = b;
             return b;
           } else {
@@ -2205,7 +2205,7 @@ public final class TSLIOTBusinessLog {
          * <code>string reserve = 13;</code>
          */
         public Builder setReserve(
-            String value) {
+            java.lang.String value) {
           if (value == null) {
     throw new NullPointerException();
   }
@@ -2298,12 +2298,12 @@ public final class TSLIOTBusinessLog {
       }
 
       // @@protoc_insertion_point(class_scope:TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog)
-      private static final TSLIOTPassLog DEFAULT_INSTANCE;
+      private static final com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new TSLIOTPassLog();
+        DEFAULT_INSTANCE = new com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog();
       }
 
-      public static TSLIOTPassLog getDefaultInstance() {
+      public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -2321,19 +2321,19 @@ public final class TSLIOTBusinessLog {
         return PARSER;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Parser<TSLIOTPassLog> getParserForType() {
         return PARSER;
       }
 
-      public TSLIOTPassLog getDefaultInstanceForType() {
+      public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
     }
 
     public static final int PASS_LOGS_FIELD_NUMBER = 1;
-    private java.util.List<TSLIOTPassLog> passLogs_;
+    private java.util.List<com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog> passLogs_;
     /**
      * <pre>
      * 开门日志
@@ -2341,7 +2341,7 @@ public final class TSLIOTBusinessLog {
      *
      * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
      */
-    public java.util.List<TSLIOTPassLog> getPassLogsList() {
+    public java.util.List<com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog> getPassLogsList() {
       return passLogs_;
     }
     /**
@@ -2351,7 +2351,7 @@ public final class TSLIOTBusinessLog {
      *
      * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
      */
-    public java.util.List<? extends TSLIOTPassLogOrBuilder>
+    public java.util.List<? extends com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLogOrBuilder> 
         getPassLogsOrBuilderList() {
       return passLogs_;
     }
@@ -2372,7 +2372,7 @@ public final class TSLIOTBusinessLog {
      *
      * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
      */
-    public TSLIOTPassLog getPassLogs(int index) {
+    public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog getPassLogs(int index) {
       return passLogs_.get(index);
     }
     /**
@@ -2382,7 +2382,7 @@ public final class TSLIOTBusinessLog {
      *
      * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
      */
-    public TSLIOTPassLogOrBuilder getPassLogsOrBuilder(
+    public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLogOrBuilder getPassLogsOrBuilder(
         int index) {
       return passLogs_.get(index);
     }
@@ -2419,15 +2419,15 @@ public final class TSLIOTBusinessLog {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof TSLIOTUploadPassLogRequest)) {
+      if (!(obj instanceof com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest)) {
         return super.equals(obj);
       }
-      TSLIOTUploadPassLogRequest other = (TSLIOTUploadPassLogRequest) obj;
+      com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest other = (com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest) obj;
 
       boolean result = true;
       result = result && getPassLogsList()
@@ -2436,7 +2436,7 @@ public final class TSLIOTBusinessLog {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -2452,69 +2452,69 @@ public final class TSLIOTBusinessLog {
       return hash;
     }
 
-    public static TSLIOTUploadPassLogRequest parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static TSLIOTUploadPassLogRequest parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static TSLIOTUploadPassLogRequest parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static TSLIOTUploadPassLogRequest parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static TSLIOTUploadPassLogRequest parseFrom(byte[] data)
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static TSLIOTUploadPassLogRequest parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static TSLIOTUploadPassLogRequest parseFrom(java.io.InputStream input)
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static TSLIOTUploadPassLogRequest parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static TSLIOTUploadPassLogRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static TSLIOTUploadPassLogRequest parseDelimitedFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static TSLIOTUploadPassLogRequest parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static TSLIOTUploadPassLogRequest parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2526,7 +2526,7 @@ public final class TSLIOTBusinessLog {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(TSLIOTUploadPassLogRequest prototype) {
+    public static Builder newBuilder(com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -2534,9 +2534,9 @@ public final class TSLIOTBusinessLog {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -2550,17 +2550,17 @@ public final class TSLIOTBusinessLog {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:TslIotProto.TSLIOTUploadPassLogRequest)
-        TSLIOTUploadPassLogRequestOrBuilder {
+        com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogRequest_descriptor;
+        return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogRequest_descriptor;
       }
 
-      protected FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogRequest_fieldAccessorTable
+        return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                TSLIOTUploadPassLogRequest.class, Builder.class);
+                com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.class, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.Builder.class);
       }
 
       // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.newBuilder()
@@ -2569,7 +2569,7 @@ public final class TSLIOTBusinessLog {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -2592,23 +2592,23 @@ public final class TSLIOTBusinessLog {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogRequest_descriptor;
+        return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogRequest_descriptor;
       }
 
-      public TSLIOTUploadPassLogRequest getDefaultInstanceForType() {
-        return TSLIOTUploadPassLogRequest.getDefaultInstance();
+      public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest getDefaultInstanceForType() {
+        return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.getDefaultInstance();
       }
 
-      public TSLIOTUploadPassLogRequest build() {
-        TSLIOTUploadPassLogRequest result = buildPartial();
+      public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest build() {
+        com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public TSLIOTUploadPassLogRequest buildPartial() {
-        TSLIOTUploadPassLogRequest result = new TSLIOTUploadPassLogRequest(this);
+      public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest buildPartial() {
+        com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest result = new com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest(this);
         int from_bitField0_ = bitField0_;
         if (passLogsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2628,7 +2628,7 @@ public final class TSLIOTBusinessLog {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -2641,25 +2641,25 @@ public final class TSLIOTBusinessLog {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TSLIOTUploadPassLogRequest) {
-          return mergeFrom((TSLIOTUploadPassLogRequest)other);
+        if (other instanceof com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest) {
+          return mergeFrom((com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(TSLIOTUploadPassLogRequest other) {
-        if (other == TSLIOTUploadPassLogRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest other) {
+        if (other == com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.getDefaultInstance()) return this;
         if (passLogsBuilder_ == null) {
           if (!other.passLogs_.isEmpty()) {
             if (passLogs_.isEmpty()) {
@@ -2699,11 +2699,11 @@ public final class TSLIOTBusinessLog {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TSLIOTUploadPassLogRequest parsedMessage = null;
+        com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TSLIOTUploadPassLogRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2714,17 +2714,17 @@ public final class TSLIOTBusinessLog {
       }
       private int bitField0_;
 
-      private java.util.List<TSLIOTPassLog> passLogs_ =
+      private java.util.List<com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog> passLogs_ =
         java.util.Collections.emptyList();
       private void ensurePassLogsIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          passLogs_ = new java.util.ArrayList<TSLIOTPassLog>(passLogs_);
+          passLogs_ = new java.util.ArrayList<com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog>(passLogs_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          TSLIOTPassLog, TSLIOTPassLog.Builder, TSLIOTPassLogOrBuilder> passLogsBuilder_;
+          com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.Builder, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLogOrBuilder> passLogsBuilder_;
 
       /**
        * <pre>
@@ -2733,7 +2733,7 @@ public final class TSLIOTBusinessLog {
        *
        * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
        */
-      public java.util.List<TSLIOTPassLog> getPassLogsList() {
+      public java.util.List<com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog> getPassLogsList() {
         if (passLogsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(passLogs_);
         } else {
@@ -2761,7 +2761,7 @@ public final class TSLIOTBusinessLog {
        *
        * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
        */
-      public TSLIOTPassLog getPassLogs(int index) {
+      public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog getPassLogs(int index) {
         if (passLogsBuilder_ == null) {
           return passLogs_.get(index);
         } else {
@@ -2776,7 +2776,7 @@ public final class TSLIOTBusinessLog {
        * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
        */
       public Builder setPassLogs(
-          int index, TSLIOTPassLog value) {
+          int index, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog value) {
         if (passLogsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2797,7 +2797,7 @@ public final class TSLIOTBusinessLog {
        * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
        */
       public Builder setPassLogs(
-          int index, TSLIOTPassLog.Builder builderForValue) {
+          int index, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.Builder builderForValue) {
         if (passLogsBuilder_ == null) {
           ensurePassLogsIsMutable();
           passLogs_.set(index, builderForValue.build());
@@ -2814,7 +2814,7 @@ public final class TSLIOTBusinessLog {
        *
        * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
        */
-      public Builder addPassLogs(TSLIOTPassLog value) {
+      public Builder addPassLogs(com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog value) {
         if (passLogsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2835,7 +2835,7 @@ public final class TSLIOTBusinessLog {
        * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
        */
       public Builder addPassLogs(
-          int index, TSLIOTPassLog value) {
+          int index, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog value) {
         if (passLogsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2856,7 +2856,7 @@ public final class TSLIOTBusinessLog {
        * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
        */
       public Builder addPassLogs(
-          TSLIOTPassLog.Builder builderForValue) {
+          com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.Builder builderForValue) {
         if (passLogsBuilder_ == null) {
           ensurePassLogsIsMutable();
           passLogs_.add(builderForValue.build());
@@ -2874,7 +2874,7 @@ public final class TSLIOTBusinessLog {
        * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
        */
       public Builder addPassLogs(
-          int index, TSLIOTPassLog.Builder builderForValue) {
+          int index, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.Builder builderForValue) {
         if (passLogsBuilder_ == null) {
           ensurePassLogsIsMutable();
           passLogs_.add(index, builderForValue.build());
@@ -2892,7 +2892,7 @@ public final class TSLIOTBusinessLog {
        * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
        */
       public Builder addAllPassLogs(
-          Iterable<? extends TSLIOTPassLog> values) {
+          java.lang.Iterable<? extends com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog> values) {
         if (passLogsBuilder_ == null) {
           ensurePassLogsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -2944,7 +2944,7 @@ public final class TSLIOTBusinessLog {
        *
        * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
        */
-      public TSLIOTPassLog.Builder getPassLogsBuilder(
+      public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.Builder getPassLogsBuilder(
           int index) {
         return getPassLogsFieldBuilder().getBuilder(index);
       }
@@ -2955,7 +2955,7 @@ public final class TSLIOTBusinessLog {
        *
        * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
        */
-      public TSLIOTPassLogOrBuilder getPassLogsOrBuilder(
+      public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLogOrBuilder getPassLogsOrBuilder(
           int index) {
         if (passLogsBuilder_ == null) {
           return passLogs_.get(index);  } else {
@@ -2969,7 +2969,7 @@ public final class TSLIOTBusinessLog {
        *
        * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
        */
-      public java.util.List<? extends TSLIOTPassLogOrBuilder>
+      public java.util.List<? extends com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLogOrBuilder> 
            getPassLogsOrBuilderList() {
         if (passLogsBuilder_ != null) {
           return passLogsBuilder_.getMessageOrBuilderList();
@@ -2984,9 +2984,9 @@ public final class TSLIOTBusinessLog {
        *
        * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
        */
-      public TSLIOTPassLog.Builder addPassLogsBuilder() {
+      public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.Builder addPassLogsBuilder() {
         return getPassLogsFieldBuilder().addBuilder(
-            TSLIOTPassLog.getDefaultInstance());
+            com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.getDefaultInstance());
       }
       /**
        * <pre>
@@ -2995,10 +2995,10 @@ public final class TSLIOTBusinessLog {
        *
        * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
        */
-      public TSLIOTPassLog.Builder addPassLogsBuilder(
+      public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.Builder addPassLogsBuilder(
           int index) {
         return getPassLogsFieldBuilder().addBuilder(
-            index, TSLIOTPassLog.getDefaultInstance());
+            index, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.getDefaultInstance());
       }
       /**
        * <pre>
@@ -3007,16 +3007,16 @@ public final class TSLIOTBusinessLog {
        *
        * <code>repeated .TslIotProto.TSLIOTUploadPassLogRequest.TSLIOTPassLog pass_logs = 1;</code>
        */
-      public java.util.List<TSLIOTPassLog.Builder>
+      public java.util.List<com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.Builder> 
            getPassLogsBuilderList() {
         return getPassLogsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          TSLIOTPassLog, TSLIOTPassLog.Builder, TSLIOTPassLogOrBuilder>
+          com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.Builder, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLogOrBuilder> 
           getPassLogsFieldBuilder() {
         if (passLogsBuilder_ == null) {
           passLogsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              TSLIOTPassLog, TSLIOTPassLog.Builder, TSLIOTPassLogOrBuilder>(
+              com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLog.Builder, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest.TSLIOTPassLogOrBuilder>(
                   passLogs_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
@@ -3040,12 +3040,12 @@ public final class TSLIOTBusinessLog {
     }
 
     // @@protoc_insertion_point(class_scope:TslIotProto.TSLIOTUploadPassLogRequest)
-    private static final TSLIOTUploadPassLogRequest DEFAULT_INSTANCE;
+    private static final com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new TSLIOTUploadPassLogRequest();
+      DEFAULT_INSTANCE = new com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest();
     }
 
-    public static TSLIOTUploadPassLogRequest getDefaultInstance() {
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3063,12 +3063,12 @@ public final class TSLIOTBusinessLog {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<TSLIOTUploadPassLogRequest> getParserForType() {
       return PARSER;
     }
 
-    public TSLIOTUploadPassLogRequest getDefaultInstanceForType() {
+    public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3085,7 +3085,7 @@ public final class TSLIOTBusinessLog {
      *
      * <code>string dev_id = 1;</code>
      */
-    String getDevId();
+    java.lang.String getDevId();
     /**
      * <pre>
      * 设备id
@@ -3121,7 +3121,7 @@ public final class TSLIOTBusinessLog {
      *
      * <code>string message = 4;</code>
      */
-    String getMessage();
+    java.lang.String getMessage();
     /**
      * <pre>
      * 返回信息
@@ -3151,7 +3151,7 @@ public final class TSLIOTBusinessLog {
       message_ = "";
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -3162,7 +3162,7 @@ public final class TSLIOTBusinessLog {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -3183,7 +3183,7 @@ public final class TSLIOTBusinessLog {
               break;
             }
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               devId_ = s;
               break;
@@ -3199,7 +3199,7 @@ public final class TSLIOTBusinessLog {
               break;
             }
             case 34: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               message_ = s;
               break;
@@ -3218,18 +3218,18 @@ public final class TSLIOTBusinessLog {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTLogCommonResult_descriptor;
+      return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTLogCommonResult_descriptor;
     }
 
-    protected FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTLogCommonResult_fieldAccessorTable
+      return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTLogCommonResult_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              TSLIOTLogCommonResult.class, Builder.class);
+              com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.class, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.Builder.class);
     }
 
     public static final int DEV_ID_FIELD_NUMBER = 1;
-    private volatile Object devId_;
+    private volatile java.lang.Object devId_;
     /**
      * <pre>
      * 设备id
@@ -3237,14 +3237,14 @@ public final class TSLIOTBusinessLog {
      *
      * <code>string dev_id = 1;</code>
      */
-    public String getDevId() {
-      Object ref = devId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getDevId() {
+      java.lang.Object ref = devId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         devId_ = s;
         return s;
       }
@@ -3258,11 +3258,11 @@ public final class TSLIOTBusinessLog {
      */
     public com.google.protobuf.ByteString
         getDevIdBytes() {
-      Object ref = devId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = devId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         devId_ = b;
         return b;
       } else {
@@ -3297,7 +3297,7 @@ public final class TSLIOTBusinessLog {
     }
 
     public static final int MESSAGE_FIELD_NUMBER = 4;
-    private volatile Object message_;
+    private volatile java.lang.Object message_;
     /**
      * <pre>
      * 返回信息
@@ -3305,14 +3305,14 @@ public final class TSLIOTBusinessLog {
      *
      * <code>string message = 4;</code>
      */
-    public String getMessage() {
-      Object ref = message_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         message_ = s;
         return s;
       }
@@ -3326,11 +3326,11 @@ public final class TSLIOTBusinessLog {
      */
     public com.google.protobuf.ByteString
         getMessageBytes() {
-      Object ref = message_;
-      if (ref instanceof String) {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         message_ = b;
         return b;
       } else {
@@ -3389,15 +3389,15 @@ public final class TSLIOTBusinessLog {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof TSLIOTLogCommonResult)) {
+      if (!(obj instanceof com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult)) {
         return super.equals(obj);
       }
-      TSLIOTLogCommonResult other = (TSLIOTLogCommonResult) obj;
+      com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult other = (com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult) obj;
 
       boolean result = true;
       result = result && getDevId()
@@ -3412,7 +3412,7 @@ public final class TSLIOTBusinessLog {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -3433,69 +3433,69 @@ public final class TSLIOTBusinessLog {
       return hash;
     }
 
-    public static TSLIOTLogCommonResult parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static TSLIOTLogCommonResult parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static TSLIOTLogCommonResult parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static TSLIOTLogCommonResult parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static TSLIOTLogCommonResult parseFrom(byte[] data)
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static TSLIOTLogCommonResult parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static TSLIOTLogCommonResult parseFrom(java.io.InputStream input)
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static TSLIOTLogCommonResult parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static TSLIOTLogCommonResult parseDelimitedFrom(java.io.InputStream input)
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static TSLIOTLogCommonResult parseDelimitedFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static TSLIOTLogCommonResult parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static TSLIOTLogCommonResult parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3507,7 +3507,7 @@ public final class TSLIOTBusinessLog {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(TSLIOTLogCommonResult prototype) {
+    public static Builder newBuilder(com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -3515,9 +3515,9 @@ public final class TSLIOTBusinessLog {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -3527,17 +3527,17 @@ public final class TSLIOTBusinessLog {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:TslIotProto.TSLIOTLogCommonResult)
-        TSLIOTLogCommonResultOrBuilder {
+        com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResultOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTLogCommonResult_descriptor;
+        return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTLogCommonResult_descriptor;
       }
 
-      protected FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTLogCommonResult_fieldAccessorTable
+        return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTLogCommonResult_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                TSLIOTLogCommonResult.class, Builder.class);
+                com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.class, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.Builder.class);
       }
 
       // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.newBuilder()
@@ -3546,7 +3546,7 @@ public final class TSLIOTBusinessLog {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -3570,23 +3570,23 @@ public final class TSLIOTBusinessLog {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTLogCommonResult_descriptor;
+        return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTLogCommonResult_descriptor;
       }
 
-      public TSLIOTLogCommonResult getDefaultInstanceForType() {
-        return TSLIOTLogCommonResult.getDefaultInstance();
+      public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult getDefaultInstanceForType() {
+        return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.getDefaultInstance();
       }
 
-      public TSLIOTLogCommonResult build() {
-        TSLIOTLogCommonResult result = buildPartial();
+      public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult build() {
+        com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public TSLIOTLogCommonResult buildPartial() {
-        TSLIOTLogCommonResult result = new TSLIOTLogCommonResult(this);
+      public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult buildPartial() {
+        com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult result = new com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult(this);
         result.devId_ = devId_;
         result.devLogId_ = devLogId_;
         result.code_ = code_;
@@ -3600,7 +3600,7 @@ public final class TSLIOTBusinessLog {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -3613,25 +3613,25 @@ public final class TSLIOTBusinessLog {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TSLIOTLogCommonResult) {
-          return mergeFrom((TSLIOTLogCommonResult)other);
+        if (other instanceof com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult) {
+          return mergeFrom((com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(TSLIOTLogCommonResult other) {
-        if (other == TSLIOTLogCommonResult.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult other) {
+        if (other == com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.getDefaultInstance()) return this;
         if (!other.getDevId().isEmpty()) {
           devId_ = other.devId_;
           onChanged();
@@ -3659,11 +3659,11 @@ public final class TSLIOTBusinessLog {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TSLIOTLogCommonResult parsedMessage = null;
+        com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TSLIOTLogCommonResult) e.getUnfinishedMessage();
+          parsedMessage = (com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3673,7 +3673,7 @@ public final class TSLIOTBusinessLog {
         return this;
       }
 
-      private Object devId_ = "";
+      private java.lang.Object devId_ = "";
       /**
        * <pre>
        * 设备id
@@ -3681,16 +3681,16 @@ public final class TSLIOTBusinessLog {
        *
        * <code>string dev_id = 1;</code>
        */
-      public String getDevId() {
-        Object ref = devId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getDevId() {
+        java.lang.Object ref = devId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           devId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -3702,11 +3702,11 @@ public final class TSLIOTBusinessLog {
        */
       public com.google.protobuf.ByteString
           getDevIdBytes() {
-        Object ref = devId_;
+        java.lang.Object ref = devId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           devId_ = b;
           return b;
         } else {
@@ -3721,7 +3721,7 @@ public final class TSLIOTBusinessLog {
        * <code>string dev_id = 1;</code>
        */
       public Builder setDevId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -3838,7 +3838,7 @@ public final class TSLIOTBusinessLog {
         return this;
       }
 
-      private Object message_ = "";
+      private java.lang.Object message_ = "";
       /**
        * <pre>
        * 返回信息
@@ -3846,16 +3846,16 @@ public final class TSLIOTBusinessLog {
        *
        * <code>string message = 4;</code>
        */
-      public String getMessage() {
-        Object ref = message_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getMessage() {
+        java.lang.Object ref = message_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           message_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -3867,11 +3867,11 @@ public final class TSLIOTBusinessLog {
        */
       public com.google.protobuf.ByteString
           getMessageBytes() {
-        Object ref = message_;
+        java.lang.Object ref = message_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           message_ = b;
           return b;
         } else {
@@ -3886,7 +3886,7 @@ public final class TSLIOTBusinessLog {
        * <code>string message = 4;</code>
        */
       public Builder setMessage(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -3941,12 +3941,12 @@ public final class TSLIOTBusinessLog {
     }
 
     // @@protoc_insertion_point(class_scope:TslIotProto.TSLIOTLogCommonResult)
-    private static final TSLIOTLogCommonResult DEFAULT_INSTANCE;
+    private static final com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new TSLIOTLogCommonResult();
+      DEFAULT_INSTANCE = new com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult();
     }
 
-    public static TSLIOTLogCommonResult getDefaultInstance() {
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3964,12 +3964,12 @@ public final class TSLIOTBusinessLog {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<TSLIOTLogCommonResult> getParserForType() {
       return PARSER;
     }
 
-    public TSLIOTLogCommonResult getDefaultInstanceForType() {
+    public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3986,7 +3986,7 @@ public final class TSLIOTBusinessLog {
      *
      * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
      */
-    java.util.List<TSLIOTLogCommonResult>
+    java.util.List<com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult> 
         getLogResultsList();
     /**
      * <pre>
@@ -3995,7 +3995,7 @@ public final class TSLIOTBusinessLog {
      *
      * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
      */
-    TSLIOTLogCommonResult getLogResults(int index);
+    com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult getLogResults(int index);
     /**
      * <pre>
      * 开门日志响应结果
@@ -4011,7 +4011,7 @@ public final class TSLIOTBusinessLog {
      *
      * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
      */
-    java.util.List<? extends TSLIOTLogCommonResultOrBuilder>
+    java.util.List<? extends com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResultOrBuilder> 
         getLogResultsOrBuilderList();
     /**
      * <pre>
@@ -4020,8 +4020,8 @@ public final class TSLIOTBusinessLog {
      *
      * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
      */
-    TSLIOTLogCommonResultOrBuilder getLogResultsOrBuilder(
-            int index);
+    com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResultOrBuilder getLogResultsOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code TslIotProto.TSLIOTUploadPassLogResult}
@@ -4039,7 +4039,7 @@ public final class TSLIOTBusinessLog {
       logResults_ = java.util.Collections.emptyList();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -4050,7 +4050,7 @@ public final class TSLIOTBusinessLog {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -4072,11 +4072,11 @@ public final class TSLIOTBusinessLog {
             }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                logResults_ = new java.util.ArrayList<TSLIOTLogCommonResult>();
+                logResults_ = new java.util.ArrayList<com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult>();
                 mutable_bitField0_ |= 0x00000001;
               }
               logResults_.add(
-                  input.readMessage(TSLIOTLogCommonResult.parser(), extensionRegistry));
+                  input.readMessage(com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.parser(), extensionRegistry));
               break;
             }
           }
@@ -4096,18 +4096,18 @@ public final class TSLIOTBusinessLog {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogResult_descriptor;
+      return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogResult_descriptor;
     }
 
-    protected FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogResult_fieldAccessorTable
+      return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogResult_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              TSLIOTUploadPassLogResult.class, Builder.class);
+              com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult.class, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult.Builder.class);
     }
 
     public static final int LOG_RESULTS_FIELD_NUMBER = 1;
-    private java.util.List<TSLIOTLogCommonResult> logResults_;
+    private java.util.List<com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult> logResults_;
     /**
      * <pre>
      * 开门日志响应结果
@@ -4115,7 +4115,7 @@ public final class TSLIOTBusinessLog {
      *
      * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
      */
-    public java.util.List<TSLIOTLogCommonResult> getLogResultsList() {
+    public java.util.List<com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult> getLogResultsList() {
       return logResults_;
     }
     /**
@@ -4125,7 +4125,7 @@ public final class TSLIOTBusinessLog {
      *
      * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
      */
-    public java.util.List<? extends TSLIOTLogCommonResultOrBuilder>
+    public java.util.List<? extends com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResultOrBuilder> 
         getLogResultsOrBuilderList() {
       return logResults_;
     }
@@ -4146,7 +4146,7 @@ public final class TSLIOTBusinessLog {
      *
      * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
      */
-    public TSLIOTLogCommonResult getLogResults(int index) {
+    public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult getLogResults(int index) {
       return logResults_.get(index);
     }
     /**
@@ -4156,7 +4156,7 @@ public final class TSLIOTBusinessLog {
      *
      * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
      */
-    public TSLIOTLogCommonResultOrBuilder getLogResultsOrBuilder(
+    public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResultOrBuilder getLogResultsOrBuilder(
         int index) {
       return logResults_.get(index);
     }
@@ -4193,15 +4193,15 @@ public final class TSLIOTBusinessLog {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof TSLIOTUploadPassLogResult)) {
+      if (!(obj instanceof com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult)) {
         return super.equals(obj);
       }
-      TSLIOTUploadPassLogResult other = (TSLIOTUploadPassLogResult) obj;
+      com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult other = (com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult) obj;
 
       boolean result = true;
       result = result && getLogResultsList()
@@ -4210,7 +4210,7 @@ public final class TSLIOTBusinessLog {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -4226,69 +4226,69 @@ public final class TSLIOTBusinessLog {
       return hash;
     }
 
-    public static TSLIOTUploadPassLogResult parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static TSLIOTUploadPassLogResult parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static TSLIOTUploadPassLogResult parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static TSLIOTUploadPassLogResult parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static TSLIOTUploadPassLogResult parseFrom(byte[] data)
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static TSLIOTUploadPassLogResult parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static TSLIOTUploadPassLogResult parseFrom(java.io.InputStream input)
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static TSLIOTUploadPassLogResult parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static TSLIOTUploadPassLogResult parseDelimitedFrom(java.io.InputStream input)
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static TSLIOTUploadPassLogResult parseDelimitedFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static TSLIOTUploadPassLogResult parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static TSLIOTUploadPassLogResult parseFrom(
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4300,7 +4300,7 @@ public final class TSLIOTBusinessLog {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(TSLIOTUploadPassLogResult prototype) {
+    public static Builder newBuilder(com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -4308,9 +4308,9 @@ public final class TSLIOTBusinessLog {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -4320,17 +4320,17 @@ public final class TSLIOTBusinessLog {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:TslIotProto.TSLIOTUploadPassLogResult)
-        TSLIOTUploadPassLogResultOrBuilder {
+        com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResultOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogResult_descriptor;
+        return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogResult_descriptor;
       }
 
-      protected FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogResult_fieldAccessorTable
+        return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogResult_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                TSLIOTUploadPassLogResult.class, Builder.class);
+                com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult.class, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult.Builder.class);
       }
 
       // Construct using com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult.newBuilder()
@@ -4339,7 +4339,7 @@ public final class TSLIOTBusinessLog {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -4362,23 +4362,23 @@ public final class TSLIOTBusinessLog {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogResult_descriptor;
+        return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.internal_static_TslIotProto_TSLIOTUploadPassLogResult_descriptor;
       }
 
-      public TSLIOTUploadPassLogResult getDefaultInstanceForType() {
-        return TSLIOTUploadPassLogResult.getDefaultInstance();
+      public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult getDefaultInstanceForType() {
+        return com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult.getDefaultInstance();
       }
 
-      public TSLIOTUploadPassLogResult build() {
-        TSLIOTUploadPassLogResult result = buildPartial();
+      public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult build() {
+        com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public TSLIOTUploadPassLogResult buildPartial() {
-        TSLIOTUploadPassLogResult result = new TSLIOTUploadPassLogResult(this);
+      public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult buildPartial() {
+        com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult result = new com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult(this);
         int from_bitField0_ = bitField0_;
         if (logResultsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -4398,7 +4398,7 @@ public final class TSLIOTBusinessLog {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -4411,25 +4411,25 @@ public final class TSLIOTBusinessLog {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof TSLIOTUploadPassLogResult) {
-          return mergeFrom((TSLIOTUploadPassLogResult)other);
+        if (other instanceof com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult) {
+          return mergeFrom((com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(TSLIOTUploadPassLogResult other) {
-        if (other == TSLIOTUploadPassLogResult.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult other) {
+        if (other == com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult.getDefaultInstance()) return this;
         if (logResultsBuilder_ == null) {
           if (!other.logResults_.isEmpty()) {
             if (logResults_.isEmpty()) {
@@ -4469,11 +4469,11 @@ public final class TSLIOTBusinessLog {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        TSLIOTUploadPassLogResult parsedMessage = null;
+        com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (TSLIOTUploadPassLogResult) e.getUnfinishedMessage();
+          parsedMessage = (com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -4484,17 +4484,17 @@ public final class TSLIOTBusinessLog {
       }
       private int bitField0_;
 
-      private java.util.List<TSLIOTLogCommonResult> logResults_ =
+      private java.util.List<com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult> logResults_ =
         java.util.Collections.emptyList();
       private void ensureLogResultsIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          logResults_ = new java.util.ArrayList<TSLIOTLogCommonResult>(logResults_);
+          logResults_ = new java.util.ArrayList<com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult>(logResults_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          TSLIOTLogCommonResult, TSLIOTLogCommonResult.Builder, TSLIOTLogCommonResultOrBuilder> logResultsBuilder_;
+          com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.Builder, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResultOrBuilder> logResultsBuilder_;
 
       /**
        * <pre>
@@ -4503,7 +4503,7 @@ public final class TSLIOTBusinessLog {
        *
        * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
        */
-      public java.util.List<TSLIOTLogCommonResult> getLogResultsList() {
+      public java.util.List<com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult> getLogResultsList() {
         if (logResultsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(logResults_);
         } else {
@@ -4531,7 +4531,7 @@ public final class TSLIOTBusinessLog {
        *
        * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
        */
-      public TSLIOTLogCommonResult getLogResults(int index) {
+      public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult getLogResults(int index) {
         if (logResultsBuilder_ == null) {
           return logResults_.get(index);
         } else {
@@ -4546,7 +4546,7 @@ public final class TSLIOTBusinessLog {
        * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
        */
       public Builder setLogResults(
-          int index, TSLIOTLogCommonResult value) {
+          int index, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult value) {
         if (logResultsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4567,7 +4567,7 @@ public final class TSLIOTBusinessLog {
        * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
        */
       public Builder setLogResults(
-          int index, TSLIOTLogCommonResult.Builder builderForValue) {
+          int index, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.Builder builderForValue) {
         if (logResultsBuilder_ == null) {
           ensureLogResultsIsMutable();
           logResults_.set(index, builderForValue.build());
@@ -4584,7 +4584,7 @@ public final class TSLIOTBusinessLog {
        *
        * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
        */
-      public Builder addLogResults(TSLIOTLogCommonResult value) {
+      public Builder addLogResults(com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult value) {
         if (logResultsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4605,7 +4605,7 @@ public final class TSLIOTBusinessLog {
        * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
        */
       public Builder addLogResults(
-          int index, TSLIOTLogCommonResult value) {
+          int index, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult value) {
         if (logResultsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4626,7 +4626,7 @@ public final class TSLIOTBusinessLog {
        * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
        */
       public Builder addLogResults(
-          TSLIOTLogCommonResult.Builder builderForValue) {
+          com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.Builder builderForValue) {
         if (logResultsBuilder_ == null) {
           ensureLogResultsIsMutable();
           logResults_.add(builderForValue.build());
@@ -4644,7 +4644,7 @@ public final class TSLIOTBusinessLog {
        * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
        */
       public Builder addLogResults(
-          int index, TSLIOTLogCommonResult.Builder builderForValue) {
+          int index, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.Builder builderForValue) {
         if (logResultsBuilder_ == null) {
           ensureLogResultsIsMutable();
           logResults_.add(index, builderForValue.build());
@@ -4662,7 +4662,7 @@ public final class TSLIOTBusinessLog {
        * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
        */
       public Builder addAllLogResults(
-          Iterable<? extends TSLIOTLogCommonResult> values) {
+          java.lang.Iterable<? extends com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult> values) {
         if (logResultsBuilder_ == null) {
           ensureLogResultsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -4714,7 +4714,7 @@ public final class TSLIOTBusinessLog {
        *
        * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
        */
-      public TSLIOTLogCommonResult.Builder getLogResultsBuilder(
+      public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.Builder getLogResultsBuilder(
           int index) {
         return getLogResultsFieldBuilder().getBuilder(index);
       }
@@ -4725,7 +4725,7 @@ public final class TSLIOTBusinessLog {
        *
        * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
        */
-      public TSLIOTLogCommonResultOrBuilder getLogResultsOrBuilder(
+      public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResultOrBuilder getLogResultsOrBuilder(
           int index) {
         if (logResultsBuilder_ == null) {
           return logResults_.get(index);  } else {
@@ -4739,7 +4739,7 @@ public final class TSLIOTBusinessLog {
        *
        * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
        */
-      public java.util.List<? extends TSLIOTLogCommonResultOrBuilder>
+      public java.util.List<? extends com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResultOrBuilder> 
            getLogResultsOrBuilderList() {
         if (logResultsBuilder_ != null) {
           return logResultsBuilder_.getMessageOrBuilderList();
@@ -4754,9 +4754,9 @@ public final class TSLIOTBusinessLog {
        *
        * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
        */
-      public TSLIOTLogCommonResult.Builder addLogResultsBuilder() {
+      public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.Builder addLogResultsBuilder() {
         return getLogResultsFieldBuilder().addBuilder(
-            TSLIOTLogCommonResult.getDefaultInstance());
+            com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.getDefaultInstance());
       }
       /**
        * <pre>
@@ -4765,10 +4765,10 @@ public final class TSLIOTBusinessLog {
        *
        * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
        */
-      public TSLIOTLogCommonResult.Builder addLogResultsBuilder(
+      public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.Builder addLogResultsBuilder(
           int index) {
         return getLogResultsFieldBuilder().addBuilder(
-            index, TSLIOTLogCommonResult.getDefaultInstance());
+            index, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.getDefaultInstance());
       }
       /**
        * <pre>
@@ -4777,16 +4777,16 @@ public final class TSLIOTBusinessLog {
        *
        * <code>repeated .TslIotProto.TSLIOTLogCommonResult log_results = 1;</code>
        */
-      public java.util.List<TSLIOTLogCommonResult.Builder>
+      public java.util.List<com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.Builder> 
            getLogResultsBuilderList() {
         return getLogResultsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          TSLIOTLogCommonResult, TSLIOTLogCommonResult.Builder, TSLIOTLogCommonResultOrBuilder>
+          com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.Builder, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResultOrBuilder> 
           getLogResultsFieldBuilder() {
         if (logResultsBuilder_ == null) {
           logResultsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              TSLIOTLogCommonResult, TSLIOTLogCommonResult.Builder, TSLIOTLogCommonResultOrBuilder>(
+              com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResult.Builder, com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTLogCommonResultOrBuilder>(
                   logResults_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
@@ -4810,12 +4810,12 @@ public final class TSLIOTBusinessLog {
     }
 
     // @@protoc_insertion_point(class_scope:TslIotProto.TSLIOTUploadPassLogResult)
-    private static final TSLIOTUploadPassLogResult DEFAULT_INSTANCE;
+    private static final com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new TSLIOTUploadPassLogResult();
+      DEFAULT_INSTANCE = new com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult();
     }
 
-    public static TSLIOTUploadPassLogResult getDefaultInstance() {
+    public static com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4833,12 +4833,12 @@ public final class TSLIOTBusinessLog {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<TSLIOTUploadPassLogResult> getParserForType() {
       return PARSER;
     }
 
-    public TSLIOTUploadPassLogResult getDefaultInstanceForType() {
+    public com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog.TSLIOTUploadPassLogResult getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4872,7 +4872,7 @@ public final class TSLIOTBusinessLog {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
+    java.lang.String[] descriptorData = {
       "\n\027TSLIOTBusinessLog.proto\022\013TslIotProto\"\372" +
       "\002\n\032TSLIOTUploadPassLogRequest\022H\n\tpass_lo" +
       "gs\030\001 \003(\01325.TslIotProto.TSLIOTUploadPassL" +
@@ -4908,25 +4908,25 @@ public final class TSLIOTBusinessLog {
     internal_static_TslIotProto_TSLIOTUploadPassLogRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TslIotProto_TSLIOTUploadPassLogRequest_descriptor,
-        new String[] { "PassLogs", });
+        new java.lang.String[] { "PassLogs", });
     internal_static_TslIotProto_TSLIOTUploadPassLogRequest_TSLIOTPassLog_descriptor =
       internal_static_TslIotProto_TSLIOTUploadPassLogRequest_descriptor.getNestedTypes().get(0);
     internal_static_TslIotProto_TSLIOTUploadPassLogRequest_TSLIOTPassLog_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TslIotProto_TSLIOTUploadPassLogRequest_TSLIOTPassLog_descriptor,
-        new String[] { "DevId", "PersonId", "Feature", "PersonType", "Direction", "Time", "OpenResult", "DevStatus", "OpenType", "CardNo", "PassImg", "PassVideo", "Reserve", "DevLogId", });
+        new java.lang.String[] { "DevId", "PersonId", "Feature", "PersonType", "Direction", "Time", "OpenResult", "DevStatus", "OpenType", "CardNo", "PassImg", "PassVideo", "Reserve", "DevLogId", });
     internal_static_TslIotProto_TSLIOTLogCommonResult_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_TslIotProto_TSLIOTLogCommonResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TslIotProto_TSLIOTLogCommonResult_descriptor,
-        new String[] { "DevId", "DevLogId", "Code", "Message", });
+        new java.lang.String[] { "DevId", "DevLogId", "Code", "Message", });
     internal_static_TslIotProto_TSLIOTUploadPassLogResult_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_TslIotProto_TSLIOTUploadPassLogResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TslIotProto_TSLIOTUploadPassLogResult_descriptor,
-        new String[] { "LogResults", });
+        new java.lang.String[] { "LogResults", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -20,6 +20,7 @@ import com.terminus.iotextension.event.RuleEvent;
 import com.terminus.iotextension.event.ServerEvent;
 import com.terminus.iotextension.event.TimeEvent;
 import com.terminus.iotextension.event.UninstallEvent;
+import com.terminus.iotextension.event.UpdateEvent;
 import com.terminus.iotextension.iot.config.DataType;
 import com.terminus.iotextension.iot.config.DevStatus;
 import com.terminus.iotextension.iot.config.Direction;
@@ -60,6 +61,7 @@ public class IotRespository extends MqttImpl {
                 .password(IoTConstant.PASSWORD.toCharArray())
                 .rsaKey(IoTConstant.RSA_KEY)
                 .autoReconnect(false)
+                .cleanSession(true)
                 .willTopic(IoTConstant.PUB_TOPIC)
                 .willBytes(newFrame(IoTProtocol.MSG_TYPE_SYSTEM,
                         Short.MAX_VALUE,
@@ -104,6 +106,13 @@ public class IotRespository extends MqttImpl {
                     byte[] crcB = new byte[4];
                     System.arraycopy(data, data.length - 4, crcB, 0, 4);
 
+                    Log.i(TAG,"MqttMessage:" + Arrays.toString(data));
+                    Log.i(TAG,"id:" + Arrays.toString(id));
+                    Log.i(TAG, "serviceType:" + Arrays.toString(serviceType));
+                    Log.i(TAG,"cmd:" + Arrays.toString(cmd));
+                    Log.i(TAG,"crcB:" + Arrays.toString(crcB));
+                    Log.i(TAG,"body:"+ Arrays.toString(body) + "  " + "body Length:" + body.length);
+
                     ret.setMsgType(data[0])
                             .setSequenceId(ConvertUtil.bytesToShort(id))
                             .setServiceType(ConvertUtil.bytesToShort(serviceType))
@@ -111,7 +120,13 @@ public class IotRespository extends MqttImpl {
                             .setBody(AESUtil.decrypt(body, ret.getAesKey()))
                             .setCRC32(ConvertUtil.bytesToInt(crcB));
 
-                    messageWorked(ret);
+                    if (ret.getBody() != null) {
+                        messageWorked(ret);
+                    } else {
+                        if (mIotMessageCallback != null) {
+                            mIotMessageCallback.onError(new NullPointerException("body is null"));
+                        }
+                    }
                 }
 
                 @Override
@@ -278,8 +293,42 @@ public class IotRespository extends MqttImpl {
             case IoTProtocol.CMD_TYPE_UPDATE_TIME_ACK:
                 checkTime(frame);
                 break;
+            case IoTProtocol.CMD_TYPE_UPGRADE_TASK:
+                updateApp(frame);
+                break;
             default:
                 break;
+        }
+    }
+
+    /**
+     * 升级更新
+     */
+    private void updateApp(IotFrame frame) {
+        InputStream input = new ByteArrayInputStream(frame.getBody());
+
+        try {
+            TSLIOTCommon.TSLIOTUpgradeTask result =
+                    TSLIOTCommon.TSLIOTUpgradeTask.parseFrom(input);
+
+            long taskId = result.getTaskId();
+            String devId = result.getDevId();
+            int fileSize = result.getSize();
+            String fileUrl = result.getUrl();
+            String md5 = result.getMd5();
+            int fileType = result.getFileType();
+            int updateType = result.getUpgradeType();
+            String version = result.getVersion();
+            String devVersion = result.getApplyVersion();
+            int osId = result.getFileId();
+            int coreType = result.getType();
+
+            if (mIotMessageCallback != null) {
+                mIotMessageCallback.onEvent(new UpdateEvent(taskId,devId,fileSize,fileUrl,md5,fileType,
+                        updateType,version,devVersion,osId,coreType));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
