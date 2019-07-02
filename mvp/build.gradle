@@ -17,6 +17,12 @@ android {
 
     }
 
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
 
 }
 group = 'com.github.JoeSteven' // 最好是你的 github 名字
@@ -31,5 +37,5 @@ dependencies {
 
 ext.group_Id('com.joey.cheetah')
 ext.artifact_id('mvp')
-ext.version_name('2.0.0-SNAPSHOT')
+ext.version_name('2.0.1-SNAPSHOT')
 ext.aar_name('mvp-release.aar')

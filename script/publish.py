@@ -34,7 +34,7 @@ def main():
     gradle = open(module + "/build.gradle", "r")
     lines = gradle.readlines()
     for line in lines:
-        if "ext.version_name" not in line:
+        if "ext.version_name" not in line or "//" in line:
             continue
         version = line
         break

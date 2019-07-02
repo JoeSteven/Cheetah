@@ -34,8 +34,8 @@ dependencies {
     compileOnly APPCOMPAT_V7
     if (DEBUG.toBoolean()) {
         compileOnly project(BASIC_UTILITY)
-    } else {
-        compileOnly BASIC_UTILITY_
+    }  else  {
+        compileOnly BASIC_UTILITY_RELEASE
     }
 
     //thread
