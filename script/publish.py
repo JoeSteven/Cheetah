@@ -22,8 +22,8 @@ def main():
         if "DEBUG" not in line:
             continue
         print(line)
-        if "true" not in line:
-            print("gradle.properties 中 DEBUG 属性需要设置为true才可以开始打包发布!")
+        if "false" not in line:
+            print("gradle.properties 中 DEBUG 属性需要设置为 false 才可以开始打包发布!")
             return
     # 检查当前的branch
     status, result = sp.getstatusoutput("git status")
