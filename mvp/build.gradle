@@ -31,5 +31,5 @@ dependencies {
 
 ext.group_Id('com.joey.cheetah')
 ext.artifact_id('mvp')
-ext.version_name('1.4.6')
+ext.version_name('2.0.0-SNAPSHOT')
 ext.aar_name('mvp-release.aar')

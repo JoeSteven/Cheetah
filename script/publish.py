@@ -15,6 +15,16 @@ def main():
         print("python3 publish.py [module], module 为要打包的模块名称")
         return
     module = path + module
+    # 检查 gradle.properties 的DEBUG 属性
+    properties = open("gradle.properties")
+    propertie_lines = properties.readlines()
+    for line in propertie_lines:
+        if "DEBUG" not in line:
+            continue
+        print(line)
+        if "true" not in line:
+            print("gradle.properties 中 DEBUG 属性需要设置为true才可以开始打包发布!")
+            return
     # 检查当前的branch
     status, result = sp.getstatusoutput("git status")
     print("正在检查当前分支")
