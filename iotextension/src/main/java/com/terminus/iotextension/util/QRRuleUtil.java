@@ -1,8 +1,10 @@
 package com.terminus.iotextension.util;
 
+
 import com.terminus.iot.utils.AESUtil;
 import com.terminus.iot.utils.base64.BASE64Decoder;
 import com.terminus.iotextension.bean.QRInfo;
+
 
 /**
  * description AIOT二维码生成及解析相关规则
@@ -10,20 +12,6 @@ import com.terminus.iotextension.bean.QRInfo;
  * create      2019-05-16 19:41
  **/
 public class QRRuleUtil {
-
-    /**
-     * 合并字符数组为新的字符数组
-     * @param bt1 字符数组1
-     * @param bt2 字符数组2
-     * @return 合并后的字符数组
-     */
-    private static byte[] byteMerger(byte[] bt1, byte[] bt2){
-        byte[] bt3 = new byte[bt1.length+bt2.length];
-        System.arraycopy(bt1, 0, bt3, 0, bt1.length);
-        System.arraycopy(bt2, 0, bt3, bt1.length, bt2.length);
-        return bt3;
-    }
-
     /**
      * 解析二维码到可识别数据
      * @param qrStr 二维码字符串
@@ -34,7 +22,7 @@ public class QRRuleUtil {
      */
     public static QRInfo parseFromQrStr(String qrStr, String aesKey, String rsaPublicKeyStr) throws Exception{
         byte[] qrBytes = new BASE64Decoder().decodeBuffer(qrStr);
-        qrBytes = AESUtil.decrypt(qrBytes, aesKey.getBytes(),AESUtil.QR);
+        qrBytes = AESUtil.decrypt(qrBytes, aesKey.getBytes());
         byte[] qrTimeBytes = null;
         byte[] tokenBytes = null;
         byte[] customBytes = null;
@@ -58,15 +46,17 @@ public class QRRuleUtil {
 
         long qrTime = Long.valueOf(new String(qrTimeBytes));
         String customInfo = new String(customBytes);
-        System.out.println(qrTime);
-        System.out.println(customInfo);
+        //System.out.println(qrTime);
+        //System.out.println(customInfo);
 
         /*
         byte[] publicKeyBytes = new BASE64Decoder().decodeBuffer(rsaPublicKeyStr);
         PublicKey publicKey = RsaTools.restorePublicKey(publicKeyBytes);
         tokenBytes = RsaTools.RSADecode(publicKey, tokenBytes);
         */
+        //System.out.println(StringConvertUtils.encryptBASE64(tokenBytes));
         tokenBytes = OrUtils.decrypt(tokenBytes, rsaPublicKeyStr);
+
         String token = new String(tokenBytes);
         System.out.println(token);
 
@@ -74,7 +64,7 @@ public class QRRuleUtil {
         qrInfo.setCustomInfo(customInfo);
         qrInfo.setQrValidTime(Long.valueOf(qrTime));
         String[] infos = token.split("-");
-        if(infos.length != 7)
+        if(infos.length != 8 && infos.length != 7)
             throw new Exception("token info num error");
         qrInfo.setPermissionId(Long.valueOf(infos[0]));
         qrInfo.setPersonId(Long.valueOf(infos[1]));
@@ -99,6 +89,10 @@ public class QRRuleUtil {
         if(!infos[5].equals("null"))
             qrInfo.setHeight(Integer.valueOf(infos[5]));
         qrInfo.setValidTime(Long.valueOf(infos[6]));
+        if(infos.length == 8) //说明是新增的有有效期起始时间的二维码
+            qrInfo.setValidTimeStart(Long.valueOf(infos[7]));
+        else
+            qrInfo.setValidTimeStart(1559318400L); //否则设置起始时间为2019/6/1
         return qrInfo;
     }
 

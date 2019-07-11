@@ -7,6 +7,16 @@ package com.terminus.iotextension.iot.config;
 public enum PersonError {
 
     /**
+     * 重新处理成功
+     */
+    SUCCESS("success"),
+
+    /**
+     * 图片服务器无响应
+     */
+    NORESPONSE("server_no_response"),
+
+    /**
      * 没有照片
      */
     NOPIC("no_picture"),

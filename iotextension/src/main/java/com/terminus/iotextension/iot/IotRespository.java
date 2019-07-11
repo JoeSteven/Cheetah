@@ -48,7 +48,7 @@ import java.util.Arrays;
  * @author rain
  * @date 2019/4/28
  */
-public class IotRespository extends MqttImpl {
+public class IotRespository extends Mqtt {
 
     private boolean isConnect;
 
@@ -296,8 +296,33 @@ public class IotRespository extends MqttImpl {
             case IoTProtocol.CMD_TYPE_UPGRADE_TASK:
                 updateApp(frame);
                 break;
+            case IoTProtocol.CMD_TYPE_UPGRADE_STATUS_ACK:
+                updateAppAck(frame);
+                break;
             default:
                 break;
+        }
+    }
+
+    /**
+     *  升级状态相应
+     */
+    private void updateAppAck(IotFrame frame) {
+        InputStream input = new ByteArrayInputStream(frame.getBody());
+
+        try {
+            TSLIOTCommon.TSLIOTCommonResult result =
+                    TSLIOTCommon.TSLIOTCommonResult.parseFrom(input);
+
+            if (result != null) {
+                if (result.getCode() != 0) {
+                    Log.i(TAG,"更新响应失败");
+                } else {
+                    Log.i(TAG,"更新响应成功");
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -310,22 +335,32 @@ public class IotRespository extends MqttImpl {
         try {
             TSLIOTCommon.TSLIOTUpgradeTask result =
                     TSLIOTCommon.TSLIOTUpgradeTask.parseFrom(input);
+            if (result != null) {
+                long taskId = result.getTaskId();
+                String devId = result.getDevId();
+                long fileSize = result.getSize();
+                String fileUrl = result.getUrl();
+                String md5 = result.getMd5();
+                int fileType = result.getFileType();
+                int updateType = result.getUpgradeType();
+                String version = result.getVersion();
+                String devVersion = result.getApplyVersion();
+                int osId = result.getFileId();
+                int coreType = result.getType();
 
-            long taskId = result.getTaskId();
-            String devId = result.getDevId();
-            int fileSize = result.getSize();
-            String fileUrl = result.getUrl();
-            String md5 = result.getMd5();
-            int fileType = result.getFileType();
-            int updateType = result.getUpgradeType();
-            String version = result.getVersion();
-            String devVersion = result.getApplyVersion();
-            int osId = result.getFileId();
-            int coreType = result.getType();
+                if (mIotMessageCallback != null) {
+                    mIotMessageCallback.onEvent(new UpdateEvent(taskId,devId,fileSize,fileUrl,md5,fileType,
+                            updateType,version,devVersion,osId,coreType));
+                }
 
-            if (mIotMessageCallback != null) {
-                mIotMessageCallback.onEvent(new UpdateEvent(taskId,devId,fileSize,fileUrl,md5,fileType,
-                        updateType,version,devVersion,osId,coreType));
+                IotFrame update = newFrame(
+                        IoTProtocol.MSG_TYPE_SYSTEM,
+                        mIoTClient.generateId(),
+                        IoTProtocol.SERVICE_TYPE_COMMON,
+                        IoTProtocol.CMD_TYPE_UPGRADE_TASK_ACK,
+                        IotPBUtil.constructCommonResult());
+
+                sendFrame(update);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -342,13 +377,18 @@ public class IotRespository extends MqttImpl {
             TSLIOTCommon.TSLIOTTimeResult result =
                     TSLIOTCommon.TSLIOTTimeResult.parseFrom(input);
 
-            long time = result.getTime();
+            if (result != null) {
+                long time = result.getTime();
 
-            if (mIotMessageCallback != null) {
-                mIotMessageCallback.onEvent(new TimeEvent(time));
+                if (mIotMessageCallback != null) {
+                    mIotMessageCallback.onEvent(new TimeEvent(time));
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
+            if (mIotMessageCallback != null) {
+                mIotMessageCallback.onError(e);
+            }
         }
     }
 
@@ -362,12 +402,14 @@ public class IotRespository extends MqttImpl {
             TSLIOTCommon.TSLIOTPlatformSetting result =
                     TSLIOTCommon.TSLIOTPlatformSetting.parseFrom(input);
 
-            boolean network = result.getAccessNetwork();
-            String zimgUrl = result.getZimgUrlPrefix();
-            String httpUrl = result.getHttpUrlPrefix();
+            if (result != null) {
+                boolean network = result.getAccessNetwork();
+                String zimgUrl = result.getZimgUrlPrefix();
+                String httpUrl = result.getHttpUrlPrefix();
 
-            if (mIotMessageCallback != null) {
-                mIotMessageCallback.onEvent(new ServerEvent(network,zimgUrl,httpUrl));
+                if (mIotMessageCallback != null) {
+                    mIotMessageCallback.onEvent(new ServerEvent(network,zimgUrl,httpUrl));
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -384,11 +426,13 @@ public class IotRespository extends MqttImpl {
             TSLIOTCommon.TSLIOTPassRule result =
                     TSLIOTCommon.TSLIOTPassRule.parseFrom(input);
 
-            String projectId = result.getPassPermissionId();
-            String personId = result.getPassPersonId();
+            if (result != null) {
+                String projectId = result.getPassPermissionId();
+                String personId = result.getPassPersonId();
 
-            if (mIotMessageCallback != null) {
-                mIotMessageCallback.onEvent(new RuleEvent(personId,projectId));
+                if (mIotMessageCallback != null) {
+                    mIotMessageCallback.onEvent(new RuleEvent(personId,projectId));
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -405,12 +449,14 @@ public class IotRespository extends MqttImpl {
             TSLIOTCommon.TSLIOTQrCodeInfo result =
                     TSLIOTCommon.TSLIOTQrCodeInfo.parseFrom(input);
 
-            String aesKey = result.getAesKey();
-            String rsaKey = result.getRsaPublicKey();
-            int duration = result.getEffectiveDuration();
+            if (result != null) {
+                String aesKey = result.getAesKey();
+                String rsaKey = result.getRsaPublicKey();
+                int duration = result.getEffectiveDuration();
 
-            if (mIotMessageCallback != null) {
-                mIotMessageCallback.onEvent(new CodeEvent(aesKey,rsaKey,duration));
+                if (mIotMessageCallback != null) {
+                    mIotMessageCallback.onEvent(new CodeEvent(aesKey,rsaKey,duration));
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -441,15 +487,16 @@ public class IotRespository extends MqttImpl {
             TSLIOTDataSync.TSLIOTDispatchRoomInfoRequest result =
                     TSLIOTDataSync.TSLIOTDispatchRoomInfoRequest.parseFrom(input);
 
-            if (result.getListList().size() > 0) {
-                RoomInfoEvent infoEvent = new RoomInfoEvent(result.getDevId(),result.getVersion(),
-                        result.getMore(),result.getListList());
+            if (result != null) {
+                if (result.getListList().size() > 0) {
+                    RoomInfoEvent infoEvent = new RoomInfoEvent(result.getDevId(),result.getVersion(),
+                            result.getMore(),result.getListList());
 
-                if (mIotMessageCallback != null) {
-                    mIotMessageCallback.onEvent(infoEvent);
+                    if (mIotMessageCallback != null) {
+                        mIotMessageCallback.onEvent(infoEvent);
+                    }
                 }
             }
-
         } catch (IOException e) {
             if (BuildConfig.DEBUG) {
                 Log.e(TAG, e.getMessage());
@@ -471,15 +518,16 @@ public class IotRespository extends MqttImpl {
             TSLIOTDataSync.TSLIOTDispatchPersonListRequest result =
                     TSLIOTDataSync.TSLIOTDispatchPersonListRequest.parseFrom(input);
 
-            if (result.getListList().size() > 0) {
-                PersonInfoEvent infoEvent = new PersonInfoEvent(result.getDevId(),result.getVersion(),
-                        result.getMore(),result.getListList());
+            if (result != null) {
+                if (result.getListList().size() > 0) {
+                    PersonInfoEvent infoEvent = new PersonInfoEvent(result.getDevId(),result.getVersion(),
+                            result.getMore(),result.getListList());
 
-                if (mIotMessageCallback != null) {
-                    mIotMessageCallback.onEvent(infoEvent);
+                    if (mIotMessageCallback != null) {
+                        mIotMessageCallback.onEvent(infoEvent);
+                    }
                 }
             }
-
         } catch (IOException e) {
             if (BuildConfig.DEBUG) {
                 Log.e(TAG, e.getMessage());
@@ -511,15 +559,16 @@ public class IotRespository extends MqttImpl {
             TSLIOTBusinessLog.TSLIOTUploadPassLogResult result =
                      TSLIOTBusinessLog.TSLIOTUploadPassLogResult.parseFrom(input);
 
-            if (result.getLogResultsList().size() > 0) {
-                PasslogResultEvent event = new PasslogResultEvent(result.getLogResultsList(),
-                        result.getLogResultsCount());
+            if (result != null) {
+                if (result.getLogResultsList().size() > 0) {
+                    PasslogResultEvent event = new PasslogResultEvent(result.getLogResultsList(),
+                            result.getLogResultsCount());
 
-                if (mIotMessageCallback != null) {
-                    mIotMessageCallback.onEvent(event);
+                    if (mIotMessageCallback != null) {
+                        mIotMessageCallback.onEvent(event);
+                    }
                 }
             }
-
         } catch (IOException e) {
             if (BuildConfig.DEBUG) {
                 Log.e(TAG, e.getMessage());
@@ -564,6 +613,21 @@ public class IotRespository extends MqttImpl {
                 IoTProtocol.SERVICE_TYPE_DATA_SYNC,
                 IoTProtocol.CMD_TYPE_PULL_DATA,
                 IotPBUtil.constructPullDataSync(type,version));
+
+        sendFrame(frame);
+    }
+
+    /**
+     * 设备升级状态报告
+     */
+    @Override
+    public void updateAck() {
+        IotFrame frame = newFrame(
+                IoTProtocol.MSG_TYPE_SYSTEM,
+                mIoTClient.generateId(),
+                IoTProtocol.SERVICE_TYPE_COMMON,
+                IoTProtocol.CMD_TYPE_UPGRADE_STATUS,
+                IotPBUtil.constructUpdateInfo());
 
         sendFrame(frame);
     }
@@ -725,18 +789,21 @@ public class IotRespository extends MqttImpl {
         try {
             TSLIOTCommon.TSLIOTCommonResult comRet =
                     TSLIOTCommon.TSLIOTCommonResult.parseFrom(input);
-            if (comRet.getCode() != 0) {
-                if (BuildConfig.DEBUG) {
-                    Log.i(TAG, "update aes key failed:" + comRet + "," + "id:" + frame.getSequenceId());
-                }
-            } else {
-                if (BuildConfig.DEBUG) {
-                    Log.i(TAG, "update aes key success" + "," + "id:" + frame.getSequenceId());
-                }
 
-                registerDevice();
-                //注册成功
-                mIotMessageCallback.onSuccess(false, true);
+            if (comRet != null) {
+                if (comRet.getCode() != 0) {
+                    if (BuildConfig.DEBUG) {
+                        Log.i(TAG, "update aes key failed:" + comRet + "," + "id:" + frame.getSequenceId());
+                    }
+                } else {
+                    if (BuildConfig.DEBUG) {
+                        Log.i(TAG, "update aes key success" + "," + "id:" + frame.getSequenceId());
+                    }
+
+                    registerDevice();
+                    //注册成功
+                    mIotMessageCallback.onSuccess(false, true);
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();

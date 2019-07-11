@@ -10,7 +10,7 @@ public class UpdateEvent extends BaseEvent {
     //设备ID
     public final String devId;
     //下发文件大小字节
-    public final int fileSize;
+    public final long fileSize;
     //文件url
     public final String fileUrl;
     //文件md5
@@ -28,7 +28,7 @@ public class UpdateEvent extends BaseEvent {
     //芯片类型
     public final int coreType;
 
-    public UpdateEvent(long taskId, String devId, int fileSize, String fileUrl, String md5,
+    public UpdateEvent(long taskId, String devId, long fileSize, String fileUrl, String md5,
                        int fileType, int updateType, String updateVersion,
                        String devVersion, int osId, int coreType) {
         this.taskId = taskId;

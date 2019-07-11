@@ -135,6 +135,22 @@ class IotPBUtil {
         return getBytes(settingRequest.build());
     }
 
+    static byte[] constructCommonResult() {
+        TSLIOTCommon.TSLIOTCommonResult.Builder settingResult= TSLIOTCommon.TSLIOTCommonResult.newBuilder();
+
+        settingResult.setDevId(IoTConstant.DEV_ID);
+
+        return getBytes(settingResult.build());
+    }
+
+    static byte[] constructUpdateInfo() {
+        TSLIOTCommon.TSLIOTUpgradeStatus.Builder update = TSLIOTCommon.TSLIOTUpgradeStatus.newBuilder();
+
+        update.setDevId(IoTConstant.DEV_ID);
+
+        return getBytes(update.build());
+    }
+
     static byte[] constructPersonError(int personId, PersonType type, PersonError error,long version, String errorInfo) {
         TSLIOTDataSync.TSLIOTPersonError.Builder errorRequest = TSLIOTDataSync.TSLIOTPersonError.newBuilder();
 

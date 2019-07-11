@@ -16,9 +16,9 @@ import java.util.List;
  * @author rain
  * @date 2019/4/28
  */
-public class IotController extends MqttImpl {
+public class IotController extends Mqtt {
 
-    private MqttImpl mIot;
+    private Mqtt mIot;
 
     private volatile static IotController INSTANCE = null;
 
@@ -32,6 +32,10 @@ public class IotController extends MqttImpl {
         }
 
         return INSTANCE;
+    }
+
+    public IotController(Mqtt mqtt) {
+        this.mIot = mqtt;
     }
 
     @Override
@@ -157,6 +161,14 @@ public class IotController extends MqttImpl {
     @Override
     public void asylocalData(DataType type, long version) {
         mIot.asylocalData(type, version);
+    }
+
+    /**
+     * 设备升级状态报告
+     */
+    @Override
+    public void updateAck() {
+        mIot.updateAck();
     }
 
     /**

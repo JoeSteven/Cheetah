@@ -1,7 +1,6 @@
 package com.terminus.iotextension.iot;
 
 import com.terminus.iot.IoTClient;
-import com.terminus.iotextension.event.AeskeyEvent;
 import com.terminus.iotextension.event.BaseEvent;
 import com.terminus.iotextension.iot.config.DataType;
 import com.terminus.iotextension.iot.config.DevStatus;
@@ -14,13 +13,11 @@ import com.terminus.iotextension.iot.config.PersonType;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
 
-import java.util.List;
-
 /**
  * @author rain
  * @date 2019/4/26
  */
-public abstract class MqttImpl {
+public abstract class Mqtt {
 
     final static String TAG = "MQTT";
 
@@ -55,6 +52,8 @@ public abstract class MqttImpl {
     abstract void errorInfo(int personId, PersonType type, PersonError error,long version, String customInfo);
 
     abstract void asylocalData(DataType type, long version);
+
+    abstract void updateAck();
 
     abstract void uploadPassLog(int personId, String feature, PersonType personType,
                                 Direction direction, long time, OpenStatus openStatus,

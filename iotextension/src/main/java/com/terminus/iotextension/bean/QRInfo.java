@@ -13,11 +13,20 @@ public class QRInfo {
     private Integer weight;
     private Integer height;
     private Long validTime;
+    private Long validTimeStart;
     private Long qrValidTime;
     private String customInfo;
 
     public Long getPermissionId() {
         return permissionId;
+    }
+
+    public Long getValidTimeStart() {
+        return validTimeStart;
+    }
+
+    public void setValidTimeStart(Long validTimeStart) {
+        this.validTimeStart = validTimeStart;
     }
 
     public void setPermissionId(Long permissionId) {
