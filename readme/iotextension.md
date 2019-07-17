@@ -34,13 +34,11 @@
                   .mac(xx)
     							//第一次初始化默认值为空，需进行随机生成，下次再初始化时传入响应过后固化下来的key
                   .aesKey(xx)
-    							//该数据类型为DataType,传入当前设备需求的数据类型信息
-                  .needItems(xx)
                   .subTopic("/down/" + productKey + "/" + devId)
                   .pubTopic("/up/" + productKey + "/" + devId)
                   .build();
   ```
-
+  
 - 初始化
 
   ``` java
@@ -93,6 +91,9 @@
                   } else if (baseEvent instanceof PasslogResultEvent) {
                     	//通行日志记录结果事件
                       PasslogResultEvent event = (PasslogResultEvent) baseEvent;
+                  } else if (baseEvent instanceof UpdateEvent) {
+                    	//应用更新信息事件
+                      UpdateEvent updateEvent = (UpdateEvent) baseEvent;
                   }
               }
           });
@@ -134,6 +135,12 @@
    mIotController.requestQr();
    ```
 
+ - 应用升级结果回报
+
+   ```java
+   mIotController.updateAck();
+   ```
+   
  - 拉取数据
 
    ```java
@@ -420,6 +427,15 @@
 
   ```java
   public enum PersonError {
+     /**
+       * 重新处理成功
+       */
+      SUCCESS,
+  
+      /**
+       * 图片服务器无响应
+       */
+      NORESPONSE,
       /**
        * 没有照片
        */
@@ -480,7 +496,7 @@
       /**
        * 陌生人
        */
-      UNKNOWN(;
+      UNKNOWN;
   }
   ```
 

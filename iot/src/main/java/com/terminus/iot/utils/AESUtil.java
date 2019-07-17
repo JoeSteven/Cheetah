@@ -53,21 +53,21 @@ public class AESUtil {
     private static final byte[] iv = {0xA, 1, 0xB, 5, 4, 0xF, 7, 9, 0x17, 3, 1, 6, 8, 0xC, 0xD, 91};
 
     private static void init(byte[] keyBytes,String type) {
-
-        // 如果密钥不足16位，那么就补足.  这个if 中的内容很重要
-        int base = 16;
-        if (keyBytes.length % base != 0) {
-            int groups = keyBytes.length / base + (keyBytes.length % base != 0 ? 1 : 0);
-            byte[] temp = new byte[groups * base];
-            Arrays.fill(temp, (byte) 0);
-            System.arraycopy(keyBytes, 0, temp, 0, keyBytes.length);
-            keyBytes = temp;
-        }
-        // 初始化
-        Security.addProvider(new BouncyCastleProvider());
-        // 转化成JAVA的密钥格式
-        key = new SecretKeySpec(keyBytes, KEY_ALGORITHM);
         try {
+            // 如果密钥不足16位，那么就补足.  这个if 中的内容很重要
+            int base = 16;
+            if (keyBytes.length % base != 0) {
+                int groups = keyBytes.length / base + (keyBytes.length % base != 0 ? 1 : 0);
+                byte[] temp = new byte[groups * base];
+                Arrays.fill(temp, (byte) 0);
+                System.arraycopy(keyBytes, 0, temp, 0, keyBytes.length);
+                keyBytes = temp;
+            }
+            // 初始化
+            Security.addProvider(new BouncyCastleProvider());
+            // 转化成JAVA的密钥格式
+            key = new SecretKeySpec(keyBytes, KEY_ALGORITHM);
+
             switch (type) {
                 case QR:
                     if (cipherMap.get("cipherQr") == null) {
@@ -76,14 +76,14 @@ public class AESUtil {
                         cipherMap.put("cipherQr",cipherQr);
                         keyMap.put("keyQr",key);
                     } else {
-                        cipherQr = cipherMap.get("cipherQr");
-                        if (!keyMap.get("keyQr").equals(key)) {
+                        if (!Arrays.equals(keyMap.get("keyQr").getEncoded(), key.getEncoded())) {
                             keyMap.remove("keyQr");
                             keyMap.put("keyQr",key);
                             cipherQr.init(Cipher.DECRYPT_MODE,key, new IvParameterSpec(iv));
                             cipherMap.remove("cipherQr");
                             cipherMap.put("cipherQr",cipherQr);
                         }
+                        cipherQr = cipherMap.get("cipherQr");
                     }
                     break;
                 case NORMAL:
@@ -99,10 +99,7 @@ public class AESUtil {
 
                         keyMap.put("key",key);
                     } else {
-                        cipherDe = cipherMap.get("cipherDe");
-                        cipherEn = cipherMap.get("cipherEn");
-
-                        if (!keyMap.get("key").equals(key)) {
+                        if (!Arrays.equals(keyMap.get("key").getEncoded(), key.getEncoded())) {
                             keyMap.remove("key");
                             keyMap.put("key",key);
                             cipherDe.init(Cipher.DECRYPT_MODE,key, new IvParameterSpec(iv));
@@ -112,6 +109,9 @@ public class AESUtil {
                             cipherMap.put("cipherDe",cipherDe);
                             cipherMap.put("cipherEn",cipherEn);
                         }
+
+                        cipherDe = cipherMap.get("cipherDe");
+                        cipherEn = cipherMap.get("cipherEn");
                     }
                     break;
             }
@@ -127,6 +127,8 @@ public class AESUtil {
         } catch (InvalidAlgorithmParameterException e) {
             e.printStackTrace();
         } catch (InvalidKeyException e) {
+            e.printStackTrace();
+        } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }
     }
@@ -155,7 +157,7 @@ public class AESUtil {
         return encryptedText;
     }
 
-    public static byte[] decrypt(byte[] encryptedData, byte[] keyBytes) {
+    public static synchronized byte[] decrypt(byte[] encryptedData, byte[] keyBytes) {
         return decrypt(encryptedData, keyBytes,"");
     }
 
@@ -169,6 +171,9 @@ public class AESUtil {
     public static byte[] decrypt(byte[] encryptedData, byte[] keyBytes,String type) {
         byte[] encryptedText = null;
         init(keyBytes,type);
+        Log.i("MQTT", "encryptedData:" + Arrays.toString(encryptedData) + "  " +
+                "encryptedData length:" + encryptedData.length + "  " +
+                "key:" + Arrays.toString(keyBytes) + "  " + "type:" + type);
         try {
             if (QR.equals(type)) {
                 encryptedText = cipherQr.doFinal(encryptedData);

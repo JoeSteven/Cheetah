@@ -348,11 +348,6 @@ public class IotRespository extends Mqtt {
                 int osId = result.getFileId();
                 int coreType = result.getType();
 
-                if (mIotMessageCallback != null) {
-                    mIotMessageCallback.onEvent(new UpdateEvent(taskId,devId,fileSize,fileUrl,md5,fileType,
-                            updateType,version,devVersion,osId,coreType));
-                }
-
                 IotFrame update = newFrame(
                         IoTProtocol.MSG_TYPE_SYSTEM,
                         mIoTClient.generateId(),
@@ -361,6 +356,11 @@ public class IotRespository extends Mqtt {
                         IotPBUtil.constructCommonResult());
 
                 sendFrame(update);
+
+                if (mIotMessageCallback != null) {
+                    mIotMessageCallback.onEvent(new UpdateEvent(taskId,devId,fileSize,fileUrl,md5,fileType,
+                            updateType,version,devVersion,osId,coreType));
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
