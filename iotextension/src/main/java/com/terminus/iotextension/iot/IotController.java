@@ -34,6 +34,14 @@ public class IotController extends Mqtt {
         return INSTANCE;
     }
 
+    private static IotController create(Mqtt mqtt) {
+        if (INSTANCE == null) {
+            INSTANCE = new IotController(mqtt);
+        }
+
+        return INSTANCE;
+    }
+
     public IotController(Mqtt mqtt) {
         this.mIot = mqtt;
     }
