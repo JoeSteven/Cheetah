@@ -70,6 +70,10 @@ public abstract class Mqtt {
         return mIoTClient != null;
     }
 
+    boolean isConnect() {
+        return mIoTClient.isConnected();
+    }
+
     public interface IotMessageCallback<T> {
         void onError(Throwable throwable);
 

@@ -755,26 +755,27 @@ public class IotRespository extends Mqtt {
             TSLIOTDevice.TSLIOTDeviceControlCmdRequest cmdResult =
                     TSLIOTDevice.TSLIOTDeviceControlCmdRequest.parseFrom(input);
             String cmd = cmdResult.getCmd();
-            switch (cmd) {
-                case "uninstall":
-                    if (mIotMessageCallback != null) {
-                        mIotMessageCallback.onEvent(new UninstallEvent(true));
-                    }
-                    break;
-                case "open":
-                    if (mIotMessageCallback != null) {
-                        mIotMessageCallback.onEvent(new DoorEvent(true));
-                    }
-                    break;
-                case "clear":
-                    if (mIotMessageCallback != null) {
-                        mIotMessageCallback.onEvent(new ResetEvent(true));
-                    }
-                    break;
-                default:
-                    break;
+            if (!TextUtils.isEmpty(cmd)) {
+                switch (cmd) {
+                    case "unInstall":
+                        if (mIotMessageCallback != null) {
+                            mIotMessageCallback.onEvent(new UninstallEvent(true));
+                        }
+                        break;
+                    case "open":
+                        if (mIotMessageCallback != null) {
+                            mIotMessageCallback.onEvent(new DoorEvent(true));
+                        }
+                        break;
+                    case "clear":
+                        if (mIotMessageCallback != null) {
+                            mIotMessageCallback.onEvent(new ResetEvent(true));
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }

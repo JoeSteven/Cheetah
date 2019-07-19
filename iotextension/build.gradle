@@ -50,5 +50,5 @@ repositories {
 
 ext.group_Id('com.terminus')
 ext.artifact_id('iotextension')
-ext.version_name('1.6.2-SNAPSHOT')
+ext.version_name('1.6.4-SNAPSHOT')
 ext.aar_name('iotextension-release.aar')
