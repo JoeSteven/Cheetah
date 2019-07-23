@@ -9,6 +9,7 @@ import com.terminus.iotextension.iot.config.OpenStatus;
 import com.terminus.iotextension.iot.config.OpenType;
 import com.terminus.iotextension.iot.config.PersonError;
 import com.terminus.iotextension.iot.config.PersonType;
+import com.terminus.iotextension.iot.config.UpdateType;
 
 import java.util.List;
 
@@ -175,8 +176,8 @@ public class IotController extends Mqtt {
      * 设备升级状态报告
      */
     @Override
-    public void updateAck() {
-        mIot.updateAck();
+    public void updateAck(UpdateType type, long time, long taskId, UpdateType.ErrorCode errorCode, String message) {
+        mIot.updateAck(type, time, taskId, errorCode, message);
     }
 
     /**

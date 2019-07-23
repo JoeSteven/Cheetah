@@ -10,6 +10,7 @@ import com.terminus.iotextension.iot.config.OpenStatus;
 import com.terminus.iotextension.iot.config.OpenType;
 import com.terminus.iotextension.iot.config.PersonError;
 import com.terminus.iotextension.iot.config.PersonType;
+import com.terminus.iotextension.iot.config.UpdateType;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
 
@@ -53,7 +54,7 @@ public abstract class Mqtt {
 
     abstract void asylocalData(DataType type, long version);
 
-    abstract void updateAck();
+    abstract void updateAck(UpdateType type, long time, long taskId, UpdateType.ErrorCode errorCode, String message);
 
     abstract void uploadPassLog(int personId, String feature, PersonType personType,
                                 Direction direction, long time, OpenStatus openStatus,

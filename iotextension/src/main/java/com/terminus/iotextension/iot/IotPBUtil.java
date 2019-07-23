@@ -10,6 +10,7 @@ import com.terminus.iotextension.iot.config.OpenStatus;
 import com.terminus.iotextension.iot.config.OpenType;
 import com.terminus.iotextension.iot.config.PersonError;
 import com.terminus.iotextension.iot.config.PersonType;
+import com.terminus.iotextension.iot.config.UpdateType;
 import com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog;
 import com.terminus.iotextension.mqtt.protobuf.TSLIOTCommon;
 import com.terminus.iotextension.mqtt.protobuf.TSLIOTDataSync;
@@ -143,10 +144,15 @@ class IotPBUtil {
         return getBytes(settingResult.build());
     }
 
-    static byte[] constructUpdateInfo() {
+    static byte[] constructUpdateInfo(UpdateType type, long time, long taskId, UpdateType.ErrorCode errorCode,String message) {
         TSLIOTCommon.TSLIOTUpgradeStatus.Builder update = TSLIOTCommon.TSLIOTUpgradeStatus.newBuilder();
 
         update.setDevId(IoTConstant.DEV_ID);
+        update.setStep(type.value());
+        update.setTime(time);
+        update.setTaskId(taskId);
+        update.setCode(errorCode.value());
+        update.setMessage(message);
 
         return getBytes(update.build());
     }

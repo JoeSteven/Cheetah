@@ -29,6 +29,7 @@ import com.terminus.iotextension.iot.config.OpenStatus;
 import com.terminus.iotextension.iot.config.OpenType;
 import com.terminus.iotextension.iot.config.PersonError;
 import com.terminus.iotextension.iot.config.PersonType;
+import com.terminus.iotextension.iot.config.UpdateType;
 import com.terminus.iotextension.mqtt.IotFrame;
 import com.terminus.iotextension.mqtt.protobuf.TSLIOTBusinessLog;
 import com.terminus.iotextension.mqtt.protobuf.TSLIOTCommon;
@@ -305,7 +306,7 @@ public class IotRespository extends Mqtt {
     }
 
     /**
-     *  升级状态相应
+     *  升级状态响应
      */
     private void updateAppAck(IotFrame frame) {
         InputStream input = new ByteArrayInputStream(frame.getBody());
@@ -316,9 +317,9 @@ public class IotRespository extends Mqtt {
 
             if (result != null) {
                 if (result.getCode() != 0) {
-                    Log.i(TAG,"更新响应失败");
+                    Log.i(TAG,"响应失败");
                 } else {
-                    Log.i(TAG,"更新响应成功");
+                    Log.i(TAG,"响应成功");
                 }
             }
         } catch (IOException e) {
@@ -621,13 +622,13 @@ public class IotRespository extends Mqtt {
      * 设备升级状态报告
      */
     @Override
-    public void updateAck() {
+    public void updateAck(UpdateType type, long time, long taskId, UpdateType.ErrorCode errorCode, String message) {
         IotFrame frame = newFrame(
                 IoTProtocol.MSG_TYPE_SYSTEM,
                 mIoTClient.generateId(),
                 IoTProtocol.SERVICE_TYPE_COMMON,
                 IoTProtocol.CMD_TYPE_UPGRADE_STATUS,
-                IotPBUtil.constructUpdateInfo());
+                IotPBUtil.constructUpdateInfo(type, time, taskId, errorCode, message));
 
         sendFrame(frame);
     }
