@@ -135,10 +135,17 @@
    mIotController.requestQr();
    ```
 
- - 应用升级结果回报
+ - 应用升级状态回报
 
    ```java
-   mIotController.updateAck();
+   /**
+    * @param type 升级阶段类型码
+    * @param time 时间ms
+    * @param taskId 任务ID
+    * @param errorCode 错误码 
+    * @param message 成功描述/错误信息描述（安装进度描述可以在这里）
+    */
+   mIotController.updateAck(UpdateType type, long time, long taskId, UpdateType.ErrorCode errorCode, String message);
    ```
    
  - 拉取数据
@@ -477,6 +484,96 @@
   }
   ```
 
+* 升级类型码
+
+  ```java
+  public enum UpdateType {
+  
+      /**
+       * 接收到升级任务并识别
+       */
+      START(1),
+  
+      /*
+       * 开始下载
+       */
+      DOWNING(2),
+  
+      /**
+       * 下载完成
+       */
+      DOWNED(3),
+  
+      /**
+       * 下载状态识别
+     */
+      DOWONSTATUS(4),
+  
+      /**
+       * 开始安装
+       */
+      INSTALL(5),
+  
+      /**
+       * 安装进度
+       */
+      INSTALLING(6),
+  
+      /**
+       * 安装完成
+       */
+      INSTALLED(7),
+  
+      /**
+       * 开始回滚
+       */
+      BACK(8),
+  
+      /**
+       * 回滚完成
+       */
+      BACKED(9);
+  
+      public enum ErrorCode {
+  
+          /**
+           * 成功
+           */
+          SUCCESS(0),
+  
+          /**
+           * 升级任务不适用改版本
+           */
+          VERSION(-1),
+  
+          /**
+           * 网络原因下载出错
+           */
+          DOWN(-2),
+  
+          /**
+           * 资源包找不到
+           */
+          RES(-3),
+  
+          /**
+           * 资源包解析出错
+           */
+          ZIP(-4),
+  
+          /**
+           * 安装失败
+           */
+          INSTALL(-5),
+  
+          /**
+           * 回滚失败
+           */
+          BACK(-6);
+      }
+  }
+  ```
+  
 * 人员类型
 
   ``` java
