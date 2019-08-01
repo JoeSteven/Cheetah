@@ -12,17 +12,17 @@ import me.drakeet.multitype.ItemViewBinder;
  * author:Joey
  * date:2018/8/14
  */
-public abstract class AbsItemViewBinder<T, VH extends AbsViewHolder<T>> extends ItemViewBinder<T, VH> {
+public abstract class AbsItemViewBinder<T> extends ItemViewBinder<T, AbsViewHolder> {
 
     protected OnItemClickListener<T> clickListener;
     protected OnItemLongClickListener<T> longClickListener;
 
-    public AbsItemViewBinder<T, VH> setOnClickListener(OnItemClickListener<T> clickListener) {
+    public AbsItemViewBinder<T> setOnClickListener(OnItemClickListener<T> clickListener) {
         this.clickListener = clickListener;
         return this;
     }
 
-    public AbsItemViewBinder<T, VH> setOnLongClickListener(OnItemLongClickListener<T> longClickListener) {
+    public AbsItemViewBinder<T> setOnLongClickListener(OnItemLongClickListener<T> longClickListener) {
         this.longClickListener = longClickListener;
         return this;
     }
@@ -39,26 +39,39 @@ public abstract class AbsItemViewBinder<T, VH extends AbsViewHolder<T>> extends 
 
     @NonNull
     @Override
-    protected VH onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
+    protected AbsViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
         View itemView = inflater.inflate(layout(), parent, false);
-        VH holder = createViewHolder(itemView);
-        if (clickListener != null) {
-            holder.itemView.setOnClickListener(v -> clickListener.onItemClick(holder.getAdapterPosition(), holder.data));
-        }
-        if (longClickListener != null) {
-            itemView.setOnLongClickListener(v -> longClickListener.onItemLongClick(holder.getAdapterPosition(), holder.data));
-        }
-        return holder;
+        return createViewHolder(itemView);
     }
 
-    protected abstract VH createViewHolder(@NonNull View itemView);
+    protected AbsViewHolder createViewHolder(@NonNull View itemView){
+        return new AbsViewHolder(itemView);
+    }
 
     @Override
-    protected void onBindViewHolder(@NonNull VH holder, @NonNull T item) {
-       holder.bind(item);
+    protected void onBindViewHolder(@NonNull AbsViewHolder holder, @NonNull T item) {
+        if (clickListener != null) {
+            holder.itemView.setOnClickListener(v -> clickListener.onItemClick(holder.getAdapterPosition(), item));
+        } else  {
+            holder.itemView.setOnClickListener(this::onItemClick);
+        }
+        if (longClickListener != null) {
+            holder.itemView.setOnLongClickListener(v -> longClickListener.onItemLongClick(holder.getAdapterPosition(), item));
+        } else  {
+            holder.itemView.setOnLongClickListener(this::onLongItemClick);
+        }
        onBind(holder, item);
     }
 
-    protected abstract void onBind(@NonNull VH holder, @NonNull T item);
+    private boolean onLongItemClick(View view) {
+        return false;
+    }
+
+
+    protected void onItemClick(View view) {
+
+    }
+
+    protected abstract void onBind(@NonNull AbsViewHolder holder, @NonNull T item);
 
 }
