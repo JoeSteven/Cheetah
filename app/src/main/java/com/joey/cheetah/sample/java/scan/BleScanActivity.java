@@ -1,7 +1,7 @@
 package com.joey.cheetah.sample.java.scan;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.widget.Button;
 
 import com.joey.cheetah.core.list.CheetahAdapter;
@@ -17,17 +17,14 @@ import com.polidea.rxandroidble2.scan.ScanResult;
 
 import java.util.List;
 
-import butterknife.BindView;
 
 public class BleScanActivity extends AbsActivity implements IBleScanView{
 
     @Presenter
     BleScanPresenter mPresenter;
 
-    @BindView(R.id.rv_scan)
     RecyclerView rvScan;
 
-    @BindView(R.id.bt_scan)
     Button btScan;
 
     private CheetahAdapter scanAdapter;
@@ -48,6 +45,8 @@ public class BleScanActivity extends AbsActivity implements IBleScanView{
         scanAdapter = new CheetahAdapter();
         scanAdapter.enableDiff(new BleScanDiffCallback());
         scanAdapter.register(ScanResult.class, new ScanViewBinder().setOnClickListener((position, data) -> connect(data)));
+        btScan = findViewById(R.id.bt_scan);
+        rvScan = findViewById(R.id.rv_scan);
         rvScan.setLayoutManager(new LinearLayoutManager(this));
         rvScan.setHasFixedSize(true);
         rvScan.setItemAnimator(null);

@@ -1,6 +1,6 @@
 package com.joey.cheetah.sample.ble;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.joey.cheetah.core.global.Global;
 import com.joey.cheetah.core.permission.PermissionConstant;

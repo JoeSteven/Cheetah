@@ -7,8 +7,8 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import android.support.v4.content.FileProvider
-import android.support.v7.app.AppCompatActivity
+import androidx.core.content.FileProvider
+import androidx.appcompat.app.AppCompatActivity
 import com.joey.cheetah.core.R
 import com.joey.cheetah.core.ktextension.jumpForResult
 import com.joey.cheetah.core.ktextension.jumpWithParams

@@ -1,7 +1,7 @@
 package com.joey.cheetah.core.async;
 
-import android.arch.lifecycle.LifecycleObserver;
-import android.support.annotation.NonNull;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.annotation.NonNull;
 
 /**
  * Description: an interface to run async task, support multi tasks

@@ -1,6 +1,6 @@
 package com.joey.cheetah.mvp;
 
-import android.arch.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LifecycleOwner;
 
 /**
  * Description: View in MVP, to control user interface

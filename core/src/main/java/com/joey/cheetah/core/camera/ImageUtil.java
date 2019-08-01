@@ -11,10 +11,9 @@ import android.graphics.YuvImage;
 import android.media.ExifInterface;
 import android.media.Image;
 import android.os.Build;
-import android.support.annotation.IntDef;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.IntDef;
+import androidx.annotation.RequiresApi;
 
-import com.joey.cheetah.core.camera.CameraConstant;
 import com.joey.cheetah.core.global.Global;
 
 import java.io.ByteArrayOutputStream;

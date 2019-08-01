@@ -2,7 +2,7 @@ package com.joey.cheetah.core.media;
 
 import android.content.Context;
 import android.os.Looper;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.WorkerThread;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.FutureTarget;

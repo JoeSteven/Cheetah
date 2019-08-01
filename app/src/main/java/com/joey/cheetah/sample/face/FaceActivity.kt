@@ -1,7 +1,7 @@
 package com.joey.cheetah.sample.face
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.joey.cheetah.core.async.RxJavaManager
 import com.joey.cheetah.core.ktextension.screenHeight
 import com.joey.cheetah.core.ktextension.screenWidth

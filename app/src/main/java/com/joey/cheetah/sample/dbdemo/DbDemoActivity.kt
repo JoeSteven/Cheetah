@@ -1,6 +1,6 @@
 package com.joey.cheetah.sample.dbdemo
 
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.View
 import com.joey.cheetah.core.ktextension.isBlank
 import com.joey.cheetah.core.ktextension.logD
@@ -26,7 +26,7 @@ class DbDemoActivity : AbsActivity(), DBDemoView {
     override fun initView() {
         btnInsert.setOnClickListener(this::insert)
         adapter.register(User::class.java, UserItemViewBinder().setOnClickListener(this::onItemClick))
-        rvUser.layoutManager = LinearLayoutManager(this)
+        rvUser.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         rvUser.adapter = adapter
     }
 

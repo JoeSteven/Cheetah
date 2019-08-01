@@ -11,7 +11,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
     signingConfigs {
@@ -49,7 +49,7 @@ androidExtensions {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation APPCOMPAT_V7
+    implementation ANDROID_X
     if (DEBUG.toBoolean()) {
         api project(MVP)
     } else  {
@@ -57,9 +57,7 @@ dependencies {
     }
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation RECYCLERVIEW_V7
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    kapt BUTTER_KNIFE_COMPILER
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.github.JoeSteven:RxBle:1.0.0'
     kapt ROOM_COMPILER
     api project(':ereboot')

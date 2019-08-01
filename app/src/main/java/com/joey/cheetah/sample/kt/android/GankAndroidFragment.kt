@@ -1,7 +1,7 @@
 package com.joey.cheetah.sample.kt.android
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.View
 import com.joey.cheetah.core.list.CheetahAdapter
 import com.joey.cheetah.core.utils.Jumper
@@ -33,7 +33,7 @@ class GankAndroidFragment : AbsFragment(),IGankView {
 
     override fun initView() {
         adapter.register(GankData::class.java, GankAndroidViewBinder().setOnClickListener { _, data -> toDetail(data) })
-        rvList.layoutManager = LinearLayoutManager(activity)
+        rvList.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity)
         rvList.adapter = adapter
     }
 

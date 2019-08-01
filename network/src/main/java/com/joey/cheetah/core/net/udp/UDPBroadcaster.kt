@@ -5,7 +5,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.net.DhcpInfo
 import android.net.wifi.WifiManager
-import android.support.annotation.RequiresPermission
+import androidx.annotation.RequiresPermission
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Flowable
 import io.reactivex.Observable

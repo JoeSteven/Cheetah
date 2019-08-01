@@ -1,6 +1,6 @@
 package com.joey.cheetah.core.ktextension
 
-import android.arch.persistence.room.RoomDatabase
+import androidx.room.RoomDatabase
 import io.reactivex.Single
 
 /**

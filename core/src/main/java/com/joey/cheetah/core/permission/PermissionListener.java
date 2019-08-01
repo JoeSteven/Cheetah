@@ -1,6 +1,6 @@
 package com.joey.cheetah.core.permission;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * /**

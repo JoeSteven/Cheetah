@@ -13,7 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -39,18 +39,13 @@ dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     //support
-    api APPCOMPAT_V7
-    implementation RECYCLERVIEW_V7
-    api SUPPORT_MEDIA_COMPAT
-    api SUPPORT_V4
+    api ANDROID_X
+    api ANDROID_X_KTX
+//    api SUPPORT_MEDIA_COMPAT
 
     //image load
     api GLIDE
     kapt GLIDE_COMPILER
-
-    // butter knife
-    api BUTTER_KNIFE
-    kapt BUTTER_KNIFE_COMPILER
 
     api(MULTITYPE) {
         exclude group: 'com.android.support', module: 'recyclerview-v7'
