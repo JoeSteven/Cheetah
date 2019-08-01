@@ -35,5 +35,5 @@ dependencies {
 
 ext.group_Id('com.joey.cheetah')
 ext.artifact_id('utility')
-ext.version_name('1.0.0-SNAPSHOT')
+ext.version_name('x1.0.0-SNAPSHOT')
 ext.aar_name('utility-release.aar')
