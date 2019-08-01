@@ -38,7 +38,7 @@ dependencies {
     if (DEBUG.toBoolean()) {
         compileOnly project(BASIC_ASYNC)
         compileOnly project(BASIC_UTILITY)
-    } else  {
+    } else {
         compileOnly BASIC_ASYNC_RELEASE
         compileOnly BASIC_UTILITY_RELEASE
     }
@@ -46,7 +46,9 @@ dependencies {
     //network
     api RETROFIT2
     api GSON
-    api ADAPTER_RXJAVA2
+    api(ADAPTER_RXJAVA2) {
+        exclude group: "io.reactivex.rxjava2"
+    }
 }
 
 ext.group_Id('com.joey.cheetah')
