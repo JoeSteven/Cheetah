@@ -1,6 +1,5 @@
 package com.joey.cheetah.sample.kt
 
-import com.joey.cheetah.core.async.schedulers.SchedulersHelper
 import com.joey.cheetah.core.ktextension.logD
 import com.joey.cheetah.sample.Api.Api
 import com.joey.cheetah.sample.Api.ApiResponseTransformer
