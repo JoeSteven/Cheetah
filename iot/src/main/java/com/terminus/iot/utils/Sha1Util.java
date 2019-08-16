@@ -19,8 +19,8 @@ import java.security.NoSuchAlgorithmException;
 public class Sha1Util {
     public static String EncodeDefault(String rsaKey, byte[] data){
         try {
-            //byte[] key = ConvertUtil.decryptBASE64(CommonStrings.RSA_KEY);
-            return hamcsha1(data, rsaKey.getBytes());
+            byte[] key = ConvertUtil.decryptBASE64(rsaKey);
+            return hamcsha1(data, key);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -29,9 +29,9 @@ public class Sha1Util {
 
     public static byte[] EncodeDefaultForBytes(String rsaKey, byte[] data) {
         try {
-            //byte[] key = ConvertUtil.decryptBASE64(CommonStrings.RSA_KEY);
+            byte[] key = ConvertUtil.decryptBASE64(rsaKey);
             //System.out.println(ConvertUtil.byte2hex(key));
-            SecretKeySpec signingKey = new SecretKeySpec(rsaKey.getBytes(), "HmacSHA1");
+            SecretKeySpec signingKey = new SecretKeySpec(key, "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(signingKey);
             byte[] ret = mac.doFinal(data);

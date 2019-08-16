@@ -1,10 +1,8 @@
 package com.joey.cheetah.sample;
 
-import android.os.Build;
-import android.view.View;
+import android.util.Log;
 
 import com.joey.cheetah.core.permission.PermissionUtil;
-import com.joey.cheetah.core.utils.CLog;
 import com.joey.cheetah.core.utils.Jumper;
 import com.joey.cheetah.core.utils.ResGetter;
 import com.joey.cheetah.mvp.AbsActivity;
@@ -13,10 +11,18 @@ import com.joey.cheetah.sample.exception.RebootHelper;
 import com.joey.cheetah.sample.extension.ExtensionActivity;
 import com.joey.cheetah.sample.face.FaceActivity;
 import com.joey.cheetah.sample.java.scan.BleScanActivity;
+import com.joey.cheetah.sample.kt.CameraActivity;
 import com.joey.cheetah.sample.kt.GankActivity;
 import com.joey.cheetah.sample.photo.PhotoActivity;
 import com.joey.cheetah.sample.udp.UdpActivity;
 import com.joey.cheetah.core.media.scan.ScanCodeHelper;
+import com.terminus.iotextension.event.PersonInfoEvent;
+import com.terminus.iotextension.mqtt.IotFrame;
+import com.terminus.iotextension.mqtt.protobuf.TSLIOTDataSync;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 
 /**
@@ -42,7 +48,7 @@ public class MainActivity extends AbsActivity{
 
         findViewById(R.id.bt_udp).setOnClickListener(v -> Jumper.make(this, UdpActivity.class).jump());
 
-        findViewById(R.id.bt_photo).setOnClickListener(v -> Jumper.make(this, PhotoActivity.class).jump());
+        findViewById(R.id.bt_photo).setOnClickListener(v -> Jumper.make(this, CameraActivity.class).jump());
 
         findViewById(R.id.bt_scan).setOnClickListener(v -> scan());
 
@@ -66,8 +72,37 @@ public class MainActivity extends AbsActivity{
         if (RebootHelper.INSTANCE.isRebooted()) {
             toast("异常重启成功");
         }
+
+
     }
 
+
     @Override
-    protected void initData() {}
+    protected void initData() {
+        workPersonList();
+    }
+
+    byte[] array = {-125, 64, 29, -78, -56, -36, 125, 17, -3, 102, -52, 9, 65, -46, -23, -6, -21, 41, -90, 85, -125, -30, 31, -89, 95, -90, 118, 92, -39, -17, 59, -2, 92, -48, 110, -7, 31, -81, 25, -25, 127, 40, -90, -4, 7, -46, 4, 34};
+    byte[] array2 = {-125, 64, 29, -78, -56, -36, 125, 17, -3, 102, -52, 9, 65, -46, -23, -6, -21, 41, -90, 85, -125, -30, 31, -89, 95, -90, 118, 92, -39, -17, 59, -2, 79, -34, -98, 36, -85, -107, 29, 2, -23, 89, -35, 107, -111, -41, 112, 82};
+
+    private void workPersonList() {
+
+        InputStream input = new ByteArrayInputStream(array2);
+        try {
+            TSLIOTDataSync.TSLIOTDispatchPersonListRequest result =
+                    TSLIOTDataSync.TSLIOTDispatchPersonListRequest.parseFrom()
+
+            if (result != null) {
+                if (result.getListList().size() > 0) {
+                    PersonInfoEvent infoEvent = new PersonInfoEvent(result.getDevId(),result.getVersion(),
+                            result.getMore(),result.getListList());
+
+                }
+            }
+        } catch (IOException e) {
+            if (BuildConfig.DEBUG) {
+                Log.e("i", e.getMessage());
+            }
+        }
+    }
 }

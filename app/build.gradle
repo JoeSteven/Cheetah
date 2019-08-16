@@ -59,6 +59,7 @@ dependencies {
     implementation 'com.github.JoeSteven:RxBle:1.0.0'
     kapt ROOM_COMPILER
     api project(':ereboot')
+    api project(':iotextension')
 }
 repositories {
     mavenCentral()

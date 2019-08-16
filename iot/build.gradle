@@ -37,7 +37,7 @@ dependencies {
     implementation APPCOMPAT_V7
     api 'bouncycastle:bcprov-jdk16:140'
     api 'commons-codec:commons-codec:1.10'
-    api 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0'
+    api 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
 }
 
 repositories {
@@ -49,5 +49,5 @@ repositories {
 
 ext.group_Id('com.terminus')
 ext.artifact_id('iot')
-ext.version_name('1.0')
+ext.version_name('1.6.8-SNAPSHOT')
 ext.aar_name('iot-release.aar')
