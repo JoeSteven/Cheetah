@@ -71,8 +71,12 @@ public abstract class Mqtt {
         return mIoTClient != null;
     }
 
-    boolean isConnect() {
-        return mIoTClient.isConnected();
+    public boolean isConnect() {
+        if (check()) {
+            return mIoTClient.isConnected();
+        }
+
+        return false;
     }
 
     public interface IotMessageCallback<T> {
