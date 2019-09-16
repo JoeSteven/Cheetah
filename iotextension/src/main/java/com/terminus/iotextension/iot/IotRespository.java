@@ -186,6 +186,7 @@ public class IotRespository extends Mqtt {
 
         if (mIoTClient.isConnected()) {
             try {
+                mIoTClient.mqttClient().unsubscribe(new String[]{IoTConstant.SUB_TOPIC});
                 mIoTClient.disconnect();
             } catch (MqttException e) {
                 if (BuildConfig.DEBUG) {
@@ -468,6 +469,7 @@ public class IotRespository extends Mqtt {
     private void dataMsg(IotFrame frame) {
         switch (frame.getCmd()) {
             case IoTProtocol.CMD_TYPE_DISPATCH_PERSON:
+            case IoTProtocol.CMD_TYPE_DISPATCH_BLACK:
                 workPersonList(frame);
                 break;
             case IoTProtocol.CMD_TYPE_DISPATCH_ROOM_INFO:
@@ -671,7 +673,6 @@ public class IotRespository extends Mqtt {
         }
 
         try {
-            mIoTClient.mqttClient().unsubscribe(new String[]{IoTConstant.SUB_TOPIC});
             mIoTClient.close();
             mIoTClient = null;
         } catch (MqttException e) {
