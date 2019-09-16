@@ -1,0 +1,161 @@
+syntax = "proto3";
+
+option java_package = "com.terminus.iotextension.mqtt.protobuf";
+package proto;
+
+//上报设备需求,设备需要哪些数据告诉服务器,方便通知
+message TSLIOTNeedDataRequest {
+    string dev_id = 1;                      // 设备唯一标识
+    repeated string need_items = 2;         // 需求的数据项 ["person", "black", "make_card", "room_info", "phone_info"]  
+}
+
+// 拉取列表请求
+message TSLIOTPullDataRequest {
+    string dev_id = 1;                      // 设备唯一标识
+    string data_type = 2;                   // 数据类型 人员信息:"person" (这里会包含可通行的人员名单user/visitor), 黑名单:"black", 发卡数据:"make_card", 房间信息:"room_info"，电话号码信息:"phone_info"
+    int64 data_version = 3;                 // 数据版本号 设备端第一次可传1          平台端回复: TSLIOTDispatchPersonListRequest/TSLIOTDispatchCardListRequest/TSLIOTDispatchPhoneInfoRequest
+}
+
+// 人脸Item
+message TSLIOTPersonItem {
+    int64 person_id = 1;      // 对应用户ID
+    string person_type = 2;   // 人员类型; 用户:"user" 访客:"visitor"   黑名单:"black"
+    string person_name = 3;   // 用户姓名
+    bool enable = 4;          // true: 新增或修改，false: 删除
+    int32 weight = 5;         // 体重 kg
+    bool weight_enable = 6;   // 体重是否有效
+    int32 height = 7;         // 身高
+    string photo_urls = 8;    // 人脸原图Url
+    int64 valid_time = 9;     // 0表示永久有效， 否则给出有效期(截止时间)时间戳ms
+    int64 version = 10;       // 版本号
+    int64 valid_time_start = 11; // 有效起始时间  时间戳ms
+}
+
+message TSLIOTDataStatisticItem {
+    string data_type = 1;                   // 数据类型 员工:user 访客:visitor, 黑名单:"black", 发卡数据:"make_card", 房间信息:"room_info"
+    int64 data_count = 2;                   // 该类型人员数量
+    int64 min_version = 3;                  // 该类型数据最小版本号
+    int64 max_version = 4;                  // 该类型数据最大版本号
+    int64 last_update_time = 5;             // 设备最后一次同步的时间
+}
+
+message TSLIOTDataStatistic {
+    string dev_id = 1;                          //设备id
+    repeated TSLIOTDataStatisticItem list = 2;  //各个类型数据的统计结果
+}
+
+//平台获取设备端数据列表
+message TSLIOTGetDevDataId {
+    string data_type = 1;                   // 数据类型 员工:user 访客:visitor, 黑名单:"black", 发卡数据:"make_card", 房间信息:"room_info"
+    int64 version = 2;                      // 请求这个版本号之后>=的数据id列表
+}
+
+//平台获取设备端数据列表
+message TSLIOTDevDataId {
+    string data_type = 1;                   // 数据类型 员工:user 访客:visitor, 黑名单:"black", 发卡数据:"make_card", 房间信息:"room_info"
+    int64 data_count = 2;                   // 该类型人员数量
+    int64 min_version = 3;                  // 该类型数据本次最小版本号
+    int64 max_version = 4;                  // 该类型数据本次最大版本号
+    string ids = 5;                         // 该类型人员编号,用算法编码id
+    int32 more = 6;                         // 是否还有更多数据 
+}
+
+// 发卡Item
+message TSLIOTMakeCardItem {
+    int64 person_id = 1;    // 对应用户ID
+    string person_type = 2; // 人员类型; 用户:"user" 黑名单:"black"  访客:"visitor"
+    string person_name = 3; // 人员姓名
+    string card_no = 4;     // 卡号
+    int32 card_type = 5;    // 卡片类型
+    int32 status = 6;       // 1:可以通行  2:禁止通行
+    bool enable = 7;        // true: 新增或修改, false: 删除
+    int64 valid_time = 8;   // 0表示永久有效， 否则给出有效期(截止时间)时间戳ms 
+    int64 valid_time_start = 9;   // 有效期起始时间
+    int64 version = 10;      // 版本号
+}
+
+// 房间信息
+message TSLIOTRoomInfoItem {
+    int64 room_id = 1;      // 房间号
+    string phone_no = 2;    // 对讲号码，多个号码用；分割
+    string password = 3;    // 一户一密
+    bool enable = 4;        // true: 新增或修改, false: 删除
+    int64 version = 6;      // 版本号
+}
+
+// 电话Item
+message TSLIOTPhoneItem {
+    int64 person_id = 1;            // 对应用户ID
+    string person_type = 2;         // 人员类型; 用户:"user" 黑名单:"black"  访客:"visitor"
+    string person_name = 3;         // 人员姓名
+    string phone = 4;               // 完整电话号码
+    string short_dial = 5;          // 电话短号
+    bool enable = 6;                // true: 新增或修改, false: 删除
+    int64 valid_time = 7;           // 0表示永久有效， 否则给出有效期(截止时间)时间戳ms 
+    int64 valid_time_start = 8;     // 有效期起始时间
+    int64 version = 9;             // 版本号
+}
+
+
+// 下发(人员信息/标签人员)，整个frame包不超过Mqtt消息大小，服务器得支持分包
+message TSLIOTDispatchPersonListRequest {
+    string dev_id = 1;                  //设备id
+    int64  version = 2;                 //本次(人员信息/标签人员)更新的最大版本号
+    int32 more = 3;                     //剩余待更新的(人员信息/标签人员)数量  -1，表示通知更新 0:表示更新完成, 大于0 表示剩余待更新的数量 -2.表示更新数据(只更新数据即可)
+    repeated TSLIOTPersonItem list = 4; //更新(人员信息/标签人员)列表
+}
+
+// 下发制卡信息，整个frame包长度不超过1K，服务器得支持分包
+message TSLIOTDispatchCardListRequest {
+    string dev_id = 1;                      //设备id
+    int64 version = 2;                      //本次制卡信息更新的最大版本号
+    int32 more = 3;                         //剩余待更新的制卡信息数量
+    repeated TSLIOTMakeCardItem list = 4;   //更新制卡信息列表
+}
+
+// 下发房间信息，整个frame包长度不超过1K，服务器得支持分包
+message TSLIOTDispatchRoomInfoRequest {
+    string dev_id = 1;                      //设备id
+    int64 version = 2;                      //本次房间信息更新的最大版本号
+    int32 more = 3;                         //剩余待更新的房间信息数量
+    repeated TSLIOTRoomInfoItem list = 4;   //更新房间信息列表
+}
+
+// 下发电话号码信息，整个frame包长度不超过1K，服务器得支持分包
+message TSLIOTDispatchPhoneInfoRequest {
+    string dev_id = 1;                      //设备id
+    int64 version = 2;                      //本次电话信息更新的最大版本号
+    int32 more = 3;                         //剩余待更新的电话信息数量
+    repeated TSLIOTPhoneItem list = 4;      //更新电话信息列表
+}
+
+// 下发一次性密码
+message TSLIOTIssueOncePWDRequest {
+    string dev_id = 1;      //设备id
+    string password = 2;    //密码
+    int64 end_time = 3;     //过期时间 ms
+    bool enable = 4;        //true: 新增或修改, false: 删除
+    int32 free_count = 5;   //密码可用次数
+    int64 start_time = 6;   //密码开始生效时间 ms
+}
+
+// 设备端上报的 使用人员信息遇到的错误信息
+message TSLIOTPersonError {
+    string dev_id = 1;        // 设备id
+    int64 person_id = 2;      // 对应用户ID
+    string person_type = 3;   // 人员类型; 用户:"user" 访客:"visitor"   黑名单:"black"
+    int64 version = 4;        // 版本号
+    string error_type = 5;    // 错误类型
+                              // success:重新处理成功用于平台端消除
+                              // no_picture: 没有照片,即url为空
+                              // model_fail：建模失败
+                              // server_no_response: 图片服务器无响应
+                              // empty_picture: 请求图片数据为空
+                              // error_format: 图片格式错误
+                              // no_face: 检测不到人脸
+                              // error_size: 人脸大小不合格
+                              // error_angle: 人脸角度不合格
+                              // error_other: 其他
+    string error_info = 6;    // 错误描述
+}
+

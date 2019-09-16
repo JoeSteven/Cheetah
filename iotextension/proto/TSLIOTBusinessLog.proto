@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option java_package = "com.terminus.iotextension.mqtt.protobuf";
+package proto;
+
+// 通行日志
+message TSLIOTUploadPassLogRequest {
+    message TSLIOTPassLog {
+        string dev_id = 1;              // 设备id
+        int64 person_id = 2;            // 用户id, 当是陌生人时 ，这个值为 -1
+        string feature = 3;		        // 人员特征描述 用 json描述 // 男女，头发长短，年龄估计，等
+        string person_type = 4;         // 人员类型："user":用户 "black":黑名单（报警）"visitor"：访客 "unknown":陌生人
+        int32 direction = 5;            // 进出方向，0:未知，1:进   2:出
+        int64 time = 6;                 // 开门时间 ms
+        int32 open_result = 7;          // 成功：0，失败：1,  2:二维码有效期超时 3.二维码无权限   4:无效用户
+        int32 dev_status = 8;           // 设备状态：0: 关闭，1: 开启, 2: 异常，etc.
+        int32 open_type = 9;            // 开门方式: 0-刷卡, 1-一次性密码，2-app远程开门，3-门内开门（按键开门），
+                                        // 4-人脸识别开门，5-指纹识别开门, 6-普通密码开门, 7-DTMF开门, 8-app蓝牙开门（由APP上报，设备不用上报）, 9-二维码开门 10.呼叫开门 11.人卡一致
+        string card_no = 10;            // 刷卡: 卡编号
+        string pass_img = 11;           // 通行图片url, 多个图片路径 用;分割  （如果是两张图：头像图在前，整个截图大图在后）
+        string pass_video = 12;         // 通行视频url
+        string reserve = 13;            // 预留字段，用于存储通行记录的特定信息 JsonString  例如二维码通行时带有二维码特定自定义信息 {"qrCustomInfo":"xxxx"}
+        int64  dev_log_id = 14;         // 设备端日志id
+    }
+    repeated TSLIOTPassLog pass_logs = 1; // 开门日志
+}
+
+message TSLIOTLogCommonResult {
+    string dev_id = 1;                  // 设备id
+    int64  dev_log_id = 2;              // 设备端日志id
+    int32  code = 3;                    // 错误码，0表示成功
+    string message = 4;                 // 返回信息
+}
+
+message TSLIOTUploadPassLogResult {
+    repeated TSLIOTLogCommonResult log_results = 1; // 开门日志响应结果
+}
