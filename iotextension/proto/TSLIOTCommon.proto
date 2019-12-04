@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+option java_package = "com.terminus.iotextension.mqtt.protobuf";
+package proto;
+
+// 通用结果
+message TSLIOTCommonResult {
+    string dev_id = 1;  // 设备id
+    int32 code = 2;     // 错误码，0表示成功
+    string message = 3; // 返回信息
+}
+
+message TSLIOTCommonRequest {
+    string dev_id = 1;  //设备id
+}
+
+// 校时结果
+message TSLIOTTimeResult {
+    int64 time = 1; // 时间戳 ms
+}
+
+message TSLIOTUpgradeTask {
+    int64 task_id = 1;                  //任务id
+    string dev_id = 2;                  //设备id
+    int64 size = 3;                     //下发文件大小字节
+    string url = 4;                     //文件url  相对路径，需要加上前缀
+    string md5 = 5;                     //文件md5
+    uint32 fileType = 6;                //文件类型：0、软件 1、硬件
+    uint32 upgrade_type = 7;            //升级类型：0.全量升级 1.差分升级
+    string version = 8;                 //升级包版本号
+    string apply_version = 9;           //适用于的设备版本，多个版本用;分割
+    uint32 fileId = 10;                 //固件id
+    uint32 type = 11;                   //芯片类型: 1、esp32，2、stm32
+}
+
+message TSLIOTUpgradeStatus {
+    uint32 step = 1;    // 升级阶段 1.接收到升级任务并识别; 2.开始下载; 3.下载完成; 4.下载状态识别，成功- 出错（网络原因，自动重新下载，资源问题报错误，并终止）
+                        // 下载成功 5.开始安装 6.安装进度，7.安装完成（成功，失败）
+                        // 安装失败 8.开始回滚 9.回滚完成（成功失败）
+    int64 time = 2;     // 时间 ms
+    int64 task_id = 3; // 任务id
+    string dev_id = 4;  // 设备id
+    int32 code = 5;     // 错误码，0.表示成功  -1.升级任务不适用改版本， -2.网络原因下载出错，-3.资源包找不到， -4.资源包解析出错, -5.安装失败, -6.回滚失败
+    string message = 6; // 成功描述/错误信息描述（安装进度描述可以在这里）
+}
+
+message TSLIOTPassRule {
+    string dev_id = 1;              // 设备id
+    string key_pwd = 2;             // 设备按键密码  touch/rainbow/x5 开门密码
+    string pass_permission_id = 3;  // 设备刷卡校验 permission_id,  example: [xx,yy,zz]   当刷卡发现permission_id = xx或yy或zz时开门
+    string pass_person_id = 4;      // 设备通行人员person_id,   example: [a,b,c]      当刷卡发现person_id  = a或b或c时开门
+    string reserve = 5;
+}
+
+message TSLIOTQrCodeInfo {
+    string dev_id = 1;              // 设备id
+    string aes_key = 2;             // AesKey
+    string rsa_public_key = 3;      // ras_public_key
+    int32 effective_duration = 4;   // 二维码的有效时间浮动范围 ms级，例如:3分钟有效 ：180000
+    string reserve = 5;
+}
+
+message TSLIOTPlatformSetting {
+    bool access_network = 1;        // 是否可以访问互联网
+    string zimg_url_prefix = 2;     // 图片服务器的url前缀
+    string http_url_prefix = 3;     // web自带文件服务的前缀。当图片以此 "/api1/v1/image/"     开头时拼接此前缀 例如服务端生成的动态二维码等 
+                                                            //当升级包以此 "/api1/v1/packages/" 开头时拼接此前缀 例如升级时下发的升级包是个相对路径，需要加上这个 
+}

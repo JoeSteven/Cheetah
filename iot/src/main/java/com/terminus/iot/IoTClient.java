@@ -48,7 +48,7 @@ public class IoTClient {
         realClient.setCallback(callback);
 
         if (!TextUtils.isEmpty(config.willTopic)) {
-            options.setWill(config.willTopic, config.willBytes, 0, false);
+            options.setWill(config.willTopic, config.willBytes, 2, false);
         }
         realClient.connect(options);
     }
@@ -79,6 +79,13 @@ public class IoTClient {
     public void disconnect() throws MqttException {
         if (realClient != null && realClient.isConnected()) {
             realClient.disconnect();
+        }
+    }
+
+    public void close() throws MqttException{
+        if (realClient != null && !realClient.isConnected()) {
+            realClient.close();
+            realClient = null;
         }
     }
 

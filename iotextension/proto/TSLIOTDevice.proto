@@ -1,0 +1,115 @@
+syntax = "proto3";
+
+option java_package = "com.terminus.iotextension.mqtt.protobuf";
+package proto;
+
+// 设备接入业务:
+// 更新AES Key
+message TSLIOTUpdateAESKeyRequest {
+    bytes aes_key     = 1;   // 随机16字节AES Key
+}
+
+// 更新端订阅话题列表和发布话题
+message TSLIOTChangeSubscriptionRequest {
+    repeated string topics     = 1; // 话题列表
+}
+
+// 设备注册
+message TSLIOTRegisterDeviceRequest {
+    string dev_id = 1;                                          //设备id
+    string sn = 2;                                              //设备id
+    string dev_name = 3;                                        //设备名称
+    string father_dev_id = 4;                                   //父设备id  [default = "0"]
+    string category = 5;                                        //设备类别 AB_DOOR, CAMERA, DOOR_CONTROL
+    string type = 6;                                            //设备类型 AB_door:ab门 AB_touch_a:a门touch AB_touch_b:b门touch AB_ac_controller:ac控制器 AB_weight_unit:称重模块 AB_face_pad:人脸pad AB_gateway:网关 AB_head_counter:点人头模块
+    string model = 7;                                           //设备型号     
+    string mac = 8;                                             //Mac地址（设备唯一标识）
+    string software_version = 9;                                //软件版本号
+    string hardware_version = 10;                               //硬件版本号
+    string password = 11;                                       //设备密码
+    string custom_info = 12;                                    //自定义属性
+    repeated uint32 functions = 13;                             //uint32，定义见功能说明.0.支持NFC卡；1.支持指纹；2.支持门锁长开 3.支持IBeacon 5.支持梯控 6.支持一次性密码 7.支持远程开门 9.支持多连接 10.支持新一代门禁 12.支持双模开锁
+                                                                //                       20.支持密码开门 21.支持蓝牙开门 
+                                                                //                       50.支持体重校验 51.支持点人头: 52.支持体重学习 53.支持人脸验证 54.支持人脸学习
+    bool shell_support = 14;                                    //是否支持shell [default = false]
+}
+
+//设备网络配置
+message TSLIOTDeviceNetInfo {
+    string dev_id = 1;                                          //设备id
+    int32 net_type = 2;                                         //上网方式: GPRS 1,WIFI 2, Ethernet 4, LoRa 8, ZETA 16, NB 32, 3G 64, 4G 128
+    string net_name = 3;                                        //网卡名称  
+    string outer_ip = 4;                                        //外网ip地址
+    string inner_ip =5;                                         //局域网ip地址
+    string mask = 6;                                            //掩码
+    string gateway = 7;                                         //网关
+    string dns1 = 8;                                            //DNS1
+    string dns2 = 9;                                            //DNS2
+}
+
+//设备系统信息
+message TSLIOTDeviceSystemInfo {
+    string dev_id = 1;                                          // 设备id
+    string os_version = 2;                                      // 系统版本
+    string cpu = 3;                                             // 单位自带：例如：MHz， GHz
+    string memory = 4;                                          // 单位自带: 例如: KB, MB, GB
+    string disk = 5;                                            // 单位自带：例如: KB, MB, GB, TB
+    string bandwidth = 6;                                       // 单位自带：例如: Kbps, Mbps, Gbps
+}
+
+message TSLIOTDeviceSystemStatus {
+    int32 rate_cpu = 1;                                        // cpu使用率,单位%
+    int32 rate_memory = 2;                                     // 内存使用,单位%
+    int32 rate_disk = 3;                                       // 硬盘使用,单位%
+    int32 throughput_net = 4;                                  // 网络吞吐量, 单位 Kbps
+}
+
+// 设备状态
+message TSLIOTDeviceStatusRequest {
+    string dev_id = 1;                                          //设备id
+    string status = 2;                                          //设备状态 online / offline / exception / warning
+    string status_info = 3;                                     //状态描述
+    int64  time = 4;                                            //时间 (最后上线时间)ms
+    TSLIOTDeviceSystemStatus system_status = 5;                 //系统状态
+}
+
+// 设备操作日志
+message TSLIOTDeviceLogOperateRequest {
+    string dev_id = 1;                                          //设备id
+    string type = 2;                                            //设备状态 start:程序启动 stop:程序停止 restart:程序重启 exception:异常(程序/模块) 
+    string description = 3;                                     //状态描述 
+    int64  time = 4;                                            //时间 ms
+}
+
+// 设备告警通知
+message TSLIOTDeviceWarningRequest {
+    string dev_id = 1;                                          //设备id
+    int32 type = 2;                                             //事件类型：2:防撬报警, 3:防劫持报警, 4:连续输入密码错误, 5:系统锁定, 6:锁具欠压上报,
+                                                                //          7:门铃响, 8:门未关报警, 9:非法进入或非法用户连续三次刷卡
+                                                                //          10:设备离线, 11：门异常开启（非设备主动开启）, 12:门常开报警
+    string description = 3;                                     //状态描述 报警类型为9时，上传读取的卡号，如果有人员信息，补充上报项目id和人员id
+    int64  time = 4;                                            //时间 ms    #当命令时间异常时不执行动作
+}
+
+// 云端请求设备执行命令 //先判断是否是自定义命令，如果不是看是否支持shell,支持的话，执行shell
+message TSLIOTDeviceControlCmdRequest {
+    string dev_id = 1;                                          //执行命令的设备id               
+    int32  type = 2;                                            //命令类型，1:shell; 2:custom
+    string cmd = 3;                                             //命令， custom: 打开设备:"open"  设备恢复未安装状态："unInstall"  设备数据清空:"clear"
+    int64  time = 4;                                            //时间 ms
+}
+// 设备端执行命令的结果
+message TSLIOTDeviceControlCmdResponse {
+    string dev_id = 1;                                          //执行命令的设备id               
+    int64  time = 2;                                            //时间 ms
+    int32  code = 3;                                            //错误码，0表示成功
+    string message = 4;                                         //执行命令的结果
+}
+
+// 设备密码信息
+message TSLIOTPwdInfoRequest {
+    string dev_id = 1;      //设备id
+    string ble_pwd = 2;     //蓝牙密码
+    string dev_pwd = 3;     //设备密码 控制密码/设置密码
+    string wifi_pwd = 4;    //wifi密码
+}
