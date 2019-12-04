@@ -1,0 +1,68 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/joey/AndroidStudioProjects/Cheetah/iotextension/build/intermediates/res/merged/release/values-da/values-da.xml",
+            "map": [
+                {
+                    "source": "/Users/joey/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/a11843fd0ddc5c3ea1f75dd085d64978/res/values-da/values-da.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,208,307,419,502,602,715,792,869,948,1057,1165,1261,1375,1477,1578,1731,1828",
+                        "endColumns": "102,98,111,82,99,112,76,76,78,108,107,95,113,101,100,152,96,78",
+                        "endOffsets": "203,302,414,497,597,710,787,864,943,1052,1160,1256,1370,1472,1573,1726,1823,1902"
+                    }
+                },
+                {
+                    "source": "/Users/joey/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/aa7fad761b5421c31cac450c60a2cde8/res/values-da/values-da.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "1907",
+                        "endColumns": "100",
+                        "endOffsets": "2003"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/joey/AndroidStudioProjects/Cheetah/iotextension/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-da/values-da.xml",
+            "map": [
+                {
+                    "source": "/Users/joey/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/a11843fd0ddc5c3ea1f75dd085d64978/res/values-da/values-da.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,208,307,419,502,602,715,792,869,948,1057,1165,1261,1375,1477,1578,1731,1828",
+                        "endColumns": "102,98,111,82,99,112,76,76,78,108,107,95,113,101,100,152,96,78",
+                        "endOffsets": "203,302,414,497,597,710,787,864,943,1052,1160,1256,1370,1472,1573,1726,1823,1902"
+                    }
+                },
+                {
+                    "source": "/Users/joey/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/aa7fad761b5421c31cac450c60a2cde8/res/values-da/values-da.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "1907",
+                        "endColumns": "100",
+                        "endOffsets": "2003"
+                    }
+                }
+            ]
+        }
+    ]
+}

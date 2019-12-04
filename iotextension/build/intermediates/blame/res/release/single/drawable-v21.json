@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/joey/AndroidStudioProjects/Cheetah/iotextension/build/intermediates/res/merged/release/drawable-v21/abc_edit_text_material.xml",
+        "source": "/Users/joey/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/a11843fd0ddc5c3ea1f75dd085d64978/res/drawable-v21/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/Users/joey/AndroidStudioProjects/Cheetah/iotextension/build/intermediates/res/merged/release/drawable-v21/notification_action_background.xml",
+        "source": "/Users/joey/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/aa7fad761b5421c31cac450c60a2cde8/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/Users/joey/AndroidStudioProjects/Cheetah/iotextension/build/intermediates/res/merged/release/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/Users/joey/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/a11843fd0ddc5c3ea1f75dd085d64978/res/drawable-v21/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/Users/joey/AndroidStudioProjects/Cheetah/iotextension/build/intermediates/res/merged/release/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/Users/joey/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/a11843fd0ddc5c3ea1f75dd085d64978/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    }
+]
