@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
-apply from: "$rootDir/publish.gradle"
+//apply from: "$rootDir/publish.gradle"
+apply from: "$rootDir/publish_new.gradle"
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -33,7 +34,3 @@ dependencies {
     compileOnly ANDROID_X
 }
 
-ext.group_Id('com.joey.cheetah')
-ext.artifact_id('utility')
-ext.version_name('x1.0.1-SNAPSHOT')
-ext.aar_name('utility-release.aar')

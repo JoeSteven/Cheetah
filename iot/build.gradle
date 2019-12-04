@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
-apply from: "$rootDir/publish.gradle"
+//apply from: "$rootDir/publish.gradle"
+apply from: "$rootDir/publish_new.gradle"
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -47,7 +48,3 @@ repositories {
     }
 }
 
-ext.group_Id('com.terminus')
-ext.artifact_id('iot')
-ext.version_name('1.0')
-ext.aar_name('iot-release.aar')

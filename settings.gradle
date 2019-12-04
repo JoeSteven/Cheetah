@@ -1,2 +1,2 @@
 include ':app', ':core', ':mvp', ':ereboot', ':async', ':utility', ':network',":iot"
-//include ':mvp'
+//include ':app',':ereboot'

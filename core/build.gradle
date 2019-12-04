@@ -2,7 +2,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply from: "$rootDir/publish.gradle"
+//apply from: "$rootDir/publish.gradle"
+apply from: "$rootDir/publish_new.gradle"
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -90,8 +91,3 @@ repositories {
     mavenCentral()
 }
 
-ext.group_Id('com.joey.cheetah')
-ext.artifact_id('core')
-//ext.version_name('1.4.5')
-ext.version_name('x2.0.1-SNAPSHOT')
-ext.aar_name('core-release.aar')

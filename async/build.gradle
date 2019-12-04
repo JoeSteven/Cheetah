@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
-apply from: "$rootDir/publish.gradle"
+//apply from: "$rootDir/publish.gradle"
+apply from: "$rootDir/publish_new.gradle"
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -42,8 +43,3 @@ dependencies {
     api RXJAVA2
     api RXANDROID2
 }
-
-ext.group_Id('com.joey.cheetah')
-ext.artifact_id('async')
-ext.version_name('x1.0.0-SNAPSHOT')
-ext.aar_name('async-release.aar')

@@ -31,10 +31,10 @@ def main():
     # 当在其他分支时，检查版本号
     version = ""
     # 检查module的版本号
-    gradle = open(module + "/build.gradle", "r")
+    gradle = open(module + "/gradle.properties", "r")
     lines = gradle.readlines()
     for line in lines:
-        if "ext.version_name" not in line or "//" in line:
+        if "VERSION_NAME" not in line or "//" in line:
             continue
         version = line
         break
@@ -56,13 +56,24 @@ def main():
     print("正在执行:clean...")
     status, result = sp.getstatusoutput(path + "gradlew clean -p " + module)
     print(result)
+    if "BUILD FAILED" in result:
+        print("clean失败，请检查日志！")
+        return
     print("正在执行:build...")
     status, result = sp.getstatusoutput(path + "gradlew build -p " + module)
     print(result)
+    if "BUILD FAILED" in result:
+        print("打包失败，请检查日志！")
+        return
     print("正在执行:publish...")
-    status, result = sp.getstatusoutput(path + "gradlew publish -p " + module)
+    status, result = sp.getstatusoutput(path + "gradlew uploadArchives -p " + module)
     print(result)
-    print("执行完毕，请自行检查日志是否成功！")
+    if "BUILD FAILED" in result:
+        print("发布失败，请检查日志！")
+    else:
+        print("执行完毕，请自行检查日志是否成功！")
+
+
 
 
 if __name__ == '__main__':

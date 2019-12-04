@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-apply from: "$rootDir/publish.gradle"
+//apply from: "$rootDir/publish.gradle"
+apply from: "$rootDir/publish_new.gradle"
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -34,8 +35,3 @@ dependencies {
         api CORE_RELEASE
     }
 }
-
-ext.group_Id('com.joey.cheetah')
-ext.artifact_id('mvp')
-ext.version_name('x2.0.1-SNAPSHOT')
-ext.aar_name('mvp-release.aar')

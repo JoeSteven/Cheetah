@@ -15,6 +15,8 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.TextureView;
 
+import androidx.annotation.RequiresApi;
+
 import com.joey.cheetah.core.global.Global;
 import com.joey.cheetah.core.utils.CLog;
 
@@ -29,6 +31,7 @@ import java.util.function.Consumer;
  * @author rain
  * @date 2018/09/04
  */
+@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class Camera1Preview extends SurfaceView implements SurfaceHolder.Callback,
         CameraHandle,Camera.PreviewCallback {
     private static int START_PREVIEW = 0;
