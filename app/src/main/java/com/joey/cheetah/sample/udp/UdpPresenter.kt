@@ -1,6 +1,6 @@
 package com.joey.cheetah.sample.udp
 
-import android.arch.lifecycle.LifecycleOwner
+import androidx.lifecycle.LifecycleOwner
 import android.os.Bundle
 import com.joey.cheetah.core.async.schedulers.SchedulersHelper
 import com.joey.cheetah.core.global.Global

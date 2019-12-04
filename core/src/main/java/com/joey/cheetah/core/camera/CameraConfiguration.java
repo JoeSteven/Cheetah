@@ -12,7 +12,7 @@ import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import android.view.Display;
 import android.view.Surface;
 import android.view.TextureView;
@@ -27,6 +27,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
+@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class CameraConfiguration {
 
     /**

@@ -1,8 +1,8 @@
 package com.joey.cheetah.sample.kt.surprise
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.StaggeredGridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import android.view.View
 import com.joey.cheetah.core.list.CheetahAdapter
 import com.joey.cheetah.mvp.AbsFragment
@@ -34,7 +34,7 @@ class GankSurpriseFragment : AbsFragment(), IGankView {
 
     override fun initView() {
         adapter.register(GankData::class.java, GankSurpriseViewBinder().setOnLongClickListener { _, data ->  download(data)})
-        rvList.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
+        rvList.layoutManager = androidx.recyclerview.widget.StaggeredGridLayoutManager(2, androidx.recyclerview.widget.StaggeredGridLayoutManager.VERTICAL)
         rvList.adapter = adapter
     }
 

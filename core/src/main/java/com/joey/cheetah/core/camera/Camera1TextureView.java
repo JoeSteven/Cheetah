@@ -14,6 +14,8 @@ import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.TextureView;
 
+import androidx.annotation.RequiresApi;
+
 import com.joey.cheetah.core.global.Global;
 import com.joey.cheetah.core.utils.CLog;
 
@@ -27,6 +29,7 @@ import java.util.List;
  * @author rain
  * @date 2018/09/04
  */
+@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class Camera1TextureView extends TextureView implements
         CameraHandle, Camera.PreviewCallback {
     private static int START_PREVIEW = 0;
@@ -58,6 +61,7 @@ public class Camera1TextureView extends TextureView implements
     private SurfaceTexture mSurface;
 
     private SurfaceTextureListener listener = new SurfaceTextureListener() {
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
         public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
             CLog.d("camera1", "surface texture ok" + Thread.currentThread());
@@ -104,6 +108,7 @@ public class Camera1TextureView extends TextureView implements
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void startPreview() {
         if (mCameraThread != null) {
@@ -170,6 +175,7 @@ public class Camera1TextureView extends TextureView implements
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void switchCamera() {
         stopCamera();
@@ -277,6 +283,7 @@ public class Camera1TextureView extends TextureView implements
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void checkPendingTask() {
         for (int task : pendingTask) {
             CLog.d("camera1", "execute pending task:" + task);

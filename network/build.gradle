@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+//apply from: "$rootDir/publish.gradle"
+apply from: "$rootDir/publish_new.gradle"
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    compileOptions {
+        targetCompatibility rootProject.ext.javaVersion
+        sourceCompatibility rootProject.ext.javaVersion
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compileOnly ANDROID_X
+    if (DEBUG.toBoolean()) {
+        compileOnly project(BASIC_ASYNC)
+        compileOnly project(BASIC_UTILITY)
+    } else {
+        implementation BASIC_ASYNC_RELEASE
+        api BASIC_UTILITY_RELEASE
+    }
+
+    //network
+    api RETROFIT2
+    api GSON_CONVERT
+    api GSON
+    api(ADAPTER_RXJAVA2) {
+        exclude group: "io.reactivex.rxjava2"
+    }
+}

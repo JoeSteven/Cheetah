@@ -11,7 +11,6 @@ import kotlinx.android.synthetic.main.activity_camera.*
 import android.util.DisplayMetrics
 import android.util.Log
 import com.joey.cheetah.core.camera.*
-import com.joey.cheetah.core.utils.ImageUtil
 import java.io.File
 import java.io.FileOutputStream
 

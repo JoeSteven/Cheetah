@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
-apply from: "$rootDir/publish.gradle"
+//apply from: "$rootDir/publish.gradle"
+apply from: "$rootDir/publish_new.gradle"
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -12,7 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -34,7 +35,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api 'org.slf4j:slf4j-api:1.7.21'
     api 'org.slf4j:slf4j-log4j12:1.7.21'
-    implementation APPCOMPAT_V7
+    implementation ANDROID_X
     api 'bouncycastle:bcprov-jdk16:140'
     api 'commons-codec:commons-codec:1.10'
     api 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
@@ -47,7 +48,3 @@ repositories {
     }
 }
 
-ext.group_Id('com.terminus')
-ext.artifact_id('iot')
-ext.version_name('1.6.8')
-ext.aar_name('iot-release.aar')

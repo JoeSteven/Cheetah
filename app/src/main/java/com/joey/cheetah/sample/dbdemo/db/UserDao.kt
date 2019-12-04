@@ -1,6 +1,6 @@
 package com.joey.cheetah.sample.dbdemo.db
 
-import android.arch.persistence.room.*
+import androidx.room.*
 import io.reactivex.Flowable
 import io.reactivex.Single
 

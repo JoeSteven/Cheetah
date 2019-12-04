@@ -3,18 +3,15 @@ package com.joey.cheetah.mvp;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.com.joey.cheetah.mvp.R;
-import com.joey.cheetah.core.ktextension.ContextExtensionKt;
 import com.joey.cheetah.core.ui.CToast;
 import com.joey.cheetah.mvp.auto.IPresenterProvider;
 import com.joey.cheetah.mvp.auto.PresenterProvider;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 
 /**
@@ -23,13 +20,11 @@ import butterknife.Unbinder;
  * date:2018/7/25
  */
 public abstract class AbsActivity extends AppCompatActivity implements IView {
-    private Unbinder mUnBinder;
     private IPresenterProvider mPresenterProvider;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(initLayout());
-        mUnBinder = ButterKnife.bind(this);
         Intent intent = getIntent();
         initArguments(intent);
         mPresenterProvider = createProvider();
@@ -117,7 +112,6 @@ public abstract class AbsActivity extends AppCompatActivity implements IView {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mUnBinder.unbind();
     }
 
     protected IPresenterProvider createProvider() {

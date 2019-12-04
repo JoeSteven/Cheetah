@@ -2,7 +2,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply from: "$rootDir/publish.gradle"
+//apply from: "$rootDir/publish.gradle"
+apply from: "$rootDir/publish_new.gradle"
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -15,7 +16,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -32,9 +33,3 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
-
-ext.group_Id('com.terminus')
-ext.artifact_id('ereboot')
-ext.version_name('1.0')
-//ext.version_name('1.0-SNAPSHOT')
-ext.aar_name('ereboot-release.aar')

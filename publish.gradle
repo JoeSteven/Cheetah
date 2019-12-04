@@ -1,34 +1,5 @@
 apply plugin: 'maven-publish'
 
-
-def group_id(groupId) {
-    ext.GROUP_ID = groupId
-}
-
-def artifact_id(id) {
-    ext.ARTIFACT_ID = id
-}
-
-def version_name(version) {
-    ext.VERSION_NAME = version
-}
-
-def aar_name(aar) {
-    ext.AAR = aar
-}
-
-ext {
-    group_Id = this.&group_id
-    artifact_id = this.&artifact_id
-    version_name = this.&version_name
-    aar_name = this.&aar_name
-
-    GROUP_ID = 'default'
-    ARTIFACT_ID = 'default'
-    VERSION_NAME = '1.0'
-    AAR = 'release.aar'
-}
-
 task sourceJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier "sources"
@@ -45,8 +16,11 @@ publishing {
 
             pom.withXml {
                 final dependenciesNode = asNode().appendNode('dependencies')
-
                 ext.addDependency = { Dependency dep, String scope ->
+                    println(dep.toString())
+                    println(dep.group)
+                    println(dep.version)
+                    println(dep.name)
                     if (dep.group == null || dep.version == null || dep.name == null || dep.name == "unspecified")
                         return // ignore invalid dependencies
 

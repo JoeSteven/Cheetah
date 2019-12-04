@@ -1,10 +1,9 @@
 package com.joey.cheetah.sample.java;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.OnLifecycleEvent;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
+import androidx.annotation.NonNull;
 
 import com.joey.cheetah.mvp.AbsPresenter;
 import com.joey.cheetah.mvp.IView;

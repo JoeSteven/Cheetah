@@ -17,14 +17,13 @@ import android.media.ImageReader;
 import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.AttributeSet;
 import android.util.Size;
 import android.view.Surface;
 import android.view.TextureView;
 
 import com.joey.cheetah.core.global.Global;
-import com.joey.cheetah.core.utils.ImageUtil;
 
 import java.util.ArrayList;
 import java.util.List;

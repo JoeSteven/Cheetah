@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
@@ -94,52 +94,52 @@ val Activity.globalContext : Context
 
 /*****************************extension for Fragment start ***************************************/
 
-fun Fragment.jump(target:Class<out Activity>) {
+fun androidx.fragment.app.Fragment.jump(target:Class<out Activity>) {
     this.activity?.jump(target)
 }
 
-fun Fragment.jumpAndFinish(target:Class<out Activity>) {
+fun androidx.fragment.app.Fragment.jumpAndFinish(target:Class<out Activity>) {
     activity?.apply {
         jump(target)
         finish()
     }
 }
 
-fun Fragment.jump(action:String) {
+fun androidx.fragment.app.Fragment.jump(action:String) {
     this.activity?.jump(action)
 }
 
-fun Fragment.jumpAndFinish(action: String) {
+fun androidx.fragment.app.Fragment.jumpAndFinish(action: String) {
     activity?.apply {
         jump(action)
         finish()
     }
 }
 
-fun Fragment.jumpForResult(target: Class<out Activity>, requestCode:Int) {
+fun androidx.fragment.app.Fragment.jumpForResult(target: Class<out Activity>, requestCode:Int) {
     this.activity?.jumpForResult(target, requestCode)
 }
 
-fun Fragment.jumpForResult(action:String, requestCode:Int) {
+fun androidx.fragment.app.Fragment.jumpForResult(action:String, requestCode:Int) {
     this.activity?.jumpForResult(action, requestCode)
 }
 
-fun Fragment.jumpWithParams(target: Class<out Activity>) : Jumper? {
+fun androidx.fragment.app.Fragment.jumpWithParams(target: Class<out Activity>) : Jumper? {
     return this.activity?.jumpWithParams(target)
 }
 
-fun Fragment.jumpWithParams(action: String) : Jumper? {
+fun androidx.fragment.app.Fragment.jumpWithParams(action: String) : Jumper? {
     return this.activity?.jumpWithParams(action)
 }
 
-fun Fragment.globalContext() : Context {
+fun androidx.fragment.app.Fragment.globalContext() : Context {
     return Global.context()
 }
 
-val Fragment.screenWith
+val androidx.fragment.app.Fragment.screenWith
     get() = activity?.screenWidth
 
-val Fragment.screenHeight
+val androidx.fragment.app.Fragment.screenHeight
     get() = activity?.screenHeight
 
 /*****************************extension for Fragment end***************************************/

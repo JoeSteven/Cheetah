@@ -1,6 +1,6 @@
 package com.joey.cheetah.sample.kt
 import android.os.Parcelable
-import android.support.annotation.Keep
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 

@@ -5,13 +5,14 @@ import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.joey.cheetah.core.list.CheetahAdapter;
 import com.joey.cheetah.mvp.AbsActivity;
@@ -26,29 +27,21 @@ import com.joey.rxble.RxBle;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-
 public class BleConnectActivity extends AbsActivity implements IBleConnectView {
 
     @Presenter
     BleConnectPresenter mPresenter;
 
-    @BindView(R.id.bt_connect)
     Button btConnect;
 
-    @BindView(R.id.bt_notify)
     Button btNotify;
 
-    @BindView(R.id.tv_mac)
     TextView tvDevice;
 
-    @BindView(R.id.tv_read_content)
     TextView tvMessage;
 
-    @BindView(R.id.rv_discover)
     RecyclerView rvDiscover;
 
-    @BindView(R.id.et_write)
     EditText etWrite;
 
     private String mDeviceAddress;
@@ -66,6 +59,13 @@ public class BleConnectActivity extends AbsActivity implements IBleConnectView {
 
     @Override
     protected void initView() {
+        btConnect = findViewById(R.id.bt_connect);
+        btNotify = findViewById(R.id.bt_notify);
+        tvDevice = findViewById(R.id.tv_mac);
+        tvMessage = findViewById(R.id.tv_read_content);
+        rvDiscover = findViewById(R.id.rv_discover);
+        etWrite = findViewById(R.id.et_write);
+
         btConnect.setOnClickListener(v -> mPresenter.connectOrDisconnect(mDeviceAddress));
         btNotify.setOnClickListener(v -> mPresenter.disableNotifyOrIndicate());
         tvDevice.setText(mDeviceAddress);

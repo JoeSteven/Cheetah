@@ -47,8 +47,3 @@ repositories {
         url 'https://repo.eclipse.org/content/repositories/paho-releases/'
     }
 }
-
-ext.group_Id('com.terminus')
-ext.artifact_id('iotextension')
-ext.version_name('1.0.1')
-ext.aar_name('iotextension-release.aar')

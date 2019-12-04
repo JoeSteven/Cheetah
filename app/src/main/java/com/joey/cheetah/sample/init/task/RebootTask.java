@@ -21,7 +21,7 @@ public class RebootTask extends InitTask {
     protected void execute() {
         ERebootUncaughtExceptionHandler.INSTANCE.init(ERebootConfig.Companion.with(((Application) Global.context()), MainActivity.class)
                 .setOnExceptionOccurListener(RebootHelper.INSTANCE)
-//                .setDebugMode(true, BuildConfig.DEBUG)
+                .setDebugMode(true, BuildConfig.DEBUG)
                 .setLogFile("test.log", Global.context().getExternalCacheDir().getPath()+"/t-log/")
                 .create());
     }
